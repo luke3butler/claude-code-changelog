@@ -73,7 +73,6 @@ These commands run automatically every hour via GitHub Actions (.github/workflow
 
 ## Important Notes
 
-- **GitHub Token**: The `fetch:changelog` script requires a `GITHUB_TOKEN` environment variable to access the GitHub API
 - **vite-node**: Scripts use `vite-node` to execute TypeScript directly
 - **Git Hooks**: Husky + lint-staged are configured to automatically run Prettier before commits
 - **React Compiler**: React Compiler is enabled, which impacts dev and build performance

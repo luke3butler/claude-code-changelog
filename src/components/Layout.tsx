@@ -27,10 +27,10 @@ export default function Layout({ className, children }: Props) {
       <main className={className}>{children}</main>
 
       <footer className="flex flex-col items-center gap-2">
-        <span className="text-sm">&copy; 2025 Koki Sato</span>
+        <span className="text-sm">&copy; 2025 Luke</span>
         <a
           className="text-blue-600 underline"
-          href="https://github.com/koki-develop/claude-code-changelog"
+          href="https://github.com/luke3butler/claude-code-changelog"
           target="_blank"
           rel="noreferrer"
         >

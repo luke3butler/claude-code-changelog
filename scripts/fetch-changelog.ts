@@ -2,31 +2,18 @@ import fs from "node:fs";
 import path from "node:path";
 import versions from "../data/versions.json";
 
-const githubToken = process.env.GITHUB_TOKEN;
-if (!githubToken) {
-  throw new Error("GITHUB_TOKEN is not set");
-}
-
 async function fetchChangelog(): Promise<string> {
-  // See: https://docs.github.com/en/rest/repos/contents?apiVersion=2022-11-28#get-repository-content
   const endpoint =
-    "https://api.github.com/repos/anthropics/claude-code/contents/CHANGELOG.md";
+    "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md";
 
-  const response = await fetch(endpoint, {
-    headers: {
-      Accept: "application/vnd.github.object",
-      Authorization: `Bearer ${githubToken}`,
-      "X-GitHub-Api-Version": "2022-11-28",
-    },
-  });
+  const response = await fetch(endpoint);
   if (!response.ok) {
     throw new Error(
       `Failed to fetch changelog: ${response.status} ${await response.text()}`,
     );
   }
 
-  const data = await response.json();
-  return Buffer.from(data.content, "base64").toString("utf-8");
+  return response.text();
 }
 
 type ChangelogEntry = {
