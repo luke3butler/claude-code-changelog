@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-07T22:25:43.828Z</updated>
+    <updated>2026-01-07T22:48:14.703Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
         <title type="html"><![CDATA[2.1.0]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#210</id>
         <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#210"/>
-        <updated>2025-12-22T23:56:39.366Z</updated>
+        <updated>2026-01-07T02:43:04.533Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Added automatic skill hot-reload - skills created or modified in <code>~/.claude/skills</code> or <code>.claude/skills</code> are now immediately available without restarting the session</li>
 <li>Added support for running skills and slash commands in a forked sub-agent context using <code>context: fork</code> in skill frontmatter</li>
