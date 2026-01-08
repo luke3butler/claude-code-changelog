@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-07T22:48:14.703Z</updated>
+    <updated>2026-01-08T01:29:49.027Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -17,7 +17,7 @@
 <li>Added <code>language</code> setting to configure Claude&#39;s response language (e.g., language: &quot;japanese&quot;)</li>
 <li>Changed Shift+Enter to work out of the box in iTerm2, WezTerm, Ghostty, and Kitty without modifying terminal configs</li>
 <li>Added <code>respectGitignore</code> support in <code>settings.json</code> for per-project control over @-mention file picker behavior</li>
-<li>Added <code>CLAUDE_CODE_HIDE_ACCOUNT_INFO</code> environment variable to hide email and organization from the UI, useful for streaming or recording sessions</li>
+<li>Added <code>IS_DEMO</code> environment variable to hide email and organization from the UI, useful for streaming or recording sessions</li>
 <li>Fixed security issue where sensitive data (OAuth tokens, API keys, passwords) could be exposed in debug logs</li>
 <li>Fixed files and skills not being properly discovered when resuming sessions with <code>-c</code> or <code>--resume</code></li>
 <li>Fixed pasted content being lost when replaying prompts from history using up arrow or Ctrl+R search</li>
