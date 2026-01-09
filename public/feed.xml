@@ -2,9 +2,40 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-08T22:01:50.441Z</updated>
+    <updated>2026-01-09T01:29:59.440Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.2]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#212</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#212"/>
+        <updated>2026-01-08T21:19:38.381Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added source path metadata to images dragged onto the terminal, helping Claude understand where images originated</li>
+<li>Added clickable hyperlinks for file paths in tool output in terminals that support OSC 8 (like iTerm)</li>
+<li>Added support for Windows Package Manager (winget) installations with automatic detection and update instructions</li>
+<li>Added Shift+Tab keyboard shortcut in plan mode to quickly select &quot;auto-accept edits&quot; option</li>
+<li>Added <code>FORCE_AUTOUPDATE_PLUGINS</code> environment variable to allow plugin autoupdate even when the main auto-updater is disabled</li>
+<li>Added <code>agent_type</code> to SessionStart hook input, populated if <code>--agent</code> is specified</li>
+<li>Fixed a command injection vulnerability in bash command processing where malformed input could execute arbitrary commands</li>
+<li>Fixed a memory leak where tree-sitter parse trees were not being freed, causing WASM memory to grow unbounded over long sessions</li>
+<li>Fixed binary files (images, PDFs, etc.) being accidentally included in memory when using <code>@include</code> directives in CLAUDE.md files</li>
+<li>Fixed updates incorrectly claiming another installation is in progress</li>
+<li>Fixed crash when socket files exist in watched directories (defense-in-depth for EOPNOTSUPP errors)</li>
+<li>Fixed remote session URL and teleport being broken when using <code>/tasks</code> command</li>
+<li>Fixed MCP tool names being exposed in analytics events by sanitizing user-specific server configurations</li>
+<li>Improved Option-as-Meta hint on macOS to show terminal-specific instructions for native CSIu terminals like iTerm2, Kitty, and WezTerm</li>
+<li>Improved error message when pasting images over SSH to suggest using <code>scp</code> instead of the unhelpful clipboard shortcut hint</li>
+<li>Improved permission explainer to not flag routine dev workflows (git fetch/rebase, npm install, tests, PRs) as medium risk</li>
+<li>Changed large bash command outputs to be saved to disk instead of truncated, allowing Claude to read the full content</li>
+<li>Changed large tool outputs to be persisted to disk instead of truncated, providing full output access via file references</li>
+<li>Changed <code>/plugins</code> installed tab to unify plugins and MCPs with scope-based grouping</li>
+<li>Deprecated Windows managed settings path <code>C:\ProgramData\ClaudeCode\managed-settings.json</code> - administrators should migrate to <code>C:\Program Files\ClaudeCode\managed-settings.json</code></li>
+<li>[SDK] Changed minimum zod peer dependency to ^4.0.0</li>
+<li>[VSCode] Fixed usage display not updating after manual compact</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.0]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#210</id>
@@ -802,17 +833,6 @@
 <li>Introducing the Explore subagent. Powered by Haiku it&#39;ll search through your codebase efficiently to save context!</li>
 <li>OTEL: support HTTP_PROXY and HTTPS_PROXY</li>
 <li><code>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC</code> now disables release notes fetching</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.15]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2015</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2015"/>
-        <updated>2025-10-14T17:18:10.785Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed bug with resuming where previously created files needed to be read again before writing</li>
-<li>Fixed bug with <code>-p</code> mode where @-mentioned files needed to be read again before writing</li>
 </ul>
 ]]></content>
     </entry>
