@@ -1,5 +1,10 @@
 [
   {
+    "version": "2.1.5",
+    "content": "- Added `CLAUDE_CODE_TMPDIR` environment variable to override the temp directory used for internal temp files, useful for environments with custom temp directory requirements",
+    "publishedAt": "2026-01-11T21:30:08.609Z"
+  },
+  {
     "version": "2.1.4",
     "content": "- Added `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` environment variable to disable all background task functionality including auto-backgrounding and the Ctrl+B shortcut\n- Fixed \"Help improve Claude\" setting fetch to refresh OAuth and retry when it fails due to a stale OAuth token",
     "publishedAt": "2026-01-10T22:23:31.653Z"
