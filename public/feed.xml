@@ -2,9 +2,43 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-12T19:04:20.205Z</updated>
+    <updated>2026-01-13T02:35:54.574Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.6]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#216</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#216"/>
+        <updated>2026-01-13T01:42:47.331Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added search functionality to <code>/config</code> command for quickly filtering settings</li>
+<li>Added Updates section to <code>/doctor</code> showing auto-update channel and available npm versions (stable/latest)</li>
+<li>Added date range filtering to <code>/stats</code> command - press <code>r</code> to cycle between Last 7 days, Last 30 days, and All time</li>
+<li>Added automatic discovery of skills from nested <code>.claude/skills</code> directories when working with files in subdirectories</li>
+<li>Added <code>context_window.used_percentage</code> and <code>context_window.remaining_percentage</code> fields to status line input for easier context window display</li>
+<li>Added an error display when the editor fails during Ctrl+G</li>
+<li>Fixed permission bypass via shell line continuation that could allow blocked commands to execute</li>
+<li>Fixed false &quot;File has been unexpectedly modified&quot; errors when file watchers touch files without changing content</li>
+<li>Fixed text styling (bold, colors) getting progressively misaligned in multi-line responses</li>
+<li>Fixed the feedback panel closing unexpectedly when typing &#39;n&#39; in the description field</li>
+<li>Fixed rate limit warning appearing at low usage after weekly reset (now requires 70% usage)</li>
+<li>Fixed rate limit options menu incorrectly auto-opening when resuming a previous session</li>
+<li>Fixed numpad keys outputting escape sequences instead of characters in Kitty keyboard protocol terminals</li>
+<li>Fixed Option+Return not inserting newlines in Kitty keyboard protocol terminals</li>
+<li>Fixed corrupted config backup files accumulating in the home directory (now only one backup is created per config file)</li>
+<li>Fixed <code>mcp list</code> and <code>mcp get</code> commands leaving orphaned MCP server processes</li>
+<li>Fixed visual artifacts in ink2 mode when nodes become hidden via <code>display:none</code></li>
+<li>Improved the external CLAUDE.md imports approval dialog to show which files are being imported and from where</li>
+<li>Improved the <code>/tasks</code> dialog to go directly to task details when there&#39;s only one background task running</li>
+<li>Improved @ autocomplete with icons for different suggestion types and single-line formatting</li>
+<li>Updated &quot;Help improve Claude&quot; setting fetch to refresh OAuth and retry when it fails due to a stale OAuth token</li>
+<li>Changed task notification display to cap at 3 lines with overflow summary when multiple background tasks complete simultaneously</li>
+<li>Changed terminal title to &quot;Claude Code&quot; on startup for better window identification</li>
+<li>Removed ability to @-mention MCP servers to enable/disable - use <code>/mcp enable &lt;name&gt;</code> instead</li>
+<li>[VSCode] Fixed usage indicator not updating after manual compact</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.5]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#215</id>
@@ -826,20 +860,6 @@
 <li>IDE: Add toggle to enable/disable thinking.</li>
 <li>Fix bug causing duplicate permission prompts with parallel tool calls</li>
 <li>Add support for enterprise managed MCP allowlist and denylist</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.21]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2021</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2021"/>
-        <updated>2025-10-16T23:44:33.813Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Support MCP <code>structuredContent</code> field in tool responses</li>
-<li>Added an interactive question tool</li>
-<li>Claude will now ask you questions more often in plan mode</li>
-<li>Added Haiku 4.5 as a model option for Pro users</li>
-<li>Fixed an issue where queued commands don&#39;t have access to previous messages&#39; output</li>
 </ul>
 ]]></content>
     </entry>
