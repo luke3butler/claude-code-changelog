@@ -2,9 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-13T23:01:43.357Z</updated>
+    <updated>2026-01-14T00:05:03.055Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.7]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#217</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#217"/>
+        <updated>2026-01-13T22:55:49.806Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>showTurnDuration</code> setting to hide turn duration messages (e.g., &quot;Cooked for 1m 6s&quot;)</li>
+<li>Added ability to provide feedback when accepting permission prompts</li>
+<li>Added inline display of agent&#39;s final response in task notifications, making it easier to see results without reading the full transcript file</li>
+<li>Fixed security vulnerability where wildcard permission rules could match compound commands containing shell operators</li>
+<li>Fixed false &quot;file modified&quot; errors on Windows when cloud sync tools, antivirus scanners, or Git touch file timestamps without changing content</li>
+<li>Fixed orphaned tool_result errors when sibling tools fail during streaming execution</li>
+<li>Fixed context window blocking limit being calculated using the full context window instead of the effective context window (which reserves space for max output tokens)</li>
+<li>Fixed spinner briefly flashing when running local slash commands like <code>/model</code> or <code>/theme</code></li>
+<li>Fixed terminal title animation jitter by using fixed-width braille characters</li>
+<li>Fixed plugins with git submodules not being fully initialized when installed</li>
+<li>Fixed bash commands failing on Windows when temp directory paths contained characters like <code>t</code> or <code>n</code> that were misinterpreted as escape sequences</li>
+<li>Improved typing responsiveness by reducing memory allocation overhead in terminal rendering</li>
+<li>Enabled MCP tool search auto mode by default for all users. When MCP tool descriptions exceed 10% of the context window, they are automatically deferred and discovered via the MCPSearch tool instead of being loaded upfront. This reduces context usage for users with many MCP tools configured. Users can disable this by adding <code>MCPSearch</code> to <code>disallowedTools</code> in their settings.</li>
+<li>Changed OAuth and API Console URLs from console.anthropic.com to platform.claude.com</li>
+<li>[VSCode] Fixed <code>claudeProcessWrapper</code> setting passing the wrapper path instead of the Claude binary path</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.6]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#216</id>
@@ -847,19 +871,6 @@
 <li>Claude Code Web: Support for Web -&gt; CLI teleport</li>
 <li>Sandbox: Releasing a sandbox mode for the BashTool on Linux &amp; Mac</li>
 <li>Bedrock: Display awsAuthRefresh output when auth is required</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.22]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2022</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2022"/>
-        <updated>2025-10-17T21:40:29.277Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed content layout shift when scrolling through slash commands</li>
-<li>IDE: Add toggle to enable/disable thinking.</li>
-<li>Fix bug causing duplicate permission prompts with parallel tool calls</li>
-<li>Add support for enterprise managed MCP allowlist and denylist</li>
 </ul>
 ]]></content>
     </entry>
