@@ -1,11 +1,12 @@
 {
-  "updated": "2026-01-15T01:29:50.376Z",
+  "updated": "2026-01-16T00:04:50.023Z",
   "entries": [
     {
       "version": "2.1.7",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#217",
       "publishedAt": "2026-01-13T22:55:49.806Z",
       "changes": [
+        "Added customizable keyboard shortcuts via `~/.claude/keybindings.json`. Run `/keybindings` to get started. Learn more at https://code.claude.com/docs/en/keybindings",
         "Added `showTurnDuration` setting to hide turn duration messages (e.g., \"Cooked for 1m 6s\")",
         "Added ability to provide feedback when accepting permission prompts",
         "Added inline display of agent's final response in task notifications, making it easier to see results without reading the full transcript file",
@@ -22,7 +23,7 @@
         "Changed OAuth and API Console URLs from console.anthropic.com to platform.claude.com",
         "[VSCode] Fixed `claudeProcessWrapper` setting passing the wrapper path instead of the Claude binary path"
       ],
-      "changeCount": 15
+      "changeCount": 16
     },
     {
       "version": "2.1.6",
