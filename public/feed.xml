@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-16T02:37:28.286Z</updated>
+    <updated>2026-01-16T18:02:02.217Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -29,7 +29,6 @@
         <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#217"/>
         <updated>2026-01-13T22:55:49.806Z</updated>
         <content type="html"><![CDATA[<ul>
-<li>Added customizable keyboard shortcuts via <code>~/.claude/keybindings.json</code>. Run <code>/keybindings</code> to get started. Learn more at <a href="https://code.claude.com/docs/en/keybindings">https://code.claude.com/docs/en/keybindings</a></li>
 <li>Added <code>showTurnDuration</code> setting to hide turn duration messages (e.g., &quot;Cooked for 1m 6s&quot;)</li>
 <li>Added ability to provide feedback when accepting permission prompts</li>
 <li>Added inline display of agent&#39;s final response in task notifications, making it easier to see results without reading the full transcript file</li>
