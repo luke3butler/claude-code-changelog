@@ -1,6 +1,13 @@
 {
-  "updated": "2026-01-17T16:01:38.797Z",
+  "updated": "2026-01-17T17:01:31.401Z",
   "entries": [
+    {
+      "version": "2.1.12",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2112",
+      "publishedAt": "2026-01-17T15:40:35.547Z",
+      "changes": ["Fixed message rendering bug"],
+      "changeCount": 1
+    },
     {
       "version": "2.1.11",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2111",
@@ -805,23 +812,6 @@
         "VSCode: Restored selection indicator in input footer showing current file or code selection status"
       ],
       "changeCount": 16
-    },
-    {
-      "version": "2.0.28",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2028",
-      "publishedAt": "2025-10-27T20:45:04.126Z",
-      "changes": [
-        "Plan mode: introduced new Plan subagent",
-        "Subagents: claude can now choose to resume subagents",
-        "Subagents: claude can dynamically choose the model used by its subagents",
-        "SDK: added --max-budget-usd flag",
-        "Discovery of custom slash commands, subagents, and output styles no longer respects .gitignore",
-        "Stop `/terminal-setup` from adding backslash to `Shift + Enter` in VS Code",
-        "Add branch and tag support for git-based plugins and marketplaces using fragment syntax (e.g., `owner/repo#branch`)",
-        "Fixed a bug where macOS permission prompts would show up upon initial launch when launching from home directory",
-        "Various other bug fixes"
-      ],
-      "changeCount": 9
     }
   ]
 }

@@ -1,5 +1,10 @@
 [
   {
+    "version": "2.1.12",
+    "content": "- Fixed message rendering bug",
+    "publishedAt": "2026-01-17T15:40:35.547Z"
+  },
+  {
     "version": "2.1.11",
     "content": "- Fixed excessive MCP connection requests for HTTP/SSE transports",
     "publishedAt": "2026-01-17T01:19:37.165Z"
