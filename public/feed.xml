@@ -2,9 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-17T01:29:46.774Z</updated>
+    <updated>2026-01-17T02:32:03.831Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.11]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2111</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2111"/>
+        <updated>2026-01-17T01:19:37.165Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed excessive MCP connection requests for HTTP/SSE transports</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2.1.10]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2110</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2110"/>
+        <updated>2026-01-17T00:11:29.352Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added new <code>Setup</code> hook event that can be triggered via <code>--init</code>, <code>--init-only</code>, or <code>--maintenance</code> CLI flags for repository setup and maintenance operations</li>
+<li>Added keyboard shortcut &#39;c&#39; to copy OAuth URL when browser doesn&#39;t open automatically during login</li>
+<li>Fixed a crash when running bash commands containing heredocs with JavaScript template literals like <code>${index + 1}</code></li>
+<li>Improved startup to capture keystrokes typed before the REPL is fully ready</li>
+<li>Improved file suggestions to show as removable attachments instead of inserting text when accepted</li>
+<li>[VSCode] Added install count display to plugin listings</li>
+<li>[VSCode] Added trust warning when installing plugins</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.9]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#219</id>
@@ -852,30 +878,6 @@
 <li>Add branch and tag support for git-based plugins and marketplaces using fragment syntax (e.g., <code>owner/repo#branch</code>)</li>
 <li>Fixed a bug where macOS permission prompts would show up upon initial launch when launching from home directory</li>
 <li>Various other bug fixes</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.27]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2027</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2027"/>
-        <updated>2025-10-24T19:50:51.616Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>New UI for permission prompts</li>
-<li>Added current branch filtering and search to session resume screen for easier navigation</li>
-<li>Fixed directory @-mention causing &quot;No assistant message found&quot; error</li>
-<li>VSCode Extension: Add config setting to include .gitignored files in file searches</li>
-<li>VSCode Extension: Bug fixes for unrelated &#39;Warmup&#39; conversations, and configuration/settings occasionally being reset to defaults</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.25]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2025</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2025"/>
-        <updated>2025-10-21T21:03:51.747Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Removed legacy SDK entrypoint. Please migrate to @anthropic-ai/claude-agent-sdk for future SDK updates: <a href="https://platform.claude.com/docs/en/agent-sdk/migration-guide">https://platform.claude.com/docs/en/agent-sdk/migration-guide</a></li>
 </ul>
 ]]></content>
     </entry>
