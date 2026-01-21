@@ -2,9 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-21T22:02:40.287Z</updated>
+    <updated>2026-01-21T23:03:17.989Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.15]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2115</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2115"/>
+        <updated>2026-01-21T21:25:20.551Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added deprecation notification for npm installations - run <code>claude install</code> or see <a href="https://docs.anthropic.com/en/docs/claude-code/getting-started">https://docs.anthropic.com/en/docs/claude-code/getting-started</a> for more options</li>
+<li>Improved UI rendering performance with React Compiler</li>
+<li>Fixed the &quot;Context left until auto-compact&quot; warning not disappearing after running <code>/compact</code></li>
+<li>Fixed MCP stdio server timeout not killing child process, which could cause UI freezes</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.14]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2114</id>
@@ -855,21 +868,6 @@
 <li>Un-deprecate output styles based on community feedback</li>
 <li>Added <code>companyAnnouncements</code> setting for displaying announcements on startup</li>
 <li>Fixed hook progress messages not updating correctly during PostToolUse hook execution</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.31]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2031</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2031"/>
-        <updated>2025-10-31T21:19:12.609Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Windows: native installation uses shift+tab as shortcut for mode switching, instead of alt+m</li>
-<li>Vertex: add support for Web Search on supported models</li>
-<li>VSCode: Adding the respectGitIgnore configuration to include .gitignored files in file searches (defaults to true)</li>
-<li>Fixed a bug with subagents and MCP servers related to &quot;Tool names must be unique&quot; error</li>
-<li>Fixed issue causing <code>/compact</code> to fail with <code>prompt_too_long</code> by making it respect existing compact boundaries</li>
-<li>Fixed plugin uninstall not removing plugins</li>
 </ul>
 ]]></content>
     </entry>
