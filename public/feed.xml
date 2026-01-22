@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-22T21:03:20.188Z</updated>
+    <updated>2026-01-22T22:01:50.555Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.17]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2117</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2117"/>
+        <updated>2026-01-22T21:01:58.555Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed crashes on processors without AVX instruction support</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.16]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2116</id>
@@ -860,18 +870,6 @@
 <li>Improved file path suggestion performance with native Rust-based fuzzy finder</li>
 <li>Fixed infinite token refresh loop that caused MCP servers with OAuth (e.g., Slack) to hang during connection</li>
 <li>Fixed memory crash when reading or writing large files (especially base64-encoded images)</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.33]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2033</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2033"/>
-        <updated>2025-11-04T22:27:11.403Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Native binary installs now launch quicker.</li>
-<li>Fixed <code>claude doctor</code> incorrectly detecting Homebrew vs npm-global installations by properly resolving symlinks</li>
-<li>Fixed <code>claude mcp serve</code> exposing tools with incompatible outputSchemas</li>
 </ul>
 ]]></content>
     </entry>

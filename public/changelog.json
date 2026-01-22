@@ -1,6 +1,15 @@
 {
-  "updated": "2026-01-22T21:03:20.193Z",
+  "updated": "2026-01-22T22:01:50.558Z",
   "entries": [
+    {
+      "version": "2.1.17",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2117",
+      "publishedAt": "2026-01-22T21:01:58.555Z",
+      "changes": [
+        "Fixed crashes on processors without AVX instruction support"
+      ],
+      "changeCount": 1
+    },
     {
       "version": "2.1.16",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2116",
@@ -803,17 +812,6 @@
         "Fixed memory crash when reading or writing large files (especially base64-encoded images)"
       ],
       "changeCount": 4
-    },
-    {
-      "version": "2.0.33",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2033",
-      "publishedAt": "2025-11-04T22:27:11.403Z",
-      "changes": [
-        "Native binary installs now launch quicker.",
-        "Fixed `claude doctor` incorrectly detecting Homebrew vs npm-global installations by properly resolving symlinks",
-        "Fixed `claude mcp serve` exposing tools with incompatible outputSchemas"
-      ],
-      "changeCount": 3
     }
   ]
 }
