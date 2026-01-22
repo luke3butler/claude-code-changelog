@@ -2,9 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-22T19:05:52.888Z</updated>
+    <updated>2026-01-22T21:03:20.188Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.16]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2116</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2116"/>
+        <updated>2026-01-22T19:03:08.904Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added new task management system, including new capabilities like dependency tracking</li>
+<li>[VSCode] Added native plugin management support</li>
+<li>[VSCode] Added ability for OAuth users to browse and resume remote Claude sessions from the Sessions dialog</li>
+<li>Fixed out-of-memory crashes when resuming sessions with heavy subagent usage</li>
+<li>Fixed an issue where the &quot;context remaining&quot; warning was not hidden after running <code>/compact</code></li>
+<li>Fixed session titles on the resume screen not respecting the user&#39;s language setting</li>
+<li>[IDE] Fixed a race condition on Windows where the Claude Code sidebar view container would not appear on start</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.15]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2115</id>
@@ -856,18 +872,6 @@
 <li>Native binary installs now launch quicker.</li>
 <li>Fixed <code>claude doctor</code> incorrectly detecting Homebrew vs npm-global installations by properly resolving symlinks</li>
 <li>Fixed <code>claude mcp serve</code> exposing tools with incompatible outputSchemas</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.32]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2032</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2032"/>
-        <updated>2025-11-03T23:09:10.512Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Un-deprecate output styles based on community feedback</li>
-<li>Added <code>companyAnnouncements</code> setting for displaying announcements on startup</li>
-<li>Fixed hook progress messages not updating correctly during PostToolUse hook execution</li>
 </ul>
 ]]></content>
     </entry>

@@ -1,6 +1,21 @@
 {
-  "updated": "2026-01-22T19:05:52.891Z",
+  "updated": "2026-01-22T21:03:20.193Z",
   "entries": [
+    {
+      "version": "2.1.16",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2116",
+      "publishedAt": "2026-01-22T19:03:08.904Z",
+      "changes": [
+        "Added new task management system, including new capabilities like dependency tracking",
+        "[VSCode] Added native plugin management support",
+        "[VSCode] Added ability for OAuth users to browse and resume remote Claude sessions from the Sessions dialog",
+        "Fixed out-of-memory crashes when resuming sessions with heavy subagent usage",
+        "Fixed an issue where the \"context remaining\" warning was not hidden after running `/compact`",
+        "Fixed session titles on the resume screen not respecting the user's language setting",
+        "[IDE] Fixed a race condition on Windows where the Claude Code sidebar view container would not appear on start"
+      ],
+      "changeCount": 7
+    },
     {
       "version": "2.1.15",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2115",
@@ -797,17 +812,6 @@
         "Native binary installs now launch quicker.",
         "Fixed `claude doctor` incorrectly detecting Homebrew vs npm-global installations by properly resolving symlinks",
         "Fixed `claude mcp serve` exposing tools with incompatible outputSchemas"
-      ],
-      "changeCount": 3
-    },
-    {
-      "version": "2.0.32",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2032",
-      "publishedAt": "2025-11-03T23:09:10.512Z",
-      "changes": [
-        "Un-deprecate output styles based on community feedback",
-        "Added `companyAnnouncements` setting for displaying announcements on startup",
-        "Fixed hook progress messages not updating correctly during PostToolUse hook execution"
       ],
       "changeCount": 3
     }
