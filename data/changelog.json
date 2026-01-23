@@ -1,5 +1,15 @@
 [
   {
+    "version": "2.1.19",
+    "content": "- Added env var `CLAUDE_CODE_ENABLE_TASKS`, set to `false` to keep the old system temporarily\n- Added shorthand `$0`, `$1`, etc. for accessing individual arguments in custom commands\n- Fixed crashes on processors without AVX instruction support\n- Fixed dangling Claude Code processes when terminal is closed by catching EIO errors from `process.exit()` and using SIGKILL as fallback\n- Fixed `/rename` and `/tag` not updating the correct session when resuming from a different directory (e.g., git worktrees)\n- Fixed resuming sessions by custom title not working when run from a different directory\n- Fixed pasted text content being lost when using prompt stash (Ctrl+S) and restore\n- Fixed agent list displaying \"Sonnet (default)\" instead of \"Inherit (default)\" for agents without an explicit model setting\n- Fixed backgrounded hook commands not returning early, potentially causing the session to wait on a process that was intentionally backgrounded\n- Fixed file write preview omitting empty lines\n- Changed skills without additional permissions or hooks to be allowed without requiring approval\n- Changed indexed argument syntax from `$ARGUMENTS.0` to `$ARGUMENTS[0]` (bracket syntax)\n- [SDK] Added replay of `queued_command` attachment messages as `SDKUserMessageReplay` events when `replayUserMessages` is enabled\n- [VSCode] Enabled session forking and rewind functionality for all users",
+    "publishedAt": "2026-01-23T21:14:31.264Z"
+  },
+  {
+    "version": "2.1.18",
+    "content": "- Added customizable keyboard shortcuts. Configure keybindings per context, create chord sequences, and personalize your workflow. Run `/keybindings` to get started. Learn more at https://code.claude.com/docs/en/keybindings",
+    "publishedAt": "2026-01-22T22:44:46.204Z"
+  },
+  {
     "version": "2.1.17",
     "content": "- Fixed crashes on processors without AVX instruction support",
     "publishedAt": "2026-01-22T21:01:58.555Z"

@@ -2,9 +2,42 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-22T23:01:47.285Z</updated>
+    <updated>2026-01-23T22:01:36.162Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.19]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2119</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2119"/>
+        <updated>2026-01-23T21:14:31.264Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added env var <code>CLAUDE_CODE_ENABLE_TASKS</code>, set to <code>false</code> to keep the old system temporarily</li>
+<li>Added shorthand <code>$0</code>, <code>$1</code>, etc. for accessing individual arguments in custom commands</li>
+<li>Fixed crashes on processors without AVX instruction support</li>
+<li>Fixed dangling Claude Code processes when terminal is closed by catching EIO errors from <code>process.exit()</code> and using SIGKILL as fallback</li>
+<li>Fixed <code>/rename</code> and <code>/tag</code> not updating the correct session when resuming from a different directory (e.g., git worktrees)</li>
+<li>Fixed resuming sessions by custom title not working when run from a different directory</li>
+<li>Fixed pasted text content being lost when using prompt stash (Ctrl+S) and restore</li>
+<li>Fixed agent list displaying &quot;Sonnet (default)&quot; instead of &quot;Inherit (default)&quot; for agents without an explicit model setting</li>
+<li>Fixed backgrounded hook commands not returning early, potentially causing the session to wait on a process that was intentionally backgrounded</li>
+<li>Fixed file write preview omitting empty lines</li>
+<li>Changed skills without additional permissions or hooks to be allowed without requiring approval</li>
+<li>Changed indexed argument syntax from <code>$ARGUMENTS.0</code> to <code>$ARGUMENTS[0]</code> (bracket syntax)</li>
+<li>[SDK] Added replay of <code>queued_command</code> attachment messages as <code>SDKUserMessageReplay</code> events when <code>replayUserMessages</code> is enabled</li>
+<li>[VSCode] Enabled session forking and rewind functionality for all users</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2.1.18]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2118</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2118"/>
+        <updated>2026-01-22T22:44:46.204Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added customizable keyboard shortcuts. Configure keybindings per context, create chord sequences, and personalize your workflow. Run <code>/keybindings</code> to get started. Learn more at <a href="https://code.claude.com/docs/en/keybindings">https://code.claude.com/docs/en/keybindings</a></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.17]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2117</id>
@@ -843,33 +876,6 @@
 <li>Fixed: DISABLE_AUTOUPDATER environment variable now properly disables package manager update notifications</li>
 <li>Fixed queued messages being incorrectly executed as bash commands</li>
 <li>Fixed input being lost when typing while a queued message is processed</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.35]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2035</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2035"/>
-        <updated>2025-11-06T20:25:20.114Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Improve fuzzy search results when searching commands</li>
-<li>Improved VS Code extension to respect <code>chat.fontSize</code> and <code>chat.fontFamily</code> settings throughout the entire UI, and apply font changes immediately without requiring reload</li>
-<li>Added <code>CLAUDE_CODE_EXIT_AFTER_STOP_DELAY</code> environment variable to automatically exit SDK mode after a specified idle duration, useful for automated workflows and scripts</li>
-<li>Migrated <code>ignorePatterns</code> from project config to deny permissions in the localSettings.</li>
-<li>Fixed menu navigation getting stuck on items with empty string or other falsy values (e.g., in the <code>/hooks</code> menu)</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.34]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2034</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2034"/>
-        <updated>2025-11-05T20:44:58.296Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>VSCode Extension: Added setting to configure the initial permission mode for new conversations</li>
-<li>Improved file path suggestion performance with native Rust-based fuzzy finder</li>
-<li>Fixed infinite token refresh loop that caused MCP servers with OAuth (e.g., Slack) to hang during connection</li>
-<li>Fixed memory crash when reading or writing large files (especially base64-encoded images)</li>
 </ul>
 ]]></content>
     </entry>

@@ -1,6 +1,37 @@
 {
-  "updated": "2026-01-22T23:01:47.289Z",
+  "updated": "2026-01-23T22:01:36.167Z",
   "entries": [
+    {
+      "version": "2.1.19",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2119",
+      "publishedAt": "2026-01-23T21:14:31.264Z",
+      "changes": [
+        "Added env var `CLAUDE_CODE_ENABLE_TASKS`, set to `false` to keep the old system temporarily",
+        "Added shorthand `$0`, `$1`, etc. for accessing individual arguments in custom commands",
+        "Fixed crashes on processors without AVX instruction support",
+        "Fixed dangling Claude Code processes when terminal is closed by catching EIO errors from `process.exit()` and using SIGKILL as fallback",
+        "Fixed `/rename` and `/tag` not updating the correct session when resuming from a different directory (e.g., git worktrees)",
+        "Fixed resuming sessions by custom title not working when run from a different directory",
+        "Fixed pasted text content being lost when using prompt stash (Ctrl+S) and restore",
+        "Fixed agent list displaying \"Sonnet (default)\" instead of \"Inherit (default)\" for agents without an explicit model setting",
+        "Fixed backgrounded hook commands not returning early, potentially causing the session to wait on a process that was intentionally backgrounded",
+        "Fixed file write preview omitting empty lines",
+        "Changed skills without additional permissions or hooks to be allowed without requiring approval",
+        "Changed indexed argument syntax from `$ARGUMENTS.0` to `$ARGUMENTS[0]` (bracket syntax)",
+        "[SDK] Added replay of `queued_command` attachment messages as `SDKUserMessageReplay` events when `replayUserMessages` is enabled",
+        "[VSCode] Enabled session forking and rewind functionality for all users"
+      ],
+      "changeCount": 14
+    },
+    {
+      "version": "2.1.18",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2118",
+      "publishedAt": "2026-01-22T22:44:46.204Z",
+      "changes": [
+        "Added customizable keyboard shortcuts. Configure keybindings per context, create chord sequences, and personalize your workflow. Run `/keybindings` to get started. Learn more at https://code.claude.com/docs/en/keybindings"
+      ],
+      "changeCount": 1
+    },
     {
       "version": "2.1.17",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2117",
@@ -787,31 +818,6 @@
         "Fixed input being lost when typing while a queued message is processed"
       ],
       "changeCount": 3
-    },
-    {
-      "version": "2.0.35",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2035",
-      "publishedAt": "2025-11-06T20:25:20.114Z",
-      "changes": [
-        "Improve fuzzy search results when searching commands",
-        "Improved VS Code extension to respect `chat.fontSize` and `chat.fontFamily` settings throughout the entire UI, and apply font changes immediately without requiring reload",
-        "Added `CLAUDE_CODE_EXIT_AFTER_STOP_DELAY` environment variable to automatically exit SDK mode after a specified idle duration, useful for automated workflows and scripts",
-        "Migrated `ignorePatterns` from project config to deny permissions in the localSettings.",
-        "Fixed menu navigation getting stuck on items with empty string or other falsy values (e.g., in the `/hooks` menu)"
-      ],
-      "changeCount": 5
-    },
-    {
-      "version": "2.0.34",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2034",
-      "publishedAt": "2025-11-05T20:44:58.296Z",
-      "changes": [
-        "VSCode Extension: Added setting to configure the initial permission mode for new conversations",
-        "Improved file path suggestion performance with native Rust-based fuzzy finder",
-        "Fixed infinite token refresh loop that caused MCP servers with OAuth (e.g., Slack) to hang during connection",
-        "Fixed memory crash when reading or writing large files (especially base64-encoded images)"
-      ],
-      "changeCount": 4
     }
   ]
 }
