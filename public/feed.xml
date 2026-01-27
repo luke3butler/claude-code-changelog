@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-27T02:42:22.719Z</updated>
+    <updated>2026-01-27T04:18:49.316Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -33,7 +33,6 @@
 <li>Improved task list to dynamically adjust visible items based on terminal height</li>
 <li>Improved fork conversation hint to show how to resume the original session</li>
 <li>Changed collapsed read/search groups to show present tense (&quot;Reading&quot;, &quot;Searching for&quot;) while in progress, and past tense (&quot;Read&quot;, &quot;Searched for&quot;) when complete</li>
-<li>Changed teammate messages to render with rich Markdown formatting (bold, code blocks, lists, etc.) instead of plain text</li>
 <li>Changed <code>ToolSearch</code> results to appear as a brief notification instead of inline in the conversation</li>
 <li>Changed the <code>/commit-push-pr</code> skill to automatically post PR URLs to Slack channels when configured via MCP tools</li>
 <li>Changed the <code>/copy</code> command to be available to all users</li>
