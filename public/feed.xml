@@ -2,9 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-27T04:18:49.316Z</updated>
+    <updated>2026-01-28T02:39:55.753Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.21]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2121</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2121"/>
+        <updated>2026-01-28T01:37:44.595Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added support for full-width (zenkaku) number input from Japanese IME in option selection prompts</li>
+<li>Fixed shell completion cache files being truncated on exit</li>
+<li>Fixed API errors when resuming sessions that were interrupted during tool execution</li>
+<li>Fixed auto-compact triggering too early on models with large output token limits</li>
+<li>Fixed task IDs potentially being reused after deletion</li>
+<li>Fixed file search not working in VS Code extension on Windows</li>
+<li>Improved read/search progress indicators to show &quot;Reading…&quot; while in progress and &quot;Read&quot; when complete</li>
+<li>Improved Claude to prefer file operation tools (Read, Edit, Write) over bash equivalents (cat, sed, awk)</li>
+<li>[VSCode] Added automatic Python virtual environment activation, ensuring <code>python</code> and <code>pip</code> commands use the correct interpreter (configurable via <code>claudeCode.usePythonEnvironment</code> setting)</li>
+<li>[VSCode] Fixed message action buttons having incorrect background colors</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.20]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2120</id>
@@ -889,18 +908,6 @@
 <li>Allow more safe git commands to run without approval</li>
 <li>Plugins: Added support for sharing and installing output styles</li>
 <li>Teleporting a session from web will automatically set the upstream branch</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.37]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2037</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2037"/>
-        <updated>2025-11-10T22:05:27.713Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed how idleness is computed for notifications</li>
-<li>Hooks: Added matcher values for Notification hook events</li>
-<li>Output Styles: Added <code>keep-coding-instructions</code> option to frontmatter</li>
 </ul>
 ]]></content>
     </entry>
