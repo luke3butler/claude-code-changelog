@@ -2,9 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-28T07:05:55.649Z</updated>
+    <updated>2026-01-29T01:30:26.271Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.23]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2123</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2123"/>
+        <updated>2026-01-29T00:19:09.656Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added customizable spinner verbs setting (<code>spinnerVerbs</code>)</li>
+<li>Fixed mTLS and proxy connectivity for users behind corporate proxies or using client certificates</li>
+<li>Fixed per-user temp directory isolation to prevent permission conflicts on shared systems</li>
+<li>Fixed a race condition that could cause 400 errors when prompt caching scope was enabled</li>
+<li>Fixed pending async hooks not being cancelled when headless streaming sessions ended</li>
+<li>Fixed tab completion not updating the input field when accepting a suggestion</li>
+<li>Fixed ripgrep search timeouts silently returning empty results instead of reporting errors</li>
+<li>Improved terminal rendering performance with optimized screen data layout</li>
+<li>Changed Bash commands to show timeout duration alongside elapsed time</li>
+<li>Changed merged pull requests to show a purple status indicator in the prompt footer</li>
+<li>[IDE] Fixed model options displaying incorrect region strings for Bedrock users in headless mode</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.22]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2122</id>
@@ -544,7 +564,7 @@
 <li>Added loading indicator when resuming conversations for better feedback</li>
 <li>Fixed <code>/context</code> command not respecting custom system prompts in non-interactive mode</li>
 <li>Fixed order of consecutive Ctrl+K lines when pasting with Ctrl+Y</li>
-<li>Improved @ mention file suggestion speed (~3x faster in git repositories)</li>
+<li>Improved @ mention file suggestion speed (~3× faster in git repositories)</li>
 <li>Improved file suggestion performance in repos with <code>.ignore</code> or <code>.rgignore</code> files</li>
 <li>Improved settings validation errors to be more prominent</li>
 <li>Changed thinking toggle from Tab to Alt+T to avoid accidental triggers</li>
@@ -887,16 +907,6 @@
 <li>Fixed duplicate rendering of some messages in the UI</li>
 <li>Fixed some visual flickers</li>
 <li>Fixed NotebookEdit tool inserting cells at incorrect positions when cell IDs matched the pattern <code>cell-N</code></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.42]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2042</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2042"/>
-        <updated>2025-11-14T23:00:23.267Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>agent_id</code> and <code>agent_transcript_path</code> fields to <code>SubagentStop</code> hooks.</li>
 </ul>
 ]]></content>
     </entry>
