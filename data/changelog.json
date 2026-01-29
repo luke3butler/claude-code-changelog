@@ -1,5 +1,10 @@
 [
   {
+    "version": "2.1.25",
+    "content": "- Fixed beta header validation error for gateway users on Bedrock and Vertex, ensuring `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` avoids the error",
+    "publishedAt": "2026-01-29T20:33:53.330Z"
+  },
+  {
     "version": "2.1.23",
     "content": "- Added customizable spinner verbs setting (`spinnerVerbs`)\n- Fixed mTLS and proxy connectivity for users behind corporate proxies or using client certificates\n- Fixed per-user temp directory isolation to prevent permission conflicts on shared systems\n- Fixed a race condition that could cause 400 errors when prompt caching scope was enabled\n- Fixed pending async hooks not being cancelled when headless streaming sessions ended\n- Fixed tab completion not updating the input field when accepting a suggestion\n- Fixed ripgrep search timeouts silently returning empty results instead of reporting errors\n- Improved terminal rendering performance with optimized screen data layout\n- Changed Bash commands to show timeout duration alongside elapsed time\n- Changed merged pull requests to show a purple status indicator in the prompt footer\n- [IDE] Fixed model options displaying incorrect region strings for Bedrock users in headless mode",
     "publishedAt": "2026-01-29T00:19:09.656Z"

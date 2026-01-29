@@ -1,6 +1,15 @@
 {
-  "updated": "2026-01-29T21:03:44.437Z",
+  "updated": "2026-01-29T22:03:23.439Z",
   "entries": [
+    {
+      "version": "2.1.25",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2125",
+      "publishedAt": "2026-01-29T20:33:53.330Z",
+      "changes": [
+        "Fixed beta header validation error for gateway users on Bedrock and Vertex, ensuring `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` avoids the error"
+      ],
+      "changeCount": 1
+    },
     {
       "version": "2.1.23",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2123",
@@ -831,22 +840,6 @@
         "Send background tasks to Claude Code on the web by starting a message with `&`"
       ],
       "changeCount": 3
-    },
-    {
-      "version": "2.0.43",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2043",
-      "publishedAt": "2025-11-17T22:19:17.451Z",
-      "changes": [
-        "Added `permissionMode` field for custom agents",
-        "Added `tool_use_id` field to `PreToolUseHookInput` and `PostToolUseHookInput` types",
-        "Added skills frontmatter field to declare skills to auto-load for subagents",
-        "Added the `SubagentStart` hook event",
-        "Fixed nested `CLAUDE.md` files not loading when @-mentioning files",
-        "Fixed duplicate rendering of some messages in the UI",
-        "Fixed some visual flickers",
-        "Fixed NotebookEdit tool inserting cells at incorrect positions when cell IDs matched the pattern `cell-N`"
-      ],
-      "changeCount": 8
     }
   ]
 }
