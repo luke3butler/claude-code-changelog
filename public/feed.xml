@@ -2,9 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-30T20:03:14.065Z</updated>
+    <updated>2026-01-30T21:04:52.313Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.27]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2127</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2127"/>
+        <updated>2026-01-30T19:51:58.456Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added tool call failures and denials to debug logs</li>
+<li>Fixed context management validation error for gateway users, ensuring <code>CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1</code> avoids the error</li>
+<li>Added <code>--from-pr</code> flag to resume sessions linked to a specific GitHub PR number or URL</li>
+<li>Sessions are now automatically linked to PRs when created via <code>gh pr create</code></li>
+<li>Fixed /context command not displaying colored output</li>
+<li>Fixed status bar duplicating background task indicator when PR status was shown</li>
+<li>VSCode: Enabled Claude in Chrome integration</li>
+<li>Permissions now respect content-level <code>ask</code> over tool-level <code>allow</code>. Previously <code>allow: [&quot;Bash&quot;], ask: [&quot;Bash(rm *)&quot;]</code> allowed all bash commands, but will now permission prompt for <code>rm</code>.</li>
+<li>Windows: Fixed bash command execution failing for users with <code>.bashrc</code> files</li>
+<li>Windows: Fixed console windows flashing when spawning child processes</li>
+<li>VSCode: Fixed OAuth token expiration causing 401 errors after extended sessions</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.25]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2125</id>
@@ -888,18 +908,6 @@
         <updated>2025-11-19T04:19:08.870Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Fixed image files being reported with incorrect media type when format cannot be detected from metadata</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.45]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2045</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2045"/>
-        <updated>2025-11-18T16:31:06.710Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added support for Microsoft Foundry! See <a href="https://code.claude.com/docs/en/azure-ai-foundry">https://code.claude.com/docs/en/azure-ai-foundry</a></li>
-<li>Added <code>PermissionRequest</code> hook to automatically approve or deny tool permission requests with custom logic</li>
-<li>Send background tasks to Claude Code on the web by starting a message with <code>&amp;</code></li>
 </ul>
 ]]></content>
     </entry>

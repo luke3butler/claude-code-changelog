@@ -1,6 +1,25 @@
 {
-  "updated": "2026-01-30T20:03:14.069Z",
+  "updated": "2026-01-30T21:04:52.316Z",
   "entries": [
+    {
+      "version": "2.1.27",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2127",
+      "publishedAt": "2026-01-30T19:51:58.456Z",
+      "changes": [
+        "Added tool call failures and denials to debug logs",
+        "Fixed context management validation error for gateway users, ensuring `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` avoids the error",
+        "Added `--from-pr` flag to resume sessions linked to a specific GitHub PR number or URL",
+        "Sessions are now automatically linked to PRs when created via `gh pr create`",
+        "Fixed /context command not displaying colored output",
+        "Fixed status bar duplicating background task indicator when PR status was shown",
+        "VSCode: Enabled Claude in Chrome integration",
+        "Permissions now respect content-level `ask` over tool-level `allow`. Previously `allow: [\"Bash\"], ask: [\"Bash(rm *)\"]` allowed all bash commands, but will now permission prompt for `rm`.",
+        "Windows: Fixed bash command execution failing for users with `.bashrc` files",
+        "Windows: Fixed console windows flashing when spawning child processes",
+        "VSCode: Fixed OAuth token expiration causing 401 errors after extended sessions"
+      ],
+      "changeCount": 11
+    },
     {
       "version": "2.1.25",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2125",
@@ -829,17 +848,6 @@
         "Fixed image files being reported with incorrect media type when format cannot be detected from metadata"
       ],
       "changeCount": 1
-    },
-    {
-      "version": "2.0.45",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2045",
-      "publishedAt": "2025-11-18T16:31:06.710Z",
-      "changes": [
-        "Added support for Microsoft Foundry! See https://code.claude.com/docs/en/azure-ai-foundry",
-        "Added `PermissionRequest` hook to automatically approve or deny tool permission requests with custom logic",
-        "Send background tasks to Claude Code on the web by starting a message with `&`"
-      ],
-      "changeCount": 3
     }
   ]
 }
