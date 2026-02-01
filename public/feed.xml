@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-01-31T21:01:48.758Z</updated>
+    <updated>2026-02-01T00:06:39.956Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.29]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2129</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2129"/>
+        <updated>2026-01-31T20:13:22.486Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed startup performance issues when resuming sessions that have <code>saved_hook_context</code></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.27]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2127</id>
@@ -896,16 +906,6 @@
 <li>Improved error handling in <code>/usage</code></li>
 <li>Fixed race condition with history entry not getting logged at exit</li>
 <li>Fixed Vertex AI configuration not being applied from <code>settings.json</code></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.46]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2046</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2046"/>
-        <updated>2025-11-19T04:19:08.870Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed image files being reported with incorrect media type when format cannot be detected from metadata</li>
 </ul>
 ]]></content>
     </entry>

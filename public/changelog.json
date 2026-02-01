@@ -1,6 +1,15 @@
 {
-  "updated": "2026-01-31T21:01:48.762Z",
+  "updated": "2026-02-01T00:06:39.960Z",
   "entries": [
+    {
+      "version": "2.1.29",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2129",
+      "publishedAt": "2026-01-31T20:13:22.486Z",
+      "changes": [
+        "Fixed startup performance issues when resuming sessions that have `saved_hook_context`"
+      ],
+      "changeCount": 1
+    },
     {
       "version": "2.1.27",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2127",
@@ -837,15 +846,6 @@
         "Fixed Vertex AI configuration not being applied from `settings.json`"
       ],
       "changeCount": 4
-    },
-    {
-      "version": "2.0.46",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2046",
-      "publishedAt": "2025-11-19T04:19:08.870Z",
-      "changes": [
-        "Fixed image files being reported with incorrect media type when format cannot be detected from metadata"
-      ],
-      "changeCount": 1
     }
   ]
 }
