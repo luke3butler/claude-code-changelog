@@ -2,9 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-04T00:06:24.610Z</updated>
+    <updated>2026-02-04T01:30:58.139Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.31]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2131</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2131"/>
+        <updated>2026-02-04T00:02:11.559Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added session resume hint on exit, showing how to continue your conversation later</li>
+<li>Added support for full-width (zenkaku) space input from Japanese IME in checkbox selection</li>
+<li>Fixed PDF too large errors permanently locking up sessions, requiring users to start a new conversation</li>
+<li>Fixed bash commands incorrectly reporting failure with &quot;Read-only file system&quot; errors when sandbox mode was enabled</li>
+<li>Fixed a crash that made sessions unusable after entering plan mode when project config in <code>~/.claude.json</code> was missing default fields</li>
+<li>Fixed <code>temperatureOverride</code> being silently ignored in the streaming API path, causing all streaming requests to use the default temperature (1) regardless of the configured override</li>
+<li>Fixed LSP shutdown/exit compatibility with strict language servers that reject null params</li>
+<li>Improved system prompts to more clearly guide the model toward using dedicated tools (Read, Edit, Glob, Grep) instead of bash equivalents (<code>cat</code>, <code>sed</code>, <code>grep</code>, <code>find</code>), reducing unnecessary bash command usage</li>
+<li>Improved PDF and request size error messages to show actual limits (100 pages, 20MB)</li>
+<li>Reduced layout jitter in the terminal when the spinner appears and disappears during streaming</li>
+<li>Removed misleading Anthropic API pricing from model selector for third-party provider (Bedrock, Vertex, Foundry) users</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.30]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2130</id>
@@ -909,18 +929,6 @@
 <li>Silenced a noisy but harmless error during upgrades</li>
 <li>Improved ultrathink text display</li>
 <li>Improved clarity of 5-hour session limit warning message</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.49]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2049</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2049"/>
-        <updated>2025-11-21T00:00:19.160Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added readline-style ctrl-y for pasting deleted text</li>
-<li>Improved clarity of usage limit warning message</li>
-<li>Fixed handling of subagent permissions</li>
 </ul>
 ]]></content>
     </entry>

@@ -1,6 +1,25 @@
 {
-  "updated": "2026-02-04T00:06:24.614Z",
+  "updated": "2026-02-04T01:30:58.143Z",
   "entries": [
+    {
+      "version": "2.1.31",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2131",
+      "publishedAt": "2026-02-04T00:02:11.559Z",
+      "changes": [
+        "Added session resume hint on exit, showing how to continue your conversation later",
+        "Added support for full-width (zenkaku) space input from Japanese IME in checkbox selection",
+        "Fixed PDF too large errors permanently locking up sessions, requiring users to start a new conversation",
+        "Fixed bash commands incorrectly reporting failure with \"Read-only file system\" errors when sandbox mode was enabled",
+        "Fixed a crash that made sessions unusable after entering plan mode when project config in `~/.claude.json` was missing default fields",
+        "Fixed `temperatureOverride` being silently ignored in the streaming API path, causing all streaming requests to use the default temperature (1) regardless of the configured override",
+        "Fixed LSP shutdown/exit compatibility with strict language servers that reject null params",
+        "Improved system prompts to more clearly guide the model toward using dedicated tools (Read, Edit, Glob, Grep) instead of bash equivalents (`cat`, `sed`, `grep`, `find`), reducing unnecessary bash command usage",
+        "Improved PDF and request size error messages to show actual limits (100 pages, 20MB)",
+        "Reduced layout jitter in the terminal when the spinner appears and disappears during streaming",
+        "Removed misleading Anthropic API pricing from model selector for third-party provider (Bedrock, Vertex, Foundry) users"
+      ],
+      "changeCount": 11
+    },
     {
       "version": "2.1.30",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2130",
@@ -850,17 +869,6 @@
         "Improved clarity of 5-hour session limit warning message"
       ],
       "changeCount": 4
-    },
-    {
-      "version": "2.0.49",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2049",
-      "publishedAt": "2025-11-21T00:00:19.160Z",
-      "changes": [
-        "Added readline-style ctrl-y for pasting deleted text",
-        "Improved clarity of usage limit warning message",
-        "Fixed handling of subagent permissions"
-      ],
-      "changeCount": 3
     }
   ]
 }
