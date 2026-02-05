@@ -1,6 +1,26 @@
 {
-  "updated": "2026-02-05T17:15:43.330Z",
+  "updated": "2026-02-05T18:13:31.273Z",
   "entries": [
+    {
+      "version": "2.1.32",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2132",
+      "publishedAt": "2026-02-05T17:03:20.616Z",
+      "changes": [
+        "Claude Opus 4.6 is now available!",
+        "Added research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1)",
+        "Claude now automatically records and recalls memories as it works",
+        "Added \"Summarize from here\" to the message selector, allowing partial conversation summarization.",
+        "Skills defined in `.claude/skills/` within additional directories (`--add-dir`) are now loaded automatically.",
+        "Fixed `@` file completion showing incorrect relative paths when running from a subdirectory",
+        "Updated --resume to re-use --agent value specified in previous conversation by default.",
+        "Fixed: Bash tool no longer throws \"Bad substitution\" errors when heredocs contain JavaScript template literals like `${index + 1}`, which previously interrupted tool execution",
+        "Skill character budget now scales with context window (2% of context), so users with larger context windows can see more skill descriptions without truncation",
+        "Fixed Thai/Lao spacing vowels (สระ า, ำ) not rendering correctly in the input field",
+        "VSCode: Fixed slash commands incorrectly being executed when pressing Enter with preceding text in the input field",
+        "VSCode: Added spinner when loading past conversations list"
+      ],
+      "changeCount": 12
+    },
     {
       "version": "2.1.31",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2131",
@@ -857,18 +877,6 @@
         "Fixed performance regression"
       ],
       "changeCount": 9
-    },
-    {
-      "version": "2.0.50",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2050",
-      "publishedAt": "2025-11-21T17:13:30.845Z",
-      "changes": [
-        "Fixed bug preventing calling MCP tools that have nested references in their input schemas",
-        "Silenced a noisy but harmless error during upgrades",
-        "Improved ultrathink text display",
-        "Improved clarity of 5-hour session limit warning message"
-      ],
-      "changeCount": 4
     }
   ]
 }

@@ -2,9 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-05T17:15:43.326Z</updated>
+    <updated>2026-02-05T18:13:31.269Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.32]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2132</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2132"/>
+        <updated>2026-02-05T17:03:20.616Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Claude Opus 4.6 is now available!</li>
+<li>Added research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1)</li>
+<li>Claude now automatically records and recalls memories as it works</li>
+<li>Added &quot;Summarize from here&quot; to the message selector, allowing partial conversation summarization.</li>
+<li>Skills defined in <code>.claude/skills/</code> within additional directories (<code>--add-dir</code>) are now loaded automatically.</li>
+<li>Fixed <code>@</code> file completion showing incorrect relative paths when running from a subdirectory</li>
+<li>Updated --resume to re-use --agent value specified in previous conversation by default.</li>
+<li>Fixed: Bash tool no longer throws &quot;Bad substitution&quot; errors when heredocs contain JavaScript template literals like <code>${index + 1}</code>, which previously interrupted tool execution</li>
+<li>Skill character budget now scales with context window (2% of context), so users with larger context windows can see more skill descriptions without truncation</li>
+<li>Fixed Thai/Lao spacing vowels (สระ า, ำ) not rendering correctly in the input field</li>
+<li>VSCode: Fixed slash commands incorrectly being executed when pressing Enter with preceding text in the input field</li>
+<li>VSCode: Added spinner when loading past conversations list</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.31]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2131</id>
@@ -916,19 +937,6 @@
 <li>Switched <code>/usage</code> back to &quot;% used&quot;</li>
 <li>Fixed handling of thinking errors</li>
 <li>Fixed performance regression</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.50]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2050</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2050"/>
-        <updated>2025-11-21T17:13:30.845Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed bug preventing calling MCP tools that have nested references in their input schemas</li>
-<li>Silenced a noisy but harmless error during upgrades</li>
-<li>Improved ultrathink text display</li>
-<li>Improved clarity of 5-hour session limit warning message</li>
 </ul>
 ]]></content>
     </entry>
