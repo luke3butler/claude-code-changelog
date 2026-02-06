@@ -2,9 +2,34 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-06T01:30:55.799Z</updated>
+    <updated>2026-02-06T02:54:27.859Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.33]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2133</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2133"/>
+        <updated>2026-02-06T00:16:13.218Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed agent teammate sessions in tmux to send and receive messages</li>
+<li>Fixed warnings about agent teams not being available on your current plan</li>
+<li>Added <code>TeammateIdle</code> and <code>TaskCompleted</code> hook events for multi-agent workflows</li>
+<li>Added support for restricting which sub-agents can be spawned via <code>Task(agent_type)</code> syntax in agent &quot;tools&quot; frontmatter</li>
+<li>Added <code>memory</code> frontmatter field support for agents, enabling persistent memory with <code>user</code>, <code>project</code>, or <code>local</code> scope</li>
+<li>Added plugin name to skill descriptions and <code>/skills</code> menu for better discoverability</li>
+<li>Fixed an issue where submitting a new message while the model was in extended thinking would interrupt the thinking phase</li>
+<li>Fixed an API error that could occur when aborting mid-stream, where whitespace text combined with a thinking block would bypass normalization and produce an invalid request</li>
+<li>Fixed API proxy compatibility issue where 404 errors on streaming endpoints no longer triggered non-streaming fallback</li>
+<li>Fixed an issue where proxy settings configured via <code>settings.json</code> environment variables were not applied to WebFetch and other HTTP requests on the Node.js build</li>
+<li>Fixed <code>/resume</code> session picker showing raw XML markup instead of clean titles for sessions started with slash commands</li>
+<li>Improved error messages for API connection failures — now shows specific cause (e.g., ECONNREFUSED, SSL errors) instead of generic &quot;Connection error&quot;</li>
+<li>Errors from invalid managed settings are now surfaced</li>
+<li>VSCode: Added support for remote sessions, allowing OAuth users to browse and resume sessions from claude.ai</li>
+<li>VSCode: Added git branch and message count to the session picker, with support for searching by branch name</li>
+<li>VSCode: Fixed scroll-to-bottom under-scrolling on initial session load and session switch</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.32]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2132</id>
@@ -919,24 +944,6 @@
 <li>Fixed <code>/usage</code> command progress bars to fill up as usage increases (instead of showing remaining percentage)</li>
 <li>Fixed image pasting not working on Linux systems running Wayland (now falls back to wl-paste when xclip is unavailable)</li>
 <li>Permit some uses of <code>$!</code> in bash commands</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.51]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2051</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2051"/>
-        <updated>2025-11-24T18:27:18.026Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added Opus 4.5! <a href="https://www.anthropic.com/news/claude-opus-4-5">https://www.anthropic.com/news/claude-opus-4-5</a></li>
-<li>Introducing Claude Code for Desktop: <a href="https://claude.com/download">https://claude.com/download</a></li>
-<li>To give you room to try out our new model, we&#39;ve updated usage limits for Claude Code users. See the Claude Opus 4.5 blog for full details</li>
-<li>Pro users can now purchase extra usage for access to Opus 4.5 in Claude Code</li>
-<li>Plan Mode now builds more precise plans and executes more thoroughly</li>
-<li>Usage limit notifications now easier to understand</li>
-<li>Switched <code>/usage</code> back to &quot;% used&quot;</li>
-<li>Fixed handling of thinking errors</li>
-<li>Fixed performance regression</li>
 </ul>
 ]]></content>
     </entry>
