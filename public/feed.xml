@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-07T18:03:09.189Z</updated>
+    <updated>2026-02-07T19:06:25.534Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.36]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2136</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2136"/>
+        <updated>2026-02-07T17:25:00.190Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fast mode is now available for Opus 4.6. Learn more at <a href="https://code.claude.com/docs/en/fast-mode">https://code.claude.com/docs/en/fast-mode</a></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.34]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2134</id>
@@ -931,17 +941,6 @@
 <li>Fixed keyboard navigation becoming unresponsive when holding down arrow keys in memory location selector</li>
 <li>Improved AskUserQuestion tool to auto-submit single-select questions on the last question, eliminating the extra review screen for simple question flows</li>
 <li>Improved fuzzy matching for <code>@</code> file suggestions with faster, more accurate results</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.54]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2054</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2054"/>
-        <updated>2025-11-25T23:52:47.226Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Hooks: Enable PermissionRequest hooks to process &#39;always allow&#39; suggestions and apply permission updates</li>
-<li>Fix issue with excessive iTerm notifications</li>
 </ul>
 ]]></content>
     </entry>

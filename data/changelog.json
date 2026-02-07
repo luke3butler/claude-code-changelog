@@ -1,5 +1,10 @@
 [
   {
+    "version": "2.1.36",
+    "content": "- Fast mode is now available for Opus 4.6. Learn more at https://code.claude.com/docs/en/fast-mode",
+    "publishedAt": "2026-02-07T17:25:00.190Z"
+  },
+  {
     "version": "2.1.34",
     "content": "- Fixed a crash when agent teams setting changed between renders\n- Fixed a bug where commands excluded from sandboxing (via `sandbox.excludedCommands` or `dangerouslyDisableSandbox`) could bypass the Bash ask permission rule when `autoAllowBashIfSandboxed` was enabled",
     "publishedAt": "2026-02-06T06:38:12.412Z"
