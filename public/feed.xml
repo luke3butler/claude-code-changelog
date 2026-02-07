@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-07T19:06:25.534Z</updated>
+    <updated>2026-02-07T20:01:53.515Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.37]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2137</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2137"/>
+        <updated>2026-02-07T18:39:35.597Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed an issue where /fast was not immediately available after enabling /extra-usage</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.36]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2136</id>
@@ -928,19 +938,6 @@
         <content type="html"><![CDATA[<ul>
 <li>Added setting to enable/disable terminal progress bar (OSC 9;4)</li>
 <li>VSCode Extension: Added support for VS Code&#39;s secondary sidebar (VS Code 1.97+), allowing Claude Code to be displayed in the right sidebar while keeping the file explorer on the left. Requires setting sidebar as Preferred Location in the config.</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.55]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2055</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2055"/>
-        <updated>2025-11-26T22:54:58.963Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed proxy DNS resolution being forced on by default. Now opt-in via <code>CLAUDE_CODE_PROXY_RESOLVES_HOSTS=true</code> environment variable</li>
-<li>Fixed keyboard navigation becoming unresponsive when holding down arrow keys in memory location selector</li>
-<li>Improved AskUserQuestion tool to auto-submit single-select questions on the last question, eliminating the extra review screen for simple question flows</li>
-<li>Improved fuzzy matching for <code>@</code> file suggestions with faster, more accurate results</li>
 </ul>
 ]]></content>
     </entry>

@@ -1,6 +1,15 @@
 {
-  "updated": "2026-02-07T19:06:25.538Z",
+  "updated": "2026-02-07T20:01:53.519Z",
   "entries": [
+    {
+      "version": "2.1.37",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2137",
+      "publishedAt": "2026-02-07T18:39:35.597Z",
+      "changes": [
+        "Fixed an issue where /fast was not immediately available after enabling /extra-usage"
+      ],
+      "changeCount": 1
+    },
     {
       "version": "2.1.36",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2136",
@@ -869,18 +878,6 @@
         "VSCode Extension: Added support for VS Code's secondary sidebar (VS Code 1.97+), allowing Claude Code to be displayed in the right sidebar while keeping the file explorer on the left. Requires setting sidebar as Preferred Location in the config."
       ],
       "changeCount": 2
-    },
-    {
-      "version": "2.0.55",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2055",
-      "publishedAt": "2025-11-26T22:54:58.963Z",
-      "changes": [
-        "Fixed proxy DNS resolution being forced on by default. Now opt-in via `CLAUDE_CODE_PROXY_RESOLVES_HOSTS=true` environment variable",
-        "Fixed keyboard navigation becoming unresponsive when holding down arrow keys in memory location selector",
-        "Improved AskUserQuestion tool to auto-submit single-select questions on the last question, eliminating the extra review screen for simple question flows",
-        "Improved fuzzy matching for `@` file suggestions with faster, more accurate results"
-      ],
-      "changeCount": 4
     }
   ]
 }
