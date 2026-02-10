@@ -2,9 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-10T00:11:04.921Z</updated>
+    <updated>2026-02-10T01:32:07.441Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.38]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2138</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2138"/>
+        <updated>2026-02-10T00:06:12.496Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed VS Code terminal scroll-to-top regression introduced in 2.1.37</li>
+<li>Fixed Tab key queueing slash commands instead of autocompleting</li>
+<li>Fixed bash permission matching for commands using environment variable wrappers</li>
+<li>Fixed text between tool uses disappearing when not using streaming</li>
+<li>Fixed duplicate sessions when resuming in VS Code extension</li>
+<li>Improved heredoc delimiter parsing to prevent command smuggling</li>
+<li>Blocked writes to <code>.claude/skills</code> directory in sandbox mode</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.37]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2137</id>
@@ -927,17 +943,6 @@
         <content type="html"><![CDATA[<ul>
 <li>Added feedback input when rejecting plans, allowing users to tell Claude what to change</li>
 <li>VSCode: Added streaming message support for real-time response display</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.56]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2056</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2056"/>
-        <updated>2025-12-01T23:38:38.455Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added setting to enable/disable terminal progress bar (OSC 9;4)</li>
-<li>VSCode Extension: Added support for VS Code&#39;s secondary sidebar (VS Code 1.97+), allowing Claude Code to be displayed in the right sidebar while keeping the file explorer on the left. Requires setting sidebar as Preferred Location in the config.</li>
 </ul>
 ]]></content>
     </entry>
