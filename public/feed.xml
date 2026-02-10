@@ -2,9 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-10T21:13:35.682Z</updated>
+    <updated>2026-02-10T23:11:57.137Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.39]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2139</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2139"/>
+        <updated>2026-02-10T21:12:16.378Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Improved terminal rendering performance</li>
+<li>Fixed fatal errors being swallowed instead of displayed</li>
+<li>Fixed process hanging after session close</li>
+<li>Fixed character loss at terminal screen boundary</li>
+<li>Fixed blank lines in verbose transcript view</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.38]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2138</id>
@@ -932,17 +946,6 @@
 <li>Pro users now have access to Opus 4.5 as part of their subscription!</li>
 <li>Fixed timer duration showing &quot;11m 60s&quot; instead of &quot;12m 0s&quot;</li>
 <li>Windows: Managed settings now prefer <code>C:\Program Files\ClaudeCode</code> if it exists. Support for <code>C:\ProgramData\ClaudeCode</code> will be removed in a future version.</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.57]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2057</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2057"/>
-        <updated>2025-12-03T04:52:56.549Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added feedback input when rejecting plans, allowing users to tell Claude what to change</li>
-<li>VSCode: Added streaming message support for real-time response display</li>
 </ul>
 ]]></content>
     </entry>

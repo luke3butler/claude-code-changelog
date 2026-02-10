@@ -1,6 +1,19 @@
 {
-  "updated": "2026-02-10T21:13:35.686Z",
+  "updated": "2026-02-10T23:11:57.141Z",
   "entries": [
+    {
+      "version": "2.1.39",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2139",
+      "publishedAt": "2026-02-10T21:12:16.378Z",
+      "changes": [
+        "Improved terminal rendering performance",
+        "Fixed fatal errors being swallowed instead of displayed",
+        "Fixed process hanging after session close",
+        "Fixed character loss at terminal screen boundary",
+        "Fixed blank lines in verbose transcript view"
+      ],
+      "changeCount": 5
+    },
     {
       "version": "2.1.38",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2138",
@@ -873,16 +886,6 @@
         "Windows: Managed settings now prefer `C:\\Program Files\\ClaudeCode` if it exists. Support for `C:\\ProgramData\\ClaudeCode` will be removed in a future version."
       ],
       "changeCount": 3
-    },
-    {
-      "version": "2.0.57",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2057",
-      "publishedAt": "2025-12-03T04:52:56.549Z",
-      "changes": [
-        "Added feedback input when rejecting plans, allowing users to tell Claude what to change",
-        "VSCode: Added streaming message support for real-time response display"
-      ],
-      "changeCount": 2
     }
   ]
 }

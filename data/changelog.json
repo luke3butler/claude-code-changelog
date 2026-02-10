@@ -1,5 +1,10 @@
 [
   {
+    "version": "2.1.39",
+    "content": "- Improved terminal rendering performance\n- Fixed fatal errors being swallowed instead of displayed\n- Fixed process hanging after session close\n- Fixed character loss at terminal screen boundary\n- Fixed blank lines in verbose transcript view",
+    "publishedAt": "2026-02-10T21:12:16.378Z"
+  },
+  {
     "version": "2.1.38",
     "content": "- Fixed VS Code terminal scroll-to-top regression introduced in 2.1.37\n- Fixed Tab key queueing slash commands instead of autocompleting\n- Fixed bash permission matching for commands using environment variable wrappers\n- Fixed text between tool uses disappearing when not using streaming\n- Fixed duplicate sessions when resuming in VS Code extension\n- Improved heredoc delimiter parsing to prevent command smuggling\n- Blocked writes to `.claude/skills` directory in sandbox mode",
     "publishedAt": "2026-02-10T00:06:12.496Z"
