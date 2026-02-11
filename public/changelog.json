@@ -1,18 +1,21 @@
 {
-  "updated": "2026-02-10T23:11:57.141Z",
+  "updated": "2026-02-11T09:14:57.211Z",
   "entries": [
     {
       "version": "2.1.39",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2139",
       "publishedAt": "2026-02-10T21:12:16.378Z",
       "changes": [
+        "Added guard against launching Claude Code inside another Claude Code session",
+        "Fixed Agent Teams using wrong model identifier for Bedrock, Vertex, and Foundry customers",
+        "Fixed /resume session previews showing raw XML tags instead of readable command names",
         "Improved terminal rendering performance",
         "Fixed fatal errors being swallowed instead of displayed",
         "Fixed process hanging after session close",
         "Fixed character loss at terminal screen boundary",
         "Fixed blank lines in verbose transcript view"
       ],
-      "changeCount": 5
+      "changeCount": 8
     },
     {
       "version": "2.1.38",
