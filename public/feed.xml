@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-11T09:14:57.207Z</updated>
+    <updated>2026-02-11T10:15:35.645Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -13,7 +13,9 @@
         <content type="html"><![CDATA[<ul>
 <li>Added guard against launching Claude Code inside another Claude Code session</li>
 <li>Fixed Agent Teams using wrong model identifier for Bedrock, Vertex, and Foundry customers</li>
+<li>Fixed a crash when MCP tools return image content during streaming</li>
 <li>Fixed /resume session previews showing raw XML tags instead of readable command names</li>
+<li>Improved model error messages for Bedrock/Vertex/Foundry users with fallback suggestions</li>
 <li>Improved terminal rendering performance</li>
 <li>Fixed fatal errors being swallowed instead of displayed</li>
 <li>Fixed process hanging after session close</li>
