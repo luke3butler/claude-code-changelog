@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-11T10:15:35.645Z</updated>
+    <updated>2026-02-11T16:19:42.027Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -16,6 +16,8 @@
 <li>Fixed a crash when MCP tools return image content during streaming</li>
 <li>Fixed /resume session previews showing raw XML tags instead of readable command names</li>
 <li>Improved model error messages for Bedrock/Vertex/Foundry users with fallback suggestions</li>
+<li>Fixed hook blocking errors (exit code 2) not showing stderr to the user</li>
+<li>Added <code>speed</code> attribute to OTel events and trace spans for fast mode visibility</li>
 <li>Improved terminal rendering performance</li>
 <li>Fixed fatal errors being swallowed instead of displayed</li>
 <li>Fixed process hanging after session close</li>
