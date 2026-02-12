@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-12T10:14:02.684Z</updated>
+    <updated>2026-02-12T18:14:57.510Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -22,6 +22,7 @@
 <li>Fixed /resume showing interrupt messages as session titles</li>
 <li>Fixed Opus 4.6 launch announcement showing for Bedrock/Vertex/Foundry users</li>
 <li>Improved error message for many-image dimension limit errors with /compact suggestion</li>
+<li>Fixed structured-outputs beta header being sent unconditionally on Vertex/Bedrock</li>
 <li>Improved terminal rendering performance</li>
 <li>Fixed fatal errors being swallowed instead of displayed</li>
 <li>Fixed process hanging after session close</li>
