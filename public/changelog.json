@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-12T18:14:57.514Z",
+  "updated": "2026-02-12T22:05:31.094Z",
   "entries": [
     {
       "version": "2.1.39",
@@ -18,13 +18,14 @@
         "Fixed Opus 4.6 launch announcement showing for Bedrock/Vertex/Foundry users",
         "Improved error message for many-image dimension limit errors with /compact suggestion",
         "Fixed structured-outputs beta header being sent unconditionally on Vertex/Bedrock",
+        "Fixed spurious warnings for non-agent markdown files in `.claude/agents/` directory",
         "Improved terminal rendering performance",
         "Fixed fatal errors being swallowed instead of displayed",
         "Fixed process hanging after session close",
         "Fixed character loss at terminal screen boundary",
         "Fixed blank lines in verbose transcript view"
       ],
-      "changeCount": 17
+      "changeCount": 18
     },
     {
       "version": "2.1.38",
