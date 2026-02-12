@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-12T02:58:32.418Z",
+  "updated": "2026-02-12T06:19:13.767Z",
   "entries": [
     {
       "version": "2.1.39",
@@ -15,13 +15,14 @@
         "Fixed hook blocking errors (exit code 2) not showing stderr to the user",
         "Added `speed` attribute to OTel events and trace spans for fast mode visibility",
         "Fixed /resume showing interrupt messages as session titles",
+        "Fixed Opus 4.6 launch announcement showing for Bedrock/Vertex/Foundry users",
         "Improved terminal rendering performance",
         "Fixed fatal errors being swallowed instead of displayed",
         "Fixed process hanging after session close",
         "Fixed character loss at terminal screen boundary",
         "Fixed blank lines in verbose transcript view"
       ],
-      "changeCount": 14
+      "changeCount": 15
     },
     {
       "version": "2.1.38",
