@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-12T01:31:25.021Z</updated>
+    <updated>2026-02-12T02:58:32.414Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -19,6 +19,7 @@
 <li>Fixed plugin browse showing misleading &quot;Space to Toggle&quot; hint for already-installed plugins</li>
 <li>Fixed hook blocking errors (exit code 2) not showing stderr to the user</li>
 <li>Added <code>speed</code> attribute to OTel events and trace spans for fast mode visibility</li>
+<li>Fixed /resume showing interrupt messages as session titles</li>
 <li>Improved terminal rendering performance</li>
 <li>Fixed fatal errors being swallowed instead of displayed</li>
 <li>Fixed process hanging after session close</li>

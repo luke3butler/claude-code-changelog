@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-12T01:31:25.025Z",
+  "updated": "2026-02-12T02:58:32.418Z",
   "entries": [
     {
       "version": "2.1.39",
@@ -14,13 +14,14 @@
         "Fixed plugin browse showing misleading \"Space to Toggle\" hint for already-installed plugins",
         "Fixed hook blocking errors (exit code 2) not showing stderr to the user",
         "Added `speed` attribute to OTel events and trace spans for fast mode visibility",
+        "Fixed /resume showing interrupt messages as session titles",
         "Improved terminal rendering performance",
         "Fixed fatal errors being swallowed instead of displayed",
         "Fixed process hanging after session close",
         "Fixed character loss at terminal screen boundary",
         "Fixed blank lines in verbose transcript view"
       ],
-      "changeCount": 13
+      "changeCount": 14
     },
     {
       "version": "2.1.38",
