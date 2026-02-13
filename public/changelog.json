@@ -1,6 +1,19 @@
 {
-  "updated": "2026-02-13T19:14:51.561Z",
+  "updated": "2026-02-13T20:06:44.588Z",
   "entries": [
+    {
+      "version": "2.1.42",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2142",
+      "publishedAt": "2026-02-13T18:56:56.084Z",
+      "changes": [
+        "Improved startup performance by deferring Zod schema construction",
+        "Improved prompt cache hit rates by moving date out of system prompt",
+        "Added one-time Opus 4.6 effort callout for eligible users",
+        "Fixed /resume showing interrupt messages as session titles",
+        "Fixed image dimension limit errors to suggest /compact"
+      ],
+      "changeCount": 5
+    },
     {
       "version": "2.1.41",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2141",
@@ -894,17 +907,6 @@
         "VSCode: Added support for multiple terminal clients connecting to the IDE server simultaneously"
       ],
       "changeCount": 6
-    },
-    {
-      "version": "2.0.59",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2059",
-      "publishedAt": "2025-12-04T21:59:34.519Z",
-      "changes": [
-        "Added --agent CLI flag to override the agent setting for the current session",
-        "Added `agent` setting to configure main thread with a specific agent's system prompt, tool restrictions, and model",
-        "VS Code: Fixed .claude.json config file being read from incorrect location"
-      ],
-      "changeCount": 3
     }
   ]
 }
