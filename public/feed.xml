@@ -2,9 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-13T01:31:15.833Z</updated>
+    <updated>2026-02-13T06:17:27.467Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.41]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2141</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2141"/>
+        <updated>2026-02-13T01:12:41.057Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed AWS auth refresh hanging indefinitely by adding a 3-minute timeout</li>
+<li>Added <code>claude auth login</code>, <code>claude auth status</code>, and <code>claude auth logout</code> CLI subcommands</li>
+<li>Added Windows ARM64 (win32-arm64) native binary support</li>
+<li>Improved <code>/rename</code> to auto-generate session name from conversation context when called without arguments</li>
+<li>Improved narrow terminal layout for prompt footer</li>
+<li>Fixed file resolution failing for @-mentions with anchor fragments (e.g., <code>@README.md#installation</code>)</li>
+<li>Fixed FileReadTool blocking the process on FIFOs, <code>/dev/stdin</code>, and large files</li>
+<li>Fixed background task notifications not being delivered in streaming Agent SDK mode</li>
+<li>Fixed cursor jumping to end on each keystroke in classifier rule input</li>
+<li>Fixed markdown link display text being dropped for raw URL</li>
+<li>Fixed auto-compact failure error notifications being shown to users</li>
+<li>Fixed permission wait time being included in subagent elapsed time display</li>
+<li>Fixed proactive ticks firing while in plan mode</li>
+<li>Fixed clear stale permission rules when settings change on disk</li>
+<li>Fixed hook blocking errors showing stderr content in UI</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.39]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2139</id>
@@ -947,18 +971,6 @@
 <li>Added --agent CLI flag to override the agent setting for the current session</li>
 <li>Added <code>agent</code> setting to configure main thread with a specific agent&#39;s system prompt, tool restrictions, and model</li>
 <li>VS Code: Fixed .claude.json config file being read from incorrect location</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.58]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2058</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2058"/>
-        <updated>2025-12-03T18:34:25.537Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Pro users now have access to Opus 4.5 as part of their subscription!</li>
-<li>Fixed timer duration showing &quot;11m 60s&quot; instead of &quot;12m 0s&quot;</li>
-<li>Windows: Managed settings now prefer <code>C:\Program Files\ClaudeCode</code> if it exists. Support for <code>C:\ProgramData\ClaudeCode</code> will be removed in a future version.</li>
 </ul>
 ]]></content>
     </entry>

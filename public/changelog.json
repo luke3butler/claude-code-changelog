@@ -1,6 +1,29 @@
 {
-  "updated": "2026-02-13T01:31:15.837Z",
+  "updated": "2026-02-13T06:17:27.472Z",
   "entries": [
+    {
+      "version": "2.1.41",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2141",
+      "publishedAt": "2026-02-13T01:12:41.057Z",
+      "changes": [
+        "Fixed AWS auth refresh hanging indefinitely by adding a 3-minute timeout",
+        "Added `claude auth login`, `claude auth status`, and `claude auth logout` CLI subcommands",
+        "Added Windows ARM64 (win32-arm64) native binary support",
+        "Improved `/rename` to auto-generate session name from conversation context when called without arguments",
+        "Improved narrow terminal layout for prompt footer",
+        "Fixed file resolution failing for @-mentions with anchor fragments (e.g., `@README.md#installation`)",
+        "Fixed FileReadTool blocking the process on FIFOs, `/dev/stdin`, and large files",
+        "Fixed background task notifications not being delivered in streaming Agent SDK mode",
+        "Fixed cursor jumping to end on each keystroke in classifier rule input",
+        "Fixed markdown link display text being dropped for raw URL",
+        "Fixed auto-compact failure error notifications being shown to users",
+        "Fixed permission wait time being included in subagent elapsed time display",
+        "Fixed proactive ticks firing while in plan mode",
+        "Fixed clear stale permission rules when settings change on disk",
+        "Fixed hook blocking errors showing stderr content in UI"
+      ],
+      "changeCount": 15
+    },
     {
       "version": "2.1.39",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2139",
@@ -886,17 +909,6 @@
         "Added --agent CLI flag to override the agent setting for the current session",
         "Added `agent` setting to configure main thread with a specific agent's system prompt, tool restrictions, and model",
         "VS Code: Fixed .claude.json config file being read from incorrect location"
-      ],
-      "changeCount": 3
-    },
-    {
-      "version": "2.0.58",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2058",
-      "publishedAt": "2025-12-03T18:34:25.537Z",
-      "changes": [
-        "Pro users now have access to Opus 4.5 as part of their subscription!",
-        "Fixed timer duration showing \"11m 60s\" instead of \"12m 0s\"",
-        "Windows: Managed settings now prefer `C:\\Program Files\\ClaudeCode` if it exists. Support for `C:\\ProgramData\\ClaudeCode` will be removed in a future version."
       ],
       "changeCount": 3
     }
