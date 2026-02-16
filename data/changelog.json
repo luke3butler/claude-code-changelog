@@ -1,5 +1,15 @@
 [
   {
+    "version": "2.1.44",
+    "content": "- Fixed auth refresh errors",
+    "publishedAt": "2026-02-16T20:51:18.785Z"
+  },
+  {
+    "version": "2.1.43",
+    "content": "- Fixed AWS auth refresh hanging indefinitely by adding a 3-minute timeout\n- Fixed spurious warnings for non-agent markdown files in `.claude/agents/` directory\n- Fixed structured-outputs beta header being sent unconditionally on Vertex/Bedrock",
+    "publishedAt": null
+  },
+  {
     "version": "2.1.42",
     "content": "- Improved startup performance by deferring Zod schema construction\n- Improved prompt cache hit rates by moving date out of system prompt\n- Added one-time Opus 4.6 effort callout for eligible users\n- Fixed /resume showing interrupt messages as session titles\n- Fixed image dimension limit errors to suggest /compact",
     "publishedAt": "2026-02-13T18:56:56.084Z"

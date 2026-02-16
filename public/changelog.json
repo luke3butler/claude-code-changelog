@@ -1,6 +1,24 @@
 {
-  "updated": "2026-02-16T21:04:52.160Z",
+  "updated": "2026-02-16T22:04:02.139Z",
   "entries": [
+    {
+      "version": "2.1.44",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2144",
+      "publishedAt": "2026-02-16T20:51:18.785Z",
+      "changes": ["Fixed auth refresh errors"],
+      "changeCount": 1
+    },
+    {
+      "version": "2.1.43",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2143",
+      "publishedAt": "2026-02-13T18:56:56.084Z",
+      "changes": [
+        "Fixed AWS auth refresh hanging indefinitely by adding a 3-minute timeout",
+        "Fixed spurious warnings for non-agent markdown files in `.claude/agents/` directory",
+        "Fixed structured-outputs beta header being sent unconditionally on Vertex/Bedrock"
+      ],
+      "changeCount": 3
+    },
     {
       "version": "2.1.42",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2142",
@@ -884,29 +902,6 @@
         "Fixed IDE diff tab not closing when rejecting file changes"
       ],
       "changeCount": 7
-    },
-    {
-      "version": "2.0.61",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2061",
-      "publishedAt": "2025-12-07T09:21:37.086Z",
-      "changes": [
-        "Reverted VSCode support for multiple terminal clients due to responsiveness issues."
-      ],
-      "changeCount": 1
-    },
-    {
-      "version": "2.0.60",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2060",
-      "publishedAt": "2025-12-05T21:53:25.502Z",
-      "changes": [
-        "Added background agent support. Agents run in the background while you work",
-        "Added --disable-slash-commands CLI flag to disable all slash commands",
-        "Added model name to \"Co-Authored-By\" commit messages",
-        "Enabled \"/mcp enable [server-name]\" or \"/mcp disable [server-name]\" to quickly toggle all servers",
-        "Updated Fetch to skip summarization for pre-approved websites",
-        "VSCode: Added support for multiple terminal clients connecting to the IDE server simultaneously"
-      ],
-      "changeCount": 6
     }
   ]
 }
