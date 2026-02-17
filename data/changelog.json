@@ -1,7 +1,7 @@
 [
   {
     "version": "2.1.44",
-    "content": "- Fixed auth refresh errors",
+    "content": "- Fixed ENAMETOOLONG errors for deeply-nested directory paths\n- Fixed auth refresh errors",
     "publishedAt": "2026-02-16T20:51:18.785Z"
   },
   {

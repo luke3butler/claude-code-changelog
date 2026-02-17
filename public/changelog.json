@@ -1,12 +1,15 @@
 {
-  "updated": "2026-02-16T22:04:02.139Z",
+  "updated": "2026-02-17T13:26:27.632Z",
   "entries": [
     {
       "version": "2.1.44",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2144",
       "publishedAt": "2026-02-16T20:51:18.785Z",
-      "changes": ["Fixed auth refresh errors"],
-      "changeCount": 1
+      "changes": [
+        "Fixed ENAMETOOLONG errors for deeply-nested directory paths",
+        "Fixed auth refresh errors"
+      ],
+      "changeCount": 2
     },
     {
       "version": "2.1.43",
