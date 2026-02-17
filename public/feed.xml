@@ -2,9 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-17T18:14:35.032Z</updated>
+    <updated>2026-02-17T19:18:39.165Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.45]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2145</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2145"/>
+        <updated>2026-02-17T17:33:48.506Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added support for Claude Sonnet 4.6</li>
+<li>Added support for reading <code>enabledPlugins</code> and <code>extraKnownMarketplaces</code> from <code>--add-dir</code> directories</li>
+<li>Added <code>spinnerTipsOverride</code> setting to customize spinner tips — configure <code>tips</code> with an array of custom tip strings, and optionally set <code>excludeDefault: true</code> to show only your custom tips instead of the built-in ones</li>
+<li>Added <code>SDKRateLimitInfo</code> and <code>SDKRateLimitEvent</code> types to the SDK, enabling consumers to receive rate limit status updates including utilization, reset times, and overage information</li>
+<li>Fixed Agent Teams teammates failing on Bedrock, Vertex, and Foundry by propagating API provider environment variables to tmux-spawned processes (anthropics/claude-code#23561)</li>
+<li>Fixed sandbox &quot;operation not permitted&quot; errors when writing temporary files on macOS by using the correct per-user temp directory (anthropics/claude-code#21654)</li>
+<li>Fixed Task tool (backgrounded agents) crashing with a <code>ReferenceError</code> on completion (anthropics/claude-code#22087)</li>
+<li>Fixed autocomplete suggestions not being accepted on Enter when images are pasted in the input</li>
+<li>Fixed skills invoked by subagents incorrectly appearing in main session context after compaction</li>
+<li>Fixed excessive <code>.claude.json.backup</code> files accumulating on every startup</li>
+<li>Fixed plugin-provided commands, agents, and hooks not being available immediately after installation without requiring a restart</li>
+<li>Improved startup performance by removing eager loading of session history for stats caching</li>
+<li>Improved memory usage for shell commands that produce large output — RSS no longer grows unboundedly with command output size</li>
+<li>Improved collapsed read/search groups to show the current file or search pattern being processed beneath the summary line while active</li>
+<li>[VSCode] Improved permission destination choice (project/user/session) to persist across sessions</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.44]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2144</id>
@@ -949,22 +973,6 @@
 <li>Bedrock: Improve efficiency of token counting</li>
 <li>Bedrock: Add support for <code>aws login</code> AWS Management Console credentials</li>
 <li>Unshipped AgentOutputTool and BashOutputTool, in favor of a new unified TaskOutputTool</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.62]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2062</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2062"/>
-        <updated>2025-12-09T00:21:11.631Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added &quot;(Recommended)&quot; indicator for multiple-choice questions, with the recommended option moved to the top of the list</li>
-<li>Added <code>attribution</code> setting to customize commit and PR bylines (deprecates <code>includeCoAuthoredBy</code>)</li>
-<li>Fixed duplicate slash commands appearing when ~/.claude is symlinked to a project directory</li>
-<li>Fixed slash command selection not working when multiple commands share the same name</li>
-<li>Fixed an issue where skill files inside symlinked skill directories could become circular symlinks</li>
-<li>Fixed running versions getting removed because lock file incorrectly going stale</li>
-<li>Fixed IDE diff tab not closing when rejecting file changes</li>
 </ul>
 ]]></content>
     </entry>

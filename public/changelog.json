@@ -1,6 +1,29 @@
 {
-  "updated": "2026-02-17T18:14:35.036Z",
+  "updated": "2026-02-17T19:18:39.169Z",
   "entries": [
+    {
+      "version": "2.1.45",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2145",
+      "publishedAt": "2026-02-17T17:33:48.506Z",
+      "changes": [
+        "Added support for Claude Sonnet 4.6",
+        "Added support for reading `enabledPlugins` and `extraKnownMarketplaces` from `--add-dir` directories",
+        "Added `spinnerTipsOverride` setting to customize spinner tips — configure `tips` with an array of custom tip strings, and optionally set `excludeDefault: true` to show only your custom tips instead of the built-in ones",
+        "Added `SDKRateLimitInfo` and `SDKRateLimitEvent` types to the SDK, enabling consumers to receive rate limit status updates including utilization, reset times, and overage information",
+        "Fixed Agent Teams teammates failing on Bedrock, Vertex, and Foundry by propagating API provider environment variables to tmux-spawned processes (anthropics/claude-code#23561)",
+        "Fixed sandbox \"operation not permitted\" errors when writing temporary files on macOS by using the correct per-user temp directory (anthropics/claude-code#21654)",
+        "Fixed Task tool (backgrounded agents) crashing with a `ReferenceError` on completion (anthropics/claude-code#22087)",
+        "Fixed autocomplete suggestions not being accepted on Enter when images are pasted in the input",
+        "Fixed skills invoked by subagents incorrectly appearing in main session context after compaction",
+        "Fixed excessive `.claude.json.backup` files accumulating on every startup",
+        "Fixed plugin-provided commands, agents, and hooks not being available immediately after installation without requiring a restart",
+        "Improved startup performance by removing eager loading of session history for stats caching",
+        "Improved memory usage for shell commands that produce large output — RSS no longer grows unboundedly with command output size",
+        "Improved collapsed read/search groups to show the current file or search pattern being processed beneath the summary line while active",
+        "[VSCode] Improved permission destination choice (project/user/session) to persist across sessions"
+      ],
+      "changeCount": 15
+    },
     {
       "version": "2.1.44",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2144",
@@ -890,21 +913,6 @@
         "Unshipped AgentOutputTool and BashOutputTool, in favor of a new unified TaskOutputTool"
       ],
       "changeCount": 14
-    },
-    {
-      "version": "2.0.62",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2062",
-      "publishedAt": "2025-12-09T00:21:11.631Z",
-      "changes": [
-        "Added \"(Recommended)\" indicator for multiple-choice questions, with the recommended option moved to the top of the list",
-        "Added `attribution` setting to customize commit and PR bylines (deprecates `includeCoAuthoredBy`)",
-        "Fixed duplicate slash commands appearing when ~/.claude is symlinked to a project directory",
-        "Fixed slash command selection not working when multiple commands share the same name",
-        "Fixed an issue where skill files inside symlinked skill directories could become circular symlinks",
-        "Fixed running versions getting removed because lock file incorrectly going stale",
-        "Fixed IDE diff tab not closing when rejecting file changes"
-      ],
-      "changeCount": 7
     }
   ]
 }
