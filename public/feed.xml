@@ -2,9 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-19T23:06:20.411Z</updated>
+    <updated>2026-02-20T00:06:52.476Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.49]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2149</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2149"/>
+        <updated>2026-02-19T22:39:45.313Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>--worktree</code> (<code>-w</code>) flag to start Claude in an isolated git worktree</li>
+<li>Subagents support <code>isolation: &quot;worktree&quot;</code> for working in a temporary git worktree</li>
+<li>Added Ctrl+F keybinding to kill background agents (two-press confirmation)</li>
+<li>Agent definitions support <code>background: true</code> to always run as a background task</li>
+<li>Plugins can ship <code>settings.json</code> for default configuration</li>
+<li>Fixed file-not-found errors to suggest corrected paths when the model drops the repo folder</li>
+<li>Fixed Ctrl+C and ESC being silently ignored when background agents are running and the main thread is idle. Pressing twice within 3 seconds now kills all background agents.</li>
+<li>Fixed prompt suggestion cache regression that reduced cache hit rates.</li>
+<li>Fixed <code>plugin enable</code> and <code>plugin disable</code> to auto-detect the correct scope when <code>--scope</code> is not specified, instead of always defaulting to user scope</li>
+<li>Simple mode (<code>CLAUDE_CODE_SIMPLE</code>) now includes the file edit tool in addition to the Bash tool, allowing direct file editing in simple mode.</li>
+<li>Permission suggestions are now populated when safety checks trigger an ask response, enabling SDK consumers to display permission options</li>
+<li>Sonnet 4.5 with 1M context is being removed from the Max plan in favor of our frontier Sonnet 4.6 model, which now has 1M context. Please switch in /model.</li>
+<li>Fixed verbose mode not updating thinking block display when toggled via <code>/config</code> — memo comparators now correctly detect verbose changes</li>
+<li>Fixed unbounded WASM memory growth during long sessions by periodically resetting the tree-sitter parser</li>
+<li>Fixed potential rendering issues caused by stale yoga layout references</li>
+<li>Improved performance in non-interactive mode (<code>-p</code>) by skipping unnecessary API calls during startup</li>
+<li>Improved performance by caching authentication failures for HTTP and SSE MCP servers, avoiding repeated connection attempts to servers requiring auth</li>
+<li>Fixed unbounded memory growth during long-running sessions caused by Yoga WASM linear memory never shrinking</li>
+<li>SDK model info now includes <code>supportsEffort</code>, <code>supportedEffortLevels</code>, and <code>supportsAdaptiveThinking</code> fields so consumers can discover model capabilities.</li>
+<li>Added <code>ConfigChange</code> hook event that fires when configuration files change during a session, enabling enterprise security auditing and optional blocking of settings changes.</li>
+<li>Improved startup performance by caching MCP auth failures to avoid redundant connection attempts</li>
+<li>Improved startup performance by reducing HTTP calls for analytics token counting</li>
+<li>Improved startup performance by batching MCP tool token counting into a single API call</li>
+<li>Fixed <code>disableAllHooks</code> setting to respect managed settings hierarchy — non-managed settings can no longer disable managed hooks set by policy (#26637)</li>
+<li>Fixed <code>--resume</code> session picker showing raw XML tags for sessions that start with commands like <code>/clear</code>. Now correctly falls through to the session ID fallback.</li>
+<li>Improved permission prompts for path safety and working directory blocks to show the reason for the restriction instead of a bare prompt with no context</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.47]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2147</id>
@@ -1003,26 +1038,6 @@
 <li>Fixed Option+Arrow word navigation treating entire CJK (Chinese, Japanese, Korean) text sequences as a single word instead of navigating by word boundaries</li>
 <li>Improved plan mode exit UX: show simplified yes/no dialog when exiting with empty or missing plan instead of throwing an error</li>
 <li>Add support for enterprise managed settings. Contact your Anthropic account team to enable this feature.</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.67]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2067</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2067"/>
-        <updated>2025-12-11T23:56:31.532Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Thinking mode is now enabled by default for Opus 4.5</li>
-<li>Thinking mode configuration has moved to /config</li>
-<li>Added search functionality to <code>/permissions</code> command with <code>/</code> keyboard shortcut for filtering rules by tool name</li>
-<li>Show reason why autoupdater is disabled in <code>/doctor</code></li>
-<li>Fixed false &quot;Another process is currently updating Claude&quot; error when running <code>claude update</code> while another instance is already on the latest version</li>
-<li>Fixed MCP servers from <code>.mcp.json</code> being stuck in pending state when running in non-interactive mode (<code>-p</code> flag or piped input)</li>
-<li>Fixed scroll position resetting after deleting a permission rule in <code>/permissions</code></li>
-<li>Fixed word deletion (opt+delete) and word navigation (opt+arrow) not working correctly with non-Latin text such as Cyrillic, Greek, Arabic, Hebrew, Thai, and Chinese</li>
-<li>Fixed <code>claude install --force</code> not bypassing stale lock files</li>
-<li>Fixed consecutive @~/ file references in CLAUDE.md being incorrectly parsed due to markdown strikethrough interference</li>
-<li>Windows: Fixed plugin MCP servers failing due to colons in log directory paths</li>
 </ul>
 ]]></content>
     </entry>
