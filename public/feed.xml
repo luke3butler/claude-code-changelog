@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-24T07:19:40.433Z</updated>
+    <updated>2026-02-24T19:20:52.601Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -31,6 +31,7 @@
 <li>Added <code>CLAUDE_CODE_ACCOUNT_UUID</code>, <code>CLAUDE_CODE_USER_EMAIL</code>, and <code>CLAUDE_CODE_ORGANIZATION_UUID</code> environment variables for SDK callers to provide account info synchronously, eliminating a race condition where early telemetry events lacked account metadata.</li>
 <li>Fixed slash command autocomplete crashing when a plugin&#39;s SKILL.md description is a YAML array or other non-string type</li>
 <li>The <code>/model</code> picker now shows human-readable labels (e.g., &quot;Sonnet 4.5&quot;) instead of raw model IDs for pinned model versions, with an upgrade hint when a newer version is available.</li>
+<li>Managed settings can now be set via macOS plist or Windows Registry. Learn more at <a href="https://code.claude.com/docs/en/settings#settings-files">https://code.claude.com/docs/en/settings#settings-files</a></li>
 </ul>
 ]]></content>
     </entry>
