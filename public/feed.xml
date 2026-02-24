@@ -2,9 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-24T00:07:22.558Z</updated>
+    <updated>2026-02-24T02:56:13.190Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.51]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2151</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2151"/>
+        <updated>2026-02-23T23:44:09.342Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>claude remote-control</code> subcommand for external builds, enabling local environment serving for all users.</li>
+<li>Updated plugin marketplace default git timeout from 30s to 120s and added <code>CLAUDE_CODE_PLUGIN_GIT_TIMEOUT_MS</code> to configure.</li>
+<li>Added support for custom npm registries and specific version pinning when installing plugins from npm sources</li>
+<li>BashTool now skips login shell (<code>-l</code> flag) by default when a shell snapshot is available, improving command execution performance. Previously this required setting <code>CLAUDE_BASH_NO_LOGIN=true</code>.</li>
+<li>Fixed a security issue where <code>statusLine</code> and <code>fileSuggestion</code> hook commands could execute without workspace trust acceptance in interactive mode.</li>
+<li>Tool results larger than 50K characters are now persisted to disk (previously 100K). This reduces context window usage and improves conversation longevity.</li>
+<li>Fixed a bug where duplicate <code>control_response</code> messages (e.g. from WebSocket reconnects) could cause API 400 errors by pushing duplicate assistant messages into the conversation.</li>
+<li>Added <code>CLAUDE_CODE_ACCOUNT_UUID</code>, <code>CLAUDE_CODE_USER_EMAIL</code>, and <code>CLAUDE_CODE_ORGANIZATION_UUID</code> environment variables for SDK callers to provide account info synchronously, eliminating a race condition where early telemetry events lacked account metadata.</li>
+<li>Fixed slash command autocomplete crashing when a plugin&#39;s SKILL.md description is a YAML array or other non-string type</li>
+<li>The <code>/model</code> picker now shows human-readable labels (e.g., &quot;Sonnet 4.5&quot;) instead of raw model IDs for pinned model versions, with an upgrade hint when a newer version is available.</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.50]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2150</id>
@@ -1048,16 +1067,6 @@
 <li>Removed # shortcut for quick memory entry (tell Claude to edit your CLAUDE.md instead)</li>
 <li>Fix thinking mode toggle in /config not persisting correctly</li>
 <li>Improve UI for file creation permission dialog</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.69]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2069</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2069"/>
-        <updated>2025-12-13T00:32:30.208Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Minor bugfixes</li>
 </ul>
 ]]></content>
     </entry>
