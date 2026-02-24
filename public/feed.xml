@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-24T06:17:26.685Z</updated>
+    <updated>2026-02-24T07:19:40.433Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.52]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2152</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2152"/>
+        <updated>2026-02-24T06:00:40.801Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>VS Code: Fixed extension crash on Windows (&quot;command &#39;claude-vscode.editor.openLast&#39; not found&quot;)</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.51]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2151</id>
@@ -1046,27 +1056,6 @@
 <li>Fixed permission rules incorrectly rejecting valid bash commands containing shell glob patterns (e.g., <code>ls *.txt</code>, <code>for f in *.png</code>)</li>
 <li>Bedrock: Environment variable <code>ANTHROPIC_BEDROCK_BASE_URL</code> is now respected for token counting and inference profile listing</li>
 <li>New syntax highlighting engine for native build</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.70]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2070</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2070"/>
-        <updated>2025-12-15T22:38:58.864Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added Enter key to accept and submit prompt suggestions immediately (tab still accepts for editing)</li>
-<li>Added wildcard syntax <code>mcp__server__*</code> for MCP tool permissions to allow or deny all tools from a server</li>
-<li>Added auto-update toggle for plugin marketplaces, allowing per-marketplace control over automatic updates</li>
-<li>Added <code>current_usage</code> field to status line input, enabling accurate context window percentage calculations</li>
-<li>Fixed input being cleared when processing queued commands while the user was typing</li>
-<li>Fixed prompt suggestions replacing typed input when pressing Tab</li>
-<li>Fixed diff view not updating when terminal is resized</li>
-<li>Improved memory usage by 3x for large conversations</li>
-<li>Improved resolution of stats screenshots copied to clipboard (Ctrl+S) for crisper images</li>
-<li>Removed # shortcut for quick memory entry (tell Claude to edit your CLAUDE.md instead)</li>
-<li>Fix thinking mode toggle in /config not persisting correctly</li>
-<li>Improve UI for file creation permission dialog</li>
 </ul>
 ]]></content>
     </entry>
