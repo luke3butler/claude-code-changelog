@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-25T02:56:57.995Z</updated>
+    <updated>2026-02-25T03:50:18.608Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.55]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2155</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2155"/>
+        <updated>2026-02-25T02:42:12.579Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed BashTool failing on Windows with EINVAL error</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.53]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2153</id>
@@ -1039,25 +1049,6 @@
 <li>Improved theme picker UI</li>
 <li>Improved search UX across resume session, permissions, and plugins screens with a unified SearchBox component</li>
 <li>[VSCode] Added tab icon badges showing pending permissions (blue) and unread completions (orange)</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.72]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2072</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2072"/>
-        <updated>2025-12-17T21:21:00.969Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added Claude in Chrome (Beta) feature that works with the Chrome extension (<a href="https://claude.ai/chrome">https://claude.ai/chrome</a>) to let you control your browser directly from Claude Code</li>
-<li>Reduced terminal flickering</li>
-<li>Added scannable QR code to mobile app tip for quick app downloads</li>
-<li>Added loading indicator when resuming conversations for better feedback</li>
-<li>Fixed <code>/context</code> command not respecting custom system prompts in non-interactive mode</li>
-<li>Fixed order of consecutive Ctrl+K lines when pasting with Ctrl+Y</li>
-<li>Improved @ mention file suggestion speed (~3× faster in git repositories)</li>
-<li>Improved file suggestion performance in repos with <code>.ignore</code> or <code>.rgignore</code> files</li>
-<li>Improved settings validation errors to be more prominent</li>
-<li>Changed thinking toggle from Tab to Alt+T to avoid accidental triggers</li>
 </ul>
 ]]></content>
     </entry>

@@ -1,6 +1,13 @@
 {
-  "updated": "2026-02-25T02:56:57.999Z",
+  "updated": "2026-02-25T03:50:18.612Z",
   "entries": [
+    {
+      "version": "2.1.55",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2155",
+      "publishedAt": "2026-02-25T02:42:12.579Z",
+      "changes": ["Fixed BashTool failing on Windows with EINVAL error"],
+      "changeCount": 1
+    },
     {
       "version": "2.1.53",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2153",
@@ -982,24 +989,6 @@
         "[VSCode] Added tab icon badges showing pending permissions (blue) and unread completions (orange)"
       ],
       "changeCount": 9
-    },
-    {
-      "version": "2.0.72",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2072",
-      "publishedAt": "2025-12-17T21:21:00.969Z",
-      "changes": [
-        "Added Claude in Chrome (Beta) feature that works with the Chrome extension (https://claude.ai/chrome) to let you control your browser directly from Claude Code",
-        "Reduced terminal flickering",
-        "Added scannable QR code to mobile app tip for quick app downloads",
-        "Added loading indicator when resuming conversations for better feedback",
-        "Fixed `/context` command not respecting custom system prompts in non-interactive mode",
-        "Fixed order of consecutive Ctrl+K lines when pasting with Ctrl+Y",
-        "Improved @ mention file suggestion speed (~3× faster in git repositories)",
-        "Improved file suggestion performance in repos with `.ignore` or `.rgignore` files",
-        "Improved settings validation errors to be more prominent",
-        "Changed thinking toggle from Tab to Alt+T to avoid accidental triggers"
-      ],
-      "changeCount": 10
     }
   ]
 }

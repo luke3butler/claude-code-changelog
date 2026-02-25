@@ -1,5 +1,10 @@
 [
   {
+    "version": "2.1.55",
+    "content": "- Fixed BashTool failing on Windows with EINVAL error",
+    "publishedAt": "2026-02-25T02:42:12.579Z"
+  },
+  {
     "version": "2.1.53",
     "content": "- Fixed a UI flicker where user input would briefly disappear after submission before the message rendered\n- Fixed bulk agent kill (ctrl+f) to send a single aggregate notification instead of one per agent, and to properly clear the command queue\n- Fixed graceful shutdown sometimes leaving stale sessions when using Remote Control by parallelizing teardown network calls\n- Fixed `--worktree` sometimes being ignored on first launch\n- Fixed a panic (\"switch on corrupted value\") on Windows\n- Fixed a crash that could occur when spawning many processes on Windows\n- Fixed a crash in the WebAssembly interpreter on Linux x64 & Windows x64\n- Fixed a crash that sometimes occurred after 2 minutes on Windows ARM64",
     "publishedAt": "2026-02-24T22:44:13.059Z"
