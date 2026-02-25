@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-25T07:19:54.214Z</updated>
+    <updated>2026-02-25T20:07:24.041Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.58]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2158</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2158"/>
+        <updated>2026-02-25T19:22:07.859Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Expand Remote Control to more users</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.56]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2156</id>
@@ -1019,28 +1029,6 @@
         <updated>2025-12-20T17:19:09.800Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Minor bugfixes</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.74]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2074</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2074"/>
-        <updated>2025-12-19T21:08:38.116Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added LSP (Language Server Protocol) tool for code intelligence features like go-to-definition, find references, and hover documentation</li>
-<li>Added <code>/terminal-setup</code> support for Kitty, Alacritty, Zed, and Warp terminals</li>
-<li>Added ctrl+t shortcut in <code>/theme</code> to toggle syntax highlighting on/off</li>
-<li>Added syntax highlighting info to theme picker</li>
-<li>Added guidance for macOS users when Alt shortcuts fail due to terminal configuration</li>
-<li>Fixed skill <code>allowed-tools</code> not being applied to tools invoked by the skill</li>
-<li>Fixed Opus 4.5 tip incorrectly showing when user was already using Opus</li>
-<li>Fixed a potential crash when syntax highlighting isn&#39;t initialized correctly</li>
-<li>Fixed visual bug in <code>/plugins discover</code> where list selection indicator showed while search box was focused</li>
-<li>Fixed macOS keyboard shortcuts to display &#39;opt&#39; instead of &#39;alt&#39;</li>
-<li>Improved <code>/context</code> command visualization with grouped skills and agents by source, slash commands, and sorted token count</li>
-<li>[Windows] Fixed issue with improper rendering</li>
-<li>[VSCode] Added gift tag pictogram for year-end promotion message</li>
 </ul>
 ]]></content>
     </entry>

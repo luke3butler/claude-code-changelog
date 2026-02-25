@@ -1,5 +1,10 @@
 [
   {
+    "version": "2.1.58",
+    "content": "- Expand Remote Control to more users",
+    "publishedAt": "2026-02-25T19:22:07.859Z"
+  },
+  {
     "version": "2.1.56",
     "content": "- VS Code: Fixed another cause of \"command 'claude-vscode.editor.openLast' not found\" crashes",
     "publishedAt": "2026-02-25T05:55:32.621Z"
