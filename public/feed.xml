@@ -2,9 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-24T23:06:21.875Z</updated>
+    <updated>2026-02-25T01:31:02.784Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.53]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2153</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2153"/>
+        <updated>2026-02-24T22:44:13.059Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed a UI flicker where user input would briefly disappear after submission before the message rendered</li>
+<li>Fixed bulk agent kill (ctrl+f) to send a single aggregate notification instead of one per agent, and to properly clear the command queue</li>
+<li>Fixed graceful shutdown sometimes leaving stale sessions when using Remote Control by parallelizing teardown network calls</li>
+<li>Fixed <code>--worktree</code> sometimes being ignored on first launch</li>
+<li>Fixed a panic (&quot;switch on corrupted value&quot;) on Windows</li>
+<li>Fixed a crash that could occur when spawning many processes on Windows</li>
+<li>Fixed a crash in the WebAssembly interpreter on Linux x64 &amp; Windows x64</li>
+<li>Fixed a crash that sometimes occurred after 2 minutes on Windows ARM64</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.52]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2152</id>
@@ -1041,22 +1058,6 @@
 <li>Improved file suggestion performance in repos with <code>.ignore</code> or <code>.rgignore</code> files</li>
 <li>Improved settings validation errors to be more prominent</li>
 <li>Changed thinking toggle from Tab to Alt+T to avoid accidental triggers</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.0.71]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2071</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2071"/>
-        <updated>2025-12-16T21:30:39.801Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added /config toggle to enable/disable prompt suggestions</li>
-<li>Added <code>/settings</code> as an alias for the <code>/config</code> command</li>
-<li>Fixed @ file reference suggestions incorrectly triggering when cursor is in the middle of a path</li>
-<li>Fixed MCP servers from <code>.mcp.json</code> not loading when using <code>--dangerously-skip-permissions</code></li>
-<li>Fixed permission rules incorrectly rejecting valid bash commands containing shell glob patterns (e.g., <code>ls *.txt</code>, <code>for f in *.png</code>)</li>
-<li>Bedrock: Environment variable <code>ANTHROPIC_BEDROCK_BASE_URL</code> is now respected for token counting and inference profile listing</li>
-<li>New syntax highlighting engine for native build</li>
 </ul>
 ]]></content>
     </entry>

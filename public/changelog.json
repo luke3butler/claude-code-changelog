@@ -1,6 +1,22 @@
 {
-  "updated": "2026-02-24T23:06:21.879Z",
+  "updated": "2026-02-25T01:31:02.788Z",
   "entries": [
+    {
+      "version": "2.1.53",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2153",
+      "publishedAt": "2026-02-24T22:44:13.059Z",
+      "changes": [
+        "Fixed a UI flicker where user input would briefly disappear after submission before the message rendered",
+        "Fixed bulk agent kill (ctrl+f) to send a single aggregate notification instead of one per agent, and to properly clear the command queue",
+        "Fixed graceful shutdown sometimes leaving stale sessions when using Remote Control by parallelizing teardown network calls",
+        "Fixed `--worktree` sometimes being ignored on first launch",
+        "Fixed a panic (\"switch on corrupted value\") on Windows",
+        "Fixed a crash that could occur when spawning many processes on Windows",
+        "Fixed a crash in the WebAssembly interpreter on Linux x64 & Windows x64",
+        "Fixed a crash that sometimes occurred after 2 minutes on Windows ARM64"
+      ],
+      "changeCount": 8
+    },
     {
       "version": "2.1.52",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2152",
@@ -984,21 +1000,6 @@
         "Changed thinking toggle from Tab to Alt+T to avoid accidental triggers"
       ],
       "changeCount": 10
-    },
-    {
-      "version": "2.0.71",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2071",
-      "publishedAt": "2025-12-16T21:30:39.801Z",
-      "changes": [
-        "Added /config toggle to enable/disable prompt suggestions",
-        "Added `/settings` as an alias for the `/config` command",
-        "Fixed @ file reference suggestions incorrectly triggering when cursor is in the middle of a path",
-        "Fixed MCP servers from `.mcp.json` not loading when using `--dangerously-skip-permissions`",
-        "Fixed permission rules incorrectly rejecting valid bash commands containing shell glob patterns (e.g., `ls *.txt`, `for f in *.png`)",
-        "Bedrock: Environment variable `ANTHROPIC_BEDROCK_BASE_URL` is now respected for token counting and inference profile listing",
-        "New syntax highlighting engine for native build"
-      ],
-      "changeCount": 7
     }
   ]
 }
