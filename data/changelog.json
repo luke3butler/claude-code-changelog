@@ -1,5 +1,10 @@
 [
   {
+    "version": "2.1.56",
+    "content": "- VS Code: Fixed another cause of \"command 'claude-vscode.editor.openLast' not found\" crashes",
+    "publishedAt": "2026-02-25T05:55:32.621Z"
+  },
+  {
     "version": "2.1.55",
     "content": "- Fixed BashTool failing on Windows with EINVAL error",
     "publishedAt": "2026-02-25T02:42:12.579Z"
