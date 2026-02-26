@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-26T01:30:47.139Z</updated>
+    <updated>2026-02-26T04:32:33.510Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -18,6 +18,7 @@
 <li>Improved memory usage in multi-agent sessions by releasing completed subagent task state</li>
 <li>Fixed MCP OAuth token refresh race condition when running multiple Claude Code instances simultaneously</li>
 <li>Fixed shell commands not showing a clear error message when the working directory has been deleted</li>
+<li>Fixed config file corruption that could wipe authentication when multiple Claude Code instances ran simultaneously</li>
 </ul>
 ]]></content>
     </entry>

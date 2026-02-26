@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-26T01:30:47.143Z",
+  "updated": "2026-02-26T04:32:33.514Z",
   "entries": [
     {
       "version": "2.1.59",
@@ -12,9 +12,10 @@
         "Improved ordering of short task lists",
         "Improved memory usage in multi-agent sessions by releasing completed subagent task state",
         "Fixed MCP OAuth token refresh race condition when running multiple Claude Code instances simultaneously",
-        "Fixed shell commands not showing a clear error message when the working directory has been deleted"
+        "Fixed shell commands not showing a clear error message when the working directory has been deleted",
+        "Fixed config file corruption that could wipe authentication when multiple Claude Code instances ran simultaneously"
       ],
-      "changeCount": 7
+      "changeCount": 8
     },
     {
       "version": "2.1.58",
