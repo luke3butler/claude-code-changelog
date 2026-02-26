@@ -1,6 +1,13 @@
 {
-  "updated": "2026-02-26T22:04:34.585Z",
+  "updated": "2026-02-26T23:06:21.452Z",
   "entries": [
+    {
+      "version": "2.1.61",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2161",
+      "publishedAt": "2026-02-26T21:40:54.613Z",
+      "changes": ["Fixed concurrent writes corrupting config file on Windows"],
+      "changeCount": 1
+    },
     {
       "version": "2.1.59",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2159",
@@ -967,15 +974,6 @@
         "[Windows] Fixed issue with improper rendering"
       ],
       "changeCount": 109
-    },
-    {
-      "version": "2.0.76",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2076",
-      "publishedAt": "2025-12-22T23:56:39.366Z",
-      "changes": [
-        "Fixed issue with macOS code-sign warning when using Claude in Chrome integration"
-      ],
-      "changeCount": 1
     }
   ]
 }
