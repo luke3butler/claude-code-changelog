@@ -1,5 +1,10 @@
 [
   {
+    "version": "2.1.62",
+    "content": "- Fixed prompt suggestion cache regression that reduced cache hit rates",
+    "publishedAt": "2026-02-27T01:24:31.775Z"
+  },
+  {
     "version": "2.1.61",
     "content": "- Fixed concurrent writes corrupting config file on Windows",
     "publishedAt": "2026-02-26T21:40:54.613Z"
