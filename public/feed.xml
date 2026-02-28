@@ -2,9 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-02-28T02:44:10.830Z</updated>
+    <updated>2026-02-28T04:23:29.289Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.63]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2163</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2163"/>
+        <updated>2026-02-28T02:43:42.865Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>/simplify</code> and <code>/batch</code> bundled slash commands</li>
+<li>Fixed local slash command output like /cost appearing as user-sent messages instead of system messages in the UI</li>
+<li>Project configs &amp; auto memory now shared across git worktrees of the same repository</li>
+<li>Added <code>ENABLE_CLAUDEAI_MCP_SERVERS=false</code> env var to opt out from making claude.ai MCP servers available</li>
+<li>Improved <code>/model</code> command to show the currently active model in the slash command menu</li>
+<li>Added HTTP hooks, which can POST JSON to a URL and receive JSON instead of running a shell command</li>
+<li>Fixed listener leak in bridge polling loop</li>
+<li>Fixed listener leak in MCP OAuth flow cleanup</li>
+<li>Added manual URL paste fallback during MCP OAuth authentication. If the automatic localhost redirect doesn&#39;t work, you can paste the callback URL to complete authentication.</li>
+<li>Fixed memory leak when navigating hooks configuration menu</li>
+<li>Fixed listener leak in interactive permission handler during auto-approvals</li>
+<li>Fixed file count cache ignoring glob ignore patterns</li>
+<li>Fixed memory leak in bash command prefix cache</li>
+<li>Fixed MCP tool/resource cache leak on server reconnect</li>
+<li>Fixed IDE host IP detection cache incorrectly sharing results across ports</li>
+<li>Fixed WebSocket listener leak on transport reconnect</li>
+<li>Fixed memory leak in git root detection cache that could cause unbounded growth in long-running sessions</li>
+<li>Fixed memory leak in JSON parsing cache that grew unbounded over long sessions</li>
+<li>VSCode: Fixed remote sessions not appearing in conversation history</li>
+<li>Fixed a race condition in the REPL bridge where new messages could arrive at the server interleaved with historical messages during the initial connection flush, causing message ordering issues.</li>
+<li>Fixed memory leak where long-running teammates retained all messages in AppState even after conversation compaction</li>
+<li>Fixed a memory leak where MCP server fetch caches were not cleared on disconnect, causing growing memory usage with servers that reconnect frequently</li>
+<li>Improved memory usage in long sessions with subagents by stripping heavy progress message payloads during context compaction</li>
+<li>Added &quot;Always copy full response&quot; option to the <code>/copy</code> picker. When selected, future <code>/copy</code> commands will skip the code block picker and copy the full response directly.</li>
+<li>VSCode: Added session rename and remove actions to the sessions list</li>
+<li>Fixed <code>/clear</code> not resetting cached skills, which could cause stale skill content to persist in the new conversation</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.62]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2162</id>
@@ -897,37 +932,6 @@
 <li>Improved slash command suggestion readability by truncating long descriptions to 2 lines</li>
 <li>Changed tool hook execution timeout from 60 seconds to 10 minutes</li>
 <li>[VSCode] Added clickable destination selector for permission requests, allowing you to choose where settings are saved (this project, all projects, shared with team, or session only)</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.2]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#212</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#212"/>
-        <updated>2026-01-08T21:19:38.381Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added source path metadata to images dragged onto the terminal, helping Claude understand where images originated</li>
-<li>Added clickable hyperlinks for file paths in tool output in terminals that support OSC 8 (like iTerm)</li>
-<li>Added support for Windows Package Manager (winget) installations with automatic detection and update instructions</li>
-<li>Added Shift+Tab keyboard shortcut in plan mode to quickly select &quot;auto-accept edits&quot; option</li>
-<li>Added <code>FORCE_AUTOUPDATE_PLUGINS</code> environment variable to allow plugin autoupdate even when the main auto-updater is disabled</li>
-<li>Added <code>agent_type</code> to SessionStart hook input, populated if <code>--agent</code> is specified</li>
-<li>Fixed a command injection vulnerability in bash command processing where malformed input could execute arbitrary commands</li>
-<li>Fixed a memory leak where tree-sitter parse trees were not being freed, causing WASM memory to grow unbounded over long sessions</li>
-<li>Fixed binary files (images, PDFs, etc.) being accidentally included in memory when using <code>@include</code> directives in CLAUDE.md files</li>
-<li>Fixed updates incorrectly claiming another installation is in progress</li>
-<li>Fixed crash when socket files exist in watched directories (defense-in-depth for EOPNOTSUPP errors)</li>
-<li>Fixed remote session URL and teleport being broken when using <code>/tasks</code> command</li>
-<li>Fixed MCP tool names being exposed in analytics events by sanitizing user-specific server configurations</li>
-<li>Improved Option-as-Meta hint on macOS to show terminal-specific instructions for native CSIu terminals like iTerm2, Kitty, and WezTerm</li>
-<li>Improved error message when pasting images over SSH to suggest using <code>scp</code> instead of the unhelpful clipboard shortcut hint</li>
-<li>Improved permission explainer to not flag routine dev workflows (git fetch/rebase, npm install, tests, PRs) as medium risk</li>
-<li>Changed large bash command outputs to be saved to disk instead of truncated, allowing Claude to read the full content</li>
-<li>Changed large tool outputs to be persisted to disk instead of truncated, providing full output access via file references</li>
-<li>Changed <code>/plugins</code> installed tab to unify plugins and MCPs with scope-based grouping</li>
-<li>Deprecated Windows managed settings path <code>C:\ProgramData\ClaudeCode\managed-settings.json</code> - administrators should migrate to <code>C:\Program Files\ClaudeCode\managed-settings.json</code></li>
-<li>[SDK] Changed minimum zod peer dependency to ^4.0.0</li>
-<li>[VSCode] Fixed usage display not updating after manual compact</li>
 </ul>
 ]]></content>
     </entry>
