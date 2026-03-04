@@ -1,6 +1,17 @@
 {
-  "updated": "2026-03-04T10:08:19.091Z",
+  "updated": "2026-03-04T11:07:40.671Z",
   "entries": [
+    {
+      "version": "2.1.68",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2168",
+      "publishedAt": "2026-03-04T09:20:53.882Z",
+      "changes": [
+        "Opus 4.6 now defaults to medium effort for Max and Team subscribers. Medium effort works well for most tasks — it's the sweet spot between speed and thoroughness. You can change this anytime with `/model`",
+        "Re-introduced the \"ultrathink\" keyword to enable high effort for the next turn",
+        "Removed Opus 4 and 4.1 from Claude Code on the first-party API — users with these models pinned are automatically moved to Opus 4.6"
+      ],
+      "changeCount": 3
+    },
     {
       "version": "2.1.66",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2166",
@@ -846,16 +857,6 @@
         "Added `CLAUDE_CODE_TMPDIR` environment variable to override the temp directory used for internal temp files, useful for environments with custom temp directory requirements"
       ],
       "changeCount": 1
-    },
-    {
-      "version": "2.1.4",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#214",
-      "publishedAt": "2026-01-10T22:23:31.653Z",
-      "changes": [
-        "Added `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` environment variable to disable all background task functionality including auto-backgrounding and the Ctrl+B shortcut",
-        "Fixed \"Help improve Claude\" setting fetch to refresh OAuth and retry when it fails due to a stale OAuth token"
-      ],
-      "changeCount": 2
     }
   ]
 }

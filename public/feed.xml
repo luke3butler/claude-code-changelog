@@ -2,9 +2,21 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-03-04T10:08:19.086Z</updated>
+    <updated>2026-03-04T11:07:40.667Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.68]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2168</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2168"/>
+        <updated>2026-03-04T09:20:53.882Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Opus 4.6 now defaults to medium effort for Max and Team subscribers. Medium effort works well for most tasks — it&#39;s the sweet spot between speed and thoroughness. You can change this anytime with <code>/model</code></li>
+<li>Re-introduced the &quot;ultrathink&quot; keyword to enable high effort for the next turn</li>
+<li>Removed Opus 4 and 4.1 from Claude Code on the first-party API — users with these models pinned are automatically moved to Opus 4.6</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.66]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2166</id>
@@ -909,17 +921,6 @@
         <updated>2026-01-11T21:30:08.609Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Added <code>CLAUDE_CODE_TMPDIR</code> environment variable to override the temp directory used for internal temp files, useful for environments with custom temp directory requirements</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.4]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#214</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#214"/>
-        <updated>2026-01-10T22:23:31.653Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>CLAUDE_CODE_DISABLE_BACKGROUND_TASKS</code> environment variable to disable all background task functionality including auto-backgrounding and the Ctrl+B shortcut</li>
-<li>Fixed &quot;Help improve Claude&quot; setting fetch to refresh OAuth and retry when it fails due to a stale OAuth token</li>
 </ul>
 ]]></content>
     </entry>
