@@ -2,9 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-03-11T18:13:07.093Z</updated>
+    <updated>2026-03-11T19:15:23.771Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.73]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2173</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2173"/>
+        <updated>2026-03-11T17:39:34.332Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>modelOverrides</code> setting to map model picker entries to custom provider model IDs (e.g. Bedrock inference profile ARNs)</li>
+<li>Added actionable guidance when OAuth login or connectivity checks fail due to SSL certificate errors (corporate proxies, <code>NODE_EXTRA_CA_CERTS</code>)</li>
+<li>Fixed freezes and 100% CPU loops triggered by permission prompts for complex bash commands</li>
+<li>Fixed a deadlock that could freeze Claude Code when many skill files changed at once (e.g. during <code>git pull</code> in a repo with a large <code>.claude/skills/</code> directory)</li>
+<li>Fixed Bash tool output being lost when running multiple Claude Code sessions in the same project directory</li>
+<li>Fixed subagents with <code>model: opus</code>/<code>sonnet</code>/<code>haiku</code> being silently downgraded to older model versions on Bedrock, Vertex, and Microsoft Foundry</li>
+<li>Fixed background bash processes spawned by subagents not being cleaned up when the agent exits</li>
+<li>Fixed <code>/resume</code> showing the current session in the picker</li>
+<li>Fixed <code>/ide</code> crashing with <code>onInstall is not defined</code> when auto-installing the extension</li>
+<li>Fixed <code>/loop</code> not being available on Bedrock/Vertex/Foundry and when telemetry was disabled</li>
+<li>Fixed SessionStart hooks firing twice when resuming a session via <code>--resume</code> or <code>--continue</code></li>
+<li>Fixed JSON-output hooks injecting no-op system-reminder messages into the model&#39;s context on every turn</li>
+<li>Fixed voice mode session corruption when a slow connection overlaps a new recording</li>
+<li>Fixed Linux sandbox failing to start with &quot;ripgrep (rg) not found&quot; on native builds</li>
+<li>Fixed Linux native modules not loading on Amazon Linux 2 and other glibc 2.26 systems</li>
+<li>Fixed &quot;media_type: Field required&quot; API error when receiving images via Remote Control</li>
+<li>Fixed <code>/heapdump</code> failing on Windows with <code>EEXIST</code> error when the Desktop folder already exists</li>
+<li>Improved Up arrow after interrupting Claude — now restores the interrupted prompt and rewinds the conversation in one step</li>
+<li>Improved IDE detection speed at startup</li>
+<li>Improved clipboard image pasting performance on macOS</li>
+<li>Improved <code>/effort</code> to work while Claude is responding, matching <code>/model</code> behavior</li>
+<li>Improved voice mode to automatically retry transient connection failures during rapid push-to-talk re-press</li>
+<li>Improved the Remote Control spawn mode selection prompt with better context</li>
+<li>Changed default Opus model on Bedrock, Vertex, and Microsoft Foundry to Opus 4.6 (was Opus 4.1)</li>
+<li>Deprecated <code>/output-style</code> command — use <code>/config</code> instead. Output style is now fixed at session start for better prompt caching</li>
+<li>VSCode: Fixed HTTP 400 errors for users behind proxies or on Bedrock/Vertex with Claude 4.5 models</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.72]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2172</id>
@@ -1066,22 +1101,6 @@
         <updated>2026-01-17T01:19:37.165Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Fixed excessive MCP connection requests for HTTP/SSE transports</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.10]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2110</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2110"/>
-        <updated>2026-01-17T00:11:29.352Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added new <code>Setup</code> hook event that can be triggered via <code>--init</code>, <code>--init-only</code>, or <code>--maintenance</code> CLI flags for repository setup and maintenance operations</li>
-<li>Added keyboard shortcut &#39;c&#39; to copy OAuth URL when browser doesn&#39;t open automatically during login</li>
-<li>Fixed a crash when running bash commands containing heredocs with JavaScript template literals like <code>${index + 1}</code></li>
-<li>Improved startup to capture keystrokes typed before the REPL is fully ready</li>
-<li>Improved file suggestions to show as removable attachments instead of inserting text when accepted</li>
-<li>[VSCode] Added install count display to plugin listings</li>
-<li>[VSCode] Added trust warning when installing plugins</li>
 </ul>
 ]]></content>
     </entry>
