@@ -2,9 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-03-12T00:06:09.893Z</updated>
+    <updated>2026-03-12T01:30:38.034Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.74]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2174</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2174"/>
+        <updated>2026-03-11T23:31:27.307Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added actionable suggestions to <code>/context</code> command — identifies context-heavy tools, memory bloat, and capacity warnings with specific optimization tips</li>
+<li>Added <code>autoMemoryDirectory</code> setting to configure a custom directory for auto-memory storage</li>
+<li>Fixed memory leak where streaming API response buffers were not released when the generator was terminated early, causing unbounded RSS growth on the Node.js/npm code path</li>
+<li>Fixed managed policy <code>ask</code> rules being bypassed by user <code>allow</code> rules or skill <code>allowed-tools</code></li>
+<li>Fixed full model IDs (e.g., <code>claude-opus-4-5</code>) being silently ignored in agent frontmatter <code>model:</code> field and <code>--agents</code> JSON config — agents now accept the same model values as <code>--model</code></li>
+<li>Fixed MCP OAuth authentication hanging when the callback port is already in use</li>
+<li>Fixed MCP OAuth refresh never prompting for re-auth after the refresh token expires, for OAuth servers that return errors with HTTP 200 (e.g. Slack)</li>
+<li>Fixed voice mode silently failing on the macOS native binary for users whose terminal had never been granted microphone permission — the binary now includes the <code>audio-input</code> entitlement so macOS prompts correctly</li>
+<li>Fixed <code>SessionEnd</code> hooks being killed after 1.5 s on exit regardless of <code>hook.timeout</code> — now configurable via <code>CLAUDE_CODE_SESSIONEND_HOOKS_TIMEOUT_MS</code></li>
+<li>Fixed <code>/plugin install</code> failing inside the REPL for marketplace plugins with local sources</li>
+<li>Fixed marketplace update not syncing git submodules — plugin sources in submodules no longer break after update</li>
+<li>Fixed unknown slash commands with arguments silently dropping input — now shows your input as a warning</li>
+<li>Fixed Hebrew, Arabic, and other RTL text not rendering correctly in Windows Terminal, conhost, and VS Code integrated terminal</li>
+<li>Fixed LSP servers not working on Windows due to malformed file URIs</li>
+<li>Changed <code>--plugin-dir</code> so local dev copies now override installed marketplace plugins with the same name (unless that plugin is force-enabled by managed settings)</li>
+<li>[VSCode] Fixed delete button not working for Untitled sessions</li>
+<li>[VSCode] Improved scroll wheel responsiveness in the integrated terminal with terminal-aware acceleration</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.73]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2173</id>
@@ -1091,16 +1117,6 @@
         <updated>2026-01-17T15:40:35.547Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Fixed message rendering bug</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.11]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2111</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2111"/>
-        <updated>2026-01-17T01:19:37.165Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed excessive MCP connection requests for HTTP/SSE transports</li>
 </ul>
 ]]></content>
     </entry>
