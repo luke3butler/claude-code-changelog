@@ -2,9 +2,37 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-03-13T16:08:03.298Z</updated>
+    <updated>2026-03-13T18:07:11.225Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.75]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2175</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2175"/>
+        <updated>2026-03-13T15:51:07.443Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added 1M context window for Opus 4.6 by default for Max, Team, and Enterprise plans (previously required extra usage)</li>
+<li>Added <code>/color</code> command for all users to set a prompt-bar color for your session</li>
+<li>Added session name display on the prompt bar when using <code>/rename</code></li>
+<li>Added last-modified timestamps to memory files, helping Claude reason about which memories are fresh vs. stale</li>
+<li>Added hook source display (settings/plugin/skill) in permission prompts when a hook requires confirmation</li>
+<li>Fixed voice mode not activating correctly on fresh installs without toggling <code>/voice</code> twice</li>
+<li>Fixed the Claude Code header not updating the displayed model name after switching models with <code>/model</code> or Option+P</li>
+<li>Fixed session crash when an attachment message computation returns undefined values</li>
+<li>Fixed Bash tool mangling <code>!</code> in piped commands (e.g., <code>jq &#39;select(.x != .y)&#39;</code> now works correctly)</li>
+<li>Fixed managed-disabled plugins showing up in the <code>/plugin</code> Installed tab — plugins force-disabled by your organization are now hidden</li>
+<li>Fixed token estimation over-counting for thinking and <code>tool_use</code> blocks, preventing premature context compaction</li>
+<li>Fixed corrupted marketplace config path handling</li>
+<li>Fixed <code>/resume</code> losing session names after resuming a forked or continued session</li>
+<li>Fixed Esc not closing the <code>/status</code> dialog after visiting the Config tab</li>
+<li>Fixed input handling when accepting or rejecting a plan</li>
+<li>Fixed footer hint in agent teams showing &quot;↓ to expand&quot; instead of the correct &quot;shift + ↓ to expand&quot;</li>
+<li>Improved startup performance on macOS non-MDM machines by skipping unnecessary subprocess spawns</li>
+<li>Suppressed async hook completion messages by default (visible with <code>--verbose</code> or transcript mode)</li>
+<li>Breaking change: Removed deprecated Windows managed settings fallback at <code>C:\ProgramData\ClaudeCode\managed-settings.json</code> — use <code>C:\Program Files\ClaudeCode\managed-settings.json</code></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.74]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2174</id>
@@ -1107,16 +1135,6 @@
 <li>Fixed iTerm2 progress bar not clearing properly on exit, preventing lingering indicators and bell sounds</li>
 <li>Improved backspace to delete pasted text as a single token instead of one character at a time</li>
 <li>[VSCode] Added <code>/usage</code> command to display current plan usage</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.12]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2112</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2112"/>
-        <updated>2026-01-17T15:40:35.547Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed message rendering bug</li>
 </ul>
 ]]></content>
     </entry>
