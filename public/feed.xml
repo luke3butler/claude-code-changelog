@@ -2,9 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-03-18T22:05:13.479Z</updated>
+    <updated>2026-03-18T23:05:45.088Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.79]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2179</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2179"/>
+        <updated>2026-03-18T21:34:08.611Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>--console</code> flag to <code>claude auth login</code> for Anthropic Console (API billing) authentication</li>
+<li>Added &quot;Show turn duration&quot; toggle to the <code>/config</code> menu</li>
+<li>Fixed <code>claude -p</code> hanging when spawned as a subprocess without explicit stdin (e.g. Python <code>subprocess.run</code>)</li>
+<li>Fixed Ctrl+C not working in <code>-p</code> (print) mode</li>
+<li>Fixed <code>/btw</code> returning the main agent&#39;s output instead of answering the side question when triggered during streaming</li>
+<li>Fixed voice mode not activating correctly on startup when <code>voiceEnabled: true</code> is set</li>
+<li>Fixed left/right arrow tab navigation in <code>/permissions</code></li>
+<li>Fixed <code>CLAUDE_CODE_DISABLE_TERMINAL_TITLE</code> not preventing terminal title from being set on startup</li>
+<li>Fixed custom status line showing nothing when workspace trust is blocking it</li>
+<li>Fixed enterprise users being unable to retry on rate limit (429) errors</li>
+<li>Fixed <code>SessionEnd</code> hooks not firing when using interactive <code>/resume</code> to switch sessions</li>
+<li>Improved startup memory usage by ~18MB across all scenarios</li>
+<li>Improved non-streaming API fallback with a 2-minute per-attempt timeout, preventing sessions from hanging indefinitely</li>
+<li><code>CLAUDE_CODE_PLUGIN_SEED_DIR</code> now supports multiple seed directories separated by the platform path delimiter (<code>:</code> on Unix, <code>;</code> on Windows)</li>
+<li>[VSCode] Added <code>/remote-control</code> — bridge your session to claude.ai/code to continue from a browser or phone</li>
+<li>[VSCode] Session tabs now get AI-generated titles based on your first message</li>
+<li>[VSCode] Fixed the thinking pill showing &quot;Thinking&quot; instead of &quot;Thought for Ns&quot; after a response completes</li>
+<li>[VSCode] Fixed missing session diff button when opening sessions from the left sidebar</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.78]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2178</id>
@@ -1203,16 +1230,6 @@
         <updated>2026-01-22T22:44:46.204Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Added customizable keyboard shortcuts. Configure keybindings per context, create chord sequences, and personalize your workflow. Run <code>/keybindings</code> to get started. Learn more at <a href="https://code.claude.com/docs/en/keybindings">https://code.claude.com/docs/en/keybindings</a></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.17]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2117</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2117"/>
-        <updated>2026-01-22T21:01:58.555Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed crashes on processors without AVX instruction support</li>
 </ul>
 ]]></content>
     </entry>
