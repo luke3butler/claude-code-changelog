@@ -2,9 +2,45 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-03-20T22:03:13.658Z</updated>
+    <updated>2026-03-20T23:04:55.089Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.81]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2181</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2181"/>
+        <updated>2026-03-20T21:27:19.603Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>--bare</code> flag for scripted <code>-p</code> calls — skips hooks, LSP, plugin sync, and skill directory walks; requires <code>ANTHROPIC_API_KEY</code> or an <code>apiKeyHelper</code> via <code>--settings</code> (OAuth and keychain auth disabled); auto-memory fully disabled</li>
+<li>Added <code>--channels</code> permission relay — channel servers that declare the permission capability can forward tool approval prompts to your phone</li>
+<li>Fixed multiple concurrent Claude Code sessions requiring repeated re-authentication when one session refreshes its OAuth token</li>
+<li>Fixed voice mode silently swallowing retry failures and showing a misleading &quot;check your network&quot; message instead of the actual error</li>
+<li>Fixed voice mode audio not recovering when the server silently drops the WebSocket connection</li>
+<li>Fixed <code>CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS</code> not suppressing the structured-outputs beta header, causing 400 errors on proxy gateways forwarding to Vertex/Bedrock</li>
+<li>Fixed <code>--channels</code> bypass for Team/Enterprise orgs with no other managed settings configured</li>
+<li>Fixed a crash on Node.js 18</li>
+<li>Fixed unnecessary permission prompts for Bash commands containing dashes in strings</li>
+<li>Fixed plugin hooks blocking prompt submission when the plugin directory is deleted mid-session</li>
+<li>Fixed a race condition where background agent task output could hang indefinitely when the task completed between polling intervals</li>
+<li>Resuming a session that was in a worktree now switches back to that worktree</li>
+<li>Fixed <code>/btw</code> not including pasted text when used during an active response</li>
+<li>Fixed a race where fast Cmd+Tab followed by paste could beat the clipboard copy under tmux</li>
+<li>Fixed terminal tab title not updating with an auto-generated session description</li>
+<li>Fixed invisible hook attachments inflating the message count in transcript mode</li>
+<li>Fixed Remote Control sessions showing a generic title instead of deriving from the first prompt</li>
+<li>Fixed <code>/rename</code> not syncing the title for Remote Control sessions</li>
+<li>Fixed Remote Control <code>/exit</code> not reliably archiving the session</li>
+<li>Improved MCP read/search tool calls to collapse into a single &quot;Queried {server}&quot; line (expand with Ctrl+O)</li>
+<li>Improved <code>!</code> bash mode discoverability — Claude now suggests it when you need to run an interactive command</li>
+<li>Improved plugin freshness — ref-tracked plugins now re-clone on every load to pick up upstream changes</li>
+<li>Improved Remote Control session titles to refresh after your third message</li>
+<li>Updated MCP OAuth to support Client ID Metadata Document (CIMD / SEP-991) for servers without Dynamic Client Registration</li>
+<li>Changed plan mode to hide the &quot;clear context&quot; option by default (restore with <code>&quot;showClearContextOnPlanAccept&quot;: true</code>)</li>
+<li>Disabled line-by-line response streaming on Windows (including WSL in Windows Terminal) due to rendering issues</li>
+<li>[VSCode] Fixed Windows PATH inheritance for Bash tool when using Git Bash (regression in v2.1.78)</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.80]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2180</id>
@@ -1223,29 +1259,6 @@
 <li>Changed background agents to prompt for tool permissions before launching</li>
 <li>Changed permission rules like <code>Bash(*)</code> to be accepted and treated as equivalent to <code>Bash</code></li>
 <li>Changed config backups to be timestamped and rotated (keeping 5 most recent) to prevent data loss</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.19]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2119</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2119"/>
-        <updated>2026-01-23T21:14:31.264Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added env var <code>CLAUDE_CODE_ENABLE_TASKS</code>, set to <code>false</code> to keep the old system temporarily</li>
-<li>Added shorthand <code>$0</code>, <code>$1</code>, etc. for accessing individual arguments in custom commands</li>
-<li>Fixed crashes on processors without AVX instruction support</li>
-<li>Fixed dangling Claude Code processes when terminal is closed by catching EIO errors from <code>process.exit()</code> and using SIGKILL as fallback</li>
-<li>Fixed <code>/rename</code> and <code>/tag</code> not updating the correct session when resuming from a different directory (e.g., git worktrees)</li>
-<li>Fixed resuming sessions by custom title not working when run from a different directory</li>
-<li>Fixed pasted text content being lost when using prompt stash (Ctrl+S) and restore</li>
-<li>Fixed agent list displaying &quot;Sonnet (default)&quot; instead of &quot;Inherit (default)&quot; for agents without an explicit model setting</li>
-<li>Fixed backgrounded hook commands not returning early, potentially causing the session to wait on a process that was intentionally backgrounded</li>
-<li>Fixed file write preview omitting empty lines</li>
-<li>Changed skills without additional permissions or hooks to be allowed without requiring approval</li>
-<li>Changed indexed argument syntax from <code>$ARGUMENTS.0</code> to <code>$ARGUMENTS[0]</code> (bracket syntax)</li>
-<li>[SDK] Added replay of <code>queued_command</code> attachment messages as <code>SDKUserMessageReplay</code> events when <code>replayUserMessages</code> is enabled</li>
-<li>[VSCode] Enabled session forking and rewind functionality for all users</li>
 </ul>
 ]]></content>
     </entry>
