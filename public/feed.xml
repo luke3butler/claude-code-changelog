@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-03-25T06:18:28.317Z</updated>
+    <updated>2026-03-25T07:20:30.351Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -68,8 +68,25 @@
 <li>Linux: respect <code>XDG_DATA_HOME</code> when registering the <code>claude-cli://</code> protocol handler</li>
 <li>Changed &quot;stop all background agents&quot; keybinding from <code>Ctrl+F</code> to <code>Ctrl+X Ctrl+K</code> to stop shadowing readline forward-char</li>
 <li>Deprecated <code>TaskOutput</code> tool in favor of using <code>Read</code> on the background task&#39;s output file path</li>
+<li>Added <code>CLAUDE_CODE_DISABLE_NONSTREAMING_FALLBACK</code> env var to disable the non-streaming fallback when streaming fails</li>
+<li>Plugin options (<code>manifest.userConfig</code>) now available externally — plugins can prompt for configuration at enable time, with <code>sensitive: true</code> values stored in keychain (macOS) or protected credentials file (other platforms)</li>
+<li>Claude can now reference the on-disk path of clipboard-pasted images for file operations</li>
+<li><code>Ctrl+L</code> now clears the screen and forces a full redraw — use this to recover when Cmd+K leaves the UI partially blank. Use <code>Ctrl+U</code> or double-Esc to clear prompt input.</li>
+<li><code>--bare -p</code> (SDK pattern) is ~14% faster to the API request</li>
+<li>Memory: <code>MEMORY.md</code> index now truncates at 25KB as well as 200 lines</li>
+<li>Disabled <code>AskUserQuestion</code> and plan-mode tools when <code>--channels</code> is active</li>
+<li>Fixed API 400 error when a pasted image was queued during a failing tool call</li>
+<li>Fixed MCP tool calls hanging indefinitely when an SSE connection drops mid-call and exhausts its reconnection attempts</li>
+<li>Fixed Remote Control session titles showing raw XML when a background agent completed before the first user message</li>
+<li>Fixed remote sessions forgetting conversation history after a container restart due to progress-message gaps in the resumed transcript chain</li>
+<li>Fixed remote sessions requiring re-login on transient auth errors instead of retrying automatically</li>
+<li>Fixed <code>rg ... | wc -l</code> and similar piped commands hanging and returning <code>0</code> in sandbox mode on Linux</li>
+<li>Fixed voice input hold-to-talk not activating when a CJK IME inserts a full-width space</li>
+<li>Fixed <code>--worktree</code> hanging silently when the worktree name contained a forward slash</li>
 <li>[VSCode] Spinner now turns red with &quot;Not responding&quot; when the backend hasn&#39;t responded for 60 seconds</li>
 <li>[VSCode] Fixed session history not loading correctly when reopening a session via URL or after restart</li>
+<li>[VSCode] Added Esc-twice (or <code>/rewind</code>) to open a keyboard-navigable rewind picker</li>
+<li>[VSCode] Fixed &quot;Fork conversation from here&quot; and rewind actions failing silently after the session cache goes stale</li>
 </ul>
 ]]></content>
     </entry>
