@@ -2,9 +2,58 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-03-26T00:09:46.797Z</updated>
+    <updated>2026-03-26T01:31:14.881Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.84]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2184</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2184"/>
+        <updated>2026-03-25T23:50:13.505Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added PowerShell tool for Windows as an opt-in preview. Learn more at <a href="https://code.claude.com/docs/en/tools-reference#powershell-tool">https://code.claude.com/docs/en/tools-reference#powershell-tool</a></li>
+<li>Added <code>ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL_SUPPORTS</code> env vars to override effort/thinking capability detection for pinned default models for 3p (Bedrock, Vertex, Foundry), and <code>_MODEL_NAME</code>/<code>_DESCRIPTION</code> to customize the <code>/model</code> picker label</li>
+<li>Added <code>CLAUDE_STREAM_IDLE_TIMEOUT_MS</code> env var to configure the streaming idle watchdog threshold (default 90s)</li>
+<li>Added <code>TaskCreated</code> hook that fires when a task is created via <code>TaskCreate</code></li>
+<li>Added <code>WorktreeCreate</code> hook support for <code>type: &quot;http&quot;</code> — return the created worktree path via <code>hookSpecificOutput.worktreePath</code> in the response JSON</li>
+<li>Added <code>allowedChannelPlugins</code> managed setting for team/enterprise admins to define a channel plugin allowlist</li>
+<li>Added <code>x-client-request-id</code> header to API requests for debugging timeouts</li>
+<li>Added idle-return prompt that nudges users returning after 75+ minutes to <code>/clear</code>, reducing unnecessary token re-caching on stale sessions</li>
+<li>Deep links (<code>claude-cli://</code>) now open in your preferred terminal instead of whichever terminal happens to be first in the detection list</li>
+<li>Rules and skills <code>paths:</code> frontmatter now accepts a YAML list of globs</li>
+<li>MCP tool descriptions and server instructions are now capped at 2KB to prevent OpenAPI-generated servers from bloating context</li>
+<li>MCP servers configured both locally and via claude.ai connectors are now deduplicated — the local config wins</li>
+<li>Background bash tasks that appear stuck on an interactive prompt now surface a notification after ~45 seconds</li>
+<li>Token counts ≥1M now display as &quot;1.5m&quot; instead of &quot;1512.6k&quot;</li>
+<li>Global system-prompt caching now works when <code>ToolSearch</code> is enabled, including for users with MCP tools configured</li>
+<li>Fixed voice push-to-talk: holding the voice key no longer leaks characters into the text input, and transcripts now insert at the correct position</li>
+<li>Fixed up/down arrow keys being unresponsive when a footer item is focused</li>
+<li>Fixed <code>Ctrl+U</code> (kill-to-line-start) being a no-op at line boundaries in multiline input, so repeated <code>Ctrl+U</code> now clears across lines</li>
+<li>Fixed null-unbinding a default chord binding (e.g. <code>&quot;ctrl+x ctrl+k&quot;: null</code>) still entering chord-wait mode instead of freeing the prefix key</li>
+<li>Fixed mouse events inserting literal &quot;mouse&quot; text into transcript search input</li>
+<li>Fixed workflow subagents failing with API 400 when the outer session uses <code>--json-schema</code> and the subagent also specifies a schema</li>
+<li>Fixed missing background color behind certain emoji in user message bubbles on some terminals</li>
+<li>Fixed the &quot;allow Claude to edit its own settings for this session&quot; permission option not sticking for users with <code>Edit(.claude)</code> allow rules</li>
+<li>Fixed a hang when generating attachment snippets for large edited files</li>
+<li>Fixed MCP tool/resource cache leak on server reconnect</li>
+<li>Fixed a startup performance issue where partial clone repositories (Scalar/GVFS) triggered mass blob downloads</li>
+<li>Fixed native terminal cursor not tracking the text input caret, so IME composition (CJK input) now renders inline and screen readers can follow the input position</li>
+<li>Fixed spurious &quot;Not logged in&quot; errors on macOS caused by transient keychain read failures</li>
+<li>Fixed cold-start race where core tools could be deferred without their bypass active, causing Edit/Write to fail with InputValidationError on typed parameters</li>
+<li>Improved detection for dangerous removals of Windows drive roots (<code>C:\</code>, <code>C:\Windows</code>, etc.)</li>
+<li>Improved interactive startup by ~30ms by running <code>setup()</code> in parallel with slash command and agent loading</li>
+<li>Improved startup for <code>claude &quot;prompt&quot;</code> with MCP servers — the REPL now renders immediately instead of blocking until all servers connect</li>
+<li>Improved Remote Control to show a specific reason when blocked instead of a generic &quot;not yet enabled&quot; message</li>
+<li>Improved p90 prompt cache rate</li>
+<li>Reduced scroll-to-top resets in long sessions by making the message window immune to compaction and grouping changes</li>
+<li>Reduced terminal flickering when animated tool progress scrolls above the viewport</li>
+<li>Changed issue/PR references to only become clickable links when written as <code>owner/repo#123</code> — bare <code>#123</code> is no longer auto-linked</li>
+<li>Slash commands unavailable for the current auth setup (<code>/voice</code>, <code>/mobile</code>, <code>/chrome</code>, <code>/upgrade</code>, etc.) are now hidden instead of shown</li>
+<li>[VSCode] Added rate limit warning banner with usage percentage and reset time</li>
+<li>Stats screenshot (Ctrl+S in /stats) now works in all builds and is 16× faster</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.83]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2183</id>
@@ -1288,25 +1337,6 @@
         <updated>2026-01-28T06:34:26.808Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Fixed structured outputs for non-interactive (-p) mode</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.21]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2121</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2121"/>
-        <updated>2026-01-28T01:37:44.595Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added support for full-width (zenkaku) number input from Japanese IME in option selection prompts</li>
-<li>Fixed shell completion cache files being truncated on exit</li>
-<li>Fixed API errors when resuming sessions that were interrupted during tool execution</li>
-<li>Fixed auto-compact triggering too early on models with large output token limits</li>
-<li>Fixed task IDs potentially being reused after deletion</li>
-<li>Fixed file search not working in VS Code extension on Windows</li>
-<li>Improved read/search progress indicators to show &quot;Reading…&quot; while in progress and &quot;Read&quot; when complete</li>
-<li>Improved Claude to prefer file operation tools (Read, Edit, Write) over bash equivalents (cat, sed, awk)</li>
-<li>[VSCode] Added automatic Python virtual environment activation, ensuring <code>python</code> and <code>pip</code> commands use the correct interpreter (configurable via <code>claudeCode.usePythonEnvironment</code> setting)</li>
-<li>[VSCode] Fixed message action buttons having incorrect background colors</li>
 </ul>
 ]]></content>
     </entry>
