@@ -2,9 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-03-27T21:08:28.565Z</updated>
+    <updated>2026-03-27T22:07:32.376Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.86]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2186</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2186"/>
+        <updated>2026-03-27T20:30:19.481Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>X-Claude-Code-Session-Id</code> header to API requests so proxies can aggregate requests by session without parsing the body</li>
+<li>Added <code>.jj</code> and <code>.sl</code> to VCS directory exclusion lists so Grep and file autocomplete don&#39;t descend into Jujutsu or Sapling metadata</li>
+<li>Fixed <code>--resume</code> failing with &quot;tool_use ids were found without tool_result blocks&quot; on sessions created before v2.1.85</li>
+<li>Fixed Write/Edit/Read failing on files outside the project root (e.g., <code>~/.claude/CLAUDE.md</code>) when conditional skills or rules are configured</li>
+<li>Fixed unnecessary config disk writes on every skill invocation that could cause performance issues and config corruption on Windows</li>
+<li>Fixed potential out-of-memory crash when using <code>/feedback</code> on very long sessions with large transcript files</li>
+<li>Fixed <code>--bare</code> mode dropping MCP tools in interactive sessions and silently discarding messages enqueued mid-turn</li>
+<li>Fixed the <code>c</code> shortcut copying only ~20 characters of the OAuth login URL instead of the full URL</li>
+<li>Fixed masked input (e.g., OAuth code paste) leaking the start of the token when wrapping across multiple lines on narrow terminals</li>
+<li>Fixed official marketplace plugin scripts failing with &quot;Permission denied&quot; on macOS/Linux since v2.1.83</li>
+<li>Fixed statusline showing another session&#39;s model when running multiple Claude Code instances and using <code>/model</code> in one of them</li>
+<li>Fixed scroll not following new messages after wheel scroll or click-to-select at the bottom of a long conversation</li>
+<li>Fixed <code>/plugin</code> uninstall dialog: pressing <code>n</code> now correctly uninstalls the plugin while preserving its data directory</li>
+<li>Fixed a regression where pressing Enter after clicking could leave the transcript blank until the response arrived</li>
+<li>Fixed <code>ultrathink</code> hint lingering after deleting the keyword</li>
+<li>Fixed memory growth in long sessions from markdown/highlight render caches retaining full content strings</li>
+<li>Reduced startup event-loop stalls when many claude.ai MCP connectors are configured (macOS keychain cache extended from 5s to 30s)</li>
+<li>Reduced token overhead when mentioning files with <code>@</code> — raw string content no longer JSON-escaped</li>
+<li>Improved prompt cache hit rate for Bedrock, Vertex, and Foundry users by removing dynamic content from tool descriptions</li>
+<li>Memory filenames in the &quot;Saved N memories&quot; notice now highlight on hover and open on click</li>
+<li>Skill descriptions in the <code>/skills</code> listing are now capped at 250 characters to reduce context usage</li>
+<li>Changed <code>/skills</code> menu to sort alphabetically for easier scanning</li>
+<li>Auto mode now shows &quot;unavailable for your plan&quot; when disabled by plan restrictions (was &quot;temporarily unavailable&quot;)</li>
+<li>[VSCode] Fixed extension incorrectly showing &quot;Not responding&quot; during long-running operations</li>
+<li>[VSCode] Fixed extension defaulting Max plan users to Sonnet after the OAuth token refreshes (8 hours after login)</li>
+<li>Read tool now uses compact line-number format and deduplicates unchanged re-reads, reducing token usage</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.85]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2185</id>
@@ -1346,26 +1381,6 @@
         <updated>2026-01-29T20:33:53.330Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Fixed beta header validation error for gateway users on Bedrock and Vertex, ensuring <code>CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1</code> avoids the error</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.23]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2123</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2123"/>
-        <updated>2026-01-29T00:19:09.656Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added customizable spinner verbs setting (<code>spinnerVerbs</code>)</li>
-<li>Fixed mTLS and proxy connectivity for users behind corporate proxies or using client certificates</li>
-<li>Fixed per-user temp directory isolation to prevent permission conflicts on shared systems</li>
-<li>Fixed a race condition that could cause 400 errors when prompt caching scope was enabled</li>
-<li>Fixed pending async hooks not being cancelled when headless streaming sessions ended</li>
-<li>Fixed tab completion not updating the input field when accepting a suggestion</li>
-<li>Fixed ripgrep search timeouts silently returning empty results instead of reporting errors</li>
-<li>Improved terminal rendering performance with optimized screen data layout</li>
-<li>Changed Bash commands to show timeout duration alongside elapsed time</li>
-<li>Changed merged pull requests to show a purple status indicator in the prompt footer</li>
-<li>[IDE] Fixed model options displaying incorrect region strings for Bedrock users in headless mode</li>
 </ul>
 ]]></content>
     </entry>
