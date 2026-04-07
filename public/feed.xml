@@ -2,9 +2,43 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-04-07T21:13:36.883Z</updated>
+    <updated>2026-04-07T22:09:45.507Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.94]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2194</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2194"/>
+        <updated>2026-04-07T21:04:05.380Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added support for Amazon Bedrock powered by Mantle, set <code>CLAUDE_CODE_USE_MANTLE=1</code></li>
+<li>Changed default effort level from medium to high for API-key, Bedrock/Vertex/Foundry, Team, and Enterprise users (control this with <code>/effort</code>)</li>
+<li>Added compact <code>Slacked #channel</code> header with a clickable channel link for Slack MCP send-message tool calls</li>
+<li>Added <code>keep-coding-instructions</code> frontmatter field support for plugin output styles</li>
+<li>Added <code>hookSpecificOutput.sessionTitle</code> to <code>UserPromptSubmit</code> hooks for setting the session title</li>
+<li>Plugin skills declared via <code>&quot;skills&quot;: [&quot;./&quot;]</code> now use the skill&#39;s frontmatter <code>name</code> for the invocation name instead of the directory basename, giving a stable name across install methods</li>
+<li>Fixed agents appearing stuck after a 429 rate-limit response with a long Retry-After header — the error now surfaces immediately instead of silently waiting</li>
+<li>Fixed Console login on macOS silently failing with &quot;Not logged in&quot; when the login keychain is locked or its password is out of sync — the error is now surfaced and <code>claude doctor</code> diagnoses the fix</li>
+<li>Fixed plugin skill hooks defined in YAML frontmatter being silently ignored</li>
+<li>Fixed plugin hooks failing with &quot;No such file or directory&quot; when <code>CLAUDE_PLUGIN_ROOT</code> was not set</li>
+<li>Fixed <code>${CLAUDE_PLUGIN_ROOT}</code> resolving to the marketplace source directory instead of the installed cache for local-marketplace plugins on startup</li>
+<li>Fixed scrollback showing the same diff repeated and blank pages in long-running sessions</li>
+<li>Fixed multiline user prompts in the transcript indenting wrapped lines under the <code>❯</code> caret instead of under the text</li>
+<li>Fixed Shift+Space inserting the literal word &quot;space&quot; instead of a space character in search inputs</li>
+<li>Fixed hyperlinks opening two browser tabs when clicked inside tmux running in an xterm.js-based terminal (VS Code, Hyper, Tabby)</li>
+<li>Fixed an alt-screen rendering bug where content height changes mid-scroll could leave compounding ghost lines</li>
+<li>Fixed <code>FORCE_HYPERLINK</code> environment variable being ignored when set via <code>settings.json</code> <code>env</code></li>
+<li>Fixed native terminal cursor not tracking the selected tab in dialogs, so screen readers and magnifiers can follow tab navigation</li>
+<li>Fixed Bedrock invocation of Sonnet 3.5 v2 by using the <code>us.</code> inference profile ID</li>
+<li>Fixed SDK/print mode not preserving the partial assistant response in conversation history when interrupted mid-stream</li>
+<li>Improved <code>--resume</code> to resume sessions from other worktrees of the same repo directly instead of printing a <code>cd</code> command</li>
+<li>Fixed CJK and other multibyte text being corrupted with U+FFFD in stream-json input/output when chunk boundaries split a UTF-8 sequence</li>
+<li>[VSCode] Reduced cold-open subprocess work on starting a session</li>
+<li>[VSCode] Fixed dropdown menus selecting the wrong item when the mouse was over the list while typing or using arrow keys</li>
+<li>[VSCode] Added a warning banner when <code>settings.json</code> files fail to parse, so users know their permission rules are not being applied</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.92]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2192</id>
@@ -1425,27 +1459,6 @@
 <li>VSCode: Added support for remote sessions, allowing OAuth users to browse and resume sessions from claude.ai</li>
 <li>VSCode: Added git branch and message count to the session picker, with support for searching by branch name</li>
 <li>VSCode: Fixed scroll-to-bottom under-scrolling on initial session load and session switch</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.32]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2132</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2132"/>
-        <updated>2026-02-05T17:03:20.616Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Claude Opus 4.6 is now available!</li>
-<li>Added research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1)</li>
-<li>Claude now automatically records and recalls memories as it works</li>
-<li>Added &quot;Summarize from here&quot; to the message selector, allowing partial conversation summarization.</li>
-<li>Skills defined in <code>.claude/skills/</code> within additional directories (<code>--add-dir</code>) are now loaded automatically.</li>
-<li>Fixed <code>@</code> file completion showing incorrect relative paths when running from a subdirectory</li>
-<li>Updated --resume to re-use --agent value specified in previous conversation by default.</li>
-<li>Fixed: Bash tool no longer throws &quot;Bad substitution&quot; errors when heredocs contain JavaScript template literals like <code>${index + 1}</code>, which previously interrupted tool execution</li>
-<li>Skill character budget now scales with context window (2% of context), so users with larger context windows can see more skill descriptions without truncation</li>
-<li>Fixed Thai/Lao spacing vowels (สระ า, ำ) not rendering correctly in the input field</li>
-<li>VSCode: Fixed slash commands incorrectly being executed when pressing Enter with preceding text in the input field</li>
-<li>VSCode: Added spinner when loading past conversations list</li>
 </ul>
 ]]></content>
     </entry>

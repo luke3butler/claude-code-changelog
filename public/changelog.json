@@ -1,6 +1,39 @@
 {
-  "updated": "2026-04-07T21:13:36.987Z",
+  "updated": "2026-04-07T22:09:45.512Z",
   "entries": [
+    {
+      "version": "2.1.94",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2194",
+      "publishedAt": "2026-04-07T21:04:05.380Z",
+      "changes": [
+        "Added support for Amazon Bedrock powered by Mantle, set `CLAUDE_CODE_USE_MANTLE=1`",
+        "Changed default effort level from medium to high for API-key, Bedrock/Vertex/Foundry, Team, and Enterprise users (control this with `/effort`)",
+        "Added compact `Slacked #channel` header with a clickable channel link for Slack MCP send-message tool calls",
+        "Added `keep-coding-instructions` frontmatter field support for plugin output styles",
+        "Added `hookSpecificOutput.sessionTitle` to `UserPromptSubmit` hooks for setting the session title",
+        "Plugin skills declared via `\"skills\": [\"./\"]` now use the skill's frontmatter `name` for the invocation name instead of the directory basename, giving a stable name across install methods",
+        "Fixed agents appearing stuck after a 429 rate-limit response with a long Retry-After header — the error now surfaces immediately instead of silently waiting",
+        "Fixed Console login on macOS silently failing with \"Not logged in\" when the login keychain is locked or its password is out of sync — the error is now surfaced and `claude doctor` diagnoses the fix",
+        "Fixed plugin skill hooks defined in YAML frontmatter being silently ignored",
+        "Fixed plugin hooks failing with \"No such file or directory\" when `CLAUDE_PLUGIN_ROOT` was not set",
+        "Fixed `${CLAUDE_PLUGIN_ROOT}` resolving to the marketplace source directory instead of the installed cache for local-marketplace plugins on startup",
+        "Fixed scrollback showing the same diff repeated and blank pages in long-running sessions",
+        "Fixed multiline user prompts in the transcript indenting wrapped lines under the `❯` caret instead of under the text",
+        "Fixed Shift+Space inserting the literal word \"space\" instead of a space character in search inputs",
+        "Fixed hyperlinks opening two browser tabs when clicked inside tmux running in an xterm.js-based terminal (VS Code, Hyper, Tabby)",
+        "Fixed an alt-screen rendering bug where content height changes mid-scroll could leave compounding ghost lines",
+        "Fixed `FORCE_HYPERLINK` environment variable being ignored when set via `settings.json` `env`",
+        "Fixed native terminal cursor not tracking the selected tab in dialogs, so screen readers and magnifiers can follow tab navigation",
+        "Fixed Bedrock invocation of Sonnet 3.5 v2 by using the `us.` inference profile ID",
+        "Fixed SDK/print mode not preserving the partial assistant response in conversation history when interrupted mid-stream",
+        "Improved `--resume` to resume sessions from other worktrees of the same repo directly instead of printing a `cd` command",
+        "Fixed CJK and other multibyte text being corrupted with U+FFFD in stream-json input/output when chunk boundaries split a UTF-8 sequence",
+        "[VSCode] Reduced cold-open subprocess work on starting a session",
+        "[VSCode] Fixed dropdown menus selecting the wrong item when the mouse was over the list while typing or using arrow keys",
+        "[VSCode] Added a warning banner when `settings.json` files fail to parse, so users know their permission rules are not being applied"
+      ],
+      "changeCount": 25
+    },
     {
       "version": "2.1.92",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2192",
@@ -1364,26 +1397,6 @@
         "VSCode: Fixed scroll-to-bottom under-scrolling on initial session load and session switch"
       ],
       "changeCount": 16
-    },
-    {
-      "version": "2.1.32",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2132",
-      "publishedAt": "2026-02-05T17:03:20.616Z",
-      "changes": [
-        "Claude Opus 4.6 is now available!",
-        "Added research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1)",
-        "Claude now automatically records and recalls memories as it works",
-        "Added \"Summarize from here\" to the message selector, allowing partial conversation summarization.",
-        "Skills defined in `.claude/skills/` within additional directories (`--add-dir`) are now loaded automatically.",
-        "Fixed `@` file completion showing incorrect relative paths when running from a subdirectory",
-        "Updated --resume to re-use --agent value specified in previous conversation by default.",
-        "Fixed: Bash tool no longer throws \"Bad substitution\" errors when heredocs contain JavaScript template literals like `${index + 1}`, which previously interrupted tool execution",
-        "Skill character budget now scales with context window (2% of context), so users with larger context windows can see more skill descriptions without truncation",
-        "Fixed Thai/Lao spacing vowels (สระ า, ำ) not rendering correctly in the input field",
-        "VSCode: Fixed slash commands incorrectly being executed when pressing Enter with preceding text in the input field",
-        "VSCode: Added spinner when loading past conversations list"
-      ],
-      "changeCount": 12
     }
   ]
 }
