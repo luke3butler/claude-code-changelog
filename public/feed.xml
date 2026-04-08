@@ -2,9 +2,64 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-04-08T05:32:13.473Z</updated>
+    <updated>2026-04-08T22:10:56.990Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.97]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2197</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2197"/>
+        <updated>2026-04-08T21:27:55.556Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added focus view toggle (<code>Ctrl+O</code>) in <code>NO_FLICKER</code> mode showing prompt, one-line tool summary with edit diffstats, and final response</li>
+<li>Added <code>refreshInterval</code> status line setting to re-run the status line command every N seconds</li>
+<li>Added <code>workspace.git_worktree</code> to the status line JSON input, set when the current directory is inside a linked git worktree</li>
+<li>Added <code>● N running</code> indicator in <code>/agents</code> next to agent types with live subagent instances</li>
+<li>Added syntax highlighting for Cedar policy files (<code>.cedar</code>, <code>.cedarpolicy</code>)</li>
+<li>Fixed <code>--dangerously-skip-permissions</code> being silently downgraded to accept-edits mode after approving a write to a protected path</li>
+<li>Fixed and hardened Bash tool permissions, tightening checks around env-var prefixes and network redirects, and reducing false prompts on common commands</li>
+<li>Fixed permission rules with names matching JavaScript prototype properties (e.g. <code>toString</code>) causing <code>settings.json</code> to be silently ignored</li>
+<li>Fixed managed-settings allow rules remaining active after an admin removed them until process restart</li>
+<li>Fixed <code>permissions.additionalDirectories</code> changes in settings not applying mid-session</li>
+<li>Fixed removing a directory from <code>settings.permissions.additionalDirectories</code> revoking access to the same directory passed via <code>--add-dir</code></li>
+<li>Fixed MCP HTTP/SSE connections accumulating ~50 MB/hr of unreleased buffers when servers reconnect</li>
+<li>Fixed MCP OAuth <code>oauth.authServerMetadataUrl</code> not being honored on token refresh after restart, fixing ADFS and similar IdPs</li>
+<li>Fixed 429 retries burning all attempts in ~13 seconds when the server returns a small <code>Retry-After</code> — exponential backoff now applies as a minimum</li>
+<li>Fixed rate-limit upgrade options disappearing after context compaction</li>
+<li>Fixed several <code>/resume</code> picker issues: <code>--resume &lt;name&gt;</code> opening uneditable, Ctrl+A reload wiping search, empty list swallowing navigation, task-status text replacing conversation summary, and cross-project staleness</li>
+<li>Fixed file-edit diffs disappearing on <code>--resume</code> when the edited file was larger than 10KB</li>
+<li>Fixed <code>--resume</code> cache misses and lost mid-turn input from attachment messages not being saved to the transcript</li>
+<li>Fixed messages typed while Claude is working not being persisted to the transcript</li>
+<li>Fixed prompt-type <code>Stop</code>/<code>SubagentStop</code> hooks failing on long sessions, and hook evaluator API errors displaying &quot;JSON validation failed&quot; instead of the actual message</li>
+<li>Fixed subagents with worktree isolation or <code>cwd:</code> override leaking their working directory back to the parent session&#39;s Bash tool</li>
+<li>Fixed compaction writing duplicate multi-MB subagent transcript files on prompt-too-long retries</li>
+<li>Fixed <code>claude plugin update</code> reporting &quot;already at the latest version&quot; for git-based marketplace plugins when the remote had newer commits</li>
+<li>Fixed slash command picker breaking when a plugin&#39;s frontmatter <code>name</code> is a YAML boolean keyword</li>
+<li>Fixed copying wrapped URLs in <code>NO_FLICKER</code> mode inserting spaces at line breaks</li>
+<li>Fixed scroll rendering artifacts in <code>NO_FLICKER</code> mode when running inside zellij</li>
+<li>Fixed a crash in <code>NO_FLICKER</code> mode when hovering over MCP tool results</li>
+<li>Fixed a <code>NO_FLICKER</code> mode memory leak where API retries left stale streaming state</li>
+<li>Fixed slow mouse-wheel scrolling in <code>NO_FLICKER</code> mode on Windows Terminal</li>
+<li>Fixed custom status line not displaying in <code>NO_FLICKER</code> mode on terminals shorter than 24 rows</li>
+<li>Fixed Shift+Enter and Alt/Cmd+arrow shortcuts not working in Warp with <code>NO_FLICKER</code> mode</li>
+<li>Fixed Korean/Japanese/Unicode text becoming garbled when copied in no-flicker mode on Windows</li>
+<li>Fixed Bedrock SigV4 authentication failing when <code>AWS_BEARER_TOKEN_BEDROCK</code> or <code>ANTHROPIC_BEDROCK_BASE_URL</code> are set to empty strings (as GitHub Actions does for unset inputs)</li>
+<li>Improved Accept Edits mode to auto-approve filesystem commands prefixed with safe env vars or process wrappers (e.g. <code>LANG=C rm foo</code>, <code>timeout 5 mkdir out</code>)</li>
+<li>Improved auto mode and bypass-permissions mode to auto-approve sandbox network access prompts</li>
+<li>Improved sandbox: <code>sandbox.network.allowMachLookup</code> now takes effect on macOS</li>
+<li>Improved image handling: pasted and attached images are now compressed to the same token budget as images read via the Read tool</li>
+<li>Improved slash command and <code>@</code>-mention completion to trigger after CJK sentence punctuation, so Japanese/Chinese input no longer requires a space before <code>/</code> or <code>@</code></li>
+<li>Improved Bridge sessions to show the local git repo, branch, and working directory on the claude.ai session card</li>
+<li>Improved footer layout: indicators (Focus, notifications) now stay on the mode-indicator row instead of wrapping below</li>
+<li>Improved context-low warning to show as a transient footer notification instead of a persistent row</li>
+<li>Improved markdown blockquotes to show a continuous left bar across wrapped lines</li>
+<li>Improved session transcript size by skipping empty hook entries and capping stored pre-edit file copies</li>
+<li>Improved transcript accuracy: per-block entries now carry the final token usage instead of the streaming placeholder</li>
+<li>Improved Bash tool OTEL tracing: subprocesses now inherit a W3C <code>TRACEPARENT</code> env var when tracing is enabled</li>
+<li>Updated <code>/claude-api</code> skill to cover Managed Agents alongside the Claude API</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.96]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2196</id>
@@ -1433,17 +1488,6 @@
         <updated>2026-02-07T17:25:00.190Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Fast mode is now available for Opus 4.6. Learn more at <a href="https://code.claude.com/docs/en/fast-mode">https://code.claude.com/docs/en/fast-mode</a></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.34]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2134</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2134"/>
-        <updated>2026-02-06T06:38:12.412Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed a crash when agent teams setting changed between renders</li>
-<li>Fixed a bug where commands excluded from sandboxing (via <code>sandbox.excludedCommands</code> or <code>dangerouslyDisableSandbox</code>) could bypass the Bash ask permission rule when <code>autoAllowBashIfSandboxed</code> was enabled</li>
 </ul>
 ]]></content>
     </entry>
