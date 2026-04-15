@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-15T22:12:30.808Z",
+  "updated": "2026-04-15T23:13:13.197Z",
   "entries": [
     {
       "version": "2.1.110",
@@ -7,6 +7,7 @@
       "publishedAt": "2026-04-15T20:40:53.190Z",
       "changes": [
         "Added `/tui` command and `tui` setting — run `/tui fullscreen` to switch to flicker-free rendering in the same conversation",
+        "Added push notification tool — Claude can send mobile push notifications when Remote Control and \"Push when Claude decides\" config are enabled",
         "Changed `Ctrl+O` to toggle between normal and verbose transcript only; focus view is now toggled separately with the new `/focus` command",
         "Added `autoScrollEnabled` config to disable conversation auto-scroll in fullscreen mode",
         "Added option to show Claude's last response as commented context in the `Ctrl+G` external editor (enable via `/config`)",
@@ -39,7 +40,7 @@
         "Fixed Remote Control sessions showing a generic error instead of prompting for re-login when the session is too old",
         "Fixed Remote Control session renames from claude.ai not persisting the title to the local CLI session"
       ],
-      "changeCount": 32
+      "changeCount": 33
     },
     {
       "version": "2.1.109",

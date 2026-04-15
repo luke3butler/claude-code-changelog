@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-04-15T22:12:30.803Z</updated>
+    <updated>2026-04-15T23:13:13.191Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -12,6 +12,7 @@
         <updated>2026-04-15T20:40:53.190Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Added <code>/tui</code> command and <code>tui</code> setting — run <code>/tui fullscreen</code> to switch to flicker-free rendering in the same conversation</li>
+<li>Added push notification tool — Claude can send mobile push notifications when Remote Control and &quot;Push when Claude decides&quot; config are enabled</li>
 <li>Changed <code>Ctrl+O</code> to toggle between normal and verbose transcript only; focus view is now toggled separately with the new <code>/focus</code> command</li>
 <li>Added <code>autoScrollEnabled</code> config to disable conversation auto-scroll in fullscreen mode</li>
 <li>Added option to show Claude&#39;s last response as commented context in the <code>Ctrl+G</code> external editor (enable via <code>/config</code>)</li>
