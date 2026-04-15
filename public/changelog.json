@@ -1,6 +1,15 @@
 {
-  "updated": "2026-04-14T19:28:01.545Z",
+  "updated": "2026-04-15T04:07:08.695Z",
   "entries": [
+    {
+      "version": "2.1.109",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21109",
+      "publishedAt": "2026-04-15T03:45:21.462Z",
+      "changes": [
+        "Improved the extended-thinking indicator with a rotating progress hint"
+      ],
+      "changeCount": 1
+    },
     {
       "version": "2.1.108",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21108",
@@ -1540,19 +1549,6 @@
         "Fixed structured-outputs beta header being sent unconditionally on Vertex/Bedrock"
       ],
       "changeCount": 3
-    },
-    {
-      "version": "2.1.42",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2142",
-      "publishedAt": "2026-02-13T18:56:56.084Z",
-      "changes": [
-        "Improved startup performance by deferring Zod schema construction",
-        "Improved prompt cache hit rates by moving date out of system prompt",
-        "Added one-time Opus 4.6 effort callout for eligible users",
-        "Fixed /resume showing interrupt messages as session titles",
-        "Fixed image dimension limit errors to suggest /compact"
-      ],
-      "changeCount": 5
     }
   ]
 }
