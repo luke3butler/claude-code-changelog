@@ -2,9 +2,42 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-04-20T20:12:10.411Z</updated>
+    <updated>2026-04-20T23:13:13.042Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.116]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21116</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21116"/>
+        <updated>2026-04-20T19:24:52.313Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><code>/resume</code> on large sessions is significantly faster (up to 67% on 40MB+ sessions) and handles sessions with many dead-fork entries more efficiently</li>
+<li>Faster MCP startup when multiple stdio servers are configured; <code>resources/templates/list</code> is now deferred to first <code>@</code>-mention</li>
+<li>Smoother fullscreen scrolling in VS Code, Cursor, and Windsurf terminals — <code>/terminal-setup</code> now configures the editor&#39;s scroll sensitivity</li>
+<li>Thinking spinner now shows progress inline (&quot;still thinking&quot;, &quot;thinking more&quot;, &quot;almost done thinking&quot;), replacing the separate hint row</li>
+<li><code>/config</code> search now matches option values (e.g. searching &quot;vim&quot; finds the Editor mode setting)</li>
+<li><code>/doctor</code> can now be opened while Claude is responding, without waiting for the current turn to finish</li>
+<li><code>/reload-plugins</code> and background plugin auto-update now auto-install missing plugin dependencies from marketplaces you&#39;ve already added</li>
+<li>Bash tool now surfaces a hint when <code>gh</code> commands hit GitHub&#39;s API rate limit, so agents can back off instead of retrying</li>
+<li>The Usage tab in Settings now shows your 5-hour and weekly usage immediately and no longer fails when the usage endpoint is rate-limited</li>
+<li>Agent frontmatter <code>hooks:</code> now fire when running as a main-thread agent via <code>--agent</code></li>
+<li>Slash command menu now shows &quot;No commands match&quot; when your filter has zero results, instead of disappearing</li>
+<li>Security: sandbox auto-allow no longer bypasses the dangerous-path safety check for <code>rm</code>/<code>rmdir</code> targeting <code>/</code>, <code>$HOME</code>, or other critical system directories</li>
+<li>Fixed Devanagari and other Indic scripts rendering with broken column alignment in the terminal UI</li>
+<li>Fixed Ctrl+- not triggering undo in terminals using the Kitty keyboard protocol (iTerm2, Ghostty, kitty, WezTerm, Windows Terminal)</li>
+<li>Fixed Cmd+Left/Right not jumping to line start/end in terminals that use the Kitty keyboard protocol (Warp fullscreen, kitty, Ghostty, WezTerm)</li>
+<li>Fixed Ctrl+Z hanging the terminal when Claude Code is launched via a wrapper process (e.g. <code>npx</code>, <code>bun run</code>)</li>
+<li>Fixed scrollback duplication in inline mode where resizing the terminal or large output bursts would repeat earlier conversation history</li>
+<li>Fixed modal search dialogs overflowing the screen at short terminal heights, hiding the search box and keyboard hints</li>
+<li>Fixed scattered blank cells and disappearing composer chrome in the VS Code integrated terminal during scrolling</li>
+<li>Fixed an intermittent API 400 error related to cache control TTL ordering that could occur when a parallel request completed during request setup</li>
+<li>Fixed <code>/branch</code> rejecting conversations with transcripts larger than 50MB</li>
+<li>Fixed <code>/resume</code> silently showing an empty conversation on large session files instead of reporting the load error</li>
+<li>Fixed <code>/plugin</code> Installed tab showing the same item twice when it appears under Needs attention or Favorites</li>
+<li>Fixed <code>/update</code> and <code>/tui</code> not working after entering a worktree mid-session</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.114]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21114</id>
@@ -1595,42 +1628,6 @@
 <li>Fixed memory leak where TaskOutput retained recent lines after cleanup</li>
 <li>Fixed memory leak in CircularBuffer where cleared items were retained in the backing array</li>
 <li>Fixed memory leak in shell command execution where ChildProcess and AbortController references were retained after cleanup</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.49]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2149</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2149"/>
-        <updated>2026-02-19T22:39:45.313Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Improved MCP OAuth authentication with step-up auth support and discovery caching, reducing redundant network requests during server connections</li>
-<li>Added <code>--worktree</code> (<code>-w</code>) flag to start Claude in an isolated git worktree</li>
-<li>Subagents support <code>isolation: &quot;worktree&quot;</code> for working in a temporary git worktree</li>
-<li>Added Ctrl+F keybinding to kill background agents (two-press confirmation)</li>
-<li>Agent definitions support <code>background: true</code> to always run as a background task</li>
-<li>Plugins can ship <code>settings.json</code> for default configuration</li>
-<li>Fixed file-not-found errors to suggest corrected paths when the model drops the repo folder</li>
-<li>Fixed Ctrl+C and ESC being silently ignored when background agents are running and the main thread is idle. Pressing twice within 3 seconds now kills all background agents.</li>
-<li>Fixed prompt suggestion cache regression that reduced cache hit rates.</li>
-<li>Fixed <code>plugin enable</code> and <code>plugin disable</code> to auto-detect the correct scope when <code>--scope</code> is not specified, instead of always defaulting to user scope</li>
-<li>Simple mode (<code>CLAUDE_CODE_SIMPLE</code>) now includes the file edit tool in addition to the Bash tool, allowing direct file editing in simple mode.</li>
-<li>Permission suggestions are now populated when safety checks trigger an ask response, enabling SDK consumers to display permission options</li>
-<li>Sonnet 4.5 with 1M context is being removed from the Max plan in favor of our frontier Sonnet 4.6 model, which now has 1M context. Please switch in /model.</li>
-<li>Fixed verbose mode not updating thinking block display when toggled via <code>/config</code> — memo comparators now correctly detect verbose changes</li>
-<li>Fixed unbounded WASM memory growth during long sessions by periodically resetting the tree-sitter parser</li>
-<li>Fixed potential rendering issues caused by stale yoga layout references</li>
-<li>Improved performance in non-interactive mode (<code>-p</code>) by skipping unnecessary API calls during startup</li>
-<li>Improved performance by caching authentication failures for HTTP and SSE MCP servers, avoiding repeated connection attempts to servers requiring auth</li>
-<li>Fixed unbounded memory growth during long-running sessions caused by Yoga WASM linear memory never shrinking</li>
-<li>SDK model info now includes <code>supportsEffort</code>, <code>supportedEffortLevels</code>, and <code>supportsAdaptiveThinking</code> fields so consumers can discover model capabilities.</li>
-<li>Added <code>ConfigChange</code> hook event that fires when configuration files change during a session, enabling enterprise security auditing and optional blocking of settings changes.</li>
-<li>Improved startup performance by caching MCP auth failures to avoid redundant connection attempts</li>
-<li>Improved startup performance by reducing HTTP calls for analytics token counting</li>
-<li>Improved startup performance by batching MCP tool token counting into a single API call</li>
-<li>Fixed <code>disableAllHooks</code> setting to respect managed settings hierarchy — non-managed settings can no longer disable managed hooks set by policy (#26637)</li>
-<li>Fixed <code>--resume</code> session picker showing raw XML tags for sessions that start with commands like <code>/clear</code>. Now correctly falls through to the session ID fallback.</li>
-<li>Improved permission prompts for path safety and working directory blocks to show the reason for the restriction instead of a bare prompt with no context</li>
 </ul>
 ]]></content>
     </entry>
