@@ -2,9 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-04-21T22:12:22.867Z</updated>
+    <updated>2026-04-22T00:11:30.376Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.117]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21117</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21117"/>
+        <updated>2026-04-21T21:54:08.640Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Forked subagents can now be enabled on external builds by setting <code>CLAUDE_CODE_FORK_SUBAGENT=1</code></li>
+<li>Agent frontmatter <code>mcpServers</code> are now loaded for main-thread agent sessions via <code>--agent</code></li>
+<li>Improved <code>/model</code>: selections now persist across restarts even when the project pins a different model, and the startup header shows when the active model comes from a project or managed-settings pin</li>
+<li>The <code>/resume</code> command now offers to summarize stale, large sessions before re-reading them, matching the existing <code>--resume</code> behavior</li>
+<li>Faster startup when both local and claude.ai MCP servers are configured (concurrent connect now default)</li>
+<li><code>plugin install</code> on an already-installed plugin now installs any missing dependencies instead of stopping at &quot;already installed&quot;</li>
+<li>Plugin dependency errors now say &quot;not installed&quot; with an install hint, and <code>claude plugin marketplace add</code> now auto-resolves missing dependencies from configured marketplaces</li>
+<li>Managed-settings <code>blockedMarketplaces</code> and <code>strictKnownMarketplaces</code> are now enforced on plugin install, update, refresh, and autoupdate</li>
+<li>Advisor Tool (experimental): dialog now carries an &quot;experimental&quot; label, learn-more link, and startup notification when enabled; sessions no longer get stuck with &quot;Advisor tool result content could not be processed&quot; errors on every prompt and <code>/compact</code></li>
+<li>The <code>cleanupPeriodDays</code> retention sweep now also covers <code>~/.claude/tasks/</code>, <code>~/.claude/shell-snapshots/</code>, and <code>~/.claude/backups/</code></li>
+<li>OpenTelemetry: <code>user_prompt</code> events now include <code>command_name</code> and <code>command_source</code> for slash commands; <code>cost.usage</code>, <code>token.usage</code>, <code>api_request</code>, and <code>api_error</code> now include an <code>effort</code> attribute when the model supports effort levels. Custom/MCP command names are redacted unless <code>OTEL_LOG_TOOL_DETAILS=1</code> is set</li>
+<li>Native builds on macOS and Linux: the <code>Glob</code> and <code>Grep</code> tools are replaced by embedded <code>bfs</code> and <code>ugrep</code> available through the Bash tool — faster searches without a separate tool round-trip (Windows and npm-installed builds unchanged)</li>
+<li>Windows: cached <code>where.exe</code> executable lookups per process for faster subprocess launches</li>
+<li>Default effort for Pro/Max subscribers on Opus 4.6 and Sonnet 4.6 is now <code>high</code> (was <code>medium</code>)</li>
+<li>Fixed Plain-CLI OAuth sessions dying with &quot;Please run /login&quot; when the access token expires mid-session — the token is now refreshed reactively on 401</li>
+<li>Fixed <code>WebFetch</code> hanging on very large HTML pages by truncating input before HTML-to-markdown conversion</li>
+<li>Fixed a crash when a proxy returns HTTP 204 No Content — now surfaces a clear error instead of a <code>TypeError</code></li>
+<li>Fixed <code>/login</code> having no effect when launched with <code>CLAUDE_CODE_OAUTH_TOKEN</code> env var and that token expires</li>
+<li>Fixed prompt-input undo (<code>Ctrl+_</code>) doing nothing immediately after typing, and skipping a state on each undo step</li>
+<li>Fixed <code>NO_PROXY</code> not being respected for remote API requests when running under Bun</li>
+<li>Fixed rare spurious escape/return triggers when key names arrive as coalesced text over slow connections</li>
+<li>Fixed SDK <code>reload_plugins</code> reconnecting all user MCP servers serially</li>
+<li>Fixed Bedrock application-inference-profile requests failing with 400 when backed by Opus 4.7 with thinking disabled</li>
+<li>Fixed MCP <code>elicitation/create</code> requests auto-cancelling in print/SDK mode when the server finishes connecting mid-turn</li>
+<li>Fixed subagents running a different model than the main agent incorrectly flagging file reads with a malware warning</li>
+<li>Fixed idle re-render loop when background tasks are present, reducing memory growth on Linux</li>
+<li>[VSCode] Fixed &quot;Manage Plugins&quot; panel breaking when multiple large marketplaces are configured</li>
+<li>Fixed Opus 4.7 sessions showing inflated <code>/context</code> percentages and autocompacting too early — Claude Code was computing against a 200K context window instead of Opus 4.7&#39;s native 1M</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.116]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21116</id>
@@ -1594,40 +1631,6 @@
 <li>Fixed slash command autocomplete crashing when a plugin&#39;s SKILL.md description is a YAML array or other non-string type</li>
 <li>The <code>/model</code> picker now shows human-readable labels (e.g., &quot;Sonnet 4.5&quot;) instead of raw model IDs for pinned model versions, with an upgrade hint when a newer version is available.</li>
 <li>Managed settings can now be set via macOS plist or Windows Registry. Learn more at <a href="https://code.claude.com/docs/en/settings#settings-files">https://code.claude.com/docs/en/settings#settings-files</a></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.50]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2150</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2150"/>
-        <updated>2026-02-20T23:09:38.385Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added support for <code>startupTimeout</code> configuration for LSP servers</li>
-<li>Added <code>WorktreeCreate</code> and <code>WorktreeRemove</code> hook events, enabling custom VCS setup and teardown when agent worktree isolation creates or removes worktrees.</li>
-<li>Fixed a bug where resumed sessions could be invisible when the working directory involved symlinks, because the session storage path was resolved at different times during startup. Also fixed session data loss on SSH disconnect by flushing session data before hooks and analytics in the graceful shutdown sequence.</li>
-<li>Linux: Fixed native modules not loading on systems with glibc older than 2.30 (e.g., RHEL 8)</li>
-<li>Fixed memory leak in agent teams where completed teammate tasks were never garbage collected from session state</li>
-<li>Fixed <code>CLAUDE_CODE_SIMPLE</code> to fully strip down skills, session memory, custom agents, and CLAUDE.md token counting</li>
-<li>Fixed <code>/mcp reconnect</code> freezing the CLI when given a server name that doesn&#39;t exist</li>
-<li>Fixed memory leak where completed task state objects were never removed from AppState</li>
-<li>Added support for <code>isolation: worktree</code> in agent definitions, allowing agents to declaratively run in isolated git worktrees.</li>
-<li><code>CLAUDE_CODE_SIMPLE</code> mode now also disables MCP tools, attachments, hooks, and CLAUDE.md file loading for a fully minimal experience.</li>
-<li>Fixed bug where MCP tools were not discovered when tool search is enabled and a prompt is passed in as a launch argument</li>
-<li>Improved memory usage during long sessions by clearing internal caches after compaction</li>
-<li>Added <code>claude agents</code> CLI command to list all configured agents</li>
-<li>Improved memory usage during long sessions by clearing large tool results after they have been processed</li>
-<li>Fixed a memory leak where LSP diagnostic data was never cleaned up after delivery, causing unbounded memory growth in long sessions</li>
-<li>Fixed a memory leak where completed task output was not freed from memory, reducing memory usage in long sessions with many tasks</li>
-<li>Improved startup performance for headless mode (<code>-p</code> flag) by deferring Yoga WASM and UI component imports</li>
-<li>Fixed prompt suggestion cache regression that reduced cache hit rates</li>
-<li>Fixed unbounded memory growth in long sessions by capping file history snapshots</li>
-<li>Added <code>CLAUDE_CODE_DISABLE_1M_CONTEXT</code> environment variable to disable 1M context window support</li>
-<li>Opus 4.6 (fast mode) now includes the full 1M context window</li>
-<li>VSCode: Added <code>/extra-usage</code> command support in VS Code sessions</li>
-<li>Fixed memory leak where TaskOutput retained recent lines after cleanup</li>
-<li>Fixed memory leak in CircularBuffer where cleared items were retained in the backing array</li>
-<li>Fixed memory leak in shell command execution where ChildProcess and AbortController references were retained after cleanup</li>
 </ul>
 ]]></content>
     </entry>
