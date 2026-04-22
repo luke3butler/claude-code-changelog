@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-04-22T00:11:30.376Z</updated>
+    <updated>2026-04-22T23:14:46.316Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -60,6 +60,7 @@
 <li>Agent frontmatter <code>hooks:</code> now fire when running as a main-thread agent via <code>--agent</code></li>
 <li>Slash command menu now shows &quot;No commands match&quot; when your filter has zero results, instead of disappearing</li>
 <li>Security: sandbox auto-allow no longer bypasses the dangerous-path safety check for <code>rm</code>/<code>rmdir</code> targeting <code>/</code>, <code>$HOME</code>, or other critical system directories</li>
+<li>Claude Code and installer now use <code>https://downloads.claude.ai/claude-code-releases</code> instead of <code>https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases</code></li>
 <li>Fixed Devanagari and other Indic scripts rendering with broken column alignment in the terminal UI</li>
 <li>Fixed Ctrl+- not triggering undo in terminals using the Kitty keyboard protocol (iTerm2, Ghostty, kitty, WezTerm, Windows Terminal)</li>
 <li>Fixed Cmd+Left/Right not jumping to line start/end in terminals that use the Kitty keyboard protocol (Warp fullscreen, kitty, Ghostty, WezTerm)</li>
