@@ -1,6 +1,36 @@
 {
-  "updated": "2026-04-24T23:11:41.683Z",
+  "updated": "2026-04-25T01:31:01.999Z",
   "entries": [
+    {
+      "version": "2.1.120",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21120",
+      "publishedAt": "2026-04-24T23:02:49.608Z",
+      "changes": [
+        "Windows: Git for Windows (Git Bash) is no longer required — when absent, Claude Code uses PowerShell as the shell tool",
+        "Added `claude ultrareview [target]` subcommand to run `/ultrareview` non-interactively from CI or scripts — prints findings to stdout (`--json` for raw output) and exits 0 on completion or 1 on failure",
+        "Skills can now reference the current effort level with `${CLAUDE_EFFORT}` in their content",
+        "Set `AI_AGENT` environment variable for subprocesses so `gh` can attribute traffic to Claude Code",
+        "Spinner tips that recommend installing the desktop app or creating skills/agents are now hidden when you already have them",
+        "Show a \"use PgUp/PgDn to scroll\" hint when the terminal sends arrow keys instead of scroll events",
+        "Faster session start when you have many claude.ai connectors configured but not authorized",
+        "The auto mode denial message now links to the configuration docs",
+        "`claude plugin validate` now accepts `$schema`, `version`, and `description` at the top level of `marketplace.json` and `$schema` in `plugin.json`",
+        "Auto-compact in auto mode now displays `auto` (lowercase, no token count) instead of a misleading token value",
+        "Fixed pressing Esc during a stdio MCP tool call closing the entire server connection (regression in 2.1.105)",
+        "Fixed `/rewind` and other interactive overlays not responding to keyboard input after launching with `claude --resume`",
+        "Fixed terminal scrollback duplication in non-fullscreen mode (resize, dialog dismiss, long sessions)",
+        "Fixed `DISABLE_TELEMETRY` / `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` not suppressing usage metrics telemetry for API and enterprise users",
+        "Fixed false-positive \"Dangerous rm operation\" permission prompts in auto mode for multi-line bash commands containing both a pipe and a redirect",
+        "Fixed long selection menus clipping below the terminal in fullscreen mode — the focused option now stays on screen as you scroll",
+        "Fixed Write tool output collapsing instead of expanding when clicking \"+N lines\" in fullscreen",
+        "Fixed slash command picker jumping while typing, and improved highlight to only match contiguous substrings in blue",
+        "Fixed `/plugin` marketplace failing to load when one entry uses an unrecognized source format — that entry is shown but installing it prompts you to update",
+        "[VSCode] `/usage` now opens the native Account & Usage dialog instead of returning plain-text session cost",
+        "[VSCode] Voice dictation now respects the `language` setting in `~/.claude/settings.json`",
+        "Fixed `find` in the Bash tool exhausting open file descriptors on large directory trees, causing host-wide crashes (macOS/Linux native builds)"
+      ],
+      "changeCount": 22
+    },
     {
       "version": "2.1.119",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21119",
@@ -1625,22 +1655,6 @@
       "publishedAt": "2026-02-25T02:42:12.579Z",
       "changes": ["Fixed BashTool failing on Windows with EINVAL error"],
       "changeCount": 1
-    },
-    {
-      "version": "2.1.53",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2153",
-      "publishedAt": "2026-02-24T22:44:13.059Z",
-      "changes": [
-        "Fixed a UI flicker where user input would briefly disappear after submission before the message rendered",
-        "Fixed bulk agent kill (ctrl+f) to send a single aggregate notification instead of one per agent, and to properly clear the command queue",
-        "Fixed graceful shutdown sometimes leaving stale sessions when using Remote Control by parallelizing teardown network calls",
-        "Fixed `--worktree` sometimes being ignored on first launch",
-        "Fixed a panic (\"switch on corrupted value\") on Windows",
-        "Fixed a crash that could occur when spawning many processes on Windows",
-        "Fixed a crash in the WebAssembly interpreter on Linux x64 & Windows x64",
-        "Fixed a crash that sometimes occurred after 2 minutes on Windows ARM64"
-      ],
-      "changeCount": 8
     }
   ]
 }
