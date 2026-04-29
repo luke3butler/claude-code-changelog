@@ -1,6 +1,15 @@
 {
-  "updated": "2026-04-29T03:00:08.949Z",
+  "updated": "2026-04-29T04:19:54.441Z",
   "entries": [
+    {
+      "version": "2.1.123",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21123",
+      "publishedAt": "2026-04-29T01:52:47.690Z",
+      "changes": [
+        "Fixed OAuth authentication failing with a 401 retry loop when `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` is set"
+      ],
+      "changeCount": 1
+    },
     {
       "version": "2.1.122",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21122",
@@ -1705,13 +1714,6 @@
         "Fixed config file corruption that could wipe authentication when multiple Claude Code instances ran simultaneously"
       ],
       "changeCount": 8
-    },
-    {
-      "version": "2.1.58",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2158",
-      "publishedAt": "2026-02-25T19:22:07.859Z",
-      "changes": ["Expand Remote Control to more users"],
-      "changeCount": 1
     }
   ]
 }

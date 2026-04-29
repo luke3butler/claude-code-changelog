@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-04-29T03:00:08.945Z</updated>
+    <updated>2026-04-29T04:19:54.437Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.123]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21123</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21123"/>
+        <updated>2026-04-29T01:52:47.690Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed OAuth authentication failing with a 401 retry loop when <code>CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1</code> is set</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.122]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21122</id>
@@ -1764,16 +1774,6 @@
 <li>Fixed MCP OAuth token refresh race condition when running multiple Claude Code instances simultaneously</li>
 <li>Fixed shell commands not showing a clear error message when the working directory has been deleted</li>
 <li>Fixed config file corruption that could wipe authentication when multiple Claude Code instances ran simultaneously</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.58]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2158</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2158"/>
-        <updated>2026-02-25T19:22:07.859Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Expand Remote Control to more users</li>
 </ul>
 ]]></content>
     </entry>
