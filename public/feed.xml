@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-05-01T03:00:29.926Z</updated>
+    <updated>2026-05-01T05:12:35.292Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -39,10 +39,9 @@
 <li>Fixed <code>Ctrl+L</code> clearing the prompt input — it now only forces a screen redraw, matching readline behavior</li>
 <li>Fixed deferred tools (WebSearch, WebFetch, etc.) not being available to skills with <code>context: fork</code> and other subagents on their first turn</li>
 <li>Fixed plan-mode tools being unavailable in interactive sessions launched with <code>--channels</code></li>
-<li>Fixed blank remote-session transcript when certain messaging tools are unavailable</li>
 <li>Fixed <code>/plugin</code> Uninstall reporting &quot;Enabled&quot; instead of &quot;Uninstalled&quot;</li>
 <li>Bounded total size of file-modified reminders when a linter touches many files at once</li>
-<li>Fixed <code>/remote-control</code> retries appearing stuck on &quot;connecting…&quot; — each retry now shows its result, and unenrolled trusted-device failures are caught up-front</li>
+<li>Fixed <code>/remote-control</code> retries appearing stuck on &quot;connecting…&quot; — each retry now shows its result</li>
 <li>Fixed Remote Control failure notification not showing the error reason for initial connection failures</li>
 <li>Windows: clipboard writes no longer expose copied content in process command-line arguments visible to EDR/SIEM telemetry; also fixes &gt;22KB selections not reaching the clipboard</li>
 <li>PowerShell tool: bare <code>--</code> (e.g. <code>git diff -- file</code>) is no longer mis-flagged as the <code>--%</code> stop-parsing token</li>
