@@ -2,9 +2,54 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-04-30T21:18:57.226Z</updated>
+    <updated>2026-05-01T03:00:29.926Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.126]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21126</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21126"/>
+        <updated>2026-04-30T20:30:34.530Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>The <code>/model</code> picker now lists models from your gateway&#39;s <code>/v1/models</code> endpoint when <code>ANTHROPIC_BASE_URL</code> points at an Anthropic-compatible gateway</li>
+<li><ul>
+<li>Added <code>claude project purge [path]</code> to delete all Claude Code state for a project (transcripts, tasks, file history, config entry) — supports <code>--dry-run</code>, <code>-y/--yes</code>, <code>-i/--interactive</code>, and <code>--all</code></li>
+</ul>
+</li>
+<li><code>--dangerously-skip-permissions</code> now bypasses prompts for writes to <code>.claude/</code>, <code>.git/</code>, <code>.vscode/</code>, shell config files, and other previously-protected paths (catastrophic removal commands still prompt as a safety net)</li>
+<li><code>claude auth login</code> now accepts the OAuth code pasted into the terminal when the browser callback can&#39;t reach localhost (WSL2, SSH, containers)</li>
+<li><code>claude_code.skill_activated</code> OpenTelemetry event now fires for user-typed slash commands and carries a new <code>invocation_trigger</code> attribute (<code>&quot;user-slash&quot;</code>, <code>&quot;claude-proactive&quot;</code>, or <code>&quot;nested-skill&quot;</code>)</li>
+<li>Auto mode: the spinner now turns red when a permission check stalls, instead of looking like the tool is running</li>
+<li>Host-managed deployments (<code>CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST</code>) no longer auto-disable analytics on Bedrock/Vertex/Foundry</li>
+<li>Windows: PowerShell 7 installed via the Microsoft Store, MSI without PATH, or <code>.NET global tool</code> is now detected</li>
+<li>Windows: when the PowerShell tool is enabled, Claude now treats PowerShell as the primary shell instead of defaulting to Bash</li>
+<li>Read tool: removed the per-file malware-assessment reminder that could cause spurious refusals and &quot;this is not malware&quot; commentary on legacy models</li>
+<li><strong>Security:</strong> Fixed <code>allowManagedDomainsOnly</code> / <code>allowManagedReadPathsOnly</code> being ignored when a higher-priority managed-settings source lacked a <code>sandbox</code> block</li>
+<li>Fixed pasting an image larger than 2000px breaking the session — images are now downscaled on paste, and oversized images in history are automatically removed and the request retried</li>
+<li>Fixed showing the login screen for &quot;OAuth not allowed for organization&quot; errors — now shows guidance to contact your admin</li>
+<li>Fixed OAuth login failing with timeout on slow or proxied connections, in IPv6-only devcontainers, and when the browser callback can&#39;t reach localhost</li>
+<li>Fixed a rare race where a concurrent credential write could clear a valid OAuth refresh token</li>
+<li>Fixed API retry countdown sticking at &quot;0s&quot; instead of counting down between attempts</li>
+<li>Fixed &quot;Stream idle timeout&quot; error after waking Mac from sleep mid-request</li>
+<li>Fixed background and remote sessions falsely aborting with &quot;Stream idle timeout&quot; during long model thinking pauses</li>
+<li>Fixed a hang where the assistant could finish thinking but show no output after a run of empty turns</li>
+<li>Fixed overly fast trackpad scrolling in Cursor and VS Code 1.92–1.104 integrated terminals</li>
+<li>Fixed claude.ai MCP connectors being suppressed by manual servers stuck in needs-auth state</li>
+<li>Fixed Japanese/Korean/Chinese text rendering as garbled characters on Windows in no-flicker mode</li>
+<li>Fixed <code>Ctrl+L</code> clearing the prompt input — it now only forces a screen redraw, matching readline behavior</li>
+<li>Fixed deferred tools (WebSearch, WebFetch, etc.) not being available to skills with <code>context: fork</code> and other subagents on their first turn</li>
+<li>Fixed plan-mode tools being unavailable in interactive sessions launched with <code>--channels</code></li>
+<li>Fixed blank remote-session transcript when certain messaging tools are unavailable</li>
+<li>Fixed <code>/plugin</code> Uninstall reporting &quot;Enabled&quot; instead of &quot;Uninstalled&quot;</li>
+<li>Bounded total size of file-modified reminders when a linter touches many files at once</li>
+<li>Fixed <code>/remote-control</code> retries appearing stuck on &quot;connecting…&quot; — each retry now shows its result, and unenrolled trusted-device failures are caught up-front</li>
+<li>Fixed Remote Control failure notification not showing the error reason for initial connection failures</li>
+<li>Windows: clipboard writes no longer expose copied content in process command-line arguments visible to EDR/SIEM telemetry; also fixes &gt;22KB selections not reaching the clipboard</li>
+<li>PowerShell tool: bare <code>--</code> (e.g. <code>git diff -- file</code>) is no longer mis-flagged as the <code>--%</code> stop-parsing token</li>
+<li>Fixed Agent SDK hang when the model emits a malformed tool name in a parallel tool call batch</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.123]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21123</id>
@@ -1757,23 +1802,6 @@
         <updated>2026-02-26T21:40:54.613Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Fixed concurrent writes corrupting config file on Windows</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.59]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2159</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2159"/>
-        <updated>2026-02-25T23:38:34.475Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Claude automatically saves useful context to auto-memory. Manage with /memory</li>
-<li>Added <code>/copy</code> command to show an interactive picker when code blocks are present, allowing selection of individual code blocks or the full response.</li>
-<li>Improved &quot;always allow&quot; prefix suggestions for compound bash commands (e.g. <code>cd /tmp &amp;&amp; git fetch &amp;&amp; git push</code>) to compute smarter per-subcommand prefixes instead of treating the whole command as one</li>
-<li>Improved ordering of short task lists</li>
-<li>Improved memory usage in multi-agent sessions by releasing completed subagent task state</li>
-<li>Fixed MCP OAuth token refresh race condition when running multiple Claude Code instances simultaneously</li>
-<li>Fixed shell commands not showing a clear error message when the working directory has been deleted</li>
-<li>Fixed config file corruption that could wipe authentication when multiple Claude Code instances ran simultaneously</li>
 </ul>
 ]]></content>
     </entry>
