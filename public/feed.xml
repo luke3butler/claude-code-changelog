@@ -2,9 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-05-06T03:00:03.725Z</updated>
+    <updated>2026-05-06T09:44:17.214Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.131]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21131</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21131"/>
+        <updated>2026-05-06T07:41:53.401Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed VS Code extension failing to activate on Windows due to a hardcoded build path in the bundled SDK (<code>createRequire</code> polyfill bug)</li>
+<li>Fixed Mantle endpoint authentication failing with missing <code>x-api-key</code> header</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.129]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21129</id>
@@ -1828,41 +1839,6 @@
         <updated>2026-03-04T00:19:58.178Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Reduced spurious error logging</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.63]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2163</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2163"/>
-        <updated>2026-02-28T02:43:42.865Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>/simplify</code> and <code>/batch</code> bundled slash commands</li>
-<li>Fixed local slash command output like /cost appearing as user-sent messages instead of system messages in the UI</li>
-<li>Project configs &amp; auto memory now shared across git worktrees of the same repository</li>
-<li>Added <code>ENABLE_CLAUDEAI_MCP_SERVERS=false</code> env var to opt out from making claude.ai MCP servers available</li>
-<li>Improved <code>/model</code> command to show the currently active model in the slash command menu</li>
-<li>Added HTTP hooks, which can POST JSON to a URL and receive JSON instead of running a shell command</li>
-<li>Fixed listener leak in bridge polling loop</li>
-<li>Fixed listener leak in MCP OAuth flow cleanup</li>
-<li>Added manual URL paste fallback during MCP OAuth authentication. If the automatic localhost redirect doesn&#39;t work, you can paste the callback URL to complete authentication.</li>
-<li>Fixed memory leak when navigating hooks configuration menu</li>
-<li>Fixed listener leak in interactive permission handler during auto-approvals</li>
-<li>Fixed file count cache ignoring glob ignore patterns</li>
-<li>Fixed memory leak in bash command prefix cache</li>
-<li>Fixed MCP tool/resource cache leak on server reconnect</li>
-<li>Fixed IDE host IP detection cache incorrectly sharing results across ports</li>
-<li>Fixed WebSocket listener leak on transport reconnect</li>
-<li>Fixed memory leak in git root detection cache that could cause unbounded growth in long-running sessions</li>
-<li>Fixed memory leak in JSON parsing cache that grew unbounded over long sessions</li>
-<li>VSCode: Fixed remote sessions not appearing in conversation history</li>
-<li>Fixed a race condition in the REPL bridge where new messages could arrive at the server interleaved with historical messages during the initial connection flush, causing message ordering issues.</li>
-<li>Fixed memory leak where long-running teammates retained all messages in AppState even after conversation compaction</li>
-<li>Fixed a memory leak where MCP server fetch caches were not cleared on disconnect, causing growing memory usage with servers that reconnect frequently</li>
-<li>Improved memory usage in long sessions with subagents by stripping heavy progress message payloads during context compaction</li>
-<li>Added &quot;Always copy full response&quot; option to the <code>/copy</code> picker. When selected, future <code>/copy</code> commands will skip the code block picker and copy the full response directly.</li>
-<li>VSCode: Added session rename and remove actions to the sessions list</li>
-<li>Fixed <code>/clear</code> not resetting cached skills, which could cause stale skill content to persist in the new conversation</li>
 </ul>
 ]]></content>
     </entry>
