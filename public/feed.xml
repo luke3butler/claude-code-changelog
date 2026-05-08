@@ -2,9 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-05-07T20:24:56.766Z</updated>
+    <updated>2026-05-08T00:19:00.803Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.133]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21133</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21133"/>
+        <updated>2026-05-07T20:19:32.227Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>worktree.baseRef</code> setting (<code>fresh</code> | <code>head</code>) to choose whether <code>--worktree</code>, <code>EnterWorktree</code>, and agent-isolation worktrees branch from <code>origin/&lt;default&gt;</code> or local <code>HEAD</code>. <strong>Note:</strong> the default <code>fresh</code> changes <code>EnterWorktree</code>&#39;s base back to <code>origin/&lt;default&gt;</code> (it has been local <code>HEAD</code> since 2.1.128) — set <code>worktree.baseRef: &quot;head&quot;</code> to keep unpushed commits in new worktrees</li>
+<li>Added <code>sandbox.bwrapPath</code> and <code>sandbox.socatPath</code> managed settings (Linux/WSL) to specify custom bubblewrap and socat binary locations</li>
+<li>Added <code>parentSettingsBehavior</code> admin-tier key (<code>&#39;first-wins&#39; | &#39;merge&#39;</code>) to let admins opt SDK <code>managedSettings</code> (parent tier) into the policy merge</li>
+<li>Hooks now receive the active effort level via the <code>effort.level</code> JSON input field and the <code>$CLAUDE_EFFORT</code> environment variable, and Bash tool commands can read <code>$CLAUDE_EFFORT</code></li>
+<li>Improved focus mode behavior</li>
+<li>Improved memory usage by releasing warm-spare background workers under memory pressure</li>
+<li>Fixed parallel sessions all dead-ending at 401 after a refresh-token race wiped shared credentials</li>
+<li>Fixed <code>Edit</code>/<code>Write</code> allow rules scoped to a drive root (<code>C:\</code>) or POSIX <code>/</code> matching incorrectly and always prompting</li>
+<li>Fixed an unhandled rejection (<code>ECOMPROMISED</code>) when a history or session-log file lock is compromised by clock skew or slow disk</li>
+<li>Fixed pressing Esc during conversation compaction showing a spurious &quot;Error compacting conversation&quot; notification</li>
+<li>Fixed <code>HTTP(S)_PROXY</code> / <code>NO_PROXY</code> / mTLS not being respected for the full MCP OAuth flow including discovery, dynamic client registration, token exchange, and token refresh</li>
+<li>Fixed Read/Write/Edit being denied on mapped network drives passed via <code>--add-dir</code> / SDK <code>additionalDirectories</code></li>
+<li>Fixed Remote Control stop/interrupt from claude.ai not fully canceling the CLI session the same way local Esc does, causing queued messages to never advance after interrupting a stuck tool or prompt</li>
+<li>Fixed <code>/effort</code> in one session unexpectedly changing the effort level of other concurrent sessions, and a related issue where an IDE effort change could be silently dropped</li>
+<li>Fixed subagents not discovering project, user, or plugin skills via the Skill tool</li>
+<li><code>claude --help</code> now lists <code>--remote-control</code> alongside <code>--remote-control-session-name-prefix</code></li>
+<li>[VSCode] Fixed <code>claudeCode.claudeProcessWrapper</code> failing with &quot;Unsupported platform&quot; when the extension build doesn&#39;t bundle a Claude binary</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.132]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21132</id>
@@ -1854,18 +1880,6 @@
 <li>[VSCode] Added compaction display as a collapsible &quot;Compacted chat&quot; card with the summary inside</li>
 <li>[VSCode] The permission mode picker now respects <code>permissions.disableBypassPermissionsMode</code> from your effective Claude Code settings (including managed/policy settings) — when set to <code>disable</code>, bypass permissions mode is hidden from the picker</li>
 <li>[VSCode] Fixed RTL text (Arabic, Hebrew, Persian) rendering reversed in the chat panel (regression in v2.1.63)</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.68]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2168</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2168"/>
-        <updated>2026-03-04T09:20:53.882Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Opus 4.6 now defaults to medium effort for Max and Team subscribers. Medium effort works well for most tasks — it&#39;s the sweet spot between speed and thoroughness. You can change this anytime with <code>/model</code></li>
-<li>Re-introduced the &quot;ultrathink&quot; keyword to enable high effort for the next turn</li>
-<li>Removed Opus 4 and 4.1 from Claude Code on the first-party API — users with these models pinned are automatically moved to Opus 4.6</li>
 </ul>
 ]]></content>
     </entry>
