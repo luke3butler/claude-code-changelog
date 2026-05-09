@@ -1,5 +1,10 @@
 [
   {
+    "version": "2.1.138",
+    "content": "- Internal fixes",
+    "publishedAt": "2026-05-09T05:57:28.355Z"
+  },
+  {
     "version": "2.1.137",
     "content": "- [VSCode] Fixed extension failing to activate on Windows",
     "publishedAt": "2026-05-09T00:04:08.277Z"
