@@ -2,9 +2,42 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-05-14T20:28:22.786Z</updated>
+    <updated>2026-05-14T23:15:55.371Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.142]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21142</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21142"/>
+        <updated>2026-05-14T20:17:28.262Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added new <code>claude agents</code> flags: <code>--add-dir</code>, <code>--settings</code>, <code>--mcp-config</code>, <code>--plugin-dir</code>, <code>--permission-mode</code>, <code>--model</code>, <code>--effort</code>, and <code>--dangerously-skip-permissions</code> to configure dispatched background sessions</li>
+<li>Fast mode now uses Opus 4.7 by default (previously Opus 4.6). Set <code>CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE=1</code> to pin fast mode to Opus 4.6</li>
+<li>Plugins with a root-level <code>SKILL.md</code> and no <code>skills/</code> subdirectory are now surfaced as a skill</li>
+<li>The <code>/plugin</code> details pane and <code>claude plugin details</code> now show LSP servers a plugin provides</li>
+<li><code>/web-setup</code> warns before replacing an existing GitHub App connection</li>
+<li>Fixed <code>MCP_TOOL_TIMEOUT</code> not raising the per-request fetch timeout for remote HTTP and SSE MCP servers, which capped tool calls at 60 seconds regardless of the configured value</li>
+<li>Fixed background sessions not recognizing pre-existing git worktrees, blocking Edit while EnterWorktree refused to create a duplicate</li>
+<li>Fixed background sessions disappearing and daemon reconnect failing after macOS sleep/wake — the daemon now detects clock jumps instead of treating them as elapsed idle time</li>
+<li>Fixed daemon not exiting cleanly after the binary is upgraded (e.g. <code>brew upgrade</code>), causing dispatched agents to crash-loop on the deleted path</li>
+<li>Fixed background agents crash-looping when the Claude-in-Chrome extension is connected without a shared tab</li>
+<li>Fixed clicking links in an attached <code>claude agents</code> session — the background worker&#39;s headless browser shim no longer applies while attached</li>
+<li>Fixed <code>claude agents</code> &quot;v to open in editor&quot; using the daemon&#39;s default editor instead of your shell&#39;s <code>$EDITOR</code>/<code>$VISUAL</code></li>
+<li>Fixed <code>claude agents</code> deadlocking on Windows with network-drive working directories; Ctrl+C now works during startup</li>
+<li>Fixed background-color bleed when attaching to a <code>claude agents</code> session from Apple Terminal or other 256-color-only terminals</li>
+<li>Fixed <code>claude --bg --dangerously-skip-permissions</code> not persisting across retire/wake</li>
+<li>Fixed session titles being derived from the URL when the first message is a link</li>
+<li>Fixed redundant <code>set_model</code> requests from remote clients injecting duplicate <code>/model</code> breadcrumbs into the transcript</li>
+<li>Fixed plugins using <code>skills: [&quot;./&quot;]</code> showing a false &quot;path escapes plugin directory&quot; error</li>
+<li>Fixed plugin cache cleanup deleting the active plugin version directory when no installation metadata is present</li>
+<li>Fixed <code>/plugin</code> browse pane showing &quot;0 installs&quot; for newly published plugins</li>
+<li>Fixed plugin advisories not naming every <code>plugin.json</code> key that shadows a default folder</li>
+<li>Improved reactive compaction: the first summarize attempt now seeds from the original request&#39;s overflow size, avoiding a wasted near-full-context retry</li>
+<li>Improved hook configuration error: configuring a prompt- or agent-type hook for <code>SessionStart</code>/<code>Setup</code>/<code>SubagentStart</code> now shows a clear &quot;use a command-type hook instead&quot; error</li>
+<li>Removed stale <code>/model claude-sonnet-4-20250514</code> suggestion from Usage Policy refusal messages</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.141]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21141</id>
@@ -1776,34 +1809,6 @@
 <li>Improved <code>/voice</code> to show your dictation language on enable and warn when your <code>language</code> setting isn&#39;t supported for voice input</li>
 <li>Updated <code>--plugin-dir</code> to only accept one path to support subcommands — use repeated <code>--plugin-dir</code> for multiple directories</li>
 <li>[VSCode] Fixed gitignore patterns containing commas silently excluding entire filetypes from the @-mention file picker</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.75]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2175</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2175"/>
-        <updated>2026-03-13T15:51:07.443Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added 1M context window for Opus 4.6 by default for Max, Team, and Enterprise plans (previously required extra usage)</li>
-<li>Added <code>/color</code> command for all users to set a prompt-bar color for your session</li>
-<li>Added session name display on the prompt bar when using <code>/rename</code></li>
-<li>Added last-modified timestamps to memory files, helping Claude reason about which memories are fresh vs. stale</li>
-<li>Added hook source display (settings/plugin/skill) in permission prompts when a hook requires confirmation</li>
-<li>Fixed voice mode not activating correctly on fresh installs without toggling <code>/voice</code> twice</li>
-<li>Fixed the Claude Code header not updating the displayed model name after switching models with <code>/model</code> or Option+P</li>
-<li>Fixed session crash when an attachment message computation returns undefined values</li>
-<li>Fixed Bash tool mangling <code>!</code> in piped commands (e.g., <code>jq &#39;select(.x != .y)&#39;</code> now works correctly)</li>
-<li>Fixed managed-disabled plugins showing up in the <code>/plugin</code> Installed tab — plugins force-disabled by your organization are now hidden</li>
-<li>Fixed token estimation over-counting for thinking and <code>tool_use</code> blocks, preventing premature context compaction</li>
-<li>Fixed corrupted marketplace config path handling</li>
-<li>Fixed <code>/resume</code> losing session names after resuming a forked or continued session</li>
-<li>Fixed Esc not closing the <code>/status</code> dialog after visiting the Config tab</li>
-<li>Fixed input handling when accepting or rejecting a plan</li>
-<li>Fixed footer hint in agent teams showing &quot;↓ to expand&quot; instead of the correct &quot;shift + ↓ to expand&quot;</li>
-<li>Improved startup performance on macOS non-MDM machines by skipping unnecessary subprocess spawns</li>
-<li>Suppressed async hook completion messages by default (visible with <code>--verbose</code> or transcript mode)</li>
-<li>Breaking change: Removed deprecated Windows managed settings fallback at <code>C:\ProgramData\ClaudeCode\managed-settings.json</code> — use <code>C:\Program Files\ClaudeCode\managed-settings.json</code></li>
 </ul>
 ]]></content>
     </entry>
