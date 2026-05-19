@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-05-19T17:46:22.452Z</updated>
+    <updated>2026-05-19T21:27:59.197Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -39,8 +39,6 @@
 <li>Fixed background side-queries on custom <code>ANTHROPIC_BASE_URL</code> setups and Bedrock Mantle not using Haiku — now falls back correctly when a first-party API key is configured or no Haiku model is set</li>
 <li>Fixed scrolling in attached background sessions on Windows — PgUp/PgDn, mouse wheel, and Ctrl+O transcript navigation now work</li>
 <li>Fixed a crash when closing the terminal while attached to a background session</li>
-<li>Fixed <code>! &lt;cmd&gt;</code> exec sessions not responding to Ctrl+C while attached — now interrupts the running command</li>
-<li>Fixed agent view shell-command rows lingering under Working after completion, and pressing Enter on a completed row re-running the command after its output expired</li>
 <li>Fixed on Windows, pressing ← in <code>claude agents</code> leaving the list unresponsive to keyboard input</li>
 <li>Fixed ghost characters at the left edge when switching panes in Agent View on Windows Terminal with CJK content</li>
 <li><code>/bg</code> and <code>←</code>-detach now preserve directories added via <code>/add-dir</code></li>
