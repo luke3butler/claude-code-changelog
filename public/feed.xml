@@ -2,9 +2,38 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-05-19T21:27:59.197Z</updated>
+    <updated>2026-05-19T22:24:16.346Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.145]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21145</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21145"/>
+        <updated>2026-05-19T17:40:52.477Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>claude agents --json</code> to list live Claude sessions as JSON for scripting (tmux-resurrect, status bars, session pickers)</li>
+<li>Added <code>agent_id</code> and <code>parent_agent_id</code> attributes to <code>claude_code.tool</code> OTEL spans, and fixed trace parenting so background subagent spans nest under the dispatching Agent tool span</li>
+<li>Status line JSON input now includes GitHub repo and PR information when detected</li>
+<li><code>/plugin</code> Discover and Browse screens now show a plugin&#39;s commands, agents, skills, hooks, and MCP/LSP servers before installation</li>
+<li><code>claude agents</code> terminal tab title now shows the awaiting-input count so an alt-tabbed window tells you when an agent needs attention</li>
+<li>Slash command and @-mention suggestion list now supports mouse hover and click in fullscreen mode</li>
+<li>Stop and SubagentStop hook input now includes <code>background_tasks</code> and <code>session_crons</code> fields</li>
+<li>Fixed a permission-prompt bypass where bare variable assignments to non-allowlisted environment variables in Bash commands were auto-approved</li>
+<li>Fixed MCP prompt slash commands showing raw server validation errors when a required argument is omitted — the error now names the missing argument and shows expected usage</li>
+<li>Fixed the spinner and elapsed-time display freezing until a keypress after the terminal was resized or refocused</li>
+<li>Fixed the cross-project resume hint failing in default Windows PowerShell 5.1 — Windows now uses <code>;</code> as the command separator</li>
+<li>Fixed voice push-to-talk not working in the agent view&#39;s reply pane</li>
+<li>Fixed task lists rendering in random order when several tasks are created at once</li>
+<li>Fixed stale &quot;Failed to install Anthropic marketplace&quot; banner showing when the marketplace is already installed</li>
+<li>Fixed the PR badge in the footer not updating immediately after <code>gh pr create</code> and other PR-state-changing commands run in-session</li>
+<li>Fixed Agent Teams teammates with non-ASCII names failing every API call due to invalid header encoding</li>
+<li>Fixed <code>/review</code> using a deprecated <code>projectCards</code> GraphQL query that errored on repos with Classic Projects</li>
+<li>Fixed <code>claude plugin validate</code> not flagging <code>skills:</code> entries that point at a file instead of a directory — the error now suggests the parent directory</li>
+<li>Fixed an infinite loop where a skill using <code>context: fork</code> could repeatedly re-invoke itself instead of running</li>
+<li>Improved the Read tool to return a truncated first page with a &quot;PARTIAL view&quot; notice instead of a hard error when a whole-file read exceeds the token limit</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.144]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21144</id>
@@ -1778,41 +1807,6 @@
 <li>[VSCode] Session tabs now get AI-generated titles based on your first message</li>
 <li>[VSCode] Fixed the thinking pill showing &quot;Thinking&quot; instead of &quot;Thought for Ns&quot; after a response completes</li>
 <li>[VSCode] Fixed missing session diff button when opening sessions from the left sidebar</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.78]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2178</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2178"/>
-        <updated>2026-03-17T21:04:05.836Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>StopFailure</code> hook event that fires when the turn ends due to an API error (rate limit, auth failure, etc.)</li>
-<li>Added <code>${CLAUDE_PLUGIN_DATA}</code> variable for plugin persistent state that survives plugin updates; <code>/plugin uninstall</code> prompts before deleting it</li>
-<li>Added <code>effort</code>, <code>maxTurns</code>, and <code>disallowedTools</code> frontmatter support for plugin-shipped agents</li>
-<li>Terminal notifications (iTerm2/Kitty/Ghostty popups, progress bar) now reach the outer terminal when running inside tmux with <code>set -g allow-passthrough on</code></li>
-<li>Response text now streams line-by-line as it&#39;s generated</li>
-<li>Fixed <code>git log HEAD</code> failing with &quot;ambiguous argument&quot; inside sandboxed Bash on Linux, and stub files polluting <code>git status</code> in the working directory</li>
-<li>Fixed <code>cc log</code> and <code>--resume</code> silently truncating conversation history on large sessions (&gt;5 MB) that used subagents</li>
-<li>Fixed infinite loop when API errors triggered stop hooks that re-fed blocking errors to the model</li>
-<li>Fixed <code>deny: [&quot;mcp__servername&quot;]</code> permission rules not removing MCP server tools before sending to the model, allowing it to see and attempt blocked tools</li>
-<li>Fixed <code>sandbox.filesystem.allowWrite</code> not working with absolute paths (previously required <code>//</code> prefix)</li>
-<li>Fixed <code>/sandbox</code> Dependencies tab showing Linux prerequisites on macOS instead of macOS-specific info</li>
-<li><strong>Security:</strong> Fixed silent sandbox disable when <code>sandbox.enabled: true</code> is set but dependencies are missing — now shows a visible startup warning</li>
-<li>Fixed <code>.git</code>, <code>.claude</code>, and other protected directories being writable without a prompt in <code>bypassPermissions</code> mode</li>
-<li>Fixed ctrl+u in normal mode scrolling instead of readline kill-line (ctrl+u/ctrl+d half-page scroll moved to transcript mode only)</li>
-<li>Fixed voice mode modifier-combo push-to-talk keybindings (e.g. ctrl+k) requiring a hold instead of activating immediately</li>
-<li>Fixed voice mode not working on WSL2 with WSLg (Windows 11); WSL1/Win10 users now get a clear error</li>
-<li>Fixed <code>--worktree</code> flag not loading skills and hooks from the worktree directory</li>
-<li>Fixed <code>CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS</code> and <code>includeGitInstructions</code> setting not suppressing the git status section in the system prompt</li>
-<li>Fixed Bash tool not finding Homebrew and other PATH-dependent binaries when VS Code is launched from Dock/Spotlight</li>
-<li>Fixed washed-out Claude orange color in VS Code/Cursor/code-server terminals that don&#39;t advertise truecolor support</li>
-<li>Added <code>ANTHROPIC_CUSTOM_MODEL_OPTION</code> env var to add a custom entry to the <code>/model</code> picker, with optional <code>_NAME</code> and <code>_DESCRIPTION</code> suffixed vars for display</li>
-<li>Fixed <code>ANTHROPIC_BETAS</code> environment variable being silently ignored when using Haiku models</li>
-<li>Fixed queued prompts being concatenated without a newline separator</li>
-<li>Improved memory usage and startup time when resuming large sessions</li>
-<li>[VSCode] Fixed a brief flash of the login screen when opening the sidebar while already authenticated</li>
-<li>[VSCode] Fixed &quot;API Error: Rate limit reached&quot; when selecting Opus — model dropdown no longer offers 1M context variant to subscribers whose plan tier is unknown</li>
 </ul>
 ]]></content>
     </entry>
