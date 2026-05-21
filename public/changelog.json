@@ -1,6 +1,30 @@
 {
-  "updated": "2026-05-20T20:39:14.313Z",
+  "updated": "2026-05-21T03:01:03.234Z",
   "entries": [
+    {
+      "version": "2.1.146",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21146",
+      "publishedAt": "2026-05-20T20:14:13.615Z",
+      "changes": [
+        "Renamed `/simplify` to `/code-review` with an optional effort level (e.g. `/code-review high`)",
+        "Auto mode no longer suppresses `AskUserQuestion` when the user or a skill explicitly relies on it",
+        "Fixed Windows PowerShell tool failing with \"command line is invalid\" when `pwsh` is installed via winget or the Microsoft Store (regression in v2.1.124)",
+        "Fixed MCP `resources/list`, `resources/templates/list`, and `prompts/list` dropping items past page 1 on paginating servers",
+        "Fixed full-screen strobing in attached background sessions on Windows Terminal while Claude is streaming",
+        "Fixed the auto-updater status line not showing your current version when an update fails",
+        "Fixed on Windows, removing a background-job worktree no longer follows NTFS junctions into the main repo",
+        "Fixed `/background` refusing sessions whose only typed input was a skill or custom slash command",
+        "Fixed backgrounded sessions re-prompting for tool permissions you already granted with \"don't ask again\"",
+        "Fixed `/theme` color editor and \"New custom theme\" dialogs not responding to Esc",
+        "Fixed an uncaught exception at the end of streaming sessions when running via the Agent SDK",
+        "Fixed `forceLoginOrgUUID` and `forceLoginMethod` managed-settings policies not being enforced against third-party-provider and API-key sessions",
+        "Fixed GNOME Terminal right-click and middle-click paste not inserting text",
+        "Fixed `CLAUDE_CODE_SUBAGENT_MODEL` not being forwarded to child processes in multi-agent sessions",
+        "Improved auto-updater reliability: native version checks and downloads now retry transient network failures instead of failing immediately",
+        "Improved diff rendering performance for large file edits"
+      ],
+      "changeCount": 16
+    },
     {
       "version": "2.1.145",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21145",
@@ -1718,32 +1742,6 @@
         "Fixed managed settings (`enabledPlugins`, `permissions.defaultMode`, policy-set env vars) not being applied at startup when `remote-settings.json` was cached from a prior session"
       ],
       "changeCount": 17
-    },
-    {
-      "version": "2.1.79",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2179",
-      "publishedAt": "2026-03-18T21:34:08.611Z",
-      "changes": [
-        "Added `--console` flag to `claude auth login` for Anthropic Console (API billing) authentication",
-        "Added \"Show turn duration\" toggle to the `/config` menu",
-        "Fixed `claude -p` hanging when spawned as a subprocess without explicit stdin (e.g. Python `subprocess.run`)",
-        "Fixed Ctrl+C not working in `-p` (print) mode",
-        "Fixed `/btw` returning the main agent's output instead of answering the side question when triggered during streaming",
-        "Fixed voice mode not activating correctly on startup when `voiceEnabled: true` is set",
-        "Fixed left/right arrow tab navigation in `/permissions`",
-        "Fixed `CLAUDE_CODE_DISABLE_TERMINAL_TITLE` not preventing terminal title from being set on startup",
-        "Fixed custom status line showing nothing when workspace trust is blocking it",
-        "Fixed enterprise users being unable to retry on rate limit (429) errors",
-        "Fixed `SessionEnd` hooks not firing when using interactive `/resume` to switch sessions",
-        "Improved startup memory usage by ~18MB across all scenarios",
-        "Improved non-streaming API fallback with a 2-minute per-attempt timeout, preventing sessions from hanging indefinitely",
-        "`CLAUDE_CODE_PLUGIN_SEED_DIR` now supports multiple seed directories separated by the platform path delimiter (`:` on Unix, `;` on Windows)",
-        "[VSCode] Added `/remote-control` — bridge your session to claude.ai/code to continue from a browser or phone",
-        "[VSCode] Session tabs now get AI-generated titles based on your first message",
-        "[VSCode] Fixed the thinking pill showing \"Thinking\" instead of \"Thought for Ns\" after a response completes",
-        "[VSCode] Fixed missing session diff button when opening sessions from the left sidebar"
-      ],
-      "changeCount": 18
     }
   ]
 }
