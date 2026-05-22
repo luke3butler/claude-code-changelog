@@ -2,9 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-05-22T18:31:48.465Z</updated>
+    <updated>2026-05-22T22:18:45.579Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.149]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21149</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21149"/>
+        <updated>2026-05-22T18:27:11.623Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><code>/usage</code> now shows a per-category breakdown of what&#39;s driving your limits usage — skills, subagents, plugins, and per-MCP-server cost</li>
+<li><code>/diff</code> detail view can now be scrolled with the keyboard (arrows, <code>j</code>/<code>k</code>, <code>PgUp</code>/<code>PgDn</code>, <code>Space</code>, <code>Home</code>/<code>End</code>)</li>
+<li>Markdown output now renders GFM task list checkboxes (<code>- [ ] todo</code> / <code>- [x] done</code>) instead of plain bullets</li>
+<li>Enterprise: added the <code>allowAllClaudeAiMcps</code> managed setting to load claude.ai cloud MCP connectors alongside <code>managed-mcp.json</code></li>
+<li>Fixed a PowerShell permission bypass: built-in <code>cd</code> functions (<code>cd..</code>, <code>cd\</code>, <code>cd~</code>, <code>X:</code>) changed the working directory undetected, letting a later command read outside the workspace</li>
+<li>Fixed the sandbox write allowlist in git worktrees covering the entire main repository root instead of only the shared <code>.git</code> directory (with <code>hooks/</code> and <code>config</code> denied)</li>
+<li>Fixed PowerShell prefix/wildcard allow rules (e.g. <code>PowerShell(dotnet.exe build *)</code>) not pre-approving native executables and scripts</li>
+<li>Fixed a permission-analysis gap where the parser trusted stale variable-tracking values for <code>PWD</code>/<code>OLDPWD</code>/<code>DIRSTACK</code> across <code>cd</code>/<code>pushd</code>/<code>popd</code></li>
+<li>Fixed <code>find</code> in the Bash tool exhausting the macOS system file/vnode table and crashing the host on large directory trees</li>
+<li>Fixed the managed-settings approval dialog leaving the terminal frozen after accepting at startup</li>
+<li>Fixed <code>/ultraplan</code> and remote session creation failing with &quot;Could not capture uncommitted changes&quot; when the working tree has no real changes</li>
+<li>Fixed <code>otelHeadersHelper</code> failing silently when the script path contains spaces; helper failures are now reported in <code>/doctor</code> and the debug log</li>
+<li>Fixed the thinking spinner staying amber across tool calls and onto fresh thinking bursts</li>
+<li>Fixed collapsed Bash output reporting the wrong hidden-line count for outputs with many short lines</li>
+<li>Fixed slash-command argument-hint clipping trailing typed characters when the hint overflows the input box</li>
+<li>Fixed argument-hint and progressive arg suggestions not appearing after Tab-completing a skill whose frontmatter <code>name:</code> differs from its directory basename</li>
+<li>Fixed the status bar showing the user&#39;s baseline <code>/effort</code> setting instead of the effort level applied by skill/agent <code>effort:</code> frontmatter</li>
+<li>Fixed Ctrl+O transcript view freezing at the moment it was opened instead of tailing new messages</li>
+<li>Fixed editing a recalled prompt-history entry losing the edit when navigating further up/down with arrow keys</li>
+<li>Fixed <code>/config</code> exit summary reporting phantom changes to auto-compact and theme when toggling unrelated settings</li>
+<li>Fixed <code>/insights</code> crashing when cached session-meta files are missing optional fields</li>
+<li>Fixed malformed PowerShell and History tool calls with missing input being misclassified as reads in transcript collapsing</li>
+<li>Fixed renaming a Remote Control session from claude.ai or the Claude mobile app not updating the local session name for <code>claude --resume</code></li>
+<li>Fixed a race where a just-submitted prompt could appear twice in the up-arrow history</li>
+<li>Fixed tapping the &quot;Jump to bottom&quot; pill in fullscreen mode not dismissing it immediately</li>
+<li>Improved <code>/feedback</code> reports to include the conversation that happened before context compaction, making issues from earlier in long sessions easier to triage</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.148]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21148</id>
@@ -1770,42 +1805,6 @@
 <li>[VSCode] Fixed session history not loading correctly when reopening a session via URL or after restart</li>
 <li>[VSCode] Added Esc-twice (or <code>/rewind</code>) to open a keyboard-navigable rewind picker</li>
 <li>[VSCode] Fixed &quot;Fork conversation from here&quot; and rewind actions failing silently after the session cache goes stale</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.81]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2181</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2181"/>
-        <updated>2026-03-20T21:27:19.603Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>--bare</code> flag for scripted <code>-p</code> calls — skips hooks, LSP, plugin sync, and skill directory walks; requires <code>ANTHROPIC_API_KEY</code> or an <code>apiKeyHelper</code> via <code>--settings</code> (OAuth and keychain auth disabled); auto-memory fully disabled</li>
-<li>Added <code>--channels</code> permission relay — channel servers that declare the permission capability can forward tool approval prompts to your phone</li>
-<li>Fixed multiple concurrent Claude Code sessions requiring repeated re-authentication when one session refreshes its OAuth token</li>
-<li>Fixed voice mode silently swallowing retry failures and showing a misleading &quot;check your network&quot; message instead of the actual error</li>
-<li>Fixed voice mode audio not recovering when the server silently drops the WebSocket connection</li>
-<li>Fixed <code>CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS</code> not suppressing the structured-outputs beta header, causing 400 errors on proxy gateways forwarding to Vertex/Bedrock</li>
-<li>Fixed <code>--channels</code> bypass for Team/Enterprise orgs with no other managed settings configured</li>
-<li>Fixed a crash on Node.js 18</li>
-<li>Fixed unnecessary permission prompts for Bash commands containing dashes in strings</li>
-<li>Fixed plugin hooks blocking prompt submission when the plugin directory is deleted mid-session</li>
-<li>Fixed a race condition where background agent task output could hang indefinitely when the task completed between polling intervals</li>
-<li>Resuming a session that was in a worktree now switches back to that worktree</li>
-<li>Fixed <code>/btw</code> not including pasted text when used during an active response</li>
-<li>Fixed a race where fast Cmd+Tab followed by paste could beat the clipboard copy under tmux</li>
-<li>Fixed terminal tab title not updating with an auto-generated session description</li>
-<li>Fixed invisible hook attachments inflating the message count in transcript mode</li>
-<li>Fixed Remote Control sessions showing a generic title instead of deriving from the first prompt</li>
-<li>Fixed <code>/rename</code> not syncing the title for Remote Control sessions</li>
-<li>Fixed Remote Control <code>/exit</code> not reliably archiving the session</li>
-<li>Improved MCP read/search tool calls to collapse into a single &quot;Queried {server}&quot; line (expand with Ctrl+O)</li>
-<li>Improved <code>!</code> bash mode discoverability — Claude now suggests it when you need to run an interactive command</li>
-<li>Improved plugin freshness — ref-tracked plugins now re-clone on every load to pick up upstream changes</li>
-<li>Improved Remote Control session titles to refresh after your third message</li>
-<li>Updated MCP OAuth to support Client ID Metadata Document (CIMD / SEP-991) for servers without Dynamic Client Registration</li>
-<li>Changed plan mode to hide the &quot;clear context&quot; option by default (restore with <code>&quot;showClearContextOnPlanAccept&quot;: true</code>)</li>
-<li>Disabled line-by-line response streaming on Windows (including WSL in Windows Terminal) due to rendering issues</li>
-<li>[VSCode] Fixed Windows PATH inheritance for Bash tool when using Git Bash (regression in v2.1.78)</li>
 </ul>
 ]]></content>
     </entry>
