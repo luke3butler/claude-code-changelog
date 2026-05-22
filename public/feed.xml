@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-05-21T21:28:56.809Z</updated>
+    <updated>2026-05-22T00:23:18.297Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -11,10 +11,8 @@
         <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21147"/>
         <updated>2026-05-21T17:16:38.999Z</updated>
         <content type="html"><![CDATA[<ul>
-<li>Added the <code>Workflow</code> tool for deterministic multi-agent orchestration. It is off by default — set <code>CLAUDE_CODE_WORKFLOWS=1</code> to enable</li>
 <li>Pinned background sessions (<code>Ctrl+T</code> in <code>claude agents</code>) now stay alive when idle, are restarted in place to apply Claude Code updates, and are shed under memory pressure only after non-pinned sessions</li>
 <li>Renamed <code>/simplify</code> to <code>/code-review</code>. It now reports correctness bugs at a chosen effort level (e.g., <code>/code-review high</code>); pass <code>--comment</code> to post findings as inline GitHub PR comments. The old cleanup-and-fix behavior has been removed</li>
-<li>Hardened REPL and Workflow tool sandboxes against prototype-pollution and thenable-based escapes</li>
 <li>Improved auto-updater: retries transient network failures, reports specific error categories and OS error codes on failure, and shows the current version when an update fails</li>
 <li>Improved diff rendering performance for large file edits</li>
 <li>Prompt history no longer records consecutive duplicate entries — recalling a prompt with arrow-up and submitting it again won&#39;t add another copy</li>
