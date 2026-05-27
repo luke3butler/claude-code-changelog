@@ -2,9 +2,51 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-05-26T22:26:53.872Z</updated>
+    <updated>2026-05-27T01:38:20.029Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.152]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21152</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21152"/>
+        <updated>2026-05-26T21:38:29.002Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><code>/code-review --fix</code> now applies review findings to your working tree after the review, surfacing reuse, simplification, and efficiency suggestions; <code>/simplify</code> now invokes <code>/code-review --fix</code></li>
+<li>Skills and slash commands can now set <code>disallowed-tools</code> in frontmatter to remove tools from the model while the skill is active</li>
+<li>Added <code>/reload-skills</code> command to re-scan skill directories without restarting the session</li>
+<li><code>SessionStart</code> hooks can now return <code>reloadSkills: true</code> to re-scan skill directories, making skills installed by the hook available in the same session</li>
+<li><code>SessionStart</code> hooks can now set the session title via <code>hookSpecificOutput.sessionTitle</code> on startup and resume</li>
+<li>Added a <code>MessageDisplay</code> hook event that lets hooks transform or hide assistant message text as it is displayed</li>
+<li>Added <code>pluginSuggestionMarketplaces</code> managed setting: admins can allowlist org marketplaces whose plugins may be suggested via context-aware tips</li>
+<li><code>claude plugin marketplace remove</code> now accepts <code>--scope user|project|local</code> for symmetry with <code>marketplace add</code>, <code>install</code>, and <code>uninstall</code></li>
+<li>Claude Code now switches to your configured <code>--fallback-model</code> for the rest of the session when the primary model is not found, instead of failing every request</li>
+<li>Auto mode no longer requires opt-in consent</li>
+<li>Vim mode: <code>/</code> in NORMAL mode now opens reverse history search (like Ctrl+R), matching bash/zsh vi-mode</li>
+<li>The <code>/usage</code> breakdown now includes large session files; files are scanned with a streaming read so memory usage stays flat</li>
+<li>Thinking summaries in the collapsed group now stay readable for at least 3 seconds, render as markdown, and cap at 10 lines (<code>Ctrl+O</code> shows the full thinking)</li>
+<li>In fullscreen mode, the &quot;Thinking for Ns&quot; indicator now counts up live while the model is thinking, and keeps its value if you interrupt mid-thought</li>
+<li>Simplified the Workflow tool&#39;s inline progress display — live agent counts now show only in the persistent workflow status row below the prompt</li>
+<li>The post-response timer now shows &quot;Waiting for N background agents/workflows to finish&quot; when backgrounded agents or workflows are still running, and reports the cumulative time once their results are processed</li>
+<li>Added the session entrypoint as an OpenTelemetry metric attribute (<code>app.entrypoint</code>, opt-in via <code>OTEL_METRICS_INCLUDE_ENTRYPOINT=true</code>)</li>
+<li>Fixed terminal styling degrading in very long sessions by recycling the renderer&#39;s style pool</li>
+<li>Fixed the sandbox-enabled warning not appearing in condensed startup mode — it now shows in every layout</li>
+<li>Fixed the loading spinner showing &quot;still thinking&quot;/&quot;almost done thinking&quot; while a tool is running, and reset the thinking status to &quot;thinking&quot; after each tool</li>
+<li>Fixed focus mode showing a spurious &quot;N messages hidden&quot; count on turns with no hidden activity</li>
+<li>Fixed clicking a link inside an expanded tool result collapsing the section instead of opening the link</li>
+<li>Fixed markdown table cell borders inheriting the color of inline code, wrapped continuation lines losing their style, and empty header cells showing a label in the narrow-terminal stacked layout</li>
+<li>Fixed plugin MCP servers with the same command but different environment variables being incorrectly deduplicated</li>
+<li>Fixed <code>/doctor</code> reporting &quot;marketplace not found&quot; or &quot;plugin not found&quot; for stale <code>enabledPlugins</code> entries referencing removed marketplaces or dropped plugins</li>
+<li>Fixed plugins that track a git branch silently no longer receiving updates after the plugin registry was rebuilt</li>
+<li>Fixed remote MCP servers failing to connect in Claude Code Remote sessions when the egress proxy is enabled</li>
+<li>Fixed the effort-change confirmation dialog appearing when the conversation has no messages or when switching between effort levels that resolve to the same underlying value</li>
+<li>Fixed the Agent tool description referencing an agent list that is never delivered when running with <code>--bare</code> or with attachments disabled</li>
+<li>Fixed a background worker crash in <code>claude agents</code> when accepting a stale permission prompt after a subagent was cancelled</li>
+<li>Fixed <code>cache_creation_input_tokens</code> reporting as 0 in transcript and result usage when the API reports cache writes only via the nested <code>cache_creation</code> breakdown</li>
+<li>Fixed the PushNotification tool incorrectly reporting &quot;Mobile push not sent (Remote Control inactive)&quot; in SDK-hosted sessions when Remote Control is enabled</li>
+<li>Fixed sessions getting stuck after a model or login switch left stale thinking-block signatures in history; now stripped proactively with a retry safety-net</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.150]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21150</id>
@@ -1681,55 +1723,6 @@
 <li>Improved PowerShell dangerous command detection</li>
 <li>Improved scroll performance with large transcripts by replacing WASM yoga-layout with a pure TypeScript implementation</li>
 <li>Reduced UI stutter when compaction triggers on large sessions</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.84]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2184</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2184"/>
-        <updated>2026-03-25T23:50:13.505Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added PowerShell tool for Windows as an opt-in preview. Learn more at <a href="https://code.claude.com/docs/en/tools-reference#powershell-tool">https://code.claude.com/docs/en/tools-reference#powershell-tool</a></li>
-<li>Added <code>ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL_SUPPORTS</code> env vars to override effort/thinking capability detection for pinned default models for 3p (Bedrock, Vertex, Foundry), and <code>_MODEL_NAME</code>/<code>_DESCRIPTION</code> to customize the <code>/model</code> picker label</li>
-<li>Added <code>CLAUDE_STREAM_IDLE_TIMEOUT_MS</code> env var to configure the streaming idle watchdog threshold (default 90s)</li>
-<li>Added <code>TaskCreated</code> hook that fires when a task is created via <code>TaskCreate</code></li>
-<li>Added <code>WorktreeCreate</code> hook support for <code>type: &quot;http&quot;</code> — return the created worktree path via <code>hookSpecificOutput.worktreePath</code> in the response JSON</li>
-<li>Added <code>allowedChannelPlugins</code> managed setting for team/enterprise admins to define a channel plugin allowlist</li>
-<li>Added <code>x-client-request-id</code> header to API requests for debugging timeouts</li>
-<li>Added idle-return prompt that nudges users returning after 75+ minutes to <code>/clear</code>, reducing unnecessary token re-caching on stale sessions</li>
-<li>Deep links (<code>claude-cli://</code>) now open in your preferred terminal instead of whichever terminal happens to be first in the detection list</li>
-<li>Rules and skills <code>paths:</code> frontmatter now accepts a YAML list of globs</li>
-<li>MCP tool descriptions and server instructions are now capped at 2KB to prevent OpenAPI-generated servers from bloating context</li>
-<li>MCP servers configured both locally and via claude.ai connectors are now deduplicated — the local config wins</li>
-<li>Background bash tasks that appear stuck on an interactive prompt now surface a notification after ~45 seconds</li>
-<li>Token counts ≥1M now display as &quot;1.5m&quot; instead of &quot;1512.6k&quot;</li>
-<li>Global system-prompt caching now works when <code>ToolSearch</code> is enabled, including for users with MCP tools configured</li>
-<li>Fixed voice push-to-talk: holding the voice key no longer leaks characters into the text input, and transcripts now insert at the correct position</li>
-<li>Fixed up/down arrow keys being unresponsive when a footer item is focused</li>
-<li>Fixed <code>Ctrl+U</code> (kill-to-line-start) being a no-op at line boundaries in multiline input, so repeated <code>Ctrl+U</code> now clears across lines</li>
-<li>Fixed null-unbinding a default chord binding (e.g. <code>&quot;ctrl+x ctrl+k&quot;: null</code>) still entering chord-wait mode instead of freeing the prefix key</li>
-<li>Fixed mouse events inserting literal &quot;mouse&quot; text into transcript search input</li>
-<li>Fixed workflow subagents failing with API 400 when the outer session uses <code>--json-schema</code> and the subagent also specifies a schema</li>
-<li>Fixed missing background color behind certain emoji in user message bubbles on some terminals</li>
-<li>Fixed the &quot;allow Claude to edit its own settings for this session&quot; permission option not sticking for users with <code>Edit(.claude)</code> allow rules</li>
-<li>Fixed a hang when generating attachment snippets for large edited files</li>
-<li>Fixed MCP tool/resource cache leak on server reconnect</li>
-<li>Fixed a startup performance issue where partial clone repositories (Scalar/GVFS) triggered mass blob downloads</li>
-<li>Fixed native terminal cursor not tracking the text input caret, so IME composition (CJK input) now renders inline and screen readers can follow the input position</li>
-<li>Fixed spurious &quot;Not logged in&quot; errors on macOS caused by transient keychain read failures</li>
-<li>Fixed cold-start race where core tools could be deferred without their bypass active, causing Edit/Write to fail with InputValidationError on typed parameters</li>
-<li>Improved detection for dangerous removals of Windows drive roots (<code>C:\</code>, <code>C:\Windows</code>, etc.)</li>
-<li>Improved interactive startup by ~30ms by running <code>setup()</code> in parallel with slash command and agent loading</li>
-<li>Improved startup for <code>claude &quot;prompt&quot;</code> with MCP servers — the REPL now renders immediately instead of blocking until all servers connect</li>
-<li>Improved Remote Control to show a specific reason when blocked instead of a generic &quot;not yet enabled&quot; message</li>
-<li>Improved p90 prompt cache rate</li>
-<li>Reduced scroll-to-top resets in long sessions by making the message window immune to compaction and grouping changes</li>
-<li>Reduced terminal flickering when animated tool progress scrolls above the viewport</li>
-<li>Changed issue/PR references to only become clickable links when written as <code>owner/repo#123</code> — bare <code>#123</code> is no longer auto-linked</li>
-<li>Slash commands unavailable for the current auth setup (<code>/voice</code>, <code>/mobile</code>, <code>/chrome</code>, <code>/upgrade</code>, etc.) are now hidden instead of shown</li>
-<li>[VSCode] Added rate limit warning banner with usage percentage and reset time</li>
-<li>Stats screenshot (Ctrl+S in /stats) now works in all builds and is 16× faster</li>
 </ul>
 ]]></content>
     </entry>
