@@ -2,9 +2,54 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-05-27T22:29:44.018Z</updated>
+    <updated>2026-05-28T01:31:59.530Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.153]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21153</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21153"/>
+        <updated>2026-05-27T21:46:58.252Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>skipLfs</code> option to <code>github</code>/<code>git</code> plugin marketplace sources to skip Git LFS downloads during clone and update</li>
+<li>Claude Code now shows a one-time notice when your npm global install can&#39;t auto-update; <code>/doctor</code> lists the fixes</li>
+<li>Status line commands now receive <code>COLUMNS</code> and <code>LINES</code> environment variables so scripts can size output to the terminal width</li>
+<li><code>claude agents</code>: autocomplete in the dispatch input now suggests native slash commands and bundled skills, not just project skills</li>
+<li><code>claude agents</code>: PR column now shows <code>PR #N</code> for a single PR or <code>N PRs</code> for multiple</li>
+<li><code>claude doctor</code> now shows the result of your last update attempt</li>
+<li>Combined the separate &quot;needs authentication&quot; startup notifications for MCP servers and connectors into a single message</li>
+<li>macOS: background agents now appear as &quot;Claude Code&quot; in Privacy &amp; Security and keep their permission grants across upgrades</li>
+<li>Fixed stateful MCP servers without the optional GET SSE stream reconnect-looping on <code>tools/list</code> (regression in v2.1.147)</li>
+<li>Fixed a regression where a custom API gateway could receive the user&#39;s Anthropic OAuth credential instead of the gateway&#39;s own token</li>
+<li>Fixed subagent (Agent tool) frontmatter MCP servers ignoring <code>--strict-mcp-config</code>, <code>--bare</code>, remote mode, enterprise managed MCP config, and managed-settings MCP server allow/deny policies</li>
+<li><code>--strict-mcp-config</code> no longer strips inline <code>mcpServers</code> from explicitly-passed agent definitions (<code>--agents</code> / SDK <code>agents</code>), and blocked subagent MCP servers now surface a visible warning</li>
+<li>Fixed the Windows PowerShell installer reporting &quot;Installation complete!&quot; when installation actually failed</li>
+<li>Fixed <code>claude update</code> installing the latest version instead of the configured release channel&#39;s version for npm installations</li>
+<li>Fixed excessive memory usage (multiple GB) when resuming a session by transcript file path on machines with many stored sessions</li>
+<li>Fixed <code>claude agents</code> and <code>claude --bg</code> running on a stale daemon started before binary-takeover support, even after upgrading</li>
+<li>Fixed a hang where the CLI could fail to exit when stdin was closed without EOF in stream-json mode, leaving a stale session marker behind</li>
+<li>Fixed malformed <code>file://</code> links in Claude&#39;s responses not being clickable in the terminal</li>
+<li>Fixed <code>claude --help</code> rendering unwrapped output on terminals narrower than 92 columns</li>
+<li>Fixed MCP tool progress notifications not rendering in the collapsed tool view</li>
+<li>Fixed <code>Agent</code> tool with <code>subagent_type: &#39;claude&#39;</code> running in an undocumented temporary worktree, which could silently discard outputs written to gitignored paths</li>
+<li><code>/bg</code> while Claude is responding now continues the response in the background session instead of dropping it</li>
+<li>Fixed <code>/btw</code> keyboard shortcuts becoming unresponsive in background sessions while a task is running</li>
+<li>Fixed background sessions writing temp files to <code>$CLAUDE_JOB_DIR</code> triggering a &quot;sensitive file&quot; permission prompt</li>
+<li>Fixed recovering a background agent whose working directory was deleted showing a truncated stack trace instead of a clear error message</li>
+<li>Fixed <code>EnterWorktree</code> not being available immediately in background sessions (previously required <code>ToolSearch</code> first)</li>
+<li>Fixed <code>cmd+k</code> in iTerm2/Terminal.app not repainting attached background sessions</li>
+<li>Fixed the IME candidate window appearing at the bottom of the screen instead of next to the input caret in attached background sessions on Windows</li>
+<li>Fixed background-color bleed when attaching to a background agent from 256-color-only terminals after the agent had rendered file diffs</li>
+<li>Fixed <code>/copy</code> and copy-on-select silently failing to update the system clipboard when attached to a background session inside tmux</li>
+<li>Fixed opening <code>claude agents</code> with Remote Control enabled leaving zombie session entries on the Code tab after exiting</li>
+<li>Fixed <code>/rename</code> in background sessions not updating the session banner immediately</li>
+<li>Fixed Windows update rollback: if a Windows update fails, Claude Code now restores the original executable by copy and tells you how to recover</li>
+<li>[VSCode] Fixed Claude Code processes not shutting down cleanly when VS Code closed on Windows, causing false &quot;unclean exit&quot; reports and orphaned MCP servers</li>
+<li><code>/model</code> now saves your selection as the default for new sessions (matching the IDE). Press <code>s</code> in the picker to switch models for the current session only.</li>
+<li>If you customized the <code>modelPicker:setAsDefault</code> keybinding, rename it to <code>modelPicker:thisSessionOnly</code> in keybindings.json (the <code>d</code> action was replaced by <code>s</code>)</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.152]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21152</id>
@@ -1684,45 +1729,6 @@
 <li>[VSCode] Fixed extension incorrectly showing &quot;Not responding&quot; during long-running operations</li>
 <li>[VSCode] Fixed extension defaulting Max plan users to Sonnet after the OAuth token refreshes (8 hours after login)</li>
 <li>Read tool now uses compact line-number format and deduplicates unchanged re-reads, reducing token usage</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.85]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2185</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2185"/>
-        <updated>2026-03-26T20:55:47.623Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>CLAUDE_CODE_MCP_SERVER_NAME</code> and <code>CLAUDE_CODE_MCP_SERVER_URL</code> environment variables to MCP <code>headersHelper</code> scripts, allowing one helper to serve multiple servers</li>
-<li>Added conditional <code>if</code> field for hooks using permission rule syntax (e.g., <code>Bash(git *)</code>) to filter when they run, reducing process spawning overhead</li>
-<li>Added timestamp markers in transcripts when scheduled tasks (<code>/loop</code>, <code>CronCreate</code>) fire</li>
-<li>Added trailing space after <code>[Image #N]</code> placeholder when pasting images</li>
-<li>Deep link queries (<code>claude-cli://open?q=…</code>) now support up to 5,000 characters, with a &quot;scroll to review&quot; warning for long pre-filled prompts</li>
-<li>MCP OAuth now follows RFC 9728 Protected Resource Metadata discovery to find the authorization server</li>
-<li>Plugins blocked by organization policy (<code>managed-settings.json</code>) can no longer be installed or enabled, and are hidden from marketplace views</li>
-<li>PreToolUse hooks can now satisfy <code>AskUserQuestion</code> by returning <code>updatedInput</code> alongside <code>permissionDecision: &quot;allow&quot;</code>, enabling headless integrations that collect answers via their own UI</li>
-<li><code>tool_parameters</code> in OpenTelemetry tool_result events are now gated behind <code>OTEL_LOG_TOOL_DETAILS=1</code></li>
-<li>Fixed <code>/compact</code> failing with &quot;context exceeded&quot; when the conversation has grown too large for the compact request itself to fit</li>
-<li>Fixed <code>/plugin enable</code> and <code>/plugin disable</code> failing when a plugin&#39;s install location differs from where it&#39;s declared in settings</li>
-<li>Fixed <code>--worktree</code> exiting with an error in non-git repositories before the <code>WorktreeCreate</code> hook could run</li>
-<li>Fixed <code>deniedMcpServers</code> setting not blocking claude.ai MCP servers</li>
-<li>Fixed <code>switch_display</code> in the computer-use tool returning &quot;not available in this session&quot; on multi-monitor setups</li>
-<li>Fixed crash when <code>OTEL_LOGS_EXPORTER</code>, <code>OTEL_METRICS_EXPORTER</code>, or <code>OTEL_TRACES_EXPORTER</code> is set to <code>none</code></li>
-<li>Fixed diff syntax highlighting not working in non-native builds</li>
-<li>Fixed MCP step-up authorization failing when a refresh token exists — servers requesting elevated scopes via <code>403 insufficient_scope</code> now correctly trigger the re-authorization flow</li>
-<li>Fixed memory leak in remote sessions when a streaming response is interrupted</li>
-<li>Fixed persistent ECONNRESET errors during edge connection churn by using a fresh TCP connection on retry</li>
-<li>Fixed prompts getting stuck in the queue after running certain slash commands, with up-arrow unable to retrieve them</li>
-<li>Fixed Python Agent SDK: <code>type:&#39;sdk&#39;</code> MCP servers passed via <code>--mcp-config</code> are no longer dropped during startup</li>
-<li>Fixed raw key sequences appearing in the prompt when running over SSH or in the VS Code integrated terminal</li>
-<li>Fixed Remote Control session status staying stuck on &quot;Requires Action&quot; after a permission is resolved</li>
-<li>Fixed shift+enter and meta+enter being intercepted by typeahead suggestions instead of inserting newlines</li>
-<li>Fixed stale content bleeding through when scrolling up during streaming</li>
-<li>Fixed terminal left in enhanced keyboard mode after exit in Ghostty, Kitty, WezTerm, and other terminals supporting the Kitty keyboard protocol — Ctrl+C and Ctrl+D now work correctly after quitting</li>
-<li>Improved @-mention file autocomplete performance on large repositories</li>
-<li>Improved PowerShell dangerous command detection</li>
-<li>Improved scroll performance with large transcripts by replacing WASM yoga-layout with a pure TypeScript implementation</li>
-<li>Reduced UI stutter when compaction triggers on large sessions</li>
 </ul>
 ]]></content>
     </entry>
