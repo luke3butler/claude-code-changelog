@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-05-28T20:44:30.691Z</updated>
+    <updated>2026-05-29T03:00:48.035Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.156]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21156</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21156"/>
+        <updated>2026-05-28T20:12:52.621Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed an issue when using Opus 4.8 where thinking blocks were modified, leading to API errors.</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.154]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21154</id>
@@ -1737,16 +1747,6 @@
 <li>Image paste no longer inserts a trailing space</li>
 <li>Pasting <code>!command</code> into an empty prompt now enters bash mode, matching typed <code>!</code> behavior</li>
 <li><code>/buddy</code> is here for April 1st — hatch a small creature that watches you code</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.87]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2187</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2187"/>
-        <updated>2026-03-29T01:40:52.719Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed messages in Cowork Dispatch not getting delivered</li>
 </ul>
 ]]></content>
     </entry>

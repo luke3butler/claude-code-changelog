@@ -1,6 +1,15 @@
 {
-  "updated": "2026-05-28T20:44:30.697Z",
+  "updated": "2026-05-29T03:00:48.041Z",
   "entries": [
+    {
+      "version": "2.1.156",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21156",
+      "publishedAt": "2026-05-28T20:12:52.621Z",
+      "changes": [
+        "Fixed an issue when using Opus 4.8 where thinking blocks were modified, leading to API errors."
+      ],
+      "changeCount": 1
+    },
     {
       "version": "2.1.154",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21154",
@@ -1677,13 +1686,6 @@
         "`/buddy` is here for April 1st — hatch a small creature that watches you code"
       ],
       "changeCount": 52
-    },
-    {
-      "version": "2.1.87",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2187",
-      "publishedAt": "2026-03-29T01:40:52.719Z",
-      "changes": ["Fixed messages in Cowork Dispatch not getting delivered"],
-      "changeCount": 1
     }
   ]
 }
