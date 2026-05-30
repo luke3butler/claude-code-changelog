@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-05-30T01:33:48.803Z</updated>
+    <updated>2026-05-30T03:00:11.287Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.158]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21158</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21158"/>
+        <updated>2026-05-30T01:12:23.617Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Auto mode is now available on Bedrock, Vertex, and Foundry for Opus 4.7 and Opus 4.8. Opt in by setting <code>CLAUDE_CODE_ENABLE_AUTO_MODE=1</code></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.157]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21157</id>
@@ -1700,34 +1710,6 @@
 <li>Improved <code>/claude-api</code> skill guidance for agent design patterns including tool surface decisions, context management, and caching strategy</li>
 <li>Improved performance: faster <code>stripAnsi</code> on Bun by routing through <code>Bun.stripANSI</code></li>
 <li>Edit tool now uses shorter <code>old_string</code> anchors, reducing output tokens</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.90]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2190</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2190"/>
-        <updated>2026-04-01T23:31:39.018Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>/powerup</code> — interactive lessons teaching Claude Code features with animated demos</li>
-<li>Added <code>CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE</code> env var to keep the existing marketplace cache when <code>git pull</code> fails, useful in offline environments</li>
-<li>Added <code>.husky</code> to protected directories (acceptEdits mode)</li>
-<li>Fixed an infinite loop where the rate-limit options dialog would repeatedly auto-open after hitting your usage limit, eventually crashing the session</li>
-<li>Fixed <code>--resume</code> causing a full prompt-cache miss on the first request for users with deferred tools, MCP servers, or custom agents (regression since v2.1.69)</li>
-<li>Fixed <code>Edit</code>/<code>Write</code> failing with &quot;File content has changed&quot; when a PostToolUse format-on-save hook rewrites the file between consecutive edits</li>
-<li>Fixed <code>PreToolUse</code> hooks that emit JSON to stdout and exit with code 2 not correctly blocking the tool call</li>
-<li>Fixed collapsed search/read summary badge appearing multiple times in fullscreen scrollback when a CLAUDE.md file auto-loads during a tool call</li>
-<li>Fixed auto mode not respecting explicit user boundaries (&quot;don&#39;t push&quot;, &quot;wait for X before Y&quot;) even when the action would otherwise be allowed</li>
-<li>Fixed click-to-expand hover text being nearly invisible on light terminal themes</li>
-<li>Fixed UI crash when malformed tool input reached the permission dialog</li>
-<li>Fixed headers disappearing when scrolling <code>/model</code>, <code>/config</code>, and other selection screens</li>
-<li>Hardened PowerShell tool permission checks: fixed trailing <code>&amp;</code> background job bypass, <code>-ErrorAction Break</code> debugger hang, archive-extraction TOCTOU, and parse-fail fallback deny-rule degradation</li>
-<li>Improved performance: eliminated per-turn JSON.stringify of MCP tool schemas on cache-key lookup</li>
-<li>Improved performance: SSE transport now handles large streamed frames in linear time (was quadratic)</li>
-<li>Improved performance: SDK sessions with long conversations no longer slow down quadratically on transcript writes</li>
-<li>Improved <code>/resume</code> all-projects view to load project sessions in parallel, improving load times for users with many projects</li>
-<li>Changed <code>--resume</code> picker to no longer show sessions created by <code>claude -p</code> or SDK invocations</li>
-<li>Removed <code>Get-DnsClientCache</code> and <code>ipconfig /displaydns</code> from auto-allow (DNS cache privacy)</li>
 </ul>
 ]]></content>
     </entry>
