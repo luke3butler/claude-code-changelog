@@ -1,6 +1,15 @@
 {
-  "updated": "2026-05-31T18:19:41.520Z",
+  "updated": "2026-05-31T20:21:45.638Z",
   "entries": [
+    {
+      "version": "2.1.159",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21159",
+      "publishedAt": "2026-05-31T17:50:06.818Z",
+      "changes": [
+        "Internal infrastructure improvements (no user-facing changes)"
+      ],
+      "changeCount": 1
+    },
     {
       "version": "2.1.158",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21158",
@@ -1628,27 +1637,6 @@
         "Linux sandbox now ships the `apply-seccomp` helper in both npm and native builds, restoring unix-socket blocking for sandboxed commands"
       ],
       "changeCount": 21
-    },
-    {
-      "version": "2.1.91",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2191",
-      "publishedAt": "2026-04-02T22:37:15.575Z",
-      "changes": [
-        "Added MCP tool result persistence override via `_meta[\"anthropic/maxResultSizeChars\"]` annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation",
-        "Added `disableSkillShellExecution` setting to disable inline shell execution in skills, custom slash commands, and plugin commands",
-        "Added support for multi-line prompts in `claude-cli://open?q=` deep links (encoded newlines `%0A` no longer rejected)",
-        "Plugins can now ship executables under `bin/` and invoke them as bare commands from the Bash tool",
-        "Fixed transcript chain breaks on `--resume` that could lose conversation history when async transcript writes fail silently",
-        "Fixed `cmd+delete` not deleting to start of line on iTerm2, kitty, WezTerm, Ghostty, and Windows Terminal",
-        "Fixed plan mode in remote sessions losing track of the plan file after a container restart, which caused permission prompts on plan edits and an empty plan-approval modal",
-        "Fixed JSON schema validation for `permissions.defaultMode: \"auto\"` in settings.json",
-        "Fixed Windows version cleanup not protecting the active version's rollback copy",
-        "`/feedback` now explains why it's unavailable instead of disappearing from the slash menu",
-        "Improved `/claude-api` skill guidance for agent design patterns including tool surface decisions, context management, and caching strategy",
-        "Improved performance: faster `stripAnsi` on Bun by routing through `Bun.stripANSI`",
-        "Edit tool now uses shorter `old_string` anchors, reducing output tokens"
-      ],
-      "changeCount": 13
     }
   ]
 }

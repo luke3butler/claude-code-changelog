@@ -1,5 +1,10 @@
 [
   {
+    "version": "2.1.159",
+    "content": "- Internal infrastructure improvements (no user-facing changes)",
+    "publishedAt": "2026-05-31T17:50:06.818Z"
+  },
+  {
     "version": "2.1.158",
     "content": "- Auto mode is now available on Bedrock, Vertex, and Foundry for Opus 4.7 and Opus 4.8. Opt in by setting `CLAUDE_CODE_ENABLE_AUTO_MODE=1`",
     "publishedAt": "2026-05-30T01:12:23.617Z"
