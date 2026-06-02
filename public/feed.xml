@@ -2,9 +2,45 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-06-01T20:23:56.633Z</updated>
+    <updated>2026-06-02T03:01:35.199Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.160]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21160</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21160"/>
+        <updated>2026-06-01T20:03:23.202Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added a prompt before writing to shell startup files (<code>.zshenv</code>, <code>.zlogin</code>, <code>.bash_login</code>) and <code>~/.config/git/</code>, which could otherwise lead to unintended command execution</li>
+<li><code>acceptEdits</code> mode now prompts before writing build-tool config files that grant code execution (<code>.npmrc</code>, <code>.yarnrc*</code>, <code>bunfig.toml</code>, <code>.bazelrc</code>, <code>.pre-commit-config.yaml</code>, <code>.devcontainer/</code>, etc.)</li>
+<li>Edit no longer requires a separate Read after viewing a file with <code>grep</code>: single-file <code>grep</code>/<code>egrep</code>/<code>fgrep</code> commands now satisfy the read-before-edit check</li>
+<li>Fixed copy-on-select not writing to the Windows clipboard on WSL — now uses PowerShell interop instead of OSC 52, which terminals like MobaXterm don&#39;t support</li>
+<li>Fixed restoring a completed session from <code>claude agents</code> dropping chat history and re-running the original prompt</li>
+<li>Fixed background sessions re-attached after overnight retire losing their conversation and re-running the original prompt</li>
+<li>Fixed <code>claude --bg</code> occasionally failing with &quot;socket missing&quot; when the background daemon was cold-starting on a loaded machine</li>
+<li>Fixed an issue on Windows where the directory a background session was started in could not be deleted after <code>claude rm</code> until the background daemon exited</li>
+<li>Fixed background agents that resumed work being shown under Completed in the agents list</li>
+<li>Fixed <code>claude agents</code> freezing for several seconds when returning to the session list due to the auto-updater re-checking on every exit</li>
+<li>Fixed Esc, arrow keys, and typing becoming unresponsive on Windows when attached to a background session or in the agent view while the host is under heavy CPU load</li>
+<li>Fixed background agents emitting terminal sync-output markers to terminals that don&#39;t support them (Apple Terminal, tmux), causing render artifacts when entering a running agent</li>
+<li>Fixed mouse wheel scrolling prompt history instead of the transcript right after opening a session from the agents list</li>
+<li>Fixed CJK IME composition appearing at the bottom-left of the screen instead of at the input caret in the <code>claude agents</code> view</li>
+<li>Fixed valid <code>file:///C:/...</code> links being rewritten to a broken path on Windows terminals with hyperlink support</li>
+<li>Fixed voice mode failing to connect when the project directory or branch name contains non-ASCII or special characters</li>
+<li>Fixed the auto mode unavailability message on third-party providers (Bedrock/Vertex/Foundry) to point to the <code>CLAUDE_CODE_ENABLE_AUTO_MODE</code> opt-in instead of incorrectly blaming the model</li>
+<li>Fixed <code>/effort ultracode</code> incorrectly blaming the dynamic workflows setting when the model cannot run xhigh; ultracode is no longer offered on models that do not support it</li>
+<li>Fixed model-not-found errors suggesting <code>--model</code> when running via the SDK or other hosts where the CLI flag doesn&#39;t apply</li>
+<li>Fixed Claude&#39;s past replies disappearing from scrollback when resuming a brief mode session with brief mode turned off</li>
+<li>Fixed vim mode <code>p</code> pasting on the line below instead of at the cursor when the register was yanked with <code>v$</code></li>
+<li>Improved performance of opening recently-inactive background agent sessions in <code>claude agents</code></li>
+<li>Improved auto mode classifier latency by reducing reasoning on routine actions, lowering the chance of &quot;could not evaluate this action&quot; blocks</li>
+<li>Improved background-session teardown (<code>claude rm</code>/<code>stop</code>, idle reap) to send SIGTERM to running shell subprocesses before SIGKILL, so cleanup handlers run</li>
+<li>Removed <code>CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE</code>; the environment variable is now a no-op</li>
+<li>Removed the JetBrains plugin install suggestion from startup</li>
+<li>Renamed the dynamic-workflow trigger keyword from <code>workflow</code> to <code>ultracode</code>. The word &quot;workflow&quot; no longer triggers a run; asking for one in your own words still works. The trigger keyword is highlighted in violet in the prompt input</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.159]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21159</id>
@@ -1668,36 +1704,6 @@
 <li>[VSCode] Reduced cold-open subprocess work on starting a session</li>
 <li>[VSCode] Fixed dropdown menus selecting the wrong item when the mouse was over the list while typing or using arrow keys</li>
 <li>[VSCode] Added a warning banner when <code>settings.json</code> files fail to parse, so users know their permission rules are not being applied</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.92]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2192</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#2192"/>
-        <updated>2026-04-04T00:05:59.607Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>forceRemoteSettingsRefresh</code> policy setting: when set, the CLI blocks startup until remote managed settings are freshly fetched, and exits if the fetch fails (fail-closed)</li>
-<li>Added interactive Bedrock setup wizard accessible from the login screen when selecting &quot;3rd-party platform&quot; — guides you through AWS authentication, region configuration, credential verification, and model pinning</li>
-<li>Added per-model and cache-hit breakdown to <code>/cost</code> for subscription users</li>
-<li><code>/release-notes</code> is now an interactive version picker</li>
-<li>Remote Control session names now use your hostname as the default prefix (e.g. <code>myhost-graceful-unicorn</code>), overridable with <code>--remote-control-session-name-prefix</code></li>
-<li>Pro users now see a footer hint when returning to a session after the prompt cache has expired, showing roughly how many tokens the next turn will send uncached</li>
-<li>Fixed subagent spawning permanently failing with &quot;Could not determine pane count&quot; after tmux windows are killed or renumbered during a long-running session</li>
-<li>Fixed prompt-type Stop hooks incorrectly failing when the small fast model returns <code>ok:false</code>, and restored <code>preventContinuation:true</code> semantics for non-Stop prompt-type hooks</li>
-<li>Fixed tool input validation failures when streaming emits array/object fields as JSON-encoded strings</li>
-<li>Fixed an API 400 error that could occur when extended thinking produced a whitespace-only text block alongside real content</li>
-<li>Fixed accidental feedback survey submissions from auto-pilot keypresses and consecutive-prompt digit collisions</li>
-<li>Fixed misleading &quot;esc to interrupt&quot; hint appearing alongside &quot;esc to clear&quot; when a text selection exists in fullscreen mode during processing</li>
-<li>Fixed Homebrew install update prompts to use the cask&#39;s release channel (<code>claude-code</code> → stable, <code>claude-code@latest</code> → latest)</li>
-<li>Fixed <code>ctrl+e</code> jumping to the end of the next line when already at end of line in multiline prompts</li>
-<li>Fixed an issue where the same message could appear at two positions when scrolling up in fullscreen mode (iTerm2, Ghostty, and other terminals with DEC 2026 support)</li>
-<li>Fixed idle-return &quot;/clear to save X tokens&quot; hint showing cumulative session tokens instead of current context size</li>
-<li>Fixed plugin MCP servers stuck &quot;connecting&quot; on session start when they duplicate a claude.ai connector that is unauthenticated</li>
-<li>Improved Write tool diff computation speed for large files (60% faster on files with tabs/<code>&amp;</code>/<code>$</code>)</li>
-<li>Removed <code>/tag</code> command</li>
-<li>Removed <code>/vim</code> command (toggle vim mode via <code>/config</code> → Editor mode)</li>
-<li>Linux sandbox now ships the <code>apply-seccomp</code> helper in both npm and native builds, restoring unix-socket blocking for sandboxed commands</li>
 </ul>
 ]]></content>
     </entry>
