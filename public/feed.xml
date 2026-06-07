@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-06-06T01:35:55.565Z</updated>
+    <updated>2026-06-07T00:25:58.415Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.168]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21168</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21168"/>
+        <updated>2026-06-06T23:32:52.332Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Bug fixes and reliability improvements</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.167]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21167</id>
@@ -1577,16 +1587,6 @@
 <li>Fixed transcript write failures (e.g., disk full) being silently dropped instead of being logged</li>
 <li>Fixed diacritical marks (accents, umlauts, cedillas) being dropped from responses when the <code>language</code> setting is configured</li>
 <li>Fixed policy-managed plugins never auto-updating when running from a different project than where they were first installed</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.107]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21107</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21107"/>
-        <updated>2026-04-14T05:18:14.905Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Show thinking hints sooner during long operations</li>
 </ul>
 ]]></content>
     </entry>
