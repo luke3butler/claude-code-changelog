@@ -2,9 +2,48 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-06-08T18:44:07.644Z</updated>
+    <updated>2026-06-08T22:28:33.810Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.169]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21169</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21169"/>
+        <updated>2026-06-08T18:11:20.859Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>--safe-mode</code> flag (and <code>CLAUDE_CODE_SAFE_MODE</code>) to start Claude Code with all customizations (CLAUDE.md, plugins, skills, hooks, MCP servers) disabled for troubleshooting</li>
+<li>Added <code>/cd</code> command to move a session to a new working directory without breaking the prompt cache mid-session</li>
+<li>Added a <code>disableBundledSkills</code> setting and <code>CLAUDE_CODE_DISABLE_BUNDLED_SKILLS</code> environment variable to hide bundled skills, workflows, and built-in slash commands from the model</li>
+<li>Fixed Up/Down arrows jumping to command history past the wrapped rows of a long input line — they now move through each visual row first, and history recall enters at the near edge</li>
+<li>Fixed enterprise managed MCP policies (<code>allowedMcpServers</code>/<code>deniedMcpServers</code>) not being enforced on reconnect, IDE-typed configs, <code>--mcp-config</code> servers during the first session after install, or before remote settings loaded; also fixed slow cold starts for orgs without remote settings</li>
+<li>Fixed a ~30-50ms UI stall at the start of each turn for macOS users logged in with claude.ai credentials</li>
+<li>Fixed <code>claude -p</code> being slow or appearing to hang on Windows while waiting for the slash-command/skill scan (regression in 2.1.161)</li>
+<li>Fixed Remote Control getting stuck on &quot;reconnecting&quot; after resuming a session when an OAuth token refresh happened at the same time</li>
+<li>Fixed Git Credential Manager&#39;s &quot;Connect to GitHub&quot; popup appearing on Windows at startup when background git commands ran without cached credentials</li>
+<li>Fixed footer hints (e.g. &quot;esc to interrupt&quot;) not showing for users with a custom statusline</li>
+<li>Fixed stale permission and dialog prompts reappearing every time you reattached to a remote session whose worker had died while waiting on them</li>
+<li>Fixed <code>claude agents --json</code> omitting blocked and just-dispatched background sessions; added <code>--all</code> to include completed sessions, plus new <code>id</code> and <code>state</code> fields</li>
+<li>Fixed agents view leaving a stale/garbled frame after navigating back from an agent on WSL in Windows Terminal</li>
+<li>Fixed background agents ignoring project-level settings <code>env</code> values (e.g. <code>ANTHROPIC_MODEL</code>) when dispatched onto a pre-warmed worker</li>
+<li>Fixed MCPB plugin cache being spuriously invalidated on Windows, causing unnecessary re-extraction</li>
+<li>Fixed plugin <code>.in_use</code> PID lock files accumulating without bound; stale markers from crashed sessions are now swept once per day</li>
+<li>Fixed untrusted project settings being able to set OTEL client-certificate paths without trust confirmation</li>
+<li><code>/workflows</code> now opens immediately even while a turn is in progress</li>
+<li>Improved <code>TaskCreate</code> reliability: malformed inputs are repaired automatically and validation errors for unloaded tools include the schema</li>
+<li>Improved the error message shown when your organization has disabled API key authentication, with guidance based on where the active API key comes from</li>
+<li>Reduced CPU usage while responses stream and during spinner animations</li>
+<li>Restored a default 5-minute idle timeout on Vertex/Foundry so a stalled stream aborts instead of hanging indefinitely; set <code>API_FORCE_IDLE_TIMEOUT=0</code> to opt out</li>
+<li>Remote-managed settings with an invalid entry now apply their remaining valid policies and surface the validation error, instead of silently dropping the whole payload</li>
+<li>Background sessions now preserve <code>--ide</code>, <code>--chrome</code>, <code>--bare</code>, <code>--remote-control</code>, and other flags across retire→wake, and respawn state validation was hardened</li>
+<li>Background sessions are now told that shared-checkout edits are blocked until they enter a worktree, avoiding a wasted rejected edit before <code>EnterWorktree</code></li>
+<li>The &quot;CLAUDE.md is too long&quot; warning threshold now scales with the model&#39;s context window</li>
+<li>Auto-updater on Windows now stops retrying within a session once <code>claude.exe</code> is held by another process</li>
+<li>Improved color contrast for skill tags in the slash-command menu</li>
+<li>Promo credit claims for Apple/Google-billed subscribers without a payment method now explain where to add one</li>
+<li>Added a tip suggesting <code>claude agents</code> when running multiple concurrent sessions</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.168]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21168</id>
@@ -1554,39 +1593,6 @@
         <updated>2026-04-15T03:45:21.462Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Improved the extended-thinking indicator with a rotating progress hint</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.108]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21108</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21108"/>
-        <updated>2026-04-14T18:35:26.902Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>ENABLE_PROMPT_CACHING_1H</code> env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (<code>ENABLE_PROMPT_CACHING_1H_BEDROCK</code> is deprecated but still honored), and <code>FORCE_PROMPT_CACHING_5M</code> to force 5-minute TTL</li>
-<li>Added recap feature to provide context when returning to a session, configurable in <code>/config</code> and manually invocable with <code>/recap</code>; force with <code>CLAUDE_CODE_ENABLE_AWAY_SUMMARY</code> if telemetry disabled.</li>
-<li>The model can now discover and invoke built-in slash commands like <code>/init</code>, <code>/review</code>, and <code>/security-review</code> via the Skill tool</li>
-<li><code>/undo</code> is now an alias for <code>/rewind</code></li>
-<li>Improved <code>/model</code> to warn before switching models mid-conversation, since the next response re-reads the full history uncached</li>
-<li>Improved <code>/resume</code> picker to default to sessions from the current directory; press <code>Ctrl+A</code> to show all projects</li>
-<li>Improved error messages: server rate limits are now distinguished from plan usage limits; 5xx/529 errors show a link to status.claude.com; unknown slash commands suggest the closest match</li>
-<li>Reduced memory footprint for file reads, edits, and syntax highlighting by loading language grammars on demand</li>
-<li>Added &quot;verbose&quot; indicator when viewing the detailed transcript (<code>Ctrl+O</code>)</li>
-<li>Added a warning at startup when prompt caching is disabled via <code>DISABLE_PROMPT_CACHING*</code> environment variables</li>
-<li>Fixed paste not working in the <code>/login</code> code prompt (regression in 2.1.105)</li>
-<li>Fixed subscribers who set <code>DISABLE_TELEMETRY</code> falling back to 5-minute prompt cache TTL instead of 1 hour</li>
-<li>Fixed Agent tool prompting for permission in auto mode when the safety classifier&#39;s transcript exceeded its context window</li>
-<li>Fixed Bash tool producing no output when <code>CLAUDE_ENV_FILE</code> (e.g. <code>~/.zprofile</code>) ends with a <code>#</code> comment line</li>
-<li>Fixed <code>claude --resume &lt;session-id&gt;</code> losing the session&#39;s custom name and color set via <code>/rename</code></li>
-<li>Fixed session titles showing placeholder example text when the first message is a short greeting</li>
-<li>Fixed terminal escape codes appearing as garbage text in the prompt input after <code>--teleport</code></li>
-<li>Fixed <code>/feedback</code> retry: pressing Enter to resubmit after a failure now works without first editing the description</li>
-<li>Fixed <code>--teleport</code> and <code>--resume &lt;id&gt;</code> precondition errors (e.g. dirty git tree, session not found) exiting silently instead of showing the error message</li>
-<li>Fixed Remote Control session titles set in the web UI being overwritten by auto-generated titles after the third message</li>
-<li>Fixed <code>--resume</code> truncating sessions when the transcript contained a self-referencing message</li>
-<li>Fixed transcript write failures (e.g., disk full) being silently dropped instead of being logged</li>
-<li>Fixed diacritical marks (accents, umlauts, cedillas) being dropped from responses when the <code>language</code> setting is configured</li>
-<li>Fixed policy-managed plugins never auto-updating when running from a different project than where they were first installed</li>
 </ul>
 ]]></content>
     </entry>
