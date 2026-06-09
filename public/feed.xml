@@ -2,9 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-06-08T22:28:33.810Z</updated>
+    <updated>2026-06-09T17:36:54.436Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.170]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21170</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21170"/>
+        <updated>2026-06-09T16:15:44.470Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Introducing Claude Fable 5: a Mythos-class model that we’ve made safe for general use. Fable’s capabilities exceed those of any model we’ve ever made generally available. Update to version 2.1.170 for access. <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">https://www.anthropic.com/news/claude-fable-5-mythos-5</a></li>
+<li>Fixed sessions not saving transcripts (and not appearing in --resume) when launched from the VS Code integrated terminal or any shell that inherited Claude Code environment variables.</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.169]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21169</id>
@@ -1583,16 +1594,6 @@
 <li>Fixed <code>/skills</code> menu not scrolling when the list overflows the modal in fullscreen mode</li>
 <li>Fixed Remote Control sessions showing a generic error instead of prompting for re-login when the session is too old</li>
 <li>Fixed Remote Control session renames from claude.ai not persisting the title to the local CLI session</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.109]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21109</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21109"/>
-        <updated>2026-04-15T03:45:21.462Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Improved the extended-thinking indicator with a rotating progress hint</li>
 </ul>
 ]]></content>
     </entry>
