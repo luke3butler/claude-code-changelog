@@ -2,9 +2,31 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-06-11T22:32:25.757Z</updated>
+    <updated>2026-06-12T01:45:21.439Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.174]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21174</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21174"/>
+        <updated>2026-06-11T22:27:52.061Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>wheelScrollAccelerationEnabled</code> setting to disable mouse-wheel scroll acceleration in fullscreen mode</li>
+<li>Fixed the <code>/model</code> picker hiding the model family that Default resolves to — Opus now appears as its own row on Max/Team Premium/Enterprise plans, Sonnet on Pro/Team plans, and Opus on pay-as-you-go API accounts</li>
+<li>Fixed <code>/model</code> picker showing a hardcoded Sonnet version label when <code>ANTHROPIC_DEFAULT_SONNET_MODEL</code> pins a different Sonnet</li>
+<li>Fixed the &quot;Fable 5 is now consuming usage credits&quot; banner incorrectly showing for enterprise accounts with usage-based billing</li>
+<li>Fixed Bedrock GovCloud regions (<code>us-gov-*</code>) deriving the wrong inference profile prefix (<code>global</code> instead of <code>us-gov</code>), causing 400 errors on derived model IDs</li>
+<li>Fixed background sessions inheriting another session&#39;s <code>ANTHROPIC_*</code> provider env (gateway URL, custom headers, <code>/model</code> aliases) from the shell that started the background daemon</li>
+<li>Fixed a 1-2 second pause when exiting Claude Code shortly after a shell command was interrupted or killed on macOS and Linux</li>
+<li>Fixed git commit co-author attribution showing an incorrect model name for some models</li>
+<li>Fixed the <code>/advisor</code> dialog pre-selecting a saved advisor model that is blocked by the <code>availableModels</code> allowlist</li>
+<li>Fixed skill hot-reload re-sending the entire skill listing when a single skill changed; only changed skills are now re-announced</li>
+<li>Fixed Workflow tool <code>agent()</code> subagents missing per-agent attribution headers</li>
+<li>[VSCode] Added usage attribution to the Account &amp; usage dialog (<code>/usage</code>) showing cache misses, long context, subagents, and per-skill/agent/plugin/MCP breakdowns over the last 24h or 7d</li>
+<li>Fixed pre-warmed background workers failing with &quot;Could not resolve authentication method&quot; when claimed after sitting idle</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.173]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21173</id>
@@ -1549,16 +1571,6 @@
 <li>Fixed Remote Control sessions not streaming subagent transcripts</li>
 <li>Fixed Remote Control sessions not being archived when Claude Code exits</li>
 <li>Fixed <code>thinking.type.enabled is not supported</code> 400 error when using Opus 4.7 via a Bedrock Application Inference Profile ARN</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.112]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21112</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21112"/>
-        <updated>2026-04-16T19:23:46.419Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed &quot;claude-opus-4-7 is temporarily unavailable&quot; for auto mode</li>
 </ul>
 ]]></content>
     </entry>
