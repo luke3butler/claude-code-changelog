@@ -1,6 +1,36 @@
 {
-  "updated": "2026-06-15T19:14:07.527Z",
+  "updated": "2026-06-15T21:57:17.584Z",
   "entries": [
+    {
+      "version": "2.1.178",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21178",
+      "publishedAt": "2026-06-15T19:03:37.553Z",
+      "changes": [
+        "Added `Tool(param:value)` syntax for permission rules to match a tool's input parameters (with `*` wildcard), e.g. `Agent(model:opus)` to block Opus subagents",
+        "Skills in nested `.claude/skills` directories now load when working on files there; on a name clash, the nested skill appears as `<dir>:<name>` so both stay available",
+        "Nested `.claude/` directories: the agent, workflow, and output-style closest to the working directory now wins when names collide; project-scope workflow saves now target the closest existing `.claude/workflows/`",
+        "Improved auto mode: subagent spawns are now evaluated by the classifier before launch, closing a gap where a subagent could request a blocked action without review",
+        "Improved `/doctor` with consistent flat tree layout across all sections, clearer section status icons, and highlighted command names",
+        "Improved the skill listing truncation warning to show how many skill descriptions are affected",
+        "Changed the workflow prompt keyword to use a purple shimmer highlight and trigger only on explicit phrases like \"run a workflow\" or \"workflow:\", not on any mention of the word",
+        "Improved Remote Control error messages: connection failures now show a persistent red \"/rc failed\" indicator in the footer, and the \"not yet enabled\" error now explains whether it's a gate, a check failure, stale entitlement, or org policy",
+        "`/bug` now requires a description before submitting, and no longer uses model-refusal text as the GitHub issue title",
+        "Fixed a crash (out-of-memory) when the CLI inherits a stale websocket/OAuth file-descriptor environment variable from a parent process",
+        "Fixed Claude in Chrome silently failing to connect when the OAuth token belongs to a different account than the Claude Code login",
+        "Fixed nested `.claude/skills` skills with directory-qualified names being blocked by permission prompts in non-interactive runs",
+        "Fixed several subagent issues: viewing a subagent's transcript now shows tool results and live progress, messages sent while it finishes its turn are no longer dropped, and backgrounding a running subagent (ctrl+b) no longer restarts it from scratch",
+        "Fixed `claude agents` workers failing with `401 Invalid bearer token` when the daemon was started from a shell with a custom API gateway via `ANTHROPIC_BASE_URL` and `ANTHROPIC_AUTH_TOKEN`",
+        "Fixed compaction not honoring `--fallback-model`: compaction now falls back to the configured fallback model chain on overload or model-availability errors",
+        "Fixed model requests continuing to fail with auth errors after credentials were refreshed outside the session, due to a stale cached request configuration",
+        "Fixed background sessions created with `/bg` or `←←` after a turn finished showing \"Working\" forever in the agents list",
+        "Fixed `CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE=1` preventing fresh marketplace installs from cloning",
+        "Fixed MCP server-level specs (`mcp__server`, `mcp__server__*`, `mcp__*`) in subagent `disallowedTools` being silently ignored",
+        "Fixed vim mode undo: `u` now steps through NORMAL/VISUAL-mode commands one at a time instead of merging commands in quick succession into a single undo step",
+        "Fixed statusline links with custom URI schemes (e.g. `vscode://`) not opening when clicked in `claude agents`",
+        "[VSCode] Fixed pressing Esc to dismiss a CJK IME candidate window canceling the running Claude task"
+      ],
+      "changeCount": 22
+    },
     {
       "version": "2.1.176",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21176",
@@ -1457,39 +1487,6 @@
         "Fixed Opus 4.7 sessions showing inflated `/context` percentages and autocompacting too early — Claude Code was computing against a 200K context window instead of Opus 4.7's native 1M"
       ],
       "changeCount": 28
-    },
-    {
-      "version": "2.1.116",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21116",
-      "publishedAt": "2026-04-20T19:24:52.313Z",
-      "changes": [
-        "`/resume` on large sessions is significantly faster (up to 67% on 40MB+ sessions) and handles sessions with many dead-fork entries more efficiently",
-        "Faster MCP startup when multiple stdio servers are configured; `resources/templates/list` is now deferred to first `@`-mention",
-        "Smoother fullscreen scrolling in VS Code, Cursor, and Windsurf terminals — `/terminal-setup` now configures the editor's scroll sensitivity",
-        "Thinking spinner now shows progress inline (\"still thinking\", \"thinking more\", \"almost done thinking\"), replacing the separate hint row",
-        "`/config` search now matches option values (e.g. searching \"vim\" finds the Editor mode setting)",
-        "`/doctor` can now be opened while Claude is responding, without waiting for the current turn to finish",
-        "`/reload-plugins` and background plugin auto-update now auto-install missing plugin dependencies from marketplaces you've already added",
-        "Bash tool now surfaces a hint when `gh` commands hit GitHub's API rate limit, so agents can back off instead of retrying",
-        "The Usage tab in Settings now shows your 5-hour and weekly usage immediately and no longer fails when the usage endpoint is rate-limited",
-        "Agent frontmatter `hooks:` now fire when running as a main-thread agent via `--agent`",
-        "Slash command menu now shows \"No commands match\" when your filter has zero results, instead of disappearing",
-        "Security: sandbox auto-allow no longer bypasses the dangerous-path safety check for `rm`/`rmdir` targeting `/`, `$HOME`, or other critical system directories",
-        "Claude Code and installer now use `https://downloads.claude.ai/claude-code-releases` instead of `https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases`",
-        "Fixed Devanagari and other Indic scripts rendering with broken column alignment in the terminal UI",
-        "Fixed Ctrl+- not triggering undo in terminals using the Kitty keyboard protocol (iTerm2, Ghostty, kitty, WezTerm, Windows Terminal)",
-        "Fixed Cmd+Left/Right not jumping to line start/end in terminals that use the Kitty keyboard protocol (Warp fullscreen, kitty, Ghostty, WezTerm)",
-        "Fixed Ctrl+Z hanging the terminal when Claude Code is launched via a wrapper process (e.g. `npx`, `bun run`)",
-        "Fixed scrollback duplication in inline mode where resizing the terminal or large output bursts would repeat earlier conversation history",
-        "Fixed modal search dialogs overflowing the screen at short terminal heights, hiding the search box and keyboard hints",
-        "Fixed scattered blank cells and disappearing composer chrome in the VS Code integrated terminal during scrolling",
-        "Fixed an intermittent API 400 error related to cache control TTL ordering that could occur when a parallel request completed during request setup",
-        "Fixed `/branch` rejecting conversations with transcripts larger than 50MB",
-        "Fixed `/resume` silently showing an empty conversation on large session files instead of reporting the load error",
-        "Fixed `/plugin` Installed tab showing the same item twice when it appears under Needs attention or Favorites",
-        "Fixed `/update` and `/tui` not working after entering a worktree mid-session"
-      ],
-      "changeCount": 25
     }
   ]
 }
