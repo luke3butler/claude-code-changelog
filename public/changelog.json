@@ -1,6 +1,23 @@
 {
-  "updated": "2026-06-16T19:08:08.003Z",
+  "updated": "2026-06-16T20:58:57.359Z",
   "entries": [
+    {
+      "version": "2.1.179",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21179",
+      "publishedAt": "2026-06-16T17:51:27.805Z",
+      "changes": [
+        "Fixed mid-stream connection drops: partial responses are now preserved instead of showing a raw error, and the spinner no longer gets stuck at \"running tool\"",
+        "Fixed mouse-wheel scrolling in WSL2 under Windows Terminal and VS Code (regression in 2.1.172)",
+        "Fixed a sandbox `denyRead`/`allowRead` glob over a large directory tree making the Bash tool description enormous and the session unusable on Linux",
+        "Fixed the feedback survey capturing a single-digit reply as a session rating immediately after a turn completes",
+        "Fixed the welcome screen stacking multiple promotional banners — at most one promo now shows per session",
+        "Fixed Ctrl+O not showing the subagent's transcript when viewing a subagent",
+        "Fixed clicking the prompt input not returning focus from the subagent/footer panel",
+        "Fixed remote session background tasks appearing stuck as \"still running\" between turns",
+        "Improved plugin loading performance in remote sessions"
+      ],
+      "changeCount": 9
+    },
     {
       "version": "2.1.178",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21178",
@@ -23,13 +40,14 @@
         "Fixed compaction not honoring `--fallback-model`: compaction now falls back to the configured fallback model chain on overload or model-availability errors",
         "Fixed model requests continuing to fail with auth errors after credentials were refreshed outside the session, due to a stale cached request configuration",
         "Fixed background sessions created with `/bg` or `←←` after a turn finished showing \"Working\" forever in the agents list",
+        "Fixed Linux sandbox failing to start when `.claude/skills` or `.claude/hooks` is a symlink",
         "Fixed `CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE=1` preventing fresh marketplace installs from cloning",
         "Fixed MCP server-level specs (`mcp__server`, `mcp__server__*`, `mcp__*`) in subagent `disallowedTools` being silently ignored",
         "Fixed vim mode undo: `u` now steps through NORMAL/VISUAL-mode commands one at a time instead of merging commands in quick succession into a single undo step",
         "Fixed statusline links with custom URI schemes (e.g. `vscode://`) not opening when clicked in `claude agents`",
         "[VSCode] Fixed pressing Esc to dismiss a CJK IME candidate window canceling the running Claude task"
       ],
-      "changeCount": 22
+      "changeCount": 23
     },
     {
       "version": "2.1.176",
@@ -1451,42 +1469,6 @@
         "Fixed subagents resumed via `SendMessage` not restoring the explicit `cwd` they were spawned with"
       ],
       "changeCount": 34
-    },
-    {
-      "version": "2.1.117",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21117",
-      "publishedAt": "2026-04-21T21:54:08.640Z",
-      "changes": [
-        "Forked subagents can now be enabled on external builds by setting `CLAUDE_CODE_FORK_SUBAGENT=1`",
-        "Agent frontmatter `mcpServers` are now loaded for main-thread agent sessions via `--agent`",
-        "Improved `/model`: selections now persist across restarts even when the project pins a different model, and the startup header shows when the active model comes from a project or managed-settings pin",
-        "The `/resume` command now offers to summarize stale, large sessions before re-reading them, matching the existing `--resume` behavior",
-        "Faster startup when both local and claude.ai MCP servers are configured (concurrent connect now default)",
-        "`plugin install` on an already-installed plugin now installs any missing dependencies instead of stopping at \"already installed\"",
-        "Plugin dependency errors now say \"not installed\" with an install hint, and `claude plugin marketplace add` now auto-resolves missing dependencies from configured marketplaces",
-        "Managed-settings `blockedMarketplaces` and `strictKnownMarketplaces` are now enforced on plugin install, update, refresh, and autoupdate",
-        "Advisor Tool (experimental): dialog now carries an \"experimental\" label, learn-more link, and startup notification when enabled; sessions no longer get stuck with \"Advisor tool result content could not be processed\" errors on every prompt and `/compact`",
-        "The `cleanupPeriodDays` retention sweep now also covers `~/.claude/tasks/`, `~/.claude/shell-snapshots/`, and `~/.claude/backups/`",
-        "OpenTelemetry: `user_prompt` events now include `command_name` and `command_source` for slash commands; `cost.usage`, `token.usage`, `api_request`, and `api_error` now include an `effort` attribute when the model supports effort levels. Custom/MCP command names are redacted unless `OTEL_LOG_TOOL_DETAILS=1` is set",
-        "Native builds on macOS and Linux: the `Glob` and `Grep` tools are replaced by embedded `bfs` and `ugrep` available through the Bash tool — faster searches without a separate tool round-trip (Windows and npm-installed builds unchanged)",
-        "Windows: cached `where.exe` executable lookups per process for faster subprocess launches",
-        "Default effort for Pro/Max subscribers on Opus 4.6 and Sonnet 4.6 is now `high` (was `medium`)",
-        "Fixed Plain-CLI OAuth sessions dying with \"Please run /login\" when the access token expires mid-session — the token is now refreshed reactively on 401",
-        "Fixed `WebFetch` hanging on very large HTML pages by truncating input before HTML-to-markdown conversion",
-        "Fixed a crash when a proxy returns HTTP 204 No Content — now surfaces a clear error instead of a `TypeError`",
-        "Fixed `/login` having no effect when launched with `CLAUDE_CODE_OAUTH_TOKEN` env var and that token expires",
-        "Fixed prompt-input undo (`Ctrl+_`) doing nothing immediately after typing, and skipping a state on each undo step",
-        "Fixed `NO_PROXY` not being respected for remote API requests when running under Bun",
-        "Fixed rare spurious escape/return triggers when key names arrive as coalesced text over slow connections",
-        "Fixed SDK `reload_plugins` reconnecting all user MCP servers serially",
-        "Fixed Bedrock application-inference-profile requests failing with 400 when backed by Opus 4.7 with thinking disabled",
-        "Fixed MCP `elicitation/create` requests auto-cancelling in print/SDK mode when the server finishes connecting mid-turn",
-        "Fixed subagents running a different model than the main agent incorrectly flagging file reads with a malware warning",
-        "Fixed idle re-render loop when background tasks are present, reducing memory growth on Linux",
-        "[VSCode] Fixed \"Manage Plugins\" panel breaking when multiple large marketplaces are configured",
-        "Fixed Opus 4.7 sessions showing inflated `/context` percentages and autocompacting too early — Claude Code was computing against a 200K context window instead of Opus 4.7's native 1M"
-      ],
-      "changeCount": 28
     }
   ]
 }
