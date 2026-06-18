@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-06-17T22:31:12.886Z</updated>
+    <updated>2026-06-18T22:35:17.580Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -77,6 +77,7 @@
         <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21178"/>
         <updated>2026-06-15T19:03:37.553Z</updated>
         <content type="html"><![CDATA[<ul>
+<li>Agent teams: removed the <code>TeamCreate</code> and <code>TeamDelete</code> tools. With <code>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code> set, every session now has one implicit team — spawn teammates directly with the Agent tool&#39;s <code>name</code> parameter, no setup step needed. The <code>team_name</code> parameter on the Agent tool is still accepted but ignored.</li>
 <li>Added <code>Tool(param:value)</code> syntax for permission rules to match a tool&#39;s input parameters (with <code>*</code> wildcard), e.g. <code>Agent(model:opus)</code> to block Opus subagents</li>
 <li>Skills in nested <code>.claude/skills</code> directories now load when working on files there; on a name clash, the nested skill appears as <code>&lt;dir&gt;:&lt;name&gt;</code> so both stay available</li>
 <li>Nested <code>.claude/</code> directories: the agent, workflow, and output-style closest to the working directory now wins when names collide; project-scope workflow saves now target the closest existing <code>.claude/workflows/</code></li>
