@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-06-24T14:53:23.794Z</updated>
+    <updated>2026-06-24T16:40:08.642Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.190]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21190</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21190"/>
+        <updated>2026-06-24T14:39:56.222Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Bug fixes and reliability improvements</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.187]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21187</id>
@@ -1472,16 +1482,6 @@
 <li>Windows: clipboard writes no longer expose copied content in process command-line arguments visible to EDR/SIEM telemetry; also fixes &gt;22KB selections not reaching the clipboard</li>
 <li>PowerShell tool: bare <code>--</code> (e.g. <code>git diff -- file</code>) is no longer mis-flagged as the <code>--%</code> stop-parsing token</li>
 <li>Fixed Agent SDK hang when the model emits a malformed tool name in a parallel tool call batch</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.123]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21123</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21123"/>
-        <updated>2026-04-29T01:52:47.690Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed OAuth authentication failing with a 401 retry loop when <code>CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1</code> is set</li>
 </ul>
 ]]></content>
     </entry>

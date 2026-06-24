@@ -1,6 +1,13 @@
 {
-  "updated": "2026-06-24T14:53:23.799Z",
+  "updated": "2026-06-24T16:40:08.647Z",
   "entries": [
+    {
+      "version": "2.1.190",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21190",
+      "publishedAt": "2026-06-24T14:39:56.222Z",
+      "changes": ["Bug fixes and reliability improvements"],
+      "changeCount": 1
+    },
     {
       "version": "2.1.187",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21187",
@@ -1408,15 +1415,6 @@
         "Fixed Agent SDK hang when the model emits a malformed tool name in a parallel tool call batch"
       ],
       "changeCount": 32
-    },
-    {
-      "version": "2.1.123",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21123",
-      "publishedAt": "2026-04-29T01:52:47.690Z",
-      "changes": [
-        "Fixed OAuth authentication failing with a 401 retry loop when `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` is set"
-      ],
-      "changeCount": 1
     }
   ]
 }
