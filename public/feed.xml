@@ -2,9 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-06-26T18:30:36.323Z</updated>
+    <updated>2026-06-26T22:23:11.296Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.195]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21195</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21195"/>
+        <updated>2026-06-26T18:16:23.150Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added <code>CLAUDE_CODE_DISABLE_MOUSE_CLICKS</code> to disable mouse click/drag/hover in fullscreen mode while keeping wheel scroll</li>
+<li>Fixed hook matchers with hyphenated identifiers (e.g. <code>code-reviewer</code>, <code>mcp__brave-search</code>) accidentally substring-matching — they now exact-match. Use <code>mcp__brave-search__.*</code> to match all tools from a hyphenated MCP server.</li>
+<li>Fixed voice dictation on macOS capturing silence in long-running sessions after the default input device changes</li>
+<li>Fixed voice dictation auto-submit never firing for languages written without spaces (Japanese, Chinese, Thai)</li>
+<li>Fixed external plugins enabled only by project <code>.claude/settings.json</code> not requiring explicit install consent on every loader path</li>
+<li>Fixed <code>/plugin</code> Enable/Disable not working when a plugin&#39;s <code>plugin.json</code> <code>name</code> differs from its marketplace entry name</li>
+<li>Fixed background jobs disappearing from <code>claude agents</code> or losing data when written by a newer Claude Code version</li>
+<li>Fixed reopening a crashed background task showing a blank screen for up to 5 seconds instead of its restart</li>
+<li>Fixed background agent daemons running unreachable when the control socket fails to start, blocking restarts</li>
+<li>Improved voice mode on Linux: now distinguishes &quot;no microphone&quot; from &quot;SoX not installed&quot; when SoX is present but no audio capture device exists</li>
+<li>Improved <code>claude agents</code> completed list to fill available vertical space; on short terminals the header compacts so live sessions stay visible</li>
+<li>Improved Remote session startup with a provisioning checklist while the container starts</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.193]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21193</id>
@@ -1409,42 +1430,6 @@
         <content type="html"><![CDATA[<ul>
 <li>Fixed VS Code extension failing to activate on Windows due to a hardcoded build path in the bundled SDK (<code>createRequire</code> polyfill bug)</li>
 <li>Fixed Mantle endpoint authentication failing with missing <code>x-api-key</code> header</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.129]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21129</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21129"/>
-        <updated>2026-05-05T18:22:55.515Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>--plugin-url &lt;url&gt;</code> flag to fetch a plugin <code>.zip</code> archive from a URL for the current session</li>
-<li>Added <code>CLAUDE_CODE_FORCE_SYNC_OUTPUT=1</code> env var to force-enable synchronized output on terminals that auto-detection misses (e.g. Emacs <code>eat</code>)</li>
-<li>Added <code>CLAUDE_CODE_PACKAGE_MANAGER_AUTO_UPDATE</code>: when set on Homebrew or WinGet installations, Claude Code runs the upgrade command in the background and prompts to restart</li>
-<li>Plugin manifests: <code>themes</code> and <code>monitors</code> should now be declared under <code>&quot;experimental&quot;: { ... }</code>. Top-level declarations still work but <code>claude plugin validate</code> will warn</li>
-<li>Gateway <code>/v1/models</code> discovery for the <code>/model</code> picker is now opt-in via <code>CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1</code> (was automatic in 2.1.126–2.1.128)</li>
-<li>Ctrl+R history picker now defaults to searching all prompts across all projects, matching pre-2.1.124 behavior. Press Ctrl+S to narrow to the current project or session</li>
-<li>Third-party deployments (Bedrock, Vertex, Foundry, or <code>ANTHROPIC_BASE_URL</code> gateway) no longer see spinner tips pointing at first-party Anthropic surfaces</li>
-<li><code>skillOverrides</code> setting now works: <code>off</code> hides from model and <code>/</code>, <code>user-invocable-only</code> hides from model only, <code>name-only</code> collapses description</li>
-<li>The <code>claude_code.pull_request.count</code> OTel metric now counts PRs/MRs created via MCP tools, not just shell commands</li>
-<li>Policy refusal error messages now include the API Request ID for easier support debugging</li>
-<li>Fixed API errors with unrecognized 400 status codes showing raw JSON instead of the underlying error message</li>
-<li>Fixed <code>/clear</code> not resetting the terminal tab title after a conversation</li>
-<li>Fixed session title chip from <code>/rename</code> disappearing while a permission or other dialog is active</li>
-<li>Fixed agent panel below the prompt being hidden when subagents are running (regression in 2.1.122)</li>
-<li>Fixed external-editor handoff (Ctrl+G) blanking the conversation history above the prompt</li>
-<li>Fixed <code>/context</code> dumping its rendered ASCII visualization grid into the conversation, wasting ~1.6k tokens per call</li>
-<li>Fixed <code>/agents</code> Library list arrow-key navigation: the highlighted agent now stays visible when the list exceeds the viewport</li>
-<li>Fixed <code>/branch</code> success message not including the new branch&#39;s session id for <code>/resume</code></li>
-<li>Fixed bold headers with keycap/ZWJ/skin-tone emoji losing trailing characters in fullscreen mode</li>
-<li>Fixed server-managed settings policy not applying for enterprise/team users whose stored OAuth credentials lacked the <code>user:inference</code> scope</li>
-<li>Fixed OAuth refresh race after wake-from-sleep that could log out all running sessions</li>
-<li>Fixed 1-hour prompt cache TTL being silently downgraded to 5 minutes</li>
-<li>Fixed cache-miss warning appearing spuriously after <code>/clear</code> or compaction when changing <code>/effort</code> or <code>/model</code></li>
-<li>Fixed <code>Bash(mkdir *)</code>, <code>Bash(touch *)</code> and similar allow rules not being honored for in-project paths</li>
-<li>Fixed <code>deniedMcpServers</code> patterns with a <code>*://</code> scheme wildcard not matching mixed-case hostnames</li>
-<li>Fixed harmless WebSocket warning being logged as an error in <code>--debug</code> during voice mode</li>
-<li>[VSCode] Fixed <code>/clear</code> not clearing the conversation context and displayed transcript</li>
 </ul>
 ]]></content>
     </entry>
