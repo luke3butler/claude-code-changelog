@@ -2,9 +2,50 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-07-01T17:33:58.828Z</updated>
+    <updated>2026-07-01T21:29:09.190Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.198]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21198</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21198"/>
+        <updated>2026-07-01T16:50:16.245Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Claude in Chrome is now generally available</li>
+<li>Added background agent notifications in <code>claude agents</code> — sessions that need input or finish now fire the <code>Notification</code> hook (<code>agent_needs_input</code> / <code>agent_completed</code>)</li>
+<li>Added <code>/dataviz</code> skill for chart and dashboard design guidance with a runnable color-palette validator</li>
+<li>Gateway: added Claude Platform on AWS (anthropicAws) as an upstream provider; model-not-found responses now advance the failover chain</li>
+<li>Background agents launched from <code>claude agents</code> now commit, push, and open a draft PR when they finish code work in a worktree, instead of stopping to ask</li>
+<li>The built-in Explore agent now inherits the main session&#39;s model (capped at opus) instead of running on haiku</li>
+<li>Subagents and context compaction now inherit the session&#39;s extended thinking configuration, improving output quality on delegated tasks</li>
+<li>Fixed brief network drops mid-response aborting the turn — transient errors like ECONNRESET now retry with backoff instead of failing</li>
+<li>Fixed excessive background classifier requests when sandboxed processes repeatedly accessed the same network host</li>
+<li>Fixed background tasks in web, desktop, and VS Code task panels getting stuck on &quot;Running&quot; after they finish or after resuming a session</li>
+<li>Fixed agent teams: a teammate that dies on an API error now reports &quot;failed&quot; to the lead, and messaging a stuck teammate wakes it to retry immediately</li>
+<li>Fixed the <code>/diff</code> panel not refreshing when you switch branches or commit outside the session</li>
+<li>Fixed markdown tables overflowing and wrapping their right border when rendered in fullscreen mode</li>
+<li>Fixed Claude Platform on AWS and Mantle sessions dead-ending with &quot;Please run /login&quot; when the STS token expires — <code>awsAuthRefresh</code> now runs automatically</li>
+<li>Fixed &quot;no route to host&quot; for local-network hosts in macOS background agent sessions by declaring Local Network entitlements</li>
+<li>Fixed <code>/desktop</code> failing with &quot;Cannot determine working directory&quot; after entering and exiting a worktree</li>
+<li>Fixed background agents repeatedly showing &quot;Reconnecting…&quot; every ~52 seconds on macOS while the agents view was open</li>
+<li>Fixed pressing <code>←</code> inside <code>claude attach &lt;id&gt;</code> exiting to the shell instead of opening the agent view</li>
+<li>Fixed <code>claude --bg</code> silently creating an unattachable session when combined with <code>--print</code>/<code>-p</code>; the conflicting flags are now rejected up front</li>
+<li>Fixed the workflow progress view dropping the earliest agents from the list while the phase counter stayed correct in SDK and desktop-app sessions</li>
+<li>Fixed <code>.claude/rules/</code> conditional rules not loading when the target file is reached via a symlinked path</li>
+<li>Fixed Cmd+click not opening URLs in fullscreen mode in Warp on macOS</li>
+<li>Fixed double-click word selection in fullscreen mode to select the entire URL including the scheme</li>
+<li>Fixed plan mode not auto-allowing read-only tool calls when a session starts in plan mode</li>
+<li>Fixed <code>/branch</code> deriving its default fork name from the compaction summary instead of the first real prompt</li>
+<li>Improved focus mode: subagents launched in a turn now appear in its activity summary, and completed background notifications fold into a single count</li>
+<li>Improved syntax highlighting accuracy in code blocks, diffs, and file previews by upgrading to highlight.js 11</li>
+<li>Keyboard shortcut hints now show opt/cmd instead of alt/super when connected from a Mac over SSH</li>
+<li>Improved API retry UX: the error reason is now shown after the second attempt, and a status page link replaces the spinner tip when the API is overloaded</li>
+<li><code>/login</code> now opens the sign-in dialog from the <code>claude agents</code> view instead of saying it isn&#39;t available</li>
+<li>Subagents now treat messages from the agent that launched them as normal task direction; an agent&#39;s message is still never treated as the user&#39;s approval</li>
+<li>Removed the <code>/agents</code> wizard; ask Claude to create or manage subagents, or edit <code>.claude/agents/</code> directly</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.197]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21197</id>
@@ -1402,32 +1443,6 @@
 <li>Fixed MCP tool results being invisible when the server returns content blocks</li>
 <li>Improved error message when <code>--worktree</code> collides with an existing or stale worktree</li>
 <li>Changed plugin marketplace removal key to <code>d</code> (matching delete elsewhere) instead of <code>r</code> which collided with retry</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.133]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21133</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21133"/>
-        <updated>2026-05-07T20:19:32.227Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>worktree.baseRef</code> setting (<code>fresh</code> | <code>head</code>) to choose whether <code>--worktree</code>, <code>EnterWorktree</code>, and agent-isolation worktrees branch from <code>origin/&lt;default&gt;</code> or local <code>HEAD</code>. <strong>Note:</strong> the default <code>fresh</code> changes <code>EnterWorktree</code>&#39;s base back to <code>origin/&lt;default&gt;</code> (it has been local <code>HEAD</code> since 2.1.128) — set <code>worktree.baseRef: &quot;head&quot;</code> to keep unpushed commits in new worktrees</li>
-<li>Added <code>sandbox.bwrapPath</code> and <code>sandbox.socatPath</code> managed settings (Linux/WSL) to specify custom bubblewrap and socat binary locations</li>
-<li>Added <code>parentSettingsBehavior</code> admin-tier key (<code>&#39;first-wins&#39; | &#39;merge&#39;</code>) to let admins opt SDK <code>managedSettings</code> (parent tier) into the policy merge</li>
-<li>Hooks now receive the active effort level via the <code>effort.level</code> JSON input field and the <code>$CLAUDE_EFFORT</code> environment variable, and Bash tool commands can read <code>$CLAUDE_EFFORT</code></li>
-<li>Improved focus mode behavior</li>
-<li>Improved memory usage by releasing warm-spare background workers under memory pressure</li>
-<li>Fixed parallel sessions all dead-ending at 401 after a refresh-token race wiped shared credentials</li>
-<li>Fixed <code>Edit</code>/<code>Write</code> allow rules scoped to a drive root (<code>C:\</code>) or POSIX <code>/</code> matching incorrectly and always prompting</li>
-<li>Fixed an unhandled rejection (<code>ECOMPROMISED</code>) when a history or session-log file lock is compromised by clock skew or slow disk</li>
-<li>Fixed pressing Esc during conversation compaction showing a spurious &quot;Error compacting conversation&quot; notification</li>
-<li>Fixed <code>HTTP(S)_PROXY</code> / <code>NO_PROXY</code> / mTLS not being respected for the full MCP OAuth flow including discovery, dynamic client registration, token exchange, and token refresh</li>
-<li>Fixed Read/Write/Edit being denied on mapped network drives passed via <code>--add-dir</code> / SDK <code>additionalDirectories</code></li>
-<li>Fixed Remote Control stop/interrupt from claude.ai not fully canceling the CLI session the same way local Esc does, causing queued messages to never advance after interrupting a stuck tool or prompt</li>
-<li>Fixed <code>/effort</code> in one session unexpectedly changing the effort level of other concurrent sessions, and a related issue where an IDE effort change could be silently dropped</li>
-<li>Fixed subagents not discovering project, user, or plugin skills via the Skill tool</li>
-<li><code>claude --help</code> now lists <code>--remote-control</code> alongside <code>--remote-control-session-name-prefix</code></li>
-<li>[VSCode] Fixed <code>claudeCode.claudeProcessWrapper</code> failing with &quot;Unsupported platform&quot; when the extension build doesn&#39;t bundle a Claude binary</li>
 </ul>
 ]]></content>
     </entry>
