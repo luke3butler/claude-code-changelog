@@ -1,11 +1,12 @@
 {
-  "updated": "2026-07-02T17:42:43.718Z",
+  "updated": "2026-07-02T22:57:45.079Z",
   "entries": [
     {
       "version": "2.1.198",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21198",
       "publishedAt": "2026-07-01T16:50:16.245Z",
       "changes": [
+        "Subagents now run in the background by default, so Claude keeps working while they run and is notified when they finish (previously a gradual rollout)",
         "Claude in Chrome is now generally available",
         "Added background agent notifications in `claude agents` — sessions that need input or finish now fire the `Notification` hook (`agent_needs_input` / `agent_completed`)",
         "Added `/dataviz` skill for chart and dashboard design guidance with a runnable color-palette validator",
@@ -39,7 +40,7 @@
         "Subagents now treat messages from the agent that launched them as normal task direction; an agent's message is still never treated as the user's approval",
         "Removed the `/agents` wizard; ask Claude to create or manage subagents, or edit `.claude/agents/` directly"
       ],
-      "changeCount": 32
+      "changeCount": 33
     },
     {
       "version": "2.1.197",
