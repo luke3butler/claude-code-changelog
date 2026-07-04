@@ -1,6 +1,15 @@
 {
-  "updated": "2026-07-03T21:54:35.933Z",
+  "updated": "2026-07-04T01:46:50.764Z",
   "entries": [
+    {
+      "version": "2.1.201",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21201",
+      "publishedAt": "2026-07-03T20:52:33.551Z",
+      "changes": [
+        "Claude Sonnet 5 sessions no longer use the mid-conversation system role for harness reminders"
+      ],
+      "changeCount": 1
+    },
     {
       "version": "2.1.200",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21200",
@@ -1363,13 +1372,6 @@
         "[VSCode] Press Cmd/Ctrl+Shift+T to reopen the most recently closed session tab, configurable via `claudeCode.enableReopenClosedSessionShortcut`"
       ],
       "changeCount": 50
-    },
-    {
-      "version": "2.1.138",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21138",
-      "publishedAt": "2026-05-09T05:57:28.355Z",
-      "changes": ["Internal fixes"],
-      "changeCount": 1
     }
   ]
 }

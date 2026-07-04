@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-07-03T21:54:35.927Z</updated>
+    <updated>2026-07-04T01:46:50.758Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.201]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21201</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21201"/>
+        <updated>2026-07-03T20:52:33.551Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Claude Sonnet 5 sessions no longer use the mid-conversation system role for harness reminders</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.200]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21200</id>
@@ -1422,16 +1432,6 @@
 <li>Fixed <code>claude_code.active_time.total</code> OpenTelemetry metric not being emitted in <code>--print</code> mode</li>
 <li>Fixed <code>claude plugin update</code> not preserving cross-plugin symlinks inside a marketplace</li>
 <li>[VSCode] Press Cmd/Ctrl+Shift+T to reopen the most recently closed session tab, configurable via <code>claudeCode.enableReopenClosedSessionShortcut</code></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.138]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21138</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21138"/>
-        <updated>2026-05-09T05:57:28.355Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Internal fixes</li>
 </ul>
 ]]></content>
     </entry>
