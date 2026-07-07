@@ -2,9 +2,55 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-07-07T18:53:03.952Z</updated>
+    <updated>2026-07-07T22:03:27.658Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.203]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21203</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21203"/>
+        <updated>2026-07-07T17:40:17.341Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added a warning when your login is about to expire, so you can re-authenticate before background sessions are interrupted</li>
+<li>Added a grey ⏸ badge to the footer when in manual permission mode, making the active mode always visible</li>
+<li>Added the session&#39;s additional working directories to MCP <code>roots/list</code>, with <code>notifications/roots/list_changed</code> sent when the set changes</li>
+<li>Fixed opening or switching background agent sessions on macOS stalling for 15–20 seconds due to a false low-memory detection (regression in 2.1.196)</li>
+<li>Fixed background sessions becoming permanently unresponsive to attach, replies, and stop when the daemon&#39;s session token went stale — the session now recovers automatically</li>
+<li>Fixed returning to <code>claude agents</code> silently stopping running subagents and re-running the prompt from scratch — their work now carries over</li>
+<li>Fixed a memory and per-turn CPU regression in interactive sessions: the context-usage indicator no longer re-analyzes the entire transcript after every turn</li>
+<li>Fixed background agents inheriting a stale <code>PATH</code> from the daemon instead of the dispatching shell, causing missing tools on Windows</li>
+<li>Fixed background and agent-view sessions dropping a shell-exported <code>ANTHROPIC_BASE_URL</code>, which sent API keys to the default endpoint and failed with 401</li>
+<li>Fixed Bash failing with &quot;argument list too long&quot; in repos with many git worktrees</li>
+<li>Fixed worktree-isolated subagents sometimes running shell commands in the parent checkout instead of their own worktree</li>
+<li>Fixed worktree creation rejecting nested repositories in multi-repo workspaces, leaving background sessions unable to isolate and edit</li>
+<li>Fixed background agents crash-looping when their working directory was deleted, replaced by a file, or became an invalid path — they now fail once with a clear error</li>
+<li>Fixed a background daemon auto-upgrade failure silently killing all running background sessions</li>
+<li>Fixed <code>TaskStop</code> and <code>TaskOutput</code> failing to find background agents spawned by another agent — errors now list running agents by id and description</li>
+<li>Fixed the <code>claude agents</code> composer discarding your typed message when a slash command isn&#39;t available there</li>
+<li>Fixed the agent list crashing when opening a stopped session whose conversation was already open in another session</li>
+<li>Fixed background sessions showing &quot;Needs input&quot; in the agent list after the question was already answered</li>
+<li>Fixed background agent startup failures showing only &quot;exit_with_message&quot; instead of the actual error</li>
+<li>Fixed background sessions ignoring <code>effortLevel</code> changes in settings.json when forked through the daemon</li>
+<li>Fixed attached background sessions ignoring <code>CLAUDE_CODE_DISABLE_MOUSE</code> and <code>CLAUDE_CODE_DISABLE_MOUSE_CLICKS</code> opt-outs</li>
+<li>Fixed <code>/exit</code> incorrectly warning about running background agents after all named agents had completed</li>
+<li>Fixed background sessions started from a non-git directory unable to edit files when a <code>WorktreeCreate</code> hook was configured</li>
+<li>Fixed the <code>@</code> directory picker in <code>claude agents</code> not showing registered git worktrees</li>
+<li>Fixed background task output on Windows being permanently replaced by an empty file after <code>/clear</code></li>
+<li>Fixed content jumping when scrolling up through long transcript history</li>
+<li>Fixed the terminal flickering and jumping while typing in bash mode when a shell-history suggestion was shown</li>
+<li>Fixed literal <code>^[[I</code> / <code>^[[O</code> escape codes being printed when reattaching to a background session</li>
+<li>Fixed LSP-only plugins being incorrectly flagged for disuse when their language servers deliver diagnostics or answer navigation requests</li>
+<li>Improved responsiveness while long responses stream: live-preview updates no longer re-render the whole screen</li>
+<li>Improved subagent behavior: agents are now less likely to re-delegate their entire task to another subagent</li>
+<li>Reduced binary size by ~7 MB and startup memory by ~7 MB by loading a large bundled dependency lazily instead of inlining it</li>
+<li>Changed left arrow to no longer close the background tasks, diff, and workflow detail views — press Esc instead</li>
+<li>Changed the empty <code>claude agents</code> view to always show the organized sections (Needs input / Working / Completed) with descriptions</li>
+<li>Removed the startup &quot;claude command missing or broken&quot; warnings — they now appear in <code>/doctor</code> and <code>/status</code> instead</li>
+<li>Removed a redundant navigation hint from the <code>claude agents</code> footer</li>
+<li>[VSCode] Added a Settings toggle for &quot;Enable Remote Control for all sessions&quot;</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.202]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21202</id>
@@ -1378,28 +1424,6 @@
 <li><code>claude agents</code>: launching a session no longer fails when the pre-warmed background worker is unhealthy — now falls back to a fresh launch</li>
 <li><code>claude agents</code> no longer shows empty placeholder sessions left over from backgrounding a fresh REPL, and shows onboarding text when entered via ← with no other agents</li>
 <li>Empty idle background sessions left over from <code>←</code> are now automatically retired by the daemon after 5 minutes</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.140]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21140</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21140"/>
-        <updated>2026-05-12T19:50:28.781Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Improved Agent tool <code>subagent_type</code> matching to accept case- and separator-insensitive values (e.g. <code>&quot;Code Reviewer&quot;</code> resolves to <code>code-reviewer</code>)</li>
-<li>Updated agent color palette</li>
-<li>Fixed <code>/goal</code> silently hanging when <code>disableAllHooks</code> or <code>allowManagedHooksOnly</code> is set — now shows a clear message instead of an indicator that never resolves</li>
-<li>Fixed a regression in settings hot-reload where symlinked settings files caused misattributed change events and spurious <code>ConfigChange</code> hooks</li>
-<li>Fixed <code>claude --bg</code> failing with &quot;connection dropped mid-request&quot; when the background service was about to idle-exit</li>
-<li>Fixed background service startup failing on machines with enterprise endpoint security by allowing more time</li>
-<li>Fixed remote managed settings not retrying on 401 — now retries once with a force-refreshed token</li>
-<li>Fixed managed <code>extraKnownMarketplaces</code> auto-update policy not being persisted to <code>known_marketplaces.json</code></li>
-<li>Fixed <code>/loop</code> scheduling redundant wakeups to poll for background tasks that already notify on completion</li>
-<li>Fixed a recurring event-loop stall on Windows when a missing executable (e.g. <code>gh</code>) triggered synchronous <code>where.exe</code> re-spawns on every check</li>
-<li>Fixed <code>Read</code> tool calls failing validation when <code>offset</code> is passed as a whitespace-padded or <code>+</code>-prefixed string</li>
-<li>Fixed native terminal cursor not staying at the input caret when the terminal loses focus</li>
-<li>Plugins now warn when a default component folder (e.g. <code>commands/</code>) is silently ignored because <code>plugin.json</code> sets the matching key. Shown in <code>/doctor</code>, <code>claude plugin list</code>, and <code>/plugin</code>.</li>
 </ul>
 ]]></content>
     </entry>
