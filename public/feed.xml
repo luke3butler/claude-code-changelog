@@ -2,9 +2,45 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-07-09T19:17:58.526Z</updated>
+    <updated>2026-07-10T01:44:53.779Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.206]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21206</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21206"/>
+        <updated>2026-07-09T17:54:03.009Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added directory path suggestions to <code>/cd</code>, matching <code>/add-dir</code> behavior</li>
+<li>Added a <code>/doctor</code> check that proposes trimming checked-in <code>CLAUDE.md</code> files by cutting content Claude could derive from the codebase</li>
+<li><code>/commit-push-pr</code> now auto-allows <code>git push</code> to the repo&#39;s configured push remote (<code>remote.pushDefault</code>, or the sole remote when only one is configured) in addition to <code>origin</code></li>
+<li>Gateway: <code>/login</code> now supports Anthropic-operated public gateway endpoints</li>
+<li><code>EnterWorktree</code> now asks for confirmation before entering a git worktree outside the project&#39;s <code>.claude/worktrees/</code> directory</li>
+<li>Background agents now upgrade to a new version in the background right after a Claude Code update, instead of paying a slow stale-session upgrade when you attach</li>
+<li>Fixed an expired login failing every model with a misleading &quot;There&#39;s an issue with the selected model&quot; error instead of prompting to run <code>/login</code></li>
+<li>Fixed <code>claude --resume</code> and <code>--continue</code> not responding to keyboard input on startup</li>
+<li>Fixed MCP servers configured via <code>--mcp-config</code> or <code>.mcp.json</code> ignoring a per-server <code>request_timeout_ms</code>, which caused long-running MCP tool calls to time out at the 60s default in fresh sessions</li>
+<li>Fixed <code>CLAUDE_CODE_EXTRA_BODY</code> being silently ignored by <code>claude agents</code> / <code>--bg</code> background workers; the shell-exported override now follows the dispatching session</li>
+<li>Fixed OAuth MCP servers requiring manual re-authentication after a single failed token refresh</li>
+<li>Fixed <code>--permission-prompt-tool</code> pointing at an MCP server crashing with &quot;MCP tool not found&quot; on cold start before the server finishes connecting</li>
+<li>Fixed <code>/model</code> picker rows printing a price for a different model than the row named, and stopped quoting first-party list prices on providers that don&#39;t bill them</li>
+<li>Fixed server-provided model rows being misplaced in the <code>/model</code> picker when an entitlement or allowlist restriction drops the row they were positioned against</li>
+<li>Fixed desktop sessions getting stuck showing &quot;running&quot; after a slash command was sent mid-turn</li>
+<li>Fixed keyboard input being ignored in the agents view when a setup prompt appeared before a bare <code>claude --resume</code> on Windows</li>
+<li>Fixed <code>claude rm</code> leaving the removed job in the daemon roster, causing the row to reappear in <code>claude agents</code></li>
+<li>Fixed <code>/remote-control</code> showing &quot;Unknown command&quot; when logged out — it now explains how to sign in</li>
+<li>Fixed left arrow not stepping back out of a phase or agent in the workflow detail view</li>
+<li>Fixed <code>/status</code> listing the same broken-install warning twice</li>
+<li>Fixed false &quot;disused plugin&quot; tips and skewed disuse telemetry for LSP plugins</li>
+<li>Fixed <code>/doctor</code>&#39;s update check to compare Homebrew installs against their cask&#39;s channel instead of the settings channel</li>
+<li>Fixed the fullscreen jump-to-bottom pill suggesting Ctrl+End on macOS, not showing rebound chords, and wrapping over the transcript</li>
+<li>Bedrock: fixed a multi-minute startup hang when using an <code>awsCredentialExport</code> helper on networks with restricted egress</li>
+<li>Improved <code>/code-review</code> findings quality on claude-opus-4-8 across all effort levels</li>
+<li>Improved agents view: status column now uses full terminal width instead of truncating at 64 characters</li>
+<li>Changed agents view: Ctrl+X now permanently removes a completed session, and sessions no longer render twice; deleted background jobs stay deleted</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.205]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21205</id>
@@ -1321,48 +1357,6 @@
 <li>Improved recovery from rare pre-response stream stalls — now retries streaming once instead of falling back to a slower non-streaming request</li>
 <li>Improved SDK/headless MCP startup: pre-wait now overlaps startup instead of blocking before the first turn (up to 2s faster with slow MCP servers)</li>
 <li>The post-survey follow-up hint now appears after every non-dismiss survey response with context-aware copy, making it easier to share more detail via /feedback.</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.143]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21143</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21143"/>
-        <updated>2026-05-15T18:45:53.727Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added plugin dependency enforcement: <code>claude plugin disable</code> now refuses when another enabled plugin depends on the target (with a copy-pasteable disable-chain hint), and <code>claude plugin enable</code> force-enables transitive dependencies</li>
-<li>Added projected context cost (per-turn and per-invocation token estimates) to the <code>/plugin</code> marketplace browse pane</li>
-<li>Added <code>worktree.bgIsolation: &quot;none&quot;</code> setting to let background sessions edit the working copy directly without <code>EnterWorktree</code>, for repos where worktrees are impractical</li>
-<li>PowerShell tool now passes <code>-ExecutionPolicy Bypass</code>. Opt out with <code>CLAUDE_CODE_POWERSHELL_RESPECT_EXECUTION_POLICY=1</code></li>
-<li>Background sessions now preserve the model and effort level you set after waking from idle</li>
-<li>Shift+Tab in attached agent sessions now includes auto mode in the cycle</li>
-<li>Fixed a corrupt <code>.credentials.json</code> with a non-array <code>scopes</code> value hanging the CLI on startup or silently aborting OAuth token refresh</li>
-<li>Fixed right-click paste in <code>claude agents</code> on Windows Terminal and WSL</li>
-<li>Fixed stop hooks that block repeatedly looping forever — the turn now ends with a warning after 8 consecutive blocks (override via <code>CLAUDE_CODE_STOP_HOOK_BLOCK_CAP</code>)</li>
-<li>Fixed Esc/Ctrl+C not cancelling a pending <code>/loop</code> wakeup while Claude is idle between iterations</li>
-<li>Fixed <code>/goal</code> evaluator firing while background shells or delegated subagents are still running</li>
-<li>Fixed <code>NO_COLOR</code>/<code>FORCE_COLOR</code> in settings.json <code>env</code> stripping Claude Code&#39;s own UI colors — they now apply to subprocesses only</li>
-<li>Fixed agent view spawning repeated PowerShell processes on Windows when listing sessions</li>
-<li>Fixed <code>/bg</code> without a prompt sending &quot;continue&quot; to the forked session — the fork now waits for input</li>
-<li>Fixed <code>--agent &lt;name&gt;</code> not finding plugin-contributed agents without the <code>plugin:</code> prefix</li>
-<li>Fixed deleting a session from agent view not removing its transcript file</li>
-<li>Fixed stale-fragment rendering when scrolling in attached background sessions on Windows Terminal</li>
-<li>Fixed background agents false-positive worker-stall detection storm after host sleep or macOS App Nap</li>
-<li>Fixed 5xx error messages pointing at status.claude.com instead of naming the configured gateway or cloud provider</li>
-<li>The PowerShell tool is now enabled by default on Windows for Bedrock, Vertex, and Foundry users. Opt out with <code>CLAUDE_CODE_USE_POWERSHELL_TOOL=0</code>.</li>
-<li><code>claude agents</code> now accepts <code>--add-dir</code>, <code>--settings</code>, <code>--mcp-config</code>, and <code>--plugin-dir</code> and applies them to the dashboard and to background sessions dispatched from it</li>
-<li><code>claude agents</code> accepts <code>--permission-mode</code>, <code>--model</code>, <code>--effort</code>, and <code>--dangerously-skip-permissions</code> to set defaults for sessions dispatched from the view</li>
-<li><code>claude --bg --dangerously-skip-permissions</code> now persists across retire→wake</li>
-<li>Fixed background sessions silently capturing IDE file references into the warm spare&#39;s input, which caused the reference to be prepended to the next prompt dispatched from <code>claude agents</code></li>
-<li>Worktree cleanup no longer falls back to <code>rm -rf</code> when <code>git worktree remove</code> fails, preventing loss of gitignored or in-progress files</li>
-<li>Fixed background-job sessions on macOS getting &quot;Operation not permitted&quot; errors when reading files under <code>~/Documents</code>, <code>~/Desktop</code>, or <code>~/Downloads</code>, even with Full Disk Access granted.</li>
-<li><code>/bg</code> now preserves <code>--mcp-config</code>, <code>--settings</code>, <code>--add-dir</code>, <code>--plugin-dir</code>, and <code>--strict-mcp-config</code>, so backgrounded sessions keep their MCP servers and settings across respawn.</li>
-<li>Background sessions launched from <code>claude agents</code> now honor <code>permissions.defaultMode</code> from settings.json (was previously overridden to auto mode)</li>
-<li>Fixed: on Windows, pressing ← in <code>claude agents</code> while a response was streaming could leave the agents list unresponsive to all input</li>
-<li><code>/bg</code> and <code>←</code>-detach now preserve <code>--fallback-model</code>, so backgrounded workers degrade to the fallback model on overload instead of hard-failing.</li>
-<li><code>/bg</code> and <code>←</code>-detach now preserve <code>--allow-dangerously-skip-permissions</code>, so the forked worker keeps bypass-permissions available in its Shift+Tab cycle.</li>
-<li>Fixed: background daemon spawn now falls back to the running binary when the <code>~/.local/bin/claude</code> launcher is missing or non-executable</li>
-<li>Fixed <code>claude agents --allow-dangerously-skip-permissions</code> defaulting dispatched sessions to bypass mode instead of making it available in the permission cycle</li>
 </ul>
 ]]></content>
     </entry>
