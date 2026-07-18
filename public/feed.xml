@@ -2,9 +2,65 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-07-18T01:17:48.033Z</updated>
+    <updated>2026-07-18T04:36:13.263Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.214]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21214</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21214"/>
+        <updated>2026-07-18T00:13:41.661Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed single-segment <code>dir/**</code> allow rules like <code>Edit(src/**)</code> auto-approving writes to nested <code>dir/</code> directories anywhere in the tree instead of only <code>&lt;cwd&gt;/dir</code></li>
+<li>Fixed a permission-check bypass affecting commands run in Windows PowerShell 5.1 sessions</li>
+<li>Fixed Bash permission checks to fail closed on file-descriptor redirect forms that bash parses differently than the permission analyzer</li>
+<li>Fixed Bash permission checks misjudging very long commands — commands over 10,000 characters now always prompt instead of running automatically</li>
+<li>Fixed Bash permission checks treating zsh variable subscripts and modifiers in <code>[[ ]]</code> comparisons as inert text — these commands now prompt for approval</li>
+<li>Fixed Bash permission checks to no longer auto-approve certain <code>help</code> and <code>man</code> commands that could run unsafe options, command substitutions, or backslash paths</li>
+<li>Fixed permission prompts on remote sessions that could proceed before the local confirmation dialog</li>
+<li>Added the EndConversation tool: Claude can end sessions with highly abusive users or jailbreak attempts, as on claude.ai since 2025 — see <a href="https://www.anthropic.com/research/end-subset-conversations">https://www.anthropic.com/research/end-subset-conversations</a></li>
+<li>Added a periodic progress heartbeat for long-running tool calls that previously went silent</li>
+<li>Added an ISO <code>modified</code> timestamp to memory file frontmatter</li>
+<li>Added <code>message.uuid</code>, <code>client_request_id</code>, and <code>tool_source</code> attributes to OpenTelemetry log events for message-level correlation and tool provenance</li>
+<li>Added <code>CLAUDE_CODE_OTEL_CONTENT_MAX_LENGTH</code> to configure the 60 KB truncation limit on OpenTelemetry content attributes</li>
+<li>Added reasoning effort to the <code>subagentStatusLine</code> payload, so custom agent rows can render model and effort</li>
+<li>Added permission prompts for <code>docker</code> commands (including the Podman <code>docker</code> shim) carrying daemon-redirect flags (<code>--url</code>, <code>--connection</code>, <code>--identity</code>, and Podman&#39;s remote mode) that previously ran without one</li>
+<li>Fixed a crash when a GrowthBook feature evaluates to null, and a bug where a malformed flag payload could wipe the cached feature flags</li>
+<li>Fixed Bash tool killing the Claude session when a <code>pkill -f</code> pattern accidentally matched the CLI&#39;s own process (Linux)</li>
+<li>Fixed unbounded memory growth when <code>--settings</code> points at a device file or multi-GB file; oversized (&gt;2 MiB) settings files now fail at startup with a clear error</li>
+<li>Fixed streaming turns failing with &quot;Socket is closed&quot; behind corporate proxies on Windows</li>
+<li>Fixed stream-json output truncation at exit for slow-reading SDK/pipeline consumers; the exit drain now scales with queued bytes instead of a flat 2s cap</li>
+<li>Fixed scheduled tasks refusing their own configured prompt as untrusted input — the fired prompt is now delivered as the session&#39;s assigned task</li>
+<li>Fixed PowerShell tool commands hanging until timeout when a child process waited on standard input (Windows)</li>
+<li>Fixed Python scripts under the PowerShell tool crashing with UnicodeDecodeError when reading non-UTF-8 data from standard input (Windows)</li>
+<li>Fixed Python scripts run via the PowerShell tool crashing with UnicodeEncodeError on non-ASCII output, and PowerShell 7 error messages containing raw ANSI escape sequences (Windows)</li>
+<li>Fixed the PowerShell tool reporting <code>where.exe</code>, <code>fc.exe</code>, and <code>diff.exe</code> as errors when they return a valid negative answer (Windows)</li>
+<li>Fixed <code>&gt;</code> and <code>&gt;&gt;</code> under the PowerShell tool on Windows PowerShell 5.1 writing UTF-16LE files that other tools couldn&#39;t read as UTF-8</li>
+<li>Fixed a displaced background daemon deleting its successor&#39;s control socket on shutdown, which made the next client kill the healthy replacement daemon</li>
+<li>Fixed background sessions parked with <code>←</code> or <code>/background</code> and left idle keeping the background daemon and a worker process alive indefinitely</li>
+<li>Fixed completed background sessions being impossible to remove via <code>claude rm</code> or the agent view once the background service had gone idle</li>
+<li>Fixed background sessions dispatched from a non-git folder being impossible to delete from the agents view</li>
+<li>Fixed reopening a stopped background session failing to restore its saved conversation when an unreadable folder exists in the session store</li>
+<li>Fixed the Remote Control &quot;session ready&quot; push notification firing for sessions where Remote Control was not explicitly enabled</li>
+<li>Fixed <code>/install-github-app</code> and the <code>/mcp</code> settings menu being blocked in agent-view sessions — they&#39;re now refused only in background sessions with no terminal attached</li>
+<li>Fixed plugins enabled via the <code>--settings</code> CLI flag not loading (regression since v2.1.181)</li>
+<li>Fixed feature flags going stale in long-running sessions after the OAuth token rotates</li>
+<li>Fixed <code>/ultrareview</code> refusing to run in repos with no merge base — it now offers to review all tracked files</li>
+<li>Fixed <code>claude update</code> and <code>claude doctor</code> hanging silently, and the <code>/status</code> System diagnostics section going blank, when a shell-config path is a directory</li>
+<li>Fixed memory frontmatter values being silently truncated at an inline <code>#</code> when memory files are saved</li>
+<li>Fixed session cost and token telemetry double-counting on streams that emit multiple cumulative <code>message_delta</code> frames</li>
+<li>Fixed a spurious &quot;check your network&quot; warning that appeared while the advisor was thinking</li>
+<li>Fixed hooks with exit code 2 not blocking as documented when the hook&#39;s stdout JSON fails schema validation</li>
+<li>Fixed OTel log events emitted outside the turn&#39;s async context missing the interaction span&#39;s trace context</li>
+<li>Fixed MCP transient errors during prompts/resources refresh clearing the server&#39;s slash commands and resources</li>
+<li>Improved the <code>claude rc</code> workspace-trust error in the home directory to say trust there is never saved and to suggest running from a project directory</li>
+<li>Changed single-segment <code>dir/**</code> hook <code>if:</code> conditions to match only <code>&lt;cwd&gt;/dir</code>; write <code>**/dir/**</code> for any-depth matching. <code>deny</code>/<code>ask</code> permission rules keep their any-depth match.</li>
+<li>Changed <code>file</code> commands using <code>-m</code>/<code>--magic-file</code> or <code>-f</code>/<code>--files-from</code> to require permission instead of being auto-allowed as read-only</li>
+<li>Changed keep-alive connection pooling to disable after a stale-connection error, so retries open a fresh socket</li>
+<li>Changed SessionStart hooks to report source <code>&quot;fork&quot;</code> when a session begins as a fork instead of <code>&quot;resume&quot;</code></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.212]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21212</id>
@@ -1372,48 +1428,6 @@
 <li>[VSCode] Fixed Claude Code processes not shutting down cleanly when VS Code closed on Windows, causing false &quot;unclean exit&quot; reports and orphaned MCP servers</li>
 <li><code>/model</code> now saves your selection as the default for new sessions (matching the IDE). Press <code>s</code> in the picker to switch models for the current session only.</li>
 <li>If you customized the <code>modelPicker:setAsDefault</code> keybinding, rename it to <code>modelPicker:thisSessionOnly</code> in keybindings.json (the <code>d</code> action was replaced by <code>s</code>)</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.152]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21152</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21152"/>
-        <updated>2026-05-26T21:38:29.002Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li><code>/code-review --fix</code> now applies review findings to your working tree after the review, surfacing reuse, simplification, and efficiency suggestions; <code>/simplify</code> now invokes <code>/code-review --fix</code></li>
-<li>Skills and slash commands can now set <code>disallowed-tools</code> in frontmatter to remove tools from the model while the skill is active</li>
-<li>Added <code>/reload-skills</code> command to re-scan skill directories without restarting the session</li>
-<li><code>SessionStart</code> hooks can now return <code>reloadSkills: true</code> to re-scan skill directories, making skills installed by the hook available in the same session</li>
-<li><code>SessionStart</code> hooks can now set the session title via <code>hookSpecificOutput.sessionTitle</code> on startup and resume</li>
-<li>Added a <code>MessageDisplay</code> hook event that lets hooks transform or hide assistant message text as it is displayed</li>
-<li>Added <code>pluginSuggestionMarketplaces</code> managed setting: admins can allowlist org marketplaces whose plugins may be suggested via context-aware tips</li>
-<li><code>claude plugin marketplace remove</code> now accepts <code>--scope user|project|local</code> for symmetry with <code>marketplace add</code>, <code>install</code>, and <code>uninstall</code></li>
-<li>Claude Code now switches to your configured <code>--fallback-model</code> for the rest of the session when the primary model is not found, instead of failing every request</li>
-<li>Auto mode no longer requires opt-in consent</li>
-<li>Vim mode: <code>/</code> in NORMAL mode now opens reverse history search (like Ctrl+R), matching bash/zsh vi-mode</li>
-<li>The <code>/usage</code> breakdown now includes large session files; files are scanned with a streaming read so memory usage stays flat</li>
-<li>Thinking summaries in the collapsed group now stay readable for at least 3 seconds, render as markdown, and cap at 10 lines (<code>Ctrl+O</code> shows the full thinking)</li>
-<li>In fullscreen mode, the &quot;Thinking for Ns&quot; indicator now counts up live while the model is thinking, and keeps its value if you interrupt mid-thought</li>
-<li>Simplified the Workflow tool&#39;s inline progress display — live agent counts now show only in the persistent workflow status row below the prompt</li>
-<li>The post-response timer now shows &quot;Waiting for N background agents/workflows to finish&quot; when backgrounded agents or workflows are still running, and reports the cumulative time once their results are processed</li>
-<li>Added the session entrypoint as an OpenTelemetry metric attribute (<code>app.entrypoint</code>, opt-in via <code>OTEL_METRICS_INCLUDE_ENTRYPOINT=true</code>)</li>
-<li>Fixed terminal styling degrading in very long sessions by recycling the renderer&#39;s style pool</li>
-<li>Fixed the sandbox-enabled warning not appearing in condensed startup mode — it now shows in every layout</li>
-<li>Fixed the loading spinner showing &quot;still thinking&quot;/&quot;almost done thinking&quot; while a tool is running, and reset the thinking status to &quot;thinking&quot; after each tool</li>
-<li>Fixed focus mode showing a spurious &quot;N messages hidden&quot; count on turns with no hidden activity</li>
-<li>Fixed clicking a link inside an expanded tool result collapsing the section instead of opening the link</li>
-<li>Fixed markdown table cell borders inheriting the color of inline code, wrapped continuation lines losing their style, and empty header cells showing a label in the narrow-terminal stacked layout</li>
-<li>Fixed plugin MCP servers with the same command but different environment variables being incorrectly deduplicated</li>
-<li>Fixed <code>/doctor</code> reporting &quot;marketplace not found&quot; or &quot;plugin not found&quot; for stale <code>enabledPlugins</code> entries referencing removed marketplaces or dropped plugins</li>
-<li>Fixed plugins that track a git branch silently no longer receiving updates after the plugin registry was rebuilt</li>
-<li>Fixed remote MCP servers failing to connect in Claude Code Remote sessions when the egress proxy is enabled</li>
-<li>Fixed the effort-change confirmation dialog appearing when the conversation has no messages or when switching between effort levels that resolve to the same underlying value</li>
-<li>Fixed the Agent tool description referencing an agent list that is never delivered when running with <code>--bare</code> or with attachments disabled</li>
-<li>Fixed a background worker crash in <code>claude agents</code> when accepting a stale permission prompt after a subagent was cancelled</li>
-<li>Fixed <code>cache_creation_input_tokens</code> reporting as 0 in transcript and result usage when the API reports cache writes only via the nested <code>cache_creation</code> breakdown</li>
-<li>Fixed the PushNotification tool incorrectly reporting &quot;Mobile push not sent (Remote Control inactive)&quot; in SDK-hosted sessions when Remote Control is enabled</li>
-<li>Fixed sessions getting stuck after a model or login switch left stale thinking-block signatures in history; now stripped proactively with a retry safety-net</li>
 </ul>
 ]]></content>
     </entry>
