@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-07-19T01:24:13.982Z</updated>
+    <updated>2026-07-19T04:58:28.273Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.215]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21215</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21215"/>
+        <updated>2026-07-19T00:53:37.170Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Claude no longer runs the <code>/verify</code> and <code>/code-review</code> skills on its own; invoke them with <code>/verify</code> or <code>/code-review</code> when you want them</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.214]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21214</id>
@@ -1383,51 +1393,6 @@
 <li>Fixed /mcp tools list and tool detail rendering when MCP servers have long or multi-line tool names or long descriptions</li>
 <li>Fixed the /model picker not showing fast mode pricing on the Default option for API (pay-as-you-go) users when fast mode is on</li>
 <li>Fixed auto mode incorrectly blocking actions with &quot;could not evaluate this action&quot; when the safety classifier ran out of output tokens while reasoning</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.153]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21153</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21153"/>
-        <updated>2026-05-27T21:46:58.252Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>skipLfs</code> option to <code>github</code>/<code>git</code> plugin marketplace sources to skip Git LFS downloads during clone and update</li>
-<li>Claude Code now shows a one-time notice when your npm global install can&#39;t auto-update; <code>/doctor</code> lists the fixes</li>
-<li>Status line commands now receive <code>COLUMNS</code> and <code>LINES</code> environment variables so scripts can size output to the terminal width</li>
-<li><code>claude agents</code>: autocomplete in the dispatch input now suggests native slash commands and bundled skills, not just project skills</li>
-<li><code>claude agents</code>: PR column now shows <code>PR #N</code> for a single PR or <code>N PRs</code> for multiple</li>
-<li><code>claude doctor</code> now shows the result of your last update attempt</li>
-<li>Combined the separate &quot;needs authentication&quot; startup notifications for MCP servers and connectors into a single message</li>
-<li>macOS: background agents now appear as &quot;Claude Code&quot; in Privacy &amp; Security and keep their permission grants across upgrades</li>
-<li>Fixed stateful MCP servers without the optional GET SSE stream reconnect-looping on <code>tools/list</code> (regression in v2.1.147)</li>
-<li>Fixed a regression where a custom API gateway could receive the user&#39;s Anthropic OAuth credential instead of the gateway&#39;s own token</li>
-<li>Fixed subagent (Agent tool) frontmatter MCP servers ignoring <code>--strict-mcp-config</code>, <code>--bare</code>, remote mode, enterprise managed MCP config, and managed-settings MCP server allow/deny policies</li>
-<li><code>--strict-mcp-config</code> no longer strips inline <code>mcpServers</code> from explicitly-passed agent definitions (<code>--agents</code> / SDK <code>agents</code>), and blocked subagent MCP servers now surface a visible warning</li>
-<li>Fixed the Windows PowerShell installer reporting &quot;Installation complete!&quot; when installation actually failed</li>
-<li>Fixed <code>claude update</code> installing the latest version instead of the configured release channel&#39;s version for npm installations</li>
-<li>Fixed excessive memory usage (multiple GB) when resuming a session by transcript file path on machines with many stored sessions</li>
-<li>Fixed <code>claude agents</code> and <code>claude --bg</code> running on a stale daemon started before binary-takeover support, even after upgrading</li>
-<li>Fixed a hang where the CLI could fail to exit when stdin was closed without EOF in stream-json mode, leaving a stale session marker behind</li>
-<li>Fixed malformed <code>file://</code> links in Claude&#39;s responses not being clickable in the terminal</li>
-<li>Fixed <code>claude --help</code> rendering unwrapped output on terminals narrower than 92 columns</li>
-<li>Fixed MCP tool progress notifications not rendering in the collapsed tool view</li>
-<li>Fixed <code>Agent</code> tool with <code>subagent_type: &#39;claude&#39;</code> running in an undocumented temporary worktree, which could silently discard outputs written to gitignored paths</li>
-<li><code>/bg</code> while Claude is responding now continues the response in the background session instead of dropping it</li>
-<li>Fixed <code>/btw</code> keyboard shortcuts becoming unresponsive in background sessions while a task is running</li>
-<li>Fixed background sessions writing temp files to <code>$CLAUDE_JOB_DIR</code> triggering a &quot;sensitive file&quot; permission prompt</li>
-<li>Fixed recovering a background agent whose working directory was deleted showing a truncated stack trace instead of a clear error message</li>
-<li>Fixed <code>EnterWorktree</code> not being available immediately in background sessions (previously required <code>ToolSearch</code> first)</li>
-<li>Fixed <code>cmd+k</code> in iTerm2/Terminal.app not repainting attached background sessions</li>
-<li>Fixed the IME candidate window appearing at the bottom of the screen instead of next to the input caret in attached background sessions on Windows</li>
-<li>Fixed background-color bleed when attaching to a background agent from 256-color-only terminals after the agent had rendered file diffs</li>
-<li>Fixed <code>/copy</code> and copy-on-select silently failing to update the system clipboard when attached to a background session inside tmux</li>
-<li>Fixed opening <code>claude agents</code> with Remote Control enabled leaving zombie session entries on the Code tab after exiting</li>
-<li>Fixed <code>/rename</code> in background sessions not updating the session banner immediately</li>
-<li>Fixed Windows update rollback: if a Windows update fails, Claude Code now restores the original executable by copy and tells you how to recover</li>
-<li>[VSCode] Fixed Claude Code processes not shutting down cleanly when VS Code closed on Windows, causing false &quot;unclean exit&quot; reports and orphaned MCP servers</li>
-<li><code>/model</code> now saves your selection as the default for new sessions (matching the IDE). Press <code>s</code> in the picker to switch models for the current session only.</li>
-<li>If you customized the <code>modelPicker:setAsDefault</code> keybinding, rename it to <code>modelPicker:thisSessionOnly</code> in keybindings.json (the <code>d</code> action was replaced by <code>s</code>)</li>
 </ul>
 ]]></content>
     </entry>
