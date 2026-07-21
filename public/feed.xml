@@ -2,9 +2,38 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-07-21T20:11:28.049Z</updated>
+    <updated>2026-07-21T21:52:18.104Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.217]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21217</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21217"/>
+        <updated>2026-07-21T19:55:38.926Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added emoji shortcode autocomplete in the prompt input: type <code>:heart:</code> to insert ❤️, or <code>:hea</code> for suggestions — disable with the <code>emojiCompletionEnabled</code> setting</li>
+<li>Added warnings when transcript writes are failing (e.g. disk full) or when session saving is off due to an inherited environment variable, instead of losing transcripts silently</li>
+<li>Fixed a memory leak where truncated MCP tool outputs kept the full untruncated result in memory for the rest of the session</li>
+<li>Fixed Windows auto-update failures that could leave <code>claude.exe</code> missing; failed updates now restore the preserved executable automatically</li>
+<li>Fixed background session isolation not canonicalizing symlinked working directories, which could let sessions escape their workspace folder</li>
+<li>Fixed auto-compact never triggering for Claude Opus 4.8 on Bedrock and <code>/compact</code> failing once over the limit</li>
+<li>Fixed corporate mTLS, TLS-verify, OAuth scope, and proxy settings being ignored in Claude Desktop sessions</li>
+<li>Fixed screen reader mode&#39;s startup announcement being cut off by the first prompt render, and the thinking status row re-rendering every few seconds to update elapsed time and token counts</li>
+<li>Fixed managed settings that set <code>OTEL_EXPORTER_OTLP_ENDPOINT</code> not governing all signals — lower-scope signal-specific overrides no longer redirect telemetry away from the managed endpoint</li>
+<li>Fixed <code>--resume</code>/<code>--continue</code> and <code>/resume</code> failing with a TypeError when a transcript has a malformed attachment entry</li>
+<li>Fixed Remote Control sessions not showing a pending permission prompt or dialog to viewers that connected after it appeared</li>
+<li>Fixed background shells sometimes becoming impossible to stop after a session is sent to the background (<code>/background</code> or <code>←</code>) or when the session exits on a heavily loaded machine, most visible on Windows</li>
+<li>Fixed a <code>CLAUDE.md</code> or <code>SKILL.md</code> paths frontmatter value with many brace groups OOM-killing or stalling the CLI at startup — brace expansion is now budget-bounded</li>
+<li>Fixed the transcript preview sitting flush against the input area when attaching to a starting background session; it now leaves the same one-line gap as the live layout, so the transcript no longer shifts when the session takes over</li>
+<li>Improved footer PR badge links to be clickable hyperlinks even when terminal support can&#39;t be detected (e.g. over ssh/tmux); set <code>FORCE_HYPERLINK=0</code> to opt out</li>
+<li>Changed the login-expiry warning to appear 3 days before expiry instead of 5</li>
+<li>Capped the frontend-design plugin suggestion tip at 3 lifetime impressions instead of repeating indefinitely</li>
+<li>Added a cap on concurrently-running subagents (default 20, override with <code>CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS</code>) so one message can&#39;t fan out unbounded background agents</li>
+<li>Changed subagents to no longer spawn nested subagents by default; set <code>CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH</code> to allow deeper nesting</li>
+<li>Fixed <code>--max-budget-usd</code> not stopping background subagents: once the cap is reached, new spawns are denied and running background agents are halted</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.216]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21216</id>
@@ -1380,16 +1409,6 @@
 <li>[VSCode] Fixed the fast mode indicator not appearing on Opus 4.8</li>
 <li>Pressing backspace right after a workflow trigger keyword now dismisses the workflow request (same as alt+w) instead of deleting a character</li>
 <li>Added a &quot;Workflow keyword trigger&quot; setting in /config to stop the word &quot;workflow&quot; in a prompt from triggering a dynamic workflow</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.156]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21156</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21156"/>
-        <updated>2026-05-28T20:12:52.621Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed an issue when using Opus 4.8 where thinking blocks were modified, leading to API errors.</li>
 </ul>
 ]]></content>
     </entry>
