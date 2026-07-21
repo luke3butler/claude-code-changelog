@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-07-20T22:54:13.930Z</updated>
+    <updated>2026-07-21T18:07:03.821Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -285,6 +285,7 @@
 <li>Added <code>vimInsertModeRemaps</code> setting: map two-key insert-mode sequences like <code>jj</code> to Escape in vim mode</li>
 <li>Added <code>CLAUDE_CODE_PROCESS_WRAPPER</code>: agent view and the background service now honor a corporate launcher by running every Claude Code self-spawn through a required wrapper executable</li>
 <li>Added mouse-click support for multi-select menus and &quot;Other&quot; input rows in fullscreen mode</li>
+<li>Changed the Fable 5 usage-credits consent prompt to start with the decline option focused</li>
 <li>Fixed fast mode staying off after switching back to a model that supports it — it now restores automatically when enabled in settings</li>
 <li>Fixed replies typed to a background agent being lost when delivery fails — the text is now saved and delivered when the session restarts</li>
 <li>Fixed background-session attach failing permanently (&quot;Couldn&#39;t start the background daemon&quot;) after an update replaced the binary a running <code>claude agents</code> process was launched from</li>
