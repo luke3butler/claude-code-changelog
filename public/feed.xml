@@ -2,9 +2,55 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-07-22T20:52:52.416Z</updated>
+    <updated>2026-07-22T21:54:19.894Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.218]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21218</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21218"/>
+        <updated>2026-07-22T19:55:32.144Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Changed <code>/code-review</code> to run as a background subagent, so review work no longer fills your conversation and keeps stacked slash commands as its review target</li>
+<li>Added screen-reader announcements of deleted text for word and line deletions (<code>Option+Delete</code>, <code>Ctrl+W</code>, <code>Cmd+Backspace</code>, <code>Ctrl+U</code>, <code>Ctrl+K</code>) in <code>--ax-screen-reader</code> mode</li>
+<li>Fixed Windows paths with <code>\u</code>-prefixed segments (like <code>C:\Users\unicorn</code>) being corrupted into CJK characters in tool inputs, which made those files inaccessible</li>
+<li>Fixed the left arrow key discarding the conversation with no undo: presses right after editing now ask to confirm, and Esc in the agent view returns to the conversation it backgrounded</li>
+<li>Added HTTP status and error text to <code>claude mcp list</code> and <code>/mcp</code> when a server fails to connect, and a warning for MCP config values with hidden leading or trailing whitespace</li>
+<li>Fixed multi-line paste collapsing into one line with <code>j</code> in place of newlines in terminals that encode pasted newlines as Ctrl+J</li>
+<li>Fixed <code>/context</code> reporting stale pre-compact token usage after compacting from the message picker</li>
+<li>Fixed <code>/ultrareview</code> failing on descriptive arguments like &quot;review my auth changes&quot; — they now run a review of your current branch with the text applied as a note to the findings</li>
+<li>Fixed <code>/code-review ultra</code> silently running a local review in non-interactive sessions — it now launches the cloud review</li>
+<li>Fixed gateway spend metering to price Bedrock application-inference-profile ARNs and other config-mapped upstream model IDs at the configured model&#39;s rates</li>
+<li>Fixed mojibake when a long IDE selection was truncated mid-emoji, and a case where a tool executor error could be silently dropped</li>
+<li>Fixed an engine teardown race that could start and abandon a phantom turn, and made input pushed after close consistently rejected</li>
+<li>Fixed spurious &quot;[Request interrupted by user]&quot; messages after interrupted tool calls, and an unpaired <code>tool_use</code> block left in the transcript when a tool aborted mid-response</li>
+<li>Fixed VoiceOver reading &quot;new line&quot; instead of echoing the typed space at the end of the input in <code>--ax-screen-reader</code> mode</li>
+<li>Fixed plugin and settings panels not moving the terminal cursor to the focused row, so screen readers and magnifiers can follow arrow-key navigation</li>
+<li>Fixed crashes (maximum call stack exceeded) when a deeply nested watched directory tree was deleted or moved, and when rendering deeply nested UI trees</li>
+<li>Fixed pull request events occasionally being lost when a session exited immediately after creating or linking a PR</li>
+<li>Fixed the Bedrock setup wizard failing profile verification for assume-role profiles in partitioned AWS regions and on proxy-only networks</li>
+<li>Fixed rare negative or incorrect turn duration measurements after a system clock adjustment by timing turns with a monotonic clock</li>
+<li>Fixed the &quot;N MCP servers need authentication&quot; startup notice over-counting claude.ai connectors that aren&#39;t connected in claude.ai</li>
+<li>Fixed prompt history entries being dropped or duplicated when history writes raced or failed</li>
+<li>Fixed a retry loop that re-sent identical doomed requests after a context-overflow error with a large thinking budget; <code>Ctrl+B</code> backgrounding now applies the same background-shell caps as other paths</li>
+<li>Fixed agent frontmatter hooks running from untrusted folders: hooks now require the agent file&#39;s own folder to have accepted workspace trust</li>
+<li>Fixed fork-session lineage being lost after compaction in headless and SDK sessions</li>
+<li>Fixed a resumed session failing every turn, or crashing on resume, when its history held a malformed delta attachment</li>
+<li>Improved <code>/ultrareview</code> error feedback so Claude can correct an invalid argument instead of retrying it unchanged</li>
+<li>Improved auto mode: the dangerous-rm, background-<code>&amp;</code>, and suspicious-Windows-path checks no longer open permission dialogs; the auto-mode classifier adjudicates them instead</li>
+<li>Improved sandbox command restrictions for IDE interactions</li>
+<li>Improved trust dialogs to name the repository root the grant covers</li>
+<li>Changed <code>/deep-research</code> to start only when invoked manually; Claude no longer launches it on its own</li>
+<li>Changed plan mode with auto to no longer prompt for Bash commands the static analyzer can&#39;t prove read-only; the auto-mode classifier judges them instead</li>
+<li>Added an announcement when fast mode changes as a result of switching models via <code>/config model=&lt;x&gt;</code> or Remote Control</li>
+<li>Changed server-managed settings so benign feature and cost toggles no longer trigger the settings-approval prompt</li>
+<li>Changed agent markdown files to reject agent names containing <code>:</code>, which is reserved for plugin namespacing</li>
+<li>Changed skills with <code>context: fork</code> to run in the background by default; opt out per skill with <code>background: false</code></li>
+<li>Added <code>yes</code>/<code>no</code>/<code>on</code>/<code>off</code>/<code>1</code>/<code>0</code> (case-insensitive) as accepted values for skill and plugin frontmatter booleans, alongside <code>true</code>/<code>false</code></li>
+<li>Fixed remote sessions continuing to send heartbeats after their worker was replaced, which left long-lived desktop and IDE processes retrying a rejected request every few seconds forever</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.217]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21217</id>
@@ -1367,48 +1413,6 @@
         <updated>2026-05-30T01:12:23.617Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Auto mode is now available on Bedrock, Vertex, and Foundry for Opus 4.7 and Opus 4.8. Opt in by setting <code>CLAUDE_CODE_ENABLE_AUTO_MODE=1</code></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.157]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21157</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21157"/>
-        <updated>2026-05-29T17:30:02.357Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Plugins in <code>.claude/skills</code> directories are now automatically loaded, no marketplace required</li>
-<li>Added <code>claude plugin init &lt;name&gt;</code> to scaffold a new plugin in <code>.claude/skills</code></li>
-<li>Added autocomplete for <code>/plugin</code> arguments: subcommands, installed plugin names, and plugins from known marketplaces</li>
-<li><code>claude agents</code>: the <code>agent</code> field in <code>settings.json</code> is now honored for dispatched sessions, with <code>--agent &lt;name&gt;</code> to override it</li>
-<li><code>EnterWorktree</code> can now switch between Claude-managed worktrees mid-session</li>
-<li><code>tool_decision</code> telemetry events now include <code>tool_parameters</code> (bash commands, MCP/skill names) when <code>OTEL_LOG_TOOL_DETAILS=1</code></li>
-<li>Worktrees managed by Claude are now left unlocked when the agent finishes, so <code>git worktree remove</code>/<code>prune</code> can clean them up</li>
-<li>Fixed unprocessable images (zero-byte, corrupt) attached via paste, MCP, or dialog crashing the request instead of becoming a text placeholder</li>
-<li>Fixed sandbox network permission prompts appearing in auto and bypass-permissions mode when using the desktop app, IDE extensions, or SDK</li>
-<li>Fixed <code>claude agents</code> completed sessions not retiring when an idle subagent was still parked or had leaked a backgrounded shell</li>
-<li>Fixed <code>claude agents</code> pressing Esc not cancelling a slow &quot;opening…&quot;, leaving the list unresponsive</li>
-<li>Fixed background agent worktrees under <code>.claude/worktrees/</code> being orphaned after the 30-day job retention sweep</li>
-<li>Fixed background sessions re-attached after a sleep/wake not telling the model the correct date</li>
-<li>Fixed copy-on-select in <code>claude agents</code> not reaching the system clipboard inside tmux with <code>set-clipboard on</code> (regression in 2.1.153)</li>
-<li>Fixed <code>--resume</code> not reporting background subagents that were running when the previous Claude Code process exited</li>
-<li>Fixed the <code>--resume</code> session picker leaving its contents on the terminal after exiting in fullscreen mode</li>
-<li>Fixed <code>--worktree</code> and <code>--worktree --tmux</code> returning to the canonical repo root instead of the current linked worktree</li>
-<li>Fixed the <code>/model</code> picker showing an incorrect &quot;Newer version available&quot; hint when the selected model is already the newest in its family; the pinned-model row now shows the model&#39;s description instead of its raw ID</li>
-<li>Fixed literal markdown markers (backticks, asterisks) appearing in the in-progress message text in fullscreen mode</li>
-<li>Fixed the terminal freezing after approving the managed-settings security dialog at startup</li>
-<li>Fixed a rare duplicate line appearing in scrollback after the terminal UI redraws</li>
-<li>Fixed right-click paste duplicating the clipboard in the VS Code, Cursor, and Windsurf integrated terminals</li>
-<li>WSL: fixed image paste (<code>alt+v</code> keybinding), screenshot paste on Windows 11, and added support for dragging images from Windows Explorer</li>
-<li>Improved performance of long and resumed conversations by eliminating redundant message-rendering recomputations</li>
-<li><code>/terminal-setup</code> now disables GPU acceleration in VS Code/Cursor/Windsurf integrated terminals to prevent garbled-text rendering</li>
-<li>The Feature of the Week credit-claim status now appears as a notification in the status area instead of a line above the prompt</li>
-<li><code>claude agents</code>: slash-command autocomplete in the dispatch input now matches substrings</li>
-<li>Removed the &quot;bash commands will be sandboxed&quot; startup banner — sandbox status still shows in <code>/status</code> and when a command is blocked</li>
-<li>Removed the &quot;/ide for …&quot; startup hint toast</li>
-<li>[IDE] Fixed clicking Stop while a background subagent is running not actually stopping it</li>
-<li>[VSCode] Fixed the fast mode indicator not appearing on Opus 4.8</li>
-<li>Pressing backspace right after a workflow trigger keyword now dismisses the workflow request (same as alt+w) instead of deleting a character</li>
-<li>Added a &quot;Workflow keyword trigger&quot; setting in /config to stop the word &quot;workflow&quot; in a prompt from triggering a dynamic workflow</li>
 </ul>
 ]]></content>
     </entry>
