@@ -2,9 +2,45 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-07-24T16:30:06.772Z</updated>
+    <updated>2026-07-24T18:08:53.865Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.219]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21219</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21219"/>
+        <updated>2026-07-24T16:11:49.832Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added Claude Opus 5 (<code>claude-opus-5</code>), now the default Opus model — 1M context, fast mode at $10/$50 per Mtok</li>
+<li>Added <code>sandbox.network.strictAllowlist</code> setting to deny non-allowlisted hosts for sandboxed commands without prompting</li>
+<li>Added <code>DirectoryAdded</code> hook that fires after <code>/add-dir</code> or the SDK <code>register_repo_root</code> control request registers a new working directory mid-session</li>
+<li>Added <code>mcp_server_errors</code> to the headless stream-json init event, listing <code>--mcp-config</code> entries skipped by config validation; terminal runs print a startup warning</li>
+<li>Added the <code>workflowSizeGuideline</code> settings key so the advisory Dynamic workflow size guideline can be set from any settings file; the <code>/config</code> row is hidden while one does</li>
+<li>Added nested subagent forwarding in stream-json: subagents spawned at depth-2+ now appear when <code>--forward-subagent-text</code> is set, keyed by their spawning Agent <code>tool_use</code> id</li>
+<li>Fixed <code>claude -p</code> text output dropping the answer already produced when a turn dies on a mid-stream API error</li>
+<li>Added HTTP status and error text to <code>claude mcp list</code> and <code>/mcp</code> when a server fails to connect, and a warning for MCP config values with hidden leading or trailing whitespace</li>
+<li>Fixed a permission you approved while a self-hosted runner was restarting being dropped when the session resumed, so the approved action now runs</li>
+<li>Fixed the Fable model row showing &quot;Requires usage credits&quot; for plans that include it, when a stale cache had baked the label in</li>
+<li>Fixed a SIGTERM arriving while a self-hosted runner was starting up leaving a stale active row until the lease expired; it now deregisters cleanly</li>
+<li>Added structured failure categories to self-hosted runner spawn and session failures, so hook errors, runner crashes and config errors can be told apart</li>
+<li>Fixed the <code>/model</code> picker showing the merged Opus row as plain &quot;Opus&quot; instead of &quot;Opus (1M context)&quot;</li>
+<li>Fixed copy-on-select inside GNU screen printing base64 into the terminal instead of copying the selection</li>
+<li>Fixed Remote Control clients keeping a stale fast-mode status after a model switch, reconnect, or failed org check</li>
+<li>Fixed <code>CLAUDE_CODE_GIT_BASH_PATH</code> on Windows exiting or being used as bash when the path isn&#39;t a bash/sh binary; it&#39;s now ignored with a warning</li>
+<li>Fixed Vim mode: pressing ← on an empty prompt now returns to the agent view from NORMAL mode, not just INSERT</li>
+<li>Fixed screen-reader mode rewriting the entire input line on every keystroke instead of echoing only the typed character</li>
+<li>Improved the &quot;Remote Control is only available via api.anthropic.com&quot; error to name the specific setting that caused it</li>
+<li>Improved <code>claude --teleport</code> to show which repo your current checkout points at when it doesn&#39;t match the session&#39;s repo</li>
+<li>Changed dynamic workflows to default to a medium size guideline (aim for fewer than 15 agents); pick another size or unrestricted with Dynamic workflow size in <code>/config</code></li>
+<li>Changed managed MCP allowlist/denylist <code>${VAR}</code> entries to resolve from the startup environment and managed-settings env instead of settings-file env</li>
+<li>Changed the <code>/model</code> picker to highlight only the newest model&#39;s name, so the highlight marks the new release rather than an arbitrary subset of the list</li>
+<li>Added the current default workflow size to the running-workflow status line, with a pointer to <code>/config</code> for changing it</li>
+<li>Removed Opus 4.7 from fast mode; <code>/fast</code> now applies to Opus 5 and Opus 4.8</li>
+<li>Updated the claude-api skill to default to Claude Opus 5, with a migration path from Opus 4.8</li>
+<li>Subagents can now spawn nested subagents up to depth 3 by default (was 1); set CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1 to disable nesting</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.218]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21218</id>
@@ -15,7 +51,6 @@
 <li>Added screen-reader announcements of deleted text for word and line deletions (<code>Option+Delete</code>, <code>Ctrl+W</code>, <code>Cmd+Backspace</code>, <code>Ctrl+U</code>, <code>Ctrl+K</code>) in <code>--ax-screen-reader</code> mode</li>
 <li>Fixed Windows paths with <code>\u</code>-prefixed segments (like <code>C:\Users\unicorn</code>) being corrupted into CJK characters in tool inputs, which made those files inaccessible</li>
 <li>Fixed the left arrow key discarding the conversation with no undo: presses right after editing now ask to confirm, and Esc in the agent view returns to the conversation it backgrounded</li>
-<li>Added HTTP status and error text to <code>claude mcp list</code> and <code>/mcp</code> when a server fails to connect, and a warning for MCP config values with hidden leading or trailing whitespace</li>
 <li>Fixed multi-line paste collapsing into one line with <code>j</code> in place of newlines in terminals that encode pasted newlines as Ctrl+J</li>
 <li>Fixed <code>/context</code> reporting stale pre-compact token usage after compacting from the message picker</li>
 <li>Fixed <code>/ultrareview</code> failing on descriptive arguments like &quot;review my auth changes&quot; — they now run a review of your current branch with the text applied as a note to the findings</li>
@@ -1403,16 +1438,6 @@
         <updated>2026-05-31T17:50:06.818Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Internal infrastructure improvements (no user-facing changes)</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.158]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21158</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21158"/>
-        <updated>2026-05-30T01:12:23.617Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Auto mode is now available on Bedrock, Vertex, and Foundry for Opus 4.7 and Opus 4.8. Opt in by setting <code>CLAUDE_CODE_ENABLE_AUTO_MODE=1</code></li>
 </ul>
 ]]></content>
     </entry>
