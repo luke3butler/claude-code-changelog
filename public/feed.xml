@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-07-24T23:53:03.693Z</updated>
+    <updated>2026-07-25T04:53:30.170Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.220]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21220</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21220"/>
+        <updated>2026-07-24T23:11:21.821Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Bug fixes and reliability improvements</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.219]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21219</id>
@@ -19,10 +29,7 @@
 <li>Added nested subagent forwarding in stream-json: subagents spawned at depth-2+ now appear when <code>--forward-subagent-text</code> is set, keyed by their spawning Agent <code>tool_use</code> id</li>
 <li>Fixed <code>claude -p</code> text output dropping the answer already produced when a turn dies on a mid-stream API error</li>
 <li>Added HTTP status and error text to <code>claude mcp list</code> and <code>/mcp</code> when a server fails to connect, and a warning for MCP config values with hidden leading or trailing whitespace</li>
-<li>Fixed a permission you approved while a self-hosted runner was restarting being dropped when the session resumed, so the approved action now runs</li>
 <li>Fixed the Fable model row showing &quot;Requires usage credits&quot; for plans that include it, when a stale cache had baked the label in</li>
-<li>Fixed a SIGTERM arriving while a self-hosted runner was starting up leaving a stale active row until the lease expired; it now deregisters cleanly</li>
-<li>Added structured failure categories to self-hosted runner spawn and session failures, so hook errors, runner crashes and config errors can be told apart</li>
 <li>Fixed the <code>/model</code> picker showing the merged Opus row as plain &quot;Opus&quot; instead of &quot;Opus (1M context)&quot;</li>
 <li>Fixed copy-on-select inside GNU screen printing base64 into the terminal instead of copying the selection</li>
 <li>Fixed Remote Control clients keeping a stale fast-mode status after a model switch, reconnect, or failed org check</li>
@@ -1202,7 +1209,6 @@
         <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21169"/>
         <updated>2026-06-08T18:11:20.859Z</updated>
         <content type="html"><![CDATA[<ul>
-<li>Self-hosted runner: added a <code>post-session</code> lifecycle hook that runs after the session ends and before the workspace is deleted, so you can snapshot uncommitted work or export logs; also made the child-process SIGTERM→SIGKILL window configurable (default unchanged at 5s)</li>
 <li>Added <code>--safe-mode</code> flag (and <code>CLAUDE_CODE_SAFE_MODE</code>) to start Claude Code with all customizations (CLAUDE.md, plugins, skills, hooks, MCP servers) disabled for troubleshooting</li>
 <li>Added <code>/cd</code> command to move a session to a new working directory without breaking the prompt cache mid-session</li>
 <li>Added a <code>disableBundledSkills</code> setting and <code>CLAUDE_CODE_DISABLE_BUNDLED_SKILLS</code> environment variable to hide bundled skills, workflows, and built-in slash commands from the model</li>
@@ -1428,16 +1434,6 @@
 <li>Removed <code>CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE</code>; the environment variable is now a no-op</li>
 <li>Removed the JetBrains plugin install suggestion from startup</li>
 <li>Renamed the dynamic-workflow trigger keyword from <code>workflow</code> to <code>ultracode</code>. The word &quot;workflow&quot; no longer triggers a run; asking for one in your own words still works. The trigger keyword is highlighted in violet in the prompt input</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.159]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21159</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21159"/>
-        <updated>2026-05-31T17:50:06.818Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Internal infrastructure improvements (no user-facing changes)</li>
 </ul>
 ]]></content>
     </entry>

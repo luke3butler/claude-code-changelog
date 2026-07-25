@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-24T23:53:03.700Z",
+  "updated": "2026-07-25T04:53:30.177Z",
   "entries": [
+    {
+      "version": "2.1.220",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21220",
+      "publishedAt": "2026-07-24T23:11:21.821Z",
+      "changes": ["Bug fixes and reliability improvements"],
+      "changeCount": 1
+    },
     {
       "version": "2.1.219",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21219",
@@ -14,10 +21,7 @@
         "Added nested subagent forwarding in stream-json: subagents spawned at depth-2+ now appear when `--forward-subagent-text` is set, keyed by their spawning Agent `tool_use` id",
         "Fixed `claude -p` text output dropping the answer already produced when a turn dies on a mid-stream API error",
         "Added HTTP status and error text to `claude mcp list` and `/mcp` when a server fails to connect, and a warning for MCP config values with hidden leading or trailing whitespace",
-        "Fixed a permission you approved while a self-hosted runner was restarting being dropped when the session resumed, so the approved action now runs",
         "Fixed the Fable model row showing \"Requires usage credits\" for plans that include it, when a stale cache had baked the label in",
-        "Fixed a SIGTERM arriving while a self-hosted runner was starting up leaving a stale active row until the lease expired; it now deregisters cleanly",
-        "Added structured failure categories to self-hosted runner spawn and session failures, so hook errors, runner crashes and config errors can be told apart",
         "Fixed the `/model` picker showing the merged Opus row as plain \"Opus\" instead of \"Opus (1M context)\"",
         "Fixed copy-on-select inside GNU screen printing base64 into the terminal instead of copying the selection",
         "Fixed Remote Control clients keeping a stale fast-mode status after a model switch, reconnect, or failed org check",
@@ -34,7 +38,7 @@
         "Updated the claude-api skill to default to Claude Opus 5, with a migration path from Opus 4.8",
         "Subagents can now spawn nested subagents up to depth 3 by default (was 1); set CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1 to disable nesting"
       ],
-      "changeCount": 27
+      "changeCount": 24
     },
     {
       "version": "2.1.218",
@@ -1155,7 +1159,6 @@
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21169",
       "publishedAt": "2026-06-08T18:11:20.859Z",
       "changes": [
-        "Self-hosted runner: added a `post-session` lifecycle hook that runs after the session ends and before the workspace is deleted, so you can snapshot uncommitted work or export logs; also made the child-process SIGTERM→SIGKILL window configurable (default unchanged at 5s)",
         "Added `--safe-mode` flag (and `CLAUDE_CODE_SAFE_MODE`) to start Claude Code with all customizations (CLAUDE.md, plugins, skills, hooks, MCP servers) disabled for troubleshooting",
         "Added `/cd` command to move a session to a new working directory without breaking the prompt cache mid-session",
         "Added a `disableBundledSkills` setting and `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS` environment variable to hide bundled skills, workflows, and built-in slash commands from the model",
@@ -1187,7 +1190,7 @@
         "Promo credit claims for Apple/Google-billed subscribers without a payment method now explain where to add one",
         "Added a tip suggesting `claude agents` when running multiple concurrent sessions"
       ],
-      "changeCount": 31
+      "changeCount": 30
     },
     {
       "version": "2.1.168",
@@ -1369,15 +1372,6 @@
         "Renamed the dynamic-workflow trigger keyword from `workflow` to `ultracode`. The word \"workflow\" no longer triggers a run; asking for one in your own words still works. The trigger keyword is highlighted in violet in the prompt input"
       ],
       "changeCount": 27
-    },
-    {
-      "version": "2.1.159",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21159",
-      "publishedAt": "2026-05-31T17:50:06.818Z",
-      "changes": [
-        "Internal infrastructure improvements (no user-facing changes)"
-      ],
-      "changeCount": 1
     }
   ]
 }
