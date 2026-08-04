@@ -1,6 +1,35 @@
 {
-  "updated": "2026-08-04T22:02:31.442Z",
+  "updated": "2026-08-04T23:52:26.578Z",
   "entries": [
+    {
+      "version": "2.1.222",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21222",
+      "publishedAt": "2026-08-04T20:37:17.953Z",
+      "changes": [
+        "Fixed worktree-isolated sessions and their subagents being able to run destructive git commands against the main checkout; isolation now applies to file edits and Bash in every session type",
+        "Fixed PreToolUse auto-allow hooks bypassing tool restrictions in background agent tasks (summaries, compaction, renames)",
+        "Fixed `/usage-credits` on Team and Enterprise showing \"you've already sent a usage credit request\" for members whose earlier request was dismissed, blocking them from sending a new one",
+        "Fixed the startup connectivity check hanging and then failing behind an HTTPS proxy; it now uses the same proxy-aware transport as API requests and times out with a clear message",
+        "Fixed \"Connection closed mid-response\" errors being reported on responses that had actually completed",
+        "Fixed `/usage` overattributing usage to MCP servers: a server's share now reflects only the requests that actually consumed its tool results, instead of every turn after any call to it",
+        "Fixed sessions not linking to pull requests created after the branch was pushed, including through the GitHub REST API",
+        "Fixed org-restricted `model: opus`-style subagent and teammate family aliases dropping to the parent model instead of stepping down to the newest org-allowed model in the family",
+        "Fixed stream idle timeout firing on custom `ANTHROPIC_BASE_URL` gateways despite server keep-alive pings arriving on the wire",
+        "Fixed claude.ai connectors being falsely marked as needing authorization when the session token is invalid — they now show a `/login` hint instead",
+        "Fixed tool errors not being displayed for tools no longer available locally, for example after an MCP server is removed",
+        "Fixed `SendMessage` rejecting a long summary — it now truncates instead, so sends no longer fail on a character limit",
+        "Fixed the spinner's effort label in a subagent's transcript view showing the session's effort level instead of the subagent's own `effort:` setting",
+        "Fixed rare crashes when a file watcher hit a filesystem error or during file-watcher teardown",
+        "Fixed screen readers re-reading the whole input line on every backspace in `--ax-screen-reader` mode — end-of-line deletions now echo just the deleted characters",
+        "Fixed host model-selection keys not taking precedence over a stale on-disk `managed-settings.json` when `CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST` is set",
+        "Improved auto mode safety: messages sent to other agent sessions via `SendMessage` are now evaluated by the permission classifier before dispatch",
+        "Improved the refusal when Claude tries to invoke a skill with `disable-model-invocation`: Claude is now told to ask you to run the skill instead of replicating its workflow",
+        "Improved the `/diff` view, the Remote Control workspace diff, and file-edit diffs in Claude Code on the web sessions to use raw git blob content, ignoring workspace-configured diff drivers and textconv",
+        "Changed Remote Control auto-start so repo-local settings (`.claude/settings.json` or `.claude/settings.local.json`) can no longer turn it on (they can still turn it off); enable it at user scope via `/config`",
+        "Removed ultraplan feature"
+      ],
+      "changeCount": 21
+    },
     {
       "version": "2.1.221",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21221",
@@ -1354,36 +1383,6 @@
         "Removed the \"Claude in Chrome enabled\" and \"marketplace installed\" startup messages; model auto-updates and the team-onboarding tip now show as quiet notices under the logo"
       ],
       "changeCount": 28
-    },
-    {
-      "version": "2.1.161",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21161",
-      "publishedAt": "2026-06-02T17:38:46.406Z",
-      "changes": [
-        "`OTEL_RESOURCE_ATTRIBUTES` values are now included as labels on metric datapoints, so you can slice usage metrics by custom dimensions like team or repo",
-        "`claude agents` rows now show `done/total` before the detail when work is fanned out; peek shows the longest-running item",
-        "`/mcp` now collapses claude.ai connectors you've never signed in to behind a \"Show unused connectors\" row",
-        "Parallel tool calls: a failed Bash command no longer cancels other calls in the same batch — each tool returns its own result independently",
-        "Fullscreen mode: clipboard now uses `wl-copy`/`xclip`/`xsel` on Linux when available, copies to both the clipboard and PRIMARY selection for middle-click paste, and the \"hold {key} for native selection\" hint now shows the correct key per terminal",
-        "Fixed the `/effort` dialog, workflow animations, and prompt keyword shimmer not honoring the \"Reduce motion\" setting",
-        "Fixed `forceLoginOrgUUID`/`forceLoginMethod` managed-settings policies blocking third-party provider sessions (Bedrock, Vertex, Foundry, Mantle) alongside the org pin (regression in 2.1.146)",
-        "Fixed background subagent output corrupting `claude -p` stdout when using `--output-format text` or `json`",
-        "Fixed `/usage-credits` starting a re-login for Team and Enterprise admins instead of pointing to the organization's usage settings page",
-        "Fixed `/autofix-pr` reporting \"cannot run on the default branch\" when the session is inside a git worktree or another repository",
-        "Fixed `--resume` picker not showing sessions from the current directory when it isn't a git worktree (e.g., jj workspaces)",
-        "Fixed Windows hooks that invoke bash explicitly (e.g., `/usr/bin/bash script.sh`) failing with \"command not found\" or \"cannot execute binary file\"",
-        "Fixed OpenTelemetry log events (`user_prompt`, `api_request`, `tool_result`, `tool_decision`) being silently dropped when emitted before telemetry initialization completed",
-        "Fixed `claude mcp` list/get/add printing secrets to the terminal: `${VAR}` references are no longer expanded, and credential headers and URL secrets are redacted",
-        "Fixed Workflow agents spawned with `isolation: \"worktree\"` in background sessions being blocked from editing files inside their own worktree",
-        "Fixed background sessions dispatched from `claude agents` booting on a stale model from the daemon's environment instead of the model in `settings.json`",
-        "Fixed a potential crash when rendering Write tool results after resuming a session",
-        "Fixed completed subagents getting stuck showing as running when an error occurs while finalizing their result",
-        "Fixed `EADDRINUSE` errors from tools that bind Unix sockets under `$TMPDIR` when `CLAUDE_CODE_TMPDIR` is set to a deep path",
-        "Improved terminal rendering performance by stabilizing the layout engine's JIT compilation profile",
-        "Improved rendering performance for large file writes",
-        "[VSCode] Added a tip suggesting disabling terminal GPU acceleration (or running `/terminal-setup`) to fix garbled glyphs"
-      ],
-      "changeCount": 22
     }
   ]
 }
