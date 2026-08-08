@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-08-08T02:47:39.214Z</updated>
+    <updated>2026-08-08T04:02:02.498Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.226]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21226</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21226"/>
+        <updated>2026-08-08T01:53:22.182Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Bug fixes and reliability improvements</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.225]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21225</id>
@@ -1428,36 +1438,6 @@
         <updated>2026-06-06T01:18:42.588Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Bug fixes and reliability improvements</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.166]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21166</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21166"/>
-        <updated>2026-06-05T19:01:59.944Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>fallbackModel</code> setting to configure up to three fallback models tried in order when the primary model is overloaded or unavailable; <code>--fallback-model</code> now also applies to interactive sessions</li>
-<li>Added glob pattern support in deny rule tool-name position (<code>&quot;*&quot;</code> denies all tools); allow rules reject non-MCP globs, and unknown tool names in deny rules warn at startup</li>
-<li>Hardened cross-session messaging: messages relayed via <code>SendMessage</code> from other Claude sessions no longer carry user authority — receivers refuse relayed permission requests, and auto mode blocks them</li>
-<li><code>MAX_THINKING_TOKENS=0</code>, <code>--thinking disabled</code>, and the per-model thinking toggle now disable thinking on models that think by default via the Claude API (3P providers unchanged)</li>
-<li>Claude Code now retries a turn once on the fallback model when the API rejects an unexpected non-retryable error; auth, rate-limit, request-size, and transport errors still surface immediately</li>
-<li><code>claude update</code> now announces the target version before downloading instead of going silent</li>
-<li><code>claude agents</code>: typing a URL into the list now filters to the session whose first prompt contained it</li>
-<li>Fixed a recurring &quot;image could not be processed&quot; error and extra token usage when an unprocessable image was sent in a session</li>
-<li>Fixed remote sessions becoming permanently stuck when a brief backend disruption occurred during worker registration at startup</li>
-<li>Fixed flickering in JetBrains IDE terminals (IntelliJ, PyCharm, WebStorm, etc.) on 2026.1+ by enabling synchronized output</li>
-<li>Fixed Shift+non-ASCII characters (e.g. Shift+ä → Ä) being dropped in terminals using the Kitty keyboard protocol (WezTerm, Ghostty, kitty)</li>
-<li>Fixed PowerShell command validation occasionally hanging far past its time budget on Windows when a killed process&#39;s children held its output pipes</li>
-<li>Fixed orphaned <code>claude --bg-pty-host</code> processes spinning at 100% CPU after the daemon dies while connected on macOS</li>
-<li>Fixed voice mode requiring <code>/login</code> to clear a stale auth check after toggling <code>/voice</code></li>
-<li>Fixed managed settings with an invalid entry silently disabling enforcement of their remaining valid policies</li>
-<li>Fixed managed-settings <code>allowedMcpServers</code>/<code>deniedMcpServers</code> predicates not matching when they use <code>${VAR}</code> references</li>
-<li>Fixed background agent sessions that entered a git worktree crash-looping with &quot;No conversation found&quot; when reopened from <code>claude agents</code></li>
-<li>Fixed duplicated thinking text in the Ctrl+O transcript view while streaming</li>
-<li>Fixed <code>/doctor</code> showing a contradictory failed &quot;Not inside a remote session&quot; check when run inside a remote session</li>
-<li>Fixed the cursor sticking at the end of the first line when typing a multiline prompt in the <code>claude agents</code> dispatch and reply inputs</li>
-<li>Fixed blank lines appearing between background agent rows in the task list on terminals without Unicode support</li>
 </ul>
 ]]></content>
     </entry>
