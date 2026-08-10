@@ -2,9 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-08-10T21:29:48.157Z</updated>
+    <updated>2026-08-10T23:23:32.821Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.227]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21227</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21227"/>
+        <updated>2026-08-10T20:56:57.591Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed feature flags being evaluated without the user&#39;s subscription tier when a session started with an expired login token, which could wrongly prompt Max plan users to enable usage credits for Fable</li>
+<li>Fixed every Bash command failing under <code>claude-code-action</code> with <code>allowed_non_write_users</code> on GitHub-hosted runners</li>
+<li>Fixed <code>/tui</code> bringing back a conversation that had been rewound to before its first message</li>
+<li>Improved slash-command menu: blue now marks only the selected row, matched characters are bolded instead of recolored, and emoji or accented names keep their glyphs</li>
+<li>Improved performance: fewer event-loop stalls on file-not-found suggestions and at-mention size checks</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.226]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21226</id>
@@ -1426,16 +1440,6 @@
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21168</id>
         <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21168"/>
         <updated>2026-06-06T23:32:52.332Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Bug fixes and reliability improvements</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.167]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21167</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21167"/>
-        <updated>2026-06-06T01:18:42.588Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Bug fixes and reliability improvements</li>
 </ul>

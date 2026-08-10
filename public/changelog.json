@@ -1,6 +1,19 @@
 {
-  "updated": "2026-08-10T21:29:48.163Z",
+  "updated": "2026-08-10T23:23:35.300Z",
   "entries": [
+    {
+      "version": "2.1.227",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21227",
+      "publishedAt": "2026-08-10T20:56:57.591Z",
+      "changes": [
+        "Fixed feature flags being evaluated without the user's subscription tier when a session started with an expired login token, which could wrongly prompt Max plan users to enable usage credits for Fable",
+        "Fixed every Bash command failing under `claude-code-action` with `allowed_non_write_users` on GitHub-hosted runners",
+        "Fixed `/tui` bringing back a conversation that had been rewound to before its first message",
+        "Improved slash-command menu: blue now marks only the selected row, matched characters are bolded instead of recolored, and emoji or accented names keep their glyphs",
+        "Improved performance: fewer event-loop stalls on file-not-found suggestions and at-mention size checks"
+      ],
+      "changeCount": 5
+    },
     {
       "version": "2.1.226",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21226",
@@ -1367,13 +1380,6 @@
       "version": "2.1.168",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21168",
       "publishedAt": "2026-06-06T23:32:52.332Z",
-      "changes": ["Bug fixes and reliability improvements"],
-      "changeCount": 1
-    },
-    {
-      "version": "2.1.167",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21167",
-      "publishedAt": "2026-06-06T01:18:42.588Z",
       "changes": ["Bug fixes and reliability improvements"],
       "changeCount": 1
     }
