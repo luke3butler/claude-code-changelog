@@ -2,9 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-08-11T17:46:16.988Z</updated>
+    <updated>2026-08-11T19:52:18.039Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.228]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21228</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21228"/>
+        <updated>2026-08-11T17:45:45.882Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed interactive sessions that could stop redrawing entirely, while the process kept running, after a rare internal layout error</li>
+<li>Fixed <code>git</code> / Git Bash not being found on Windows when Claude Code is launched from a parent folder of the git installation</li>
+<li>Fixed <code>/tui</code> reverting the session to an earlier model when <code>/model</code> had been changed since the last response</li>
+<li>Fixed cross-session messaging sometimes starting without an inbox in the first session after install or upgrade</li>
+<li>Fixed Remote Control <code>/resume</code> while connected leaking the resumed conversation&#39;s title or history into the connected session</li>
+<li>Fixed <code>claude self-hosted-runner</code> sessions failing on every fresh runner when the <code>checkout</code> hook fails for a repository the session doesn&#39;t push to; that repository is now skipped with a warning</li>
+<li>Fixed self-hosted runners ending sessions in the gap between a background task finishing and the follow-up turn starting</li>
+<li>Fixed session cleanup deleting contents inside a project&#39;s memory folder</li>
+<li>Fixed background plugin-cache cleanup deleting a plugin&#39;s cache when its only version is a symlinked development checkout</li>
+<li>Fixed a settings-merge issue where a marketplace entry redefined in a higher-precedence settings tier could inherit another tier&#39;s custom headers; marketplace entries now merge as whole entries</li>
+<li>Fixed the deferred-tools reminder occasionally being sent to the model twice after a skill invocation</li>
+<li>Hardened skills synced from claude.ai: they no longer shadow local commands or MCP prompts, their descriptions are sanitized and labeled, and on your machine their bodies don&#39;t run <code>!</code> commands or expand <code>@</code> files</li>
+<li>Improved cross-session messages: the sender and body now display inline instead of a collapsed line, and messages to Remote Control sessions on other machines show your Remote Control session name as the sender</li>
+<li>Improved Vertex AI credential handling: expired or missing Google Cloud credentials now fail within seconds instead of retrying for minutes</li>
+<li>Improved compaction progress: the retry countdown and stall hint now appear during compaction instead of only a progress bar</li>
+<li>Updated terminal title busy-spinner glyphs to reduce tab-bar jitter on some terminals</li>
+<li>Changed the Write tool so newer models can overwrite an existing file they haven&#39;t read this session, matching the Edit tool&#39;s rules; older models still require the read first</li>
+<li>Removed the outdated note about auto mode sessions costing slightly more from the first-use notice for Pro, Max, and Team plans</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.227]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21227</id>
@@ -1432,16 +1459,6 @@
 <li>Improved color contrast for skill tags in the slash-command menu</li>
 <li>Promo credit claims for Apple/Google-billed subscribers without a payment method now explain where to add one</li>
 <li>Added a tip suggesting <code>claude agents</code> when running multiple concurrent sessions</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.168]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21168</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21168"/>
-        <updated>2026-06-06T23:32:52.332Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Bug fixes and reliability improvements</li>
 </ul>
 ]]></content>
     </entry>
