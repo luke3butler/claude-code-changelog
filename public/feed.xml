@@ -2,9 +2,37 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-08-18T19:19:33.463Z</updated>
+    <updated>2026-08-18T21:11:49.684Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.235]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21235</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21235"/>
+        <updated>2026-08-18T18:24:10.210Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added an optional <code>spellcheck</code> setting that underlines misspelled words in the prompt input as you type, using your installed <code>aspell</code>, <code>hunspell</code>, or <code>ispell</code></li>
+<li>Fixed whole-prompt-cache invalidation when a language server disconnected or reconnected mid-session</li>
+<li>Fixed nested markdown list items misaligning at depth 3+ and added a hanging indent to wrapped list items in the terminal UI</li>
+<li>Fixed prompt input highlights (slash commands, keywords, mentions) appearing shifted by one or more characters in some multi-line prompts</li>
+<li>Fixed Shift+Tab inside the permission prompt&#39;s comment field approving the edit and granting session-wide edit permission instead of closing the field</li>
+<li>Fixed the Agent tool advertising a general-purpose default in sessions where that agent is unavailable: an omitted <code>subagent_type</code> there now gets a clear error listing the available agents</li>
+<li>Fixed notebook cell delete/replace approval dialogs silently omitting the existing cell content when the notebook or cell could not be read; the dialog now says why</li>
+<li>Fixed slash commands run while Claude is responding showing HTML entities instead of the actual characters</li>
+<li>Fixed the prompt footer not showing the &quot;Update installed&quot; restart notice after a background auto-update</li>
+<li>Fixed the expanded task list (<code>ctrl+t</code>) always starting collapsed when resuming or relaunching into a session that still has open tasks</li>
+<li>Improved memory and CPU usage while cloud sessions such as <code>/ultrareview</code> or <code>/autofix-pr</code> run in the background — their event streams are no longer re-scanned and re-rendered on every update</li>
+<li>Improved permission dialogs: display text and &quot;don&#39;t ask again&quot; options now always match what a grant would cover, and &quot;don&#39;t ask again&quot; is withheld when contents cannot be fully displayed</li>
+<li>Improved the embedded <code>grep</code> in native macOS/Linux builds: pathological patterns now fail fast instead of exhausting memory, and <code>-m N</code> with <code>-A/-C</code> prints correct context</li>
+<li>Improved the context-limit error to say when auto-compact is off and point to <code>/config</code> to re-enable it</li>
+<li>Vim mode: NORMAL mode and cursor position are now preserved when toggling the detailed transcript (ctrl+o) or closing a panel</li>
+<li>Dialogs: arrow keys and Enter pressed in quick succession now select the option you navigated to instead of the previously highlighted one</li>
+<li><code>SendMessage</code> now refuses messages too large for cross-session delivery up front instead of silently dropping them</li>
+<li>Remote Control: <code>claude rc</code> now applies the same enterprise-gateway availability check as interactive startup</li>
+<li>[VSCode] Fixed focus jumping between open Claude tabs on its own when a window with several Claude panels is restored or reloaded</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.234]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21234</id>
@@ -1525,16 +1553,6 @@
 <li>Fixed the Windows background-service daemon not starting when <code>~/.claude/daemon</code> has the ReadOnly attribute set</li>
 <li>Fixed cloud sessions failing with &quot;Could not resolve authentication method&quot; when idle for too long before being claimed</li>
 <li>Background sessions now show clearer guidance when a window left open across an auto-update can&#39;t submit a reply, and <code>claude daemon status</code> explains version-skew behavior</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.175]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21175</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21175"/>
-        <updated>2026-06-12T02:10:22.132Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>enforceAvailableModels</code> managed setting — when enabled, the <code>availableModels</code> allowlist also constrains the Default model (a Default that would resolve to a disallowed model now falls back to the first allowed model), and user or project settings can no longer widen a managed <code>availableModels</code> list</li>
 </ul>
 ]]></content>
     </entry>
