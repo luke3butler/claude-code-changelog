@@ -2,9 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-08-20T00:32:17.029Z</updated>
+    <updated>2026-08-20T02:09:22.336Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.237]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21237</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21237"/>
+        <updated>2026-08-19T23:57:54.833Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed prompt caching for sessions using an LLM gateway or custom base URL</li>
+<li>Added a built-in &quot;Concise&quot; output style: Claude leads with results and skips preamble and narration, while doing the work just as thoroughly. Select it under Output style in /config.</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.236]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21236</id>
@@ -1531,39 +1542,6 @@
 <li>Fixed clicking the prompt input not returning focus from the subagent/footer panel</li>
 <li>Fixed remote session background tasks appearing stuck as &quot;still running&quot; between turns</li>
 <li>Improved plugin loading performance in remote sessions</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.178]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21178</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21178"/>
-        <updated>2026-06-15T19:03:37.553Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Agent teams: removed the <code>TeamCreate</code> and <code>TeamDelete</code> tools. With <code>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code> set, every session now has one implicit team — spawn teammates directly with the Agent tool&#39;s <code>name</code> parameter, no setup step needed. The <code>team_name</code> parameter on the Agent tool is still accepted but ignored.</li>
-<li>Added <code>Tool(param:value)</code> syntax for permission rules to match a tool&#39;s input parameters (with <code>*</code> wildcard), e.g. <code>Agent(model:opus)</code> to block Opus subagents</li>
-<li>Skills in nested <code>.claude/skills</code> directories now load when working on files there; on a name clash, the nested skill appears as <code>&lt;dir&gt;:&lt;name&gt;</code> so both stay available</li>
-<li>Nested <code>.claude/</code> directories: the agent, workflow, and output-style closest to the working directory now wins when names collide; project-scope workflow saves now target the closest existing <code>.claude/workflows/</code></li>
-<li>Improved auto mode: subagent spawns are now evaluated by the classifier before launch, closing a gap where a subagent could request a blocked action without review</li>
-<li>Improved <code>/doctor</code> with consistent flat tree layout across all sections, clearer section status icons, and highlighted command names</li>
-<li>Improved the skill listing truncation warning to show how many skill descriptions are affected</li>
-<li>Changed the workflow prompt keyword to use a purple shimmer highlight and trigger only on explicit phrases like &quot;run a workflow&quot; or &quot;workflow:&quot;, not on any mention of the word</li>
-<li>Improved Remote Control error messages: connection failures now show a persistent red &quot;/rc failed&quot; indicator in the footer, and the &quot;not yet enabled&quot; error now explains whether it&#39;s a gate, a check failure, stale entitlement, or org policy</li>
-<li><code>/bug</code> now requires a description before submitting, and no longer uses model-refusal text as the GitHub issue title</li>
-<li>Fixed a crash (out-of-memory) when the CLI inherits a stale websocket/OAuth file-descriptor environment variable from a parent process</li>
-<li>Fixed Claude in Chrome silently failing to connect when the OAuth token belongs to a different account than the Claude Code login</li>
-<li>Fixed nested <code>.claude/skills</code> skills with directory-qualified names being blocked by permission prompts in non-interactive runs</li>
-<li>Fixed several subagent issues: viewing a subagent&#39;s transcript now shows tool results and live progress, messages sent while it finishes its turn are no longer dropped, and backgrounding a running subagent (ctrl+b) no longer restarts it from scratch</li>
-<li>Fixed <code>claude agents</code> workers failing with <code>401 Invalid bearer token</code> when the daemon was started from a shell with a custom API gateway via <code>ANTHROPIC_BASE_URL</code> and <code>ANTHROPIC_AUTH_TOKEN</code></li>
-<li>Fixed compaction not honoring <code>--fallback-model</code>: compaction now falls back to the configured fallback model chain on overload or model-availability errors</li>
-<li>Fixed model requests continuing to fail with auth errors after credentials were refreshed outside the session, due to a stale cached request configuration</li>
-<li>Fixed background sessions created with <code>/bg</code> or <code>←←</code> after a turn finished showing &quot;Working&quot; forever in the agents list</li>
-<li>Fixed Linux sandbox failing to start when <code>.claude/skills</code> or <code>.claude/hooks</code> is a symlink</li>
-<li>Fixed <code>CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE=1</code> preventing fresh marketplace installs from cloning</li>
-<li>Fixed MCP server-level specs (<code>mcp__server</code>, <code>mcp__server__*</code>, <code>mcp__*</code>) in subagent <code>disallowedTools</code> being silently ignored</li>
-<li>Fixed vim mode undo: <code>u</code> now steps through NORMAL/VISUAL-mode commands one at a time instead of merging commands in quick succession into a single undo step</li>
-<li>Fixed statusline links with custom URI schemes (e.g. <code>vscode://</code>) not opening when clicked in <code>claude agents</code></li>
-<li>[VSCode] Fixed pressing Esc to dismiss a CJK IME candidate window canceling the running Claude task</li>
 </ul>
 ]]></content>
     </entry>
