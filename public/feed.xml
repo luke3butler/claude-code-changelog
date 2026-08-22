@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-08-22T13:22:35.640Z</updated>
+    <updated>2026-08-22T15:09:11.930Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.240]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21240</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21240"/>
+        <updated>2026-08-22T13:03:23.566Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Bug fixes and reliability improvements</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.239]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21239</id>
@@ -1566,32 +1576,6 @@
         <updated>2026-06-20T16:54:36.327Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>The stream-stall hint now reads &quot;Waiting for API response · will retry in …&quot; instead of &quot;No response from API · Retrying in …&quot;, and triggers after 20s of silence instead of 10s</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.183]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21183</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21183"/>
-        <updated>2026-06-19T00:02:37.935Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Improved auto mode safety: destructive git commands (<code>git reset --hard</code>, <code>git checkout -- .</code>, <code>git clean -fd</code>, <code>git stash drop</code>) are now blocked when you didn&#39;t ask to discard local work, <code>git commit --amend</code> is blocked when the commit wasn&#39;t made by the agent this session, and <code>terraform destroy</code>/<code>pulumi destroy</code>/<code>cdk destroy</code> are blocked unless you asked for the specific stack</li>
-<li>Added a warning when the requested model is deprecated or automatically updated to a newer model, shown on stderr in print mode (<code>-p</code>) and now also covering models set in agent frontmatter</li>
-<li>Added <code>attribution.sessionUrl</code> setting to omit the claude.ai session link from commits and PRs in web and Remote Control sessions</li>
-<li>Added <code>/config --help</code> to list all available shorthand keys for <code>/config key=value</code></li>
-<li>Changed <code>/config</code> toggle behavior: Enter and Space both change the selected setting, and Esc now saves and closes instead of reverting</li>
-<li>Removed the startup &quot;setup issues&quot; line under the logo — run <code>/doctor</code> to see configuration issues or use <code>--debug</code></li>
-<li>Fixed <code>thinking.disabled.display: Extra inputs are not permitted</code> 400 errors on subagent spawns and session-title generation for affected configurations</li>
-<li>Fixed WebSearch returning empty results in subagents</li>
-<li>Fixed the terminal cursor being stranded above the prompt after navigating history in vim mode with the native cursor enabled</li>
-<li>Fixed fullscreen TUI corruption (statusline mid-screen, duplicated spinner rows, merged text) in Windows Terminal under heavy nested-subagent load</li>
-<li>Fixed turns silently completing with no visible output when the model returned only a thinking block; Claude now re-prompts once</li>
-<li>Fixed user-level skills appearing multiple times in slash-command autocomplete when multiple plugins are enabled</li>
-<li>Fixed MCP servers requiring authentication exposing auth-stub tools to the model in headless/SDK mode</li>
-<li>Fixed tmux teammate panes failing to launch when the shell has slow rc-file initialization, and keystrokes typed during agent spawn leaking into the new tmux pane instead of the leader prompt</li>
-<li>Fixed background tasks started by a teammate being killed when the teammate finishes a turn</li>
-<li>Fixed scheduled task and webhook trigger deliveries being treated as keyboard input; they now classify as task notifications and can no longer approve a pending action or set the session title in auto mode</li>
-<li>Fixed focus mode showing &quot;Ran N PostToolUse hooks&quot; timing lines under each response</li>
 </ul>
 ]]></content>
     </entry>
