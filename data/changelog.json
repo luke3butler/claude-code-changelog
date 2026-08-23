@@ -1,5 +1,10 @@
 [
   {
+    "version": "2.1.241",
+    "content": "- Bug fixes and reliability improvements",
+    "publishedAt": "2026-08-22T23:58:33.046Z"
+  },
+  {
     "version": "2.1.240",
     "content": "- Bug fixes and reliability improvements",
     "publishedAt": "2026-08-22T13:03:23.566Z"
