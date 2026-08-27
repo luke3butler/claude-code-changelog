@@ -2,9 +2,51 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-08-26T18:45:14.411Z</updated>
+    <updated>2026-08-27T02:21:09.740Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.247]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21247</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21247"/>
+        <updated>2026-08-26T18:02:01.046Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added the <code>SendFeedback</code> tool: when something goes wrong in a session, Claude can draft a feedback report for you to review and send from <code>/feedback</code> (turn off with the <code>feedbackDrafts</code> setting)</li>
+<li>Added <code>{id, text, cooldownSessions, priority}</code> entries, <code>tipsFile</code>, and <code>label</code> to <code>spinnerTipsOverride</code>, so organizations can rotate their own tips alongside the built-in ones</li>
+<li>Added a tip on Bash permission prompts pointing to auto mode, with a one-keystroke &quot;Yes, and switch to auto mode&quot; option</li>
+<li>Added <code>/claude-api cost-optimize</code> to profile an existing project&#39;s Claude API spend and work through cost levers (caching, token hygiene, batch, effort, model choice) one measured change at a time</li>
+<li>Updated the <code>/claude-api</code> skill with Admin API coverage (organization members, invites, workspaces, API keys, rate limit reports, workload identity federation, CMEK)</li>
+<li>Fixed fast arrow-key + Enter sequences acting on the row above the one you navigated to in history search, <code>/config</code>, <code>/mcp</code>, <code>/skills</code>, background tasks, and <code>/model</code></li>
+<li>Fixed sub-agents dying on a first-call model 404: they now use the session&#39;s fallback model chain, and the error returned to the parent includes the error type, status, request id, and model</li>
+<li>Fixed a hook or background agent that printed megabytes of error output being able to overflow the conversation and wedge the session on &quot;Prompt is too long&quot;</li>
+<li>Fixed Ctrl keyboard shortcuts not firing under non-Latin (e.g. Cyrillic) keyboard layouts in kitty-protocol terminals</li>
+<li>Fixed text like <code>&lt;35;150;7M</code> being inserted into the prompt when a mouse report arrived split across reads right after the escape prefix</li>
+<li>Fixed the Bash sandbox&#39;s after-command cleanup deleting a dotfile-managed <code>~/.claude/settings.json</code> symlink (nix/home-manager, stow) when it is repointed outside the sandbox&#39;s writable area</li>
+<li>Fixed <code>/terminal-setup</code> overwriting your entire Zed <code>keymap.json</code> instead of merging in its keybinding</li>
+<li>Fixed <code>/rename</code> silently confirming when the session registry could not be updated; it now says other sessions may still show the old name</li>
+<li>Fixed <code>/compact</code> and &quot;Summarize from here&quot; in sessions started with <code>--agent</code> summarizing under the default system prompt instead of the conversation&#39;s own</li>
+<li>Fixed a background session showing &quot;opening…&quot; forever in <code>claude agents</code> after its terminal host process died; the row now fails within seconds with the reason, and Enter restarts it</li>
+<li>Fixed unbounded memory growth when a hook&#39;s or background task&#39;s output file could not be written; the file now notes where output was lost</li>
+<li>Fixed <code>/install-github-app</code> over SSH: the copy shortcut now says how the sign-in URL was copied instead of always claiming success, and the URL appears immediately when no browser can open</li>
+<li>Fixed shell commands carried over from the foreground logging an internal error or showing a misleading <code>[exited with code -1]</code> line when they finish in background sessions</li>
+<li>Fixed a version-less marketplace plugin&#39;s live cache directory being deleted and recreated on a second-scope install, which could disrupt a running session using it</li>
+<li>Fixed Remote Control sessions started with <code>/remote-control</code> not reporting the working-tree diff to connected clients</li>
+<li>Fixed self-hosted runner sessions reporting <code>running</code> before Claude Code had started, which could trigger a premature &quot;Claude is waiting for your input&quot; notification from the Claude desktop app</li>
+<li>Fixed first-run setup exiting with &quot;Unable to connect to Anthropic services&quot; when managed settings configure Claude apps gateway sign-in and Anthropic endpoints are unreachable</li>
+<li>Fixed cloud sessions (Claude Code on the web, desktop and mobile apps) sometimes showing the previous permission mode when you switch modes right after sending a message</li>
+<li>Fixed cloud sessions going silent when the session&#39;s container restarts between turns while a background agent, shell, or monitor is still running — the resumed session now reports the lost work</li>
+<li>Improved plugin marketplace hardening: names containing control or invisible characters are rejected, and marketplace-supplied text in <code>/plugin</code> and <code>claude plugin</code> output is escape-safe</li>
+<li>Improved Bedrock, Vertex, and Foundry sessions (and any with telemetry disabled): Claude is now told when a configured MCP server failed to connect, instead of concluding its tools don&#39;t exist</li>
+<li>Changed Sonnet 5&#39;s default auto-compact window to its full 1M context, so sessions on the 1M window now auto-compact at about 967K tokens instead of about 934K</li>
+<li>Changed cross-session peer messages to collapse by default to a one-line <code>Message from @&lt;sender&gt;: &lt;first line&gt;</code> preview; Ctrl+O expands the full body</li>
+<li>Changed terminal hyperlinks in rendered markdown: link targets that point at a network or automounter path, contain a control character, or lead with an invisible character now render as plain text</li>
+<li>Changed the prompt-footer PR badge to skip its GitHub re-check on terminal refocus when the last check is under a minute old</li>
+<li>Changed analytics to stay off from startup, not only after login, when managed settings force gateway login or a custom OAuth deployment is configured</li>
+<li>Changed Claude apps gateway sign-in requests to identify Claude Code (a <code>surface=claude_code</code> device-authorization parameter and a <code>claude-code/&lt;version&gt;</code> User-Agent)</li>
+<li>Changed organization sign-in enforcement to exit at start when the administrator&#39;s managed settings cannot be read, even if host-supplied or per-user Windows registry settings exist</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.246]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21246</id>
@@ -1614,35 +1656,6 @@
 <li>Improved MCP <code>headersHelper</code> auth: the helper now re-runs and reconnects automatically when a tool call returns 401/403</li>
 <li>Improved plugin auto-rename: marketplace <code>renames</code> maps are now followed automatically, updating your settings to the new name</li>
 <li>Improved <code>/add-dir</code> message when the directory is already a working directory</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.191]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21191</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21191"/>
-        <updated>2026-06-24T18:54:40.112Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>/rewind</code> support for resuming a conversation from before <code>/clear</code> was run</li>
-<li>Fixed scroll position jumping to the bottom while reading earlier output during a streaming response</li>
-<li>Fixed background agents resurrecting after being stopped — stopping an agent from the tasks panel is now permanent</li>
-<li>Fixed <code>/voice</code> showing a generic &quot;not available&quot; message when disabled by an organization&#39;s policy — it now explains the restriction</li>
-<li>Fixed <code>/login</code> URL opening truncated in Windows Terminal when it wraps across lines</li>
-<li>Fixed Cmd+click on links in fullscreen mode for Ghostty over ssh/tmux</li>
-<li>Fixed <code>claude agents</code> sending builtin slash commands like <code>/usage</code> to background sessions as prompt text instead of showing a hint</li>
-<li>Fixed <code>claude agents</code> job rows showing full filesystem paths for pasted images instead of the <code>[Image #N]</code> placeholder</li>
-<li>Fixed hooks with comma-separated matchers (e.g. <code>&quot;Bash,PowerShell&quot;</code>) silently never firing</li>
-<li>Fixed <code>/permissions</code> Recently-denied tab: approving a denial now persists on close instead of being silently discarded</li>
-<li>Fixed the agent panel jumping by one row when scrolling the roster past the overflow cap</li>
-<li>Fixed the welcome splash art overflowing the default 80×24 macOS Terminal window</li>
-<li>Fixed managed settings: <code>forceRemoteSettingsRefresh</code> now takes effect when set via MDM or file policy, and the fetch sends <code>Cache-Control: no-cache</code> to prevent proxies from serving stale responses</li>
-<li>Improved sandbox network permission dialog: hosts you allow with &quot;Yes&quot; are now remembered for the rest of the session instead of re-prompting on every connection</li>
-<li>Improved MCP server reliability: capability discovery (<code>tools/list</code>, <code>prompts/list</code>, <code>resources/list</code>) now retries transient network errors with short backoff</li>
-<li>Improved MCP OAuth: discovery and token requests now retry once after transient network errors, and headless environments skip the browser popup and go straight to the paste-the-URL prompt</li>
-<li>Improved MCP error messages: HTTP 404 errors now show the URL and point to your MCP config</li>
-<li>Improved vim mode prompt-history search (NORMAL <code>/</code>) to hint how to reach slash commands</li>
-<li>Reduced CPU usage during streaming responses by ~37% by coalescing text updates to 100ms</li>
-<li>Reduced long-session memory growth from terminal output cache</li>
 </ul>
 ]]></content>
     </entry>
