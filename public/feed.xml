@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-08-27T23:18:31.002Z</updated>
+    <updated>2026-08-28T07:24:55.295Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.250]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21250</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21250"/>
+        <updated>2026-08-27T22:27:48.314Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Bug fixes and reliability improvements</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.248]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21248</id>
@@ -1669,27 +1679,6 @@
 <li>The streaming idle watchdog is now on by default for all providers — it aborts and retries when a response stream produces no events for 5 minutes. Set <code>CLAUDE_ENABLE_STREAM_WATCHDOG=0</code> to disable.</li>
 <li>Remote Control is now disabled when <code>ANTHROPIC_BASE_URL</code> points at a non-Anthropic host, matching the existing behavior under <code>CLAUDE_CODE_USE_BEDROCK</code>/<code>_VERTEX</code>/<code>_FOUNDRY</code></li>
 <li>Changed opening the agents view from a foreground session to require a single <code>←</code> press instead of two, matching the behavior in background sessions</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.195]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21195</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21195"/>
-        <updated>2026-06-26T18:16:23.150Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added <code>CLAUDE_CODE_DISABLE_MOUSE_CLICKS</code> to disable mouse click/drag/hover in fullscreen mode while keeping wheel scroll</li>
-<li>Fixed hook matchers with hyphenated identifiers (e.g. <code>code-reviewer</code>, <code>mcp__brave-search</code>) accidentally substring-matching — they now exact-match. Use <code>mcp__brave-search__.*</code> to match all tools from a hyphenated MCP server.</li>
-<li>Fixed voice dictation on macOS capturing silence in long-running sessions after the default input device changes</li>
-<li>Fixed voice dictation auto-submit never firing for languages written without spaces (Japanese, Chinese, Thai)</li>
-<li>Fixed external plugins enabled only by project <code>.claude/settings.json</code> not requiring explicit install consent on every loader path</li>
-<li>Fixed <code>/plugin</code> Enable/Disable not working when a plugin&#39;s <code>plugin.json</code> <code>name</code> differs from its marketplace entry name</li>
-<li>Fixed background jobs disappearing from <code>claude agents</code> or losing data when written by a newer Claude Code version</li>
-<li>Fixed reopening a crashed background task showing a blank screen for up to 5 seconds instead of its restart</li>
-<li>Fixed background agent daemons running unreachable when the control socket fails to start, blocking restarts</li>
-<li>Improved voice mode on Linux: now distinguishes &quot;no microphone&quot; from &quot;SoX not installed&quot; when SoX is present but no audio capture device exists</li>
-<li>Improved <code>claude agents</code> completed list to fill available vertical space; on short terminals the header compacts so live sessions stay visible</li>
-<li>Improved Remote session startup with a provisioning checklist while the container starts</li>
 </ul>
 ]]></content>
     </entry>
