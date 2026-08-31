@@ -2,9 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-08-28T19:42:46.647Z</updated>
+    <updated>2026-08-31T21:10:18.458Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.252]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21252</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21252"/>
+        <updated>2026-08-31T17:07:28.168Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed Bash commands failing with &quot;task output swap refused (tasks dir moved or linked)&quot; on some Macs</li>
+<li>Fixed &quot;always allow&quot; not saving in a project that has no .claude/settings.local.json yet</li>
+<li>Fixed Remote Control sessions hosted by Claude Desktop or VS Code stalling for minutes after a tool finished when the connection to claude.ai was degraded</li>
+<li>Fixed background task notifications with very large failure output (for example git errors on a full disk) making the conversation exceed the API request size limit</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.251]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21251</id>
@@ -1713,16 +1726,6 @@
 <li><code>/login</code> now opens the sign-in dialog from the <code>claude agents</code> view instead of saying it isn&#39;t available</li>
 <li>Subagents now treat messages from the agent that launched them as normal task direction; an agent&#39;s message is still never treated as the user&#39;s approval</li>
 <li>Removed the <code>/agents</code> wizard; ask Claude to create or manage subagents, or edit <code>.claude/agents/</code> directly</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.197]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21197</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21197"/>
-        <updated>2026-06-30T13:31:18.806Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Introducing Claude Sonnet 5: now the default model in Claude Code, with a native 1M-token context window and promotional pricing of $2/$10 per Mtok through August 31. Update to version 2.1.197 for access. <a href="https://www.anthropic.com/news/claude-sonnet-5">https://www.anthropic.com/news/claude-sonnet-5</a></li>
 </ul>
 ]]></content>
     </entry>
