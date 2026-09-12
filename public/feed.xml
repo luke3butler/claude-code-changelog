@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-09-12T19:47:24.949Z</updated>
+    <updated>2026-09-12T21:46:20.309Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.270]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21270</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21270"/>
+        <updated>2026-09-12T18:52:44.937Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed read-only git commands in Bash unexpectedly asking for permission after a session had been running for a while (regression in 2.1.269)</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.269]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21269</id>
@@ -2040,16 +2050,6 @@
 <li>The agents footer hint now shows how many background agents are waiting on your input, with a brief color emphasis when the count changes</li>
 <li>Agent view: the session you pressed ← from stays visibly marked even after mouse hover or arrow keys move the selection</li>
 <li>Fable temporarily shows as unavailable in the advisor picker while a server-side issue causing Fable advisor failures is fixed</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.209]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21209</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21209"/>
-        <updated>2026-07-14T04:45:37.792Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed /model and other dialogs being blocked in <code>claude agents</code> background sessions (reverts an overly broad guard)</li>
 </ul>
 ]]></content>
     </entry>

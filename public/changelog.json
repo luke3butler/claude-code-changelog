@@ -1,6 +1,15 @@
 {
-  "updated": "2026-09-12T19:47:24.955Z",
+  "updated": "2026-09-12T21:46:20.313Z",
   "entries": [
+    {
+      "version": "2.1.270",
+      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21270",
+      "publishedAt": "2026-09-12T18:52:44.937Z",
+      "changes": [
+        "Fixed read-only git commands in Bash unexpectedly asking for permission after a session had been running for a while (regression in 2.1.269)"
+      ],
+      "changeCount": 1
+    },
     {
       "version": "2.1.269",
       "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21269",
@@ -1977,15 +1986,6 @@
         "Fable temporarily shows as unavailable in the advisor picker while a server-side issue causing Fable advisor failures is fixed"
       ],
       "changeCount": 33
-    },
-    {
-      "version": "2.1.209",
-      "link": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21209",
-      "publishedAt": "2026-07-14T04:45:37.792Z",
-      "changes": [
-        "Fixed /model and other dialogs being blocked in `claude agents` background sessions (reverts an overly broad guard)"
-      ],
-      "changeCount": 1
     }
   ]
 }
