@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-09-19T07:07:20.084Z</updated>
+    <updated>2026-09-21T15:25:24.215Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -199,7 +199,6 @@
 <li>[VSCode] Fixed a background agent that finished while Claude was running a tool losing its completion notice, and its result on the agent map, after a window reload</li>
 <li>[VSCode] Fixed a rare case where text selected in a git-ignored file could be sent to Claude after the extension was unresponsive for several seconds</li>
 <li>[VSCode] Fixed renaming a running session reverting to the generated name (regression in 2.1.269)</li>
-<li>[VSCode] Fixed some claude.ai/code sessions opening in VS Code as an empty conversation with no messages</li>
 <li>[VSCode] Fixed slash commands typed while Claude is responding being sent to the model as text instead of running once the response finishes</li>
 <li>[VSCode] Fixed unreadable code in the plan preview and the Hooks and Permission rules dialogs with the High Contrast Light theme</li>
 <li>[VSCode] Fixed <code>/remote-control</code> being ignored while Remote Control is still connecting: running it again now turns Remote Control off immediately</li>
