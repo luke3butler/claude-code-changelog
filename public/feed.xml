@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-09-24T19:34:39.951Z</updated>
+    <updated>2026-09-25T05:53:13.600Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
     <entry>
@@ -243,6 +243,7 @@
 <li>Changed auto mode so that, where its classifier review runs server-side, read-only and sandboxed shell commands also wait for that review and are blocked when it flags them</li>
 <li>Changed <code>CLAUDE_CODE_AUTO_MODE_SERVER</code> to also apply on a direct Anthropic API connection: <code>0</code> opts out of the server-side auto mode classifier (the local classifier then counts toward usage), <code>1</code> opts in</li>
 <li>Changed the dangerous <code>rm</code> prompt in <code>--dangerously-skip-permissions</code> and auto mode to wait 2 minutes for an answer, then deny the command with a rewrite hint so unattended sessions keep going (<code>CLAUDE_CODE_DISABLE_DANGEROUS_RM_TIMEOUT=1</code> turns this off)</li>
+<li>Changed AGENTS.md support to also work on Amazon Bedrock, Google Vertex AI, Microsoft Foundry, LLM gateways, and sessions with telemetry disabled</li>
 <li>Changed Claude apps gateway to refuse to start when a <code>managedMcpServers</code> entry&#39;s <code>envHelper</code> path starts with <code>\??\</code> or <code>/??/</code>, a path form current Claude Desktop refuses to run</li>
 <li>Changed self-hosted runners to pass system prompts to Claude Code as private files instead of command-line text, so large prompts no longer fail the launch; a wrapper or <code>command</code> hook that appends <code>--system-prompt</code> or <code>--append-system-prompt</code> must switch to <code>--system-prompt-file</code> or <code>--append-system-prompt-file</code></li>
 <li>Changed queued messages to show in the conversation above the spinner instead of under it</li>
@@ -425,7 +426,7 @@
         <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21277"/>
         <updated>2026-09-18T16:22:26.548Z</updated>
         <content type="html"><![CDATA[<ul>
-<li>Added AGENTS.md support: in a project with no CLAUDE.md, Claude Code reads AGENTS.md instead; change it under &quot;Project instructions&quot; in <code>/config</code> (not yet on Bedrock, Vertex or Foundry)</li>
+<li>Added AGENTS.md support: in a project with no CLAUDE.md, Claude Code reads AGENTS.md instead; change it under &quot;Project instructions&quot; in <code>/config</code></li>
 <li>Added <code>CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1</code> for Claude apps gateways whose only egress is a forward proxy: every outbound request hands the proxy the hostname instead of resolving it locally</li>
 <li>Added an optional <code>headers:</code> map on Claude apps gateway upstreams, to send static headers to a proxy you run in front of a provider</li>
 <li>Added a line saying a background task&#39;s update is waiting when it finishes while a panel such as <code>/tasks</code> is open</li>
