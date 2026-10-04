@@ -2,9 +2,45 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-10-03T21:52:48.570Z</updated>
+    <updated>2026-10-04T00:11:44.147Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.289]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21289</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21289"/>
+        <updated>2026-10-03T20:12:02.717Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Fixed a deny or ask rule on a nested part of a compound shell command not holding over a user-installed mod&#39;s approval on managed machines</li>
+<li>Fixed the terminal freezing on short code blocks with many unclosed <code>&lt;script&gt;</code> tags or deeply nested <code>${</code> substitutions</li>
+<li>Fixed <code>Read</code> deny rules not applying to files @-mentioned, changed, or selected in the IDE through a symlink</li>
+<li>[VSCode] Reverted a 2.1.288 change to <code>claude auth status</code> that may have made sign-outs more frequent</li>
+<li>Improved how quickly large files open in a plugin code pane by laying the highlighted view out once at its final width</li>
+<li>Fixed <code>plugin list</code>, <code>plugin eval</code> and <code>plugin update</code> showing a stale copy of a plugin installed from a local folder marketplace, and hot reload for a symlinked <code>--plugin-dir</code></li>
+<li>Fixed installed mods not loading in the first session after an upgrade</li>
+<li>Fixed a plugin&#39;s rows above the prompt showing a stale row while the Background tasks dialog was open in fullscreen</li>
+<li>Fixed plugin panes drawing nothing when a link used a localhost address, an <code>@</code> in its path, an uppercase host or a <code>file:</code> path</li>
+<li>Fixed a user-installed plugin being able to rewrite the descriptions of an organization-managed MCP server&#39;s sign-in tools</li>
+<li>Fixed a freeze or forced quit at launch when a plugin drew a Box with a border style the terminal does not know</li>
+<li>Fixed supervised and background sessions ending when a plugin&#39;s on-screen handler threw asynchronously</li>
+<li>Fixed sessions ending with an interface error when a plugin region with no height kept growing</li>
+<li>Fixed Bash deny and ask rules missing a command behind an environment variable prefix with an expanded value (e.g. <code>TZ=&quot;$HOME&quot; rm -rf build</code>) when the sandbox auto-allows commands</li>
+<li>Fixed a Bash deny or ask rule being skipped under sandbox auto-allow when a bare variable assignment came before the command</li>
+<li>Fixed <code>claude plugin validate</code> skipping the plugin when the folder also holds a marketplace manifest</li>
+<li>Added <code>agent.spawn</code> for teammates, one agent id across plugin hook events, and idle and waiting states in <code>$.agent.list()</code></li>
+<li>Fixed sessions ending with &quot;unrecoverable interface error&quot; when a value a mod&#39;s <code>ui.render</code> hook wrote made a row throw while drawn; the engine now draws its own row instead</li>
+<li>Fixed text with a tab, a stray escape and a C1 control, or a short text with a tab and CRLF line endings, drawing over the rows below it</li>
+<li>Fixed right-aligned content in a mod&#39;s pane or band drawing under the close mark or <code>[-]</code>, which now also keep one column in from the terminal&#39;s edge</li>
+<li>Fixed a mod&#39;s <code>Client</code> that fails while drawn taking down everything the mod drew around it; it now fails alone and raises <code>ui.fault</code></li>
+<li>Fixed <code>claude plugin validate</code> failing an Anthropic marketplace&#39;s own plugin and listing a clean <code>plugin.json</code> in <code>--json</code></li>
+<li>Fixed a mod&#39;s band that fails to draw briefly telling the cards under it to step aside</li>
+<li>Fixed a failed plugin component showing <code>Error</code> or nothing as its reason when the failure carried no message</li>
+<li>Improved the line a mod&#39;s author sees when its band or pane fails to draw: it names the mod and says nothing was drawn</li>
+<li>Fixed published artifact pages freezing or crashing the reader&#39;s browser tab on short code blocks with many unclosed <code>&lt;script&gt;</code> tags</li>
+<li>Fixed a mod&#39;s Client region staying failed for the whole session after the terminal threw while drawing it</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.288]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21288</id>
@@ -3050,33 +3086,6 @@
 <li>[VSCode] &quot;Report a problem&quot; and <code>/bug</code> now open the built-in feedback dialog instead of a retired survey link</li>
 <li>[VSCode] Made the <code>/btw</code> side-question panel resizable by dragging its boundary, in both side-docked and stacked layouts</li>
 <li>[VSCode] Added session groups in the sidebar — right-click to create, rename, or delete; Cmd/Ctrl- or Shift-click to move several sessions at once</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.228]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21228</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21228"/>
-        <updated>2026-08-11T17:45:45.882Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed interactive sessions that could stop redrawing entirely, while the process kept running, after a rare internal layout error</li>
-<li>Fixed <code>git</code> / Git Bash not being found on Windows when Claude Code is launched from a parent folder of the git installation</li>
-<li>Fixed <code>/tui</code> reverting the session to an earlier model when <code>/model</code> had been changed since the last response</li>
-<li>Fixed cross-session messaging sometimes starting without an inbox in the first session after install or upgrade</li>
-<li>Fixed Remote Control <code>/resume</code> while connected leaking the resumed conversation&#39;s title or history into the connected session</li>
-<li>Fixed <code>claude self-hosted-runner</code> sessions failing on every fresh runner when the <code>checkout</code> hook fails for a repository the session doesn&#39;t push to; that repository is now skipped with a warning</li>
-<li>Fixed self-hosted runners ending sessions in the gap between a background task finishing and the follow-up turn starting</li>
-<li>Fixed session cleanup deleting contents inside a project&#39;s memory folder</li>
-<li>Fixed background plugin-cache cleanup deleting a plugin&#39;s cache when its only version is a symlinked development checkout</li>
-<li>Fixed a settings-merge issue where a marketplace entry redefined in a higher-precedence settings tier could inherit another tier&#39;s custom headers; marketplace entries now merge as whole entries</li>
-<li>Fixed the deferred-tools reminder occasionally being sent to the model twice after a skill invocation</li>
-<li>Hardened skills synced from claude.ai: they no longer shadow local commands or MCP prompts, their descriptions are sanitized and labeled, and on your machine their bodies don&#39;t run <code>!</code> commands or expand <code>@</code> files</li>
-<li>Improved cross-session messages: the sender and body now display inline instead of a collapsed line, and messages to Remote Control sessions on other machines show your Remote Control session name as the sender</li>
-<li>Improved Vertex AI credential handling: expired or missing Google Cloud credentials now fail within seconds instead of retrying for minutes</li>
-<li>Improved compaction progress: the retry countdown and stall hint now appear during compaction instead of only a progress bar</li>
-<li>Updated terminal title busy-spinner glyphs to reduce tab-bar jitter on some terminals</li>
-<li>Changed the Write tool so newer models can overwrite an existing file they haven&#39;t read this session, matching the Edit tool&#39;s rules; older models still require the read first</li>
-<li>Removed the outdated note about auto mode sessions costing slightly more from the first-use notice for Pro, Max, and Team plans</li>
 </ul>
 ]]></content>
     </entry>
