@@ -2,9 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://claude-code-changelog.pages.dev</id>
     <title>Claude Code Changelog</title>
-    <updated>2026-11-10T00:56:06.459Z</updated>
+    <updated>2026-11-10T07:53:51.852Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <rights>All rights reserved 2025, Luke</rights>
+    <entry>
+        <title type="html"><![CDATA[2.1.322]]></title>
+        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21322</id>
+        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21322"/>
+        <updated>2026-11-10T01:58:41.811Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Added fast mode on Vertex in the global, us and eu regions, falling back to standard speed if Vertex refuses it</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2.1.321]]></title>
         <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21321</id>
@@ -4124,16 +4134,6 @@
 <li>[Claude Tag] Fixed Claude replying &quot;The API rejected the request as invalid&quot; when the organization has run out of usage credits; the reply now says so and explains how to add more</li>
 <li>[Claude Tag] Fixed thread requests to edit or delete a message Claude posted at the channel&#39;s top level being answered with a correction instead of reaching the session that posted it</li>
 <li>[Claude Tag] Fixed <strong>Connect</strong> on Tool access requests under Admin settings &gt; Review requests failing with &quot;Authorization failed&quot; or showing the requested access bundle as deleted</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2.1.266]]></title>
-        <id>https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21266</id>
-        <link href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21266"/>
-        <updated>2026-09-08T23:32:32.880Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Fixed a 2.1.265 regression affecting LLM-gateway and proxy setups: the undocumented <code>CLAUDE_CODE_USE_GATEWAY</code> environment variable, previously ignored unless <code>ANTHROPIC_BASE_URL</code> and <code>ANTHROPIC_AUTH_TOKEN</code> were both set, began forcing Cloud-gateway sign-in on its own in 2.1.265, so configurations that set it alongside an API key, <code>apiKeyHelper</code>, or custom auth headers failed every request with &quot;Not signed in to the Cloud gateway&quot;. The variable on its own is ignored again; no configuration change is needed</li>
 </ul>
 ]]></content>
     </entry>
